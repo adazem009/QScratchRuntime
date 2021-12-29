@@ -1,0 +1,84 @@
+name: Build
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}-latest
+    strategy:
+      matrix:
+        os: [ubuntu, windows, macos]
+        qt-version: ['5.12.8']
+        qt-target: ['desktop']
+    steps:
+    - uses: actions/checkout@v2
+    ## Install Qt
+    # Windows
+    - if: contains(matrix.os, 'windows')
+      name: Install Qt
+      uses: jurplel/install-qt-action@v2
+      with:
+        version: ${{ matrix.qt-version }}
+        host: 'windows'
+        arch: 'win32_mingw73'
+        target: ${{ matrix.qt-target }}
+        dir: '${{ github.workspace }}'
+        setup-python: 'false'
+    - if: contains(matrix.os, 'windows')
+      name: Install 32-bit MinGW
+      uses: egor-tensin/setup-mingw@v2
+      with:
+        platform: i686
+    # Ubuntu
+    - if: contains(matrix.os, 'ubuntu')
+      name: Install Qt
+      uses: jurplel/install-qt-action@v2
+      with:
+        version: ${{ matrix.qt-version }}
+        host: 'linux'
+        target: ${{ matrix.qt-target }}
+        dir: '${{ github.workspace }}'
+        setup-python: 'false'
+    # MacOS
+    - if: contains(matrix.os, 'macos')
+      name: Install Qt
+      uses: jurplel/install-qt-action@v2
+      with:
+        version: ${{ matrix.qt-version }}
+        host: 'mac'
+        target: ${{ matrix.qt-target }}
+        dir: '${{ github.workspace }}'
+        setup-python: 'false'
+    ## Build
+    - run: source .ci/${{ matrix.os }}-build.sh
+      shell: bash
+    ## Package
+    # Windows
+    - if: contains(matrix.os, 'windows')
+      uses: papeloto/action-zip@v1
+      with:
+        files: release/
+        dest: QScratchRuntime-win32.zip
+    ## Upload
+    # Windows
+    - if: contains(matrix.os, 'windows')
+      uses: actions/upload-artifact@v2
+      with:
+        name: build-windows
+        path: '*.zip'
+    # Ubuntu
+    - if: contains(matrix.os, 'ubuntu')
+      uses: actions/upload-artifact@v2
+      with:
+        name: build-ubuntu
+        path: |
+          QScratchRuntime
+          *.deb
+    # MacOS
+    - if: contains(matrix.os, 'macos')
+      uses: actions/upload-artifact@v2
+      with:
+        name: build-macos
+        path: '*.zip'
