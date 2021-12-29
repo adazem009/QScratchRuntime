@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,159,32"/>
+<area shape="rect" id="node2" href="$classscratchSprite.html" title="The scratchSprite class is a QGraphicsPixmapItem, which represents a Scratch sprite." alt="" coords="207,5,305,32"/>
+<area shape="rect" id="node3" title=" " alt="" coords="47,56,117,83"/>
+<area shape="rect" id="node4" href="$classprojectParser.html" title="The projectParser class provides functions for local configuration reading and writing." alt="" coords="207,56,305,83"/>
+</map>

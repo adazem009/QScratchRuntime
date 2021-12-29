@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QtHelpProject version="1.0">
+  <namespace>QScratchRuntime</namespace>
+  <virtualFolder>QScratchRuntime</virtualFolder>
+  <filterSection>
+    <filterAttribute>doxygen</filterAttribute>
+    <toc>
+      <section title="QScratchRuntime" ref="index.html">
+        <section title="Classes" ref="annotated.html">
+          <section title="Class List" ref="annotated.html">
+            <section title="MainWindow" ref="classMainWindow.html">
+              <section title="MainWindow" ref="classMainWindow.html#a996c5a2b6f77944776856f08ec30858d" />
+              <section title="~MainWindow" ref="classMainWindow.html#ae98d00a93bc118200eeef9f9bba1dba7" />
+              <section title="init" ref="classMainWindow.html#adacc054a62e38fb27708c0e1e2924b3e" />
+              <section title="openFile" ref="classMainWindow.html#ab14469aff316235cb2ee764483a6319d" />
+            </section>
+            <section title="projectParser" ref="classprojectParser.html">
+              <section title="projectParser" ref="classprojectParser.html#aad1ce885c9b066b43ad3baa077788212" />
+              <section title="sprites" ref="classprojectParser.html#ab4d4e9b006743666101d500a4c74608b" />
+              <section title="stage" ref="classprojectParser.html#a652bca50042e3109eb9b7dfbab7d953e" />
+            </section>
+            <section title="projectScene" ref="classprojectScene.html">
+              <section title="projectScene" ref="classprojectScene.html#a8c8ee7ea57b02c439c400f501ca7eb50" />
+              <section title="loadSpriteList" ref="classprojectScene.html#a82704fa5c1e2296e615a4eb57caff0c2" />
+              <section title="mouseMoveEvent" ref="classprojectScene.html#a381d1f0a59381d3a98553c656ef01d82" />
+            </section>
+            <section title="scratchSprite" ref="classscratchSprite.html">
+              <section title="scratchSprite" ref="classscratchSprite.html#a401307233d74f2cbec2728b728f159ba" />
+              <section title="getInputs" ref="classscratchSprite.html#aa5f6bafaf7dfe46162a7adeabb564179" />
+              <section title="getSprite" ref="classscratchSprite.html#a8a487ee0873b3069e4fa75c981adb7ef" />
+              <section title="greenFlagClicked" ref="classscratchSprite.html#a152b51974e513a0afb6f8770765bc177" />
+              <section title="loadSpriteList" ref="classscratchSprite.html#a2429ac26a3c4bec405a51b2f3a82ae49" />
+              <section title="setCostume" ref="classscratchSprite.html#a508ac9693e4f1ae523b4316fd9067833" />
+              <section title="setDirection" ref="classscratchSprite.html#a7ba47275426e6925d8e37d9ecb84e349" />
+              <section title="setMousePos" ref="classscratchSprite.html#a0f00f9ca722b62c15b74a3fee89f561a" />
+              <section title="setXPos" ref="classscratchSprite.html#ade994e8c0803e447564e92545d69c8a8" />
+              <section title="setYPos" ref="classscratchSprite.html#ac3d432973f42391618ef53af03631301" />
+              <section title="startScript" ref="classscratchSprite.html#a8fbaecb6623824426c351d7be0835edb" />
+              <section title="stopScripts" ref="classscratchSprite.html#a050df00d3d24f6cb179431f9c1c1257c" />
+              <section title="stopSprite" ref="classscratchSprite.html#ad9ec8bf8179adb85bf448b1b285e5e94" />
+              <section title="translateX" ref="classscratchSprite.html#a89c97be0b563e3ec0aee9d39d11525c5" />
+              <section title="translateY" ref="classscratchSprite.html#a7dc3024e6e5a0889dfe8dddf965fd6b6" />
+              <section title="currentCostume" ref="classscratchSprite.html#ae9affb7540903c1ad8936ae1699eeb70" />
+              <section title="direction" ref="classscratchSprite.html#a5b09a80137060595705512837eeba008" />
+              <section title="draggable" ref="classscratchSprite.html#a992e9be078ab605da7f7ccd41fc3a10f" />
+              <section title="isStage" ref="classscratchSprite.html#a8e6b689dd4203bedb0e98e17a52a6ab4" />
+              <section title="name" ref="classscratchSprite.html#a76b078e8b25c8f18aff783eb5055d987" />
+              <section title="rotationStyle" ref="classscratchSprite.html#a61c929545c2178ffe8c5089a04a03d41" />
+              <section title="size" ref="classscratchSprite.html#a8df7369e4c9d2ca891de072dca5737d4" />
+              <section title="spriteX" ref="classscratchSprite.html#ae7b66c6cd294335f2802ba4dbd946953" />
+              <section title="spriteY" ref="classscratchSprite.html#a1a8aa97382c17daf734c0e5d57b3829f" />
+              <section title="tempo" ref="classscratchSprite.html#a184419eddfb047ccdfedea052837e3b0" />
+              <section title="volume" ref="classscratchSprite.html#abb2c3103c37176b668d265f66d5313f1" />
+            </section>
+          </section>
+          <section title="Class Index" ref="classes.html" />
+          <section title="Class Hierarchy" ref="hierarchy.html">
+            <section title="QGraphicsPixmapItem" ref="">
+              <section title="scratchSprite" ref="classscratchSprite.html" />
+            </section>
+            <section title="QGraphicsScene" ref="">
+              <section title="projectScene" ref="classprojectScene.html" />
+            </section>
+            <section title="QMainWindow" ref="">
+              <section title="MainWindow" ref="classMainWindow.html" />
+            </section>
+            <section title="QObject" ref="">
+              <section title="projectParser" ref="classprojectParser.html" />
+              <section title="scratchSprite" ref="classscratchSprite.html" />
+            </section>
+          </section>
+          <section title="Class Members" ref="functions.html">
+            <section title="All" ref="functions.html" />
+            <section title="Functions" ref="functions_func.html" />
+            <section title="Variables" ref="functions_vars.html" />
+          </section>
+        </section>
+        <section title="Files" ref="files.html">
+          <section title="File List" ref="files.html">
+            <section title="src" ref="dir_68267d1309a1af8e8297ef4c3efbcdba.html">
+              <section title="include" ref="dir_b0856f6b0d80ccb263b2f415c91f9e17.html">
+                <section title="core" ref="dir_4cf372765f693cf540fc4810db0c309c.html">
+                  <section title="projectparser.h" ref="projectparser_8h_source.html" />
+                  <section title="scratchsprite.h" ref="scratchsprite_8h_source.html" />
+                </section>
+                <section title="mainwindow.h" ref="mainwindow_8h_source.html" />
+                <section title="projectscene.h" ref="projectscene_8h_source.html" />
+              </section>
+            </section>
+          </section>
+        </section>
+      </section>
+    </toc>
+    <keywords>
+      <keyword name="MainWindow" id="MainWindow" ref="classMainWindow.html" />
+      <keyword name="MainWindow" id="MainWindow::MainWindow" ref="classMainWindow.html#a996c5a2b6f77944776856f08ec30858d" />
+      <keyword name="~MainWindow" id="MainWindow::~MainWindow" ref="classMainWindow.html#ae98d00a93bc118200eeef9f9bba1dba7" />
+      <keyword name="openFile" id="MainWindow::openFile" ref="classMainWindow.html#ab14469aff316235cb2ee764483a6319d" />
+      <keyword name="init" id="MainWindow::init" ref="classMainWindow.html#adacc054a62e38fb27708c0e1e2924b3e" />
+      <keyword name="ui" id="MainWindow::ui" ref="classMainWindow.html#a35466a70ed47252a0191168126a352a5" />
+      <keyword name="fileName" id="MainWindow::fileName" ref="classMainWindow.html#a06968aebc42a16ab51c5888b4784075d" />
+      <keyword name="parser" id="MainWindow::parser" ref="classMainWindow.html#aa296992814583b95139ed6387d7fa897" />
+      <keyword name="scene" id="MainWindow::scene" ref="classMainWindow.html#adeb75646213834b4bad1d1785ba74e7b" />
+      <keyword name="view" id="MainWindow::view" ref="classMainWindow.html#a6e33bc418ea3e6d93b3021933bfa3baa" />
+      <keyword name="sprites" id="MainWindow::sprites" ref="classMainWindow.html#ab30b754daa12fffa11e1b90315fa5c6c" />
+      <keyword name="projectParser" id="projectParser" ref="classprojectParser.html" />
+      <keyword name="projectParser" id="projectParser::projectParser" ref="classprojectParser.html#aad1ce885c9b066b43ad3baa077788212" />
+      <keyword name="sprites" id="projectParser::sprites" ref="classprojectParser.html#ab4d4e9b006743666101d500a4c74608b" />
+      <keyword name="stage" id="projectParser::stage" ref="classprojectParser.html#a652bca50042e3109eb9b7dfbab7d953e" />
+      <keyword name="document" id="projectParser::document" ref="classprojectParser.html#a7bfc9162d394499dead3856817a76bde" />
+      <keyword name="mainObject" id="projectParser::mainObject" ref="classprojectParser.html#a7cffc1d8d0fe7f2c0330e86b4acdfb48" />
+      <keyword name="assetDir" id="projectParser::assetDir" ref="classprojectParser.html#a0731408dc18783c91c67d24060a1a9d8" />
+      <keyword name="projectScene" id="projectScene" ref="classprojectScene.html" />
+      <keyword name="projectScene" id="projectScene::projectScene" ref="classprojectScene.html#a8c8ee7ea57b02c439c400f501ca7eb50" />
+      <keyword name="loadSpriteList" id="projectScene::loadSpriteList" ref="classprojectScene.html#a82704fa5c1e2296e615a4eb57caff0c2" />
+      <keyword name="mouseMoveEvent" id="projectScene::mouseMoveEvent" ref="classprojectScene.html#a381d1f0a59381d3a98553c656ef01d82" />
+      <keyword name="spriteList" id="projectScene::spriteList" ref="classprojectScene.html#ac1d4df157ee3ec9cdf17869393f7d0cf" />
+      <keyword name="scratchSprite" id="scratchSprite" ref="classscratchSprite.html" />
+      <keyword name="greenFlagClicked" id="scratchSprite::greenFlagClicked" ref="classscratchSprite.html#a152b51974e513a0afb6f8770765bc177" />
+      <keyword name="stopSprite" id="scratchSprite::stopSprite" ref="classscratchSprite.html#ad9ec8bf8179adb85bf448b1b285e5e94" />
+      <keyword name="stopScripts" id="scratchSprite::stopScripts" ref="classscratchSprite.html#a050df00d3d24f6cb179431f9c1c1257c" />
+      <keyword name="scratchSprite" id="scratchSprite::scratchSprite" ref="classscratchSprite.html#a401307233d74f2cbec2728b728f159ba" />
+      <keyword name="loadSpriteList" id="scratchSprite::loadSpriteList" ref="classscratchSprite.html#a2429ac26a3c4bec405a51b2f3a82ae49" />
+      <keyword name="setXPos" id="scratchSprite::setXPos" ref="classscratchSprite.html#ade994e8c0803e447564e92545d69c8a8" />
+      <keyword name="setYPos" id="scratchSprite::setYPos" ref="classscratchSprite.html#ac3d432973f42391618ef53af03631301" />
+      <keyword name="setMousePos" id="scratchSprite::setMousePos" ref="classscratchSprite.html#a0f00f9ca722b62c15b74a3fee89f561a" />
+      <keyword name="setCostume" id="scratchSprite::setCostume" ref="classscratchSprite.html#a508ac9693e4f1ae523b4316fd9067833" />
+      <keyword name="setDirection" id="scratchSprite::setDirection" ref="classscratchSprite.html#a7ba47275426e6925d8e37d9ecb84e349" />
+      <keyword name="isStage" id="scratchSprite::isStage" ref="classscratchSprite.html#a8e6b689dd4203bedb0e98e17a52a6ab4" />
+      <keyword name="name" id="scratchSprite::name" ref="classscratchSprite.html#a76b078e8b25c8f18aff783eb5055d987" />
+      <keyword name="spriteX" id="scratchSprite::spriteX" ref="classscratchSprite.html#ae7b66c6cd294335f2802ba4dbd946953" />
+      <keyword name="spriteY" id="scratchSprite::spriteY" ref="classscratchSprite.html#a1a8aa97382c17daf734c0e5d57b3829f" />
+      <keyword name="currentCostume" id="scratchSprite::currentCostume" ref="classscratchSprite.html#ae9affb7540903c1ad8936ae1699eeb70" />
+      <keyword name="volume" id="scratchSprite::volume" ref="classscratchSprite.html#abb2c3103c37176b668d265f66d5313f1" />
+      <keyword name="tempo" id="scratchSprite::tempo" ref="classscratchSprite.html#a184419eddfb047ccdfedea052837e3b0" />
+      <keyword name="size" id="scratchSprite::size" ref="classscratchSprite.html#a8df7369e4c9d2ca891de072dca5737d4" />
+      <keyword name="direction" id="scratchSprite::direction" ref="classscratchSprite.html#a5b09a80137060595705512837eeba008" />
+      <keyword name="draggable" id="scratchSprite::draggable" ref="classscratchSprite.html#a992e9be078ab605da7f7ccd41fc3a10f" />
+      <keyword name="rotationStyle" id="scratchSprite::rotationStyle" ref="classscratchSprite.html#a61c929545c2178ffe8c5089a04a03d41" />
+      <keyword name="startScript" id="scratchSprite::startScript" ref="classscratchSprite.html#a8fbaecb6623824426c351d7be0835edb" />
+      <keyword name="getInputs" id="scratchSprite::getInputs" ref="classscratchSprite.html#aa5f6bafaf7dfe46162a7adeabb564179" />
+      <keyword name="translateX" id="scratchSprite::translateX" ref="classscratchSprite.html#a89c97be0b563e3ec0aee9d39d11525c5" />
+      <keyword name="translateY" id="scratchSprite::translateY" ref="classscratchSprite.html#a7dc3024e6e5a0889dfe8dddf965fd6b6" />
+      <keyword name="getSprite" id="scratchSprite::getSprite" ref="classscratchSprite.html#a8a487ee0873b3069e4fa75c981adb7ef" />
+      <keyword name="bounce" id="scratchSprite::bounce" ref="classscratchSprite.html#aaaf3af3a09daaf49a09fece5b3fb3d96" />
+      <keyword name="spriteList" id="scratchSprite::spriteList" ref="classscratchSprite.html#ad56bc969395f3e3713cb1eb43df262a4" />
+      <keyword name="assetDir" id="scratchSprite::assetDir" ref="classscratchSprite.html#a502d307ecd55a8d7304a61f89dd4fe58" />
+      <keyword name="mouseX" id="scratchSprite::mouseX" ref="classscratchSprite.html#ad3909db03a420af853a3a1cc1883adf4" />
+      <keyword name="mouseY" id="scratchSprite::mouseY" ref="classscratchSprite.html#a2b41ff6959f679c5bc345ea868c3ab63" />
+      <keyword name="rotationCenterX" id="scratchSprite::rotationCenterX" ref="classscratchSprite.html#a5c12a07fefe4e9dc4ee278aa54fe4c55" />
+      <keyword name="rotationCenterY" id="scratchSprite::rotationCenterY" ref="classscratchSprite.html#adebcfcffbee6b30bb8f3f6cb11a683ef" />
+      <keyword name="pointingLeft" id="scratchSprite::pointingLeft" ref="classscratchSprite.html#a6e27975013ce499c7946df87a2fa9ff3" />
+      <keyword name="variables" id="scratchSprite::variables" ref="classscratchSprite.html#ae7ce386775c360ab215544e4ff88fc3f" />
+      <keyword name="lists" id="scratchSprite::lists" ref="classscratchSprite.html#aea9f98f853bee9d720a7bd2ebd1cb9f6" />
+      <keyword name="broadcasts" id="scratchSprite::broadcasts" ref="classscratchSprite.html#a09dc2945fd6b71de4ac93f8c476e98a5" />
+      <keyword name="blocks" id="scratchSprite::blocks" ref="classscratchSprite.html#a8ce313bda72ec1cfe3ba7c265d46f650" />
+      <keyword name="costumes" id="scratchSprite::costumes" ref="classscratchSprite.html#a63765246346f8d3f541d6b13c8da303f" />
+      <keyword name="sounds" id="scratchSprite::sounds" ref="classscratchSprite.html#a462a5b304ad12c8d27b93ce628cb4839" />
+      <keyword name="layerOrder" id="scratchSprite::layerOrder" ref="classscratchSprite.html#ab099cbe4bd4be0bd21bac1881db0a82e" />
+    </keywords>
+    <files>
+      <file>tabs.css</file>
+      <file>tab_a.png</file>
+      <file>tab_b.png</file>
+      <file>tab_h.png</file>
+      <file>tab_s.png</file>
+      <file>nav_h.png</file>
+      <file>nav_f.png</file>
+      <file>bc_s.png</file>
+      <file>closed.png</file>
+      <file>open.png</file>
+      <file>bdwn.png</file>
+      <file>sync_on.png</file>
+      <file>sync_off.png</file>
+      <file>doxygen.css</file>
+      <file>jquery.js</file>
+      <file>dynsections.js</file>
+      <file>search/search_l.png</file>
+      <file>search/search_m.png</file>
+      <file>search/search_r.png</file>
+      <file>search/close.svg</file>
+      <file>search/mag_sel.svg</file>
+      <file>search/search.css</file>
+      <file>search/search.js</file>
+      <file>projectparser_8h_source.html</file>
+      <file>scratchsprite_8h_source.html</file>
+      <file>mainwindow_8h_source.html</file>
+      <file>projectscene_8h_source.html</file>
+      <file>classMainWindow.html</file>
+      <file>classMainWindow__inherit__graph.png</file>
+      <file>classMainWindow__coll__graph.png</file>
+      <file>classMainWindow-members.html</file>
+      <file>classprojectParser.html</file>
+      <file>classprojectParser__inherit__graph.png</file>
+      <file>classprojectParser__coll__graph.png</file>
+      <file>classprojectParser-members.html</file>
+      <file>classprojectScene.html</file>
+      <file>classprojectScene__inherit__graph.png</file>
+      <file>classprojectScene__coll__graph.png</file>
+      <file>classprojectScene-members.html</file>
+      <file>classscratchSprite.html</file>
+      <file>classscratchSprite__inherit__graph.png</file>
+      <file>classscratchSprite__coll__graph.png</file>
+      <file>classscratchSprite-members.html</file>
+      <file>graph_legend.png</file>
+      <file>graph_legend.html</file>
+      <file>dir_aebb8dcc11953d78e620bbef0b9e2183.html</file>
+      <file>dir_4cf372765f693cf540fc4810db0c309c.html</file>
+      <file>dir_b0856f6b0d80ccb263b2f415c91f9e17.html</file>
+      <file>dir_68267d1309a1af8e8297ef4c3efbcdba.html</file>
+      <file>index.html</file>
+      <file>annotated.html</file>
+      <file>classes.html</file>
+      <file>hierarchy.html</file>
+      <file>inherits.html</file>
+      <file>inherit_graph_0.png</file>
+      <file>inherit_graph_1.png</file>
+      <file>inherit_graph_2.png</file>
+      <file>functions.html</file>
+      <file>functions.html</file>
+      <file>functions.html</file>
+      <file>functions.html</file>
+      <file>functions.html</file>
+      <file>functions.html</file>
+      <file>functions.html</file>
+      <file>functions.html</file>
+      <file>functions.html</file>
+      <file>functions.html</file>
+      <file>functions.html</file>
+      <file>functions.html</file>
+      <file>functions.html</file>
+      <file>functions.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_vars.html</file>
+      <file>functions_vars.html</file>
+      <file>functions_vars.html</file>
+      <file>functions_vars.html</file>
+      <file>functions_vars.html</file>
+      <file>functions_vars.html</file>
+      <file>functions_vars.html</file>
+      <file>functions_vars.html</file>
+      <file>files.html</file>
+    </files>
+  </filterSection>
+</QtHelpProject>
