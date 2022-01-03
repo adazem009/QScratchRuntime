@@ -235,7 +235,9 @@ void scratchSprite::frame(void)
 			else
 			{
 				next = nextValue.toString();
-				if(frameEnd && processEnd)
+				if(frameEnd)
+					currentExecPos[frame_i]["id"] = currentID;
+				if(processEnd)
 					currentExecPos[frame_i]["id"] = next;
 			}
 		}
