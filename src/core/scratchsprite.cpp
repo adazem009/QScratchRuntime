@@ -255,7 +255,9 @@ void scratchSprite::frame(void)
 			looksBlocks(opcode,inputs,frame_i,&frameEnd,&processEnd);
 			// Get next block
 			QVariant nextValue = block.value("next");
-			if(nextValue.isNull())
+			if(frameEnd)
+				currentExecPos[frame_i]["id"] = currentID;
+			else if(nextValue.isNull())
 			{
 				currentExecPos[frame_i]["id"] = currentID;
 				operationsToRemove += currentID;
@@ -264,8 +266,6 @@ void scratchSprite::frame(void)
 			else
 			{
 				next = nextValue.toString();
-				if(frameEnd)
-					currentExecPos[frame_i]["id"] = currentID;
 				if(processEnd)
 					currentExecPos[frame_i]["id"] = next;
 			}
