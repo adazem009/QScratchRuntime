@@ -33,12 +33,14 @@
               <section title="getSprite" ref="classscratchSprite.html#a8a487ee0873b3069e4fa75c981adb7ef" />
               <section title="greenFlagClicked" ref="classscratchSprite.html#a152b51974e513a0afb6f8770765bc177" />
               <section title="loadSpriteList" ref="classscratchSprite.html#a2429ac26a3c4bec405a51b2f3a82ae49" />
+              <section title="looksBlocks" ref="classscratchSprite.html#afe1fb518bcf38d9c05d886e0cce8d196" />
               <section title="motionBlocks" ref="classscratchSprite.html#a6765e0fceb125c7851d38c5b6ba1f782" />
               <section title="setCostume" ref="classscratchSprite.html#a508ac9693e4f1ae523b4316fd9067833" />
               <section title="setDirection" ref="classscratchSprite.html#a7ba47275426e6925d8e37d9ecb84e349" />
               <section title="setMousePos" ref="classscratchSprite.html#a0f00f9ca722b62c15b74a3fee89f561a" />
               <section title="setXPos" ref="classscratchSprite.html#ade994e8c0803e447564e92545d69c8a8" />
               <section title="setYPos" ref="classscratchSprite.html#ac3d432973f42391618ef53af03631301" />
+              <section title="showBubble" ref="classscratchSprite.html#aa6d1bc1e75fcb29a8a70ff561a7039b7" />
               <section title="stopScripts" ref="classscratchSprite.html#a050df00d3d24f6cb179431f9c1c1257c" />
               <section title="stopSprite" ref="classscratchSprite.html#ad9ec8bf8179adb85bf448b1b285e5e94" />
               <section title="translateX" ref="classscratchSprite.html#a89c97be0b563e3ec0aee9d39d11525c5" />
@@ -150,7 +152,9 @@
       <keyword name="translateY" id="scratchSprite::translateY" ref="classscratchSprite.html#a7dc3024e6e5a0889dfe8dddf965fd6b6" />
       <keyword name="getSprite" id="scratchSprite::getSprite" ref="classscratchSprite.html#a8a487ee0873b3069e4fa75c981adb7ef" />
       <keyword name="bounce" id="scratchSprite::bounce" ref="classscratchSprite.html#aaaf3af3a09daaf49a09fece5b3fb3d96" />
+      <keyword name="showBubble" id="scratchSprite::showBubble" ref="classscratchSprite.html#aa6d1bc1e75fcb29a8a70ff561a7039b7" />
       <keyword name="motionBlocks" id="scratchSprite::motionBlocks" ref="classscratchSprite.html#a6765e0fceb125c7851d38c5b6ba1f782" />
+      <keyword name="looksBlocks" id="scratchSprite::looksBlocks" ref="classscratchSprite.html#afe1fb518bcf38d9c05d886e0cce8d196" />
       <keyword name="spriteList" id="scratchSprite::spriteList" ref="classscratchSprite.html#ad56bc969395f3e3713cb1eb43df262a4" />
       <keyword name="assetDir" id="scratchSprite::assetDir" ref="classscratchSprite.html#a502d307ecd55a8d7304a61f89dd4fe58" />
       <keyword name="mouseX" id="scratchSprite::mouseX" ref="classscratchSprite.html#ad3909db03a420af853a3a1cc1883adf4" />
@@ -166,6 +170,8 @@
       <keyword name="sounds" id="scratchSprite::sounds" ref="classscratchSprite.html#a462a5b304ad12c8d27b93ce628cb4839" />
       <keyword name="layerOrder" id="scratchSprite::layerOrder" ref="classscratchSprite.html#ab099cbe4bd4be0bd21bac1881db0a82e" />
       <keyword name="currentExecPos" id="scratchSprite::currentExecPos" ref="classscratchSprite.html#ab2dacb9bb35e947bb17a096153858b87" />
+      <keyword name="speechBubble" id="scratchSprite::speechBubble" ref="classscratchSprite.html#a2e5aed6f92f8bda97ea12c7fc6dd5628" />
+      <keyword name="speechBubbleText" id="scratchSprite::speechBubbleText" ref="classscratchSprite.html#a3efc88d261fddd4d3f8a1ccb6489490e" />
     </keywords>
     <files>
       <file>tabs.css</file>

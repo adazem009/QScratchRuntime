@@ -189,8 +189,12 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:aaaf3af3a09daaf49a09fece5b3fb3d96"><td class="memItemLeft" align="right" valign="top"><a id="aaaf3af3a09daaf49a09fece5b3fb3d96" name="aaaf3af3a09daaf49a09fece5b3fb3d96"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>bounce</b> (void)</td></tr>
 <tr class="separator:aaaf3af3a09daaf49a09fece5b3fb3d96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6d1bc1e75fcb29a8a70ff561a7039b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#aa6d1bc1e75fcb29a8a70ff561a7039b7">showBubble</a> (QString text, bool thought=false)</td></tr>
+<tr class="separator:aa6d1bc1e75fcb29a8a70ff561a7039b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6765e0fceb125c7851d38c5b6ba1f782"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#a6765e0fceb125c7851d38c5b6ba1f782">motionBlocks</a> (QString opcode, QMap&lt; QString, QString &gt; inputs, int processID, bool *frameEnd=nullptr, bool *processEnd=nullptr)</td></tr>
 <tr class="separator:a6765e0fceb125c7851d38c5b6ba1f782"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe1fb518bcf38d9c05d886e0cce8d196"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#afe1fb518bcf38d9c05d886e0cce8d196">looksBlocks</a> (QString opcode, QMap&lt; QString, QString &gt; inputs, int processID, bool *frameEnd=nullptr, bool *processEnd=nullptr)</td></tr>
+<tr class="separator:afe1fb518bcf38d9c05d886e0cce8d196"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -239,6 +243,12 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>layerOrder</b></td></t
 <tr class="memitem:ab2dacb9bb35e947bb17a096153858b87"><td class="memItemLeft" align="right" valign="top"><a id="ab2dacb9bb35e947bb17a096153858b87" name="ab2dacb9bb35e947bb17a096153858b87"></a>
 QList&lt; QVariantMap &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>currentExecPos</b></td></tr>
 <tr class="separator:ab2dacb9bb35e947bb17a096153858b87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e5aed6f92f8bda97ea12c7fc6dd5628"><td class="memItemLeft" align="right" valign="top"><a id="a2e5aed6f92f8bda97ea12c7fc6dd5628" name="a2e5aed6f92f8bda97ea12c7fc6dd5628"></a>
+QGraphicsPixmapItem *&#160;</td><td class="memItemRight" valign="bottom"><b>speechBubble</b></td></tr>
+<tr class="separator:a2e5aed6f92f8bda97ea12c7fc6dd5628"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3efc88d261fddd4d3f8a1ccb6489490e"><td class="memItemLeft" align="right" valign="top"><a id="a3efc88d261fddd4d3f8a1ccb6489490e" name="a3efc88d261fddd4d3f8a1ccb6489490e"></a>
+QGraphicsTextItem *&#160;</td><td class="memItemRight" valign="bottom"><b>speechBubbleText</b></td></tr>
+<tr class="separator:a3efc88d261fddd4d3f8a1ccb6489490e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The <a class="el" href="classscratchSprite.html" title="The scratchSprite class is a QGraphicsPixmapItem, which represents a Scratch sprite.">scratchSprite</a> class is a QGraphicsPixmapItem, which represents a Scratch sprite. </p>
@@ -416,6 +426,61 @@ QList&lt; QVariantMap &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
 
 </div>
 </div>
+<a id="afe1fb518bcf38d9c05d886e0cce8d196" name="afe1fb518bcf38d9c05d886e0cce8d196"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe1fb518bcf38d9c05d886e0cce8d196">&#9670;&nbsp;</a></span>looksBlocks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool scratchSprite::looksBlocks </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>opcode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QMap&lt; QString, QString &gt;&#160;</td>
+          <td class="paramname"><em>inputs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>processID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool *&#160;</td>
+          <td class="paramname"><em>frameEnd</em> = <code>nullptr</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool *&#160;</td>
+          <td class="paramname"><em>processEnd</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Runs looks blocks. </p>
+
+</div>
+</div>
 <a id="a6765e0fceb125c7851d38c5b6ba1f782" name="a6765e0fceb125c7851d38c5b6ba1f782"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6765e0fceb125c7851d38c5b6ba1f782">&#9670;&nbsp;</a></span>motionBlocks()</h2>
 
@@ -563,6 +628,43 @@ QList&lt; QVariantMap &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
       </table>
 </div><div class="memdoc">
 <p >Sets sprite Y position. </p>
+
+</div>
+</div>
+<a id="aa6d1bc1e75fcb29a8a70ff561a7039b7" name="aa6d1bc1e75fcb29a8a70ff561a7039b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6d1bc1e75fcb29a8a70ff561a7039b7">&#9670;&nbsp;</a></span>showBubble()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void scratchSprite::showBubble </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>thought</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Shows a speech or thought bubble. </p>
 
 </div>
 </div>
