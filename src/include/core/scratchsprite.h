@@ -24,12 +24,10 @@
 #include <QGraphicsPixmapItem>
 #include <QJsonObject>
 #include <QJsonArray>
-#include <QGraphicsItemAnimation>
-#include <QTimeLine>
-#include <QEventLoop>
 #include <QtMath>
 #include <QRandomGenerator>
 #include <QGraphicsSceneMouseEvent>
+#include <QDateTime>
 
 /*! \brief The scratchSprite class is a QGraphicsPixmapItem, which represents a Scratch sprite. */
 class scratchSprite : public QObject, public QGraphicsPixmapItem

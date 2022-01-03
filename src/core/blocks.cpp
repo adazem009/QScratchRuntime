@@ -30,6 +30,9 @@ bool scratchSprite::motionBlocks(QString opcode, QMap<QString,QString> inputs, i
 {
 	if(frameEnd == nullptr)
 		frameEnd = new bool;
+	if(processEnd == nullptr)
+		processEnd = new bool;
+	*processEnd = false;
 	if(opcode == "motion_movesteps")
 	{
 		qreal steps = inputs.value("STEPS").toDouble();
@@ -106,8 +109,7 @@ bool scratchSprite::motionBlocks(QString opcode, QMap<QString,QString> inputs, i
 	else if((opcode == "motion_glidesecstoxy") || (opcode == "motion_glideto"))
 	{
 		*frameEnd = true;
-		// TODO: Implement glide as a multi-frame operation.
-		/*qreal endX = 0, endY = 0;
+		qreal endX = 0, endY = 0;
 		if(opcode == "motion_glidesecstoxy")
 		{
 			endX = inputs.value("X").toDouble();
@@ -136,25 +138,31 @@ bool scratchSprite::motionBlocks(QString opcode, QMap<QString,QString> inputs, i
 				endY = targetSprite->spriteY;
 			}
 		}
-		// Animation timer
-		QTimeLine *timer = new QTimeLine(inputs.value("SECS").toDouble()*1000);
-		timer->setFrameRange(0,inputs.value("SECS").toFloat()*20);
-		timer->setEasingCurve(QEasingCurve(QEasingCurve::Linear));
-		// Event loop
-		QEventLoop animLoop;
-		connect(timer,&QTimeLine::finished,&animLoop,&QEventLoop::quit);
-		connect(this,&scratchSprite::stopScripts,timer,&QTimeLine::stop);
-		// Animation
-		QGraphicsItemAnimation *glideAnim = new QGraphicsItemAnimation;
-		glideAnim->setItem(this);
-		glideAnim->setTimeLine(timer);
-		glideAnim->setPosAt(0.0,QPointF(translateX(spriteX),translateY(spriteY)));
-		glideAnim->setPosAt(1.0,QPointF(translateX(endX),translateY(endY)));
-		timer->start();
-		animLoop.exec();
-		setXPos(endX);
-		setYPos(endY);*/
-		
+		if(currentExecPos[processID]["special"].toString() != "glide")
+		{
+			currentExecPos[processID]["special"] = "glide";
+			currentExecPos[processID]["startX"] = spriteX;
+			currentExecPos[processID]["startY"] = spriteY;
+			currentExecPos[processID]["startTime"] = QDateTime::currentDateTimeUtc();
+			currentExecPos[processID]["endTime"] = QDateTime::currentDateTimeUtc().addSecs(inputs.value("SECS").toDouble());
+		}
+		qreal startX = currentExecPos[processID]["startX"].toDouble();
+		qreal startY = currentExecPos[processID]["startY"].toDouble();
+		QDateTime startTime = currentExecPos[processID]["startTime"].toDateTime();
+		QDateTime endTime = currentExecPos[processID]["endTime"].toDateTime();
+		QDateTime currentTime = QDateTime::currentDateTimeUtc();
+		qreal progress = (startTime.msecsTo(endTime) - currentTime.msecsTo(endTime)) / (inputs.value("SECS").toDouble() * 1000.0);
+		if(progress >= 1)
+		{
+			setXPos(endX);
+			setYPos(endY);
+			*processEnd = true;
+		}
+		else
+		{
+			setXPos(startX + (endX-startX)*progress);
+			setYPos(startY + (endY-startY)*progress);
+		}
 	}
 	else if(opcode == "motion_changexby")
 		setXPos(spriteX + inputs.value("DX").toDouble());
