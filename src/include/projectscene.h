@@ -33,8 +33,13 @@ class projectScene : public QGraphicsScene
 
 	private:
 		QList<scratchSprite*> spriteList;
+		bool projectRunning;
+
+	public slots:
+		void greenFlag(void);
 
 	protected:
+		void timerEvent(QTimerEvent *event);
 		void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
 };
 

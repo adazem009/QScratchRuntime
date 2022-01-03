@@ -22,7 +22,12 @@
 
 /*! Constructs projectScene. */
 projectScene::projectScene(qreal x, qreal y, qreal width, qreal height, QObject *parent) :
-	QGraphicsScene(x, y, width, height, parent) { }
+	QGraphicsScene(x, y, width, height, parent)
+{
+	projectRunning = false;
+	// TODO: Add a way to change FPS
+	startTimer(1000/30);
+}
 
 /*! Loads list of sprite pointers. */
 void projectScene::loadSpriteList(QList<scratchSprite*> list)
@@ -36,4 +41,23 @@ void projectScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 	for(int i=0; i < spriteList.count(); i++)
 		spriteList[i]->setMousePos(event->scenePos());
 	
+}
+
+/*! Connected from %clicked() signal of greenFlag in MainWindow UI. */
+void projectScene::greenFlag(void)
+{
+	for(int i=0; i < spriteList.count(); i++)
+		spriteList[i]->greenFlagClicked();
+	projectRunning = true;
+}
+
+/*! Overrides QObject#timerEvent(). */
+void projectScene::timerEvent(QTimerEvent *event)
+{
+	if(projectRunning)
+	{
+		for(int i=0; i < spriteList.count(); i++)
+			spriteList[i]->frame();
+	}
+	event->accept();
 }
