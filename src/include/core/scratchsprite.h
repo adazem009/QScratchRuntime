@@ -76,7 +76,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		int layerOrder;
 		QList<QVariantMap> currentExecPos;
 		// Blocks
-		bool motionBlocks(QString opcode, QMap<QString,QString> inputs, bool *frameEnd = nullptr);
+		bool motionBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd = nullptr);
 
 	signals:
 		/*! A signal, which is emitted when the sprite should stop all its scripts. */

@@ -222,7 +222,7 @@ void scratchSprite::frame(void)
 			QString opcode = block.value("opcode").toString();
 			QMap<QString,QString> inputs = getInputs(block);
 			// Run current block
-			motionBlocks(opcode,inputs,&frameEnd);
+			motionBlocks(opcode,inputs,frame_i,&frameEnd);
 			// Get next block
 			QVariant nextValue = block.value("next");
 			if(nextValue.isNull())
