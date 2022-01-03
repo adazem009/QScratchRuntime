@@ -54,7 +54,7 @@ scratchSprite::scratchSprite(QJsonObject spriteObject, QString spriteAssetDir, Q
 		setXPos(spriteObject.value("x").toDouble());
 		setYPos(spriteObject.value("y").toDouble());
 		size = spriteObject.value("size").toInt();
-		rotationStyle = spriteObject.value("draggable").toString();
+		rotationStyle = spriteObject.value("rotationStyle").toString();
 		setDirection(spriteObject.value("direction").toDouble());
 		draggable = spriteObject.value("draggable").toBool();
 	}
