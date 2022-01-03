@@ -60,6 +60,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		qreal translateY(qreal y, bool toScratch = false);
 		scratchSprite *getSprite(QString name);
 		void bounce(void);
+		void showBubble(QString text, bool thought = false);
 		QList<scratchSprite*> spriteList;
 		QString assetDir;
 		qreal mouseX, mouseY;
@@ -73,6 +74,8 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		QList<QVariantMap> sounds;
 		int layerOrder;
 		QList<QVariantMap> currentExecPos;
+		QGraphicsPixmapItem *speechBubble;
+		QGraphicsTextItem *speechBubbleText;
 		// Blocks
 		bool motionBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd = nullptr, bool *processEnd = nullptr);
 

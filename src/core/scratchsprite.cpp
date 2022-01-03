@@ -50,6 +50,11 @@ scratchSprite::scratchSprite(QJsonObject spriteObject, QString spriteAssetDir, Q
 	}
 	else
 	{
+		speechBubble = new QGraphicsPixmapItem(QPixmap(":res/images/speech_bubble.png"),this);
+		speechBubbleText = new QGraphicsTextItem(this);
+		speechBubbleText->setDefaultTextColor(QColor(0,0,0));
+		speechBubbleText->setPos(10,10);
+		speechBubble->setVisible(false);
 		setVisible(spriteObject.value("visible").toBool());
 		setXPos(spriteObject.value("x").toDouble());
 		setYPos(spriteObject.value("y").toDouble());
@@ -116,6 +121,8 @@ void scratchSprite::greenFlagClicked(void)
 void scratchSprite::stopSprite(void)
 {
 	currentExecPos.clear();
+	if(!isStage)
+		speechBubble->setVisible(false);
 	// TODO: Remove event loops depending on obsolete stopScripts() signal.
 	emit stopScripts();
 }
@@ -203,6 +210,19 @@ void scratchSprite::setDirection(qreal angle)
 		setRotation(direction-90);
 		setTransform(transform().scale(1,1));
 	}
+}
+
+/*! Shows a speech or thought bubble. */
+void scratchSprite::showBubble(QString text, bool thought)
+{
+	// TODO: Add thought bubble
+	speechBubble->setPixmap(QPixmap(":res/images/speech_bubble.png"));
+	speechBubbleText->setPlainText(text);
+	speechBubble->setPos(boundingRect().right(),boundingRect().top()-35);
+	speechBubbleText->setTextWidth(140);
+	speechBubbleText->setPos(speechBubble->pos() + QPointF(30,speechBubbleText->boundingRect().height()/3.0));
+	speechBubble->setTransform(QTransform().scale(speechBubbleText->boundingRect().width()/65.0,speechBubbleText->boundingRect().height()/35.0));
+	speechBubble->setVisible(true);
 }
 
 /*! Runs blocks that can be run without screen refresh.*/
