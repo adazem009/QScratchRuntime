@@ -102,13 +102,15 @@ void scratchSprite::greenFlagClicked(void)
 	{
 		QVariantMap block = blocks.value(blocksList[i]);
 		if(block.value("opcode").toString() == "event_whenflagclicked")
-			startScript(blocksList[i]);
+			currentExecPos += blocksList[i];
 	}
 }
 
 /*! Stops the sprite. */
 void scratchSprite::stopSprite(void)
 {
+	currentExecPos.clear();
+	// TODO: Remove event loops depending on obsolete stopScripts() signal.
 	emit stopScripts();
 }
 
@@ -197,99 +199,74 @@ void scratchSprite::setDirection(qreal angle)
 	}
 }
 
-/*! Starts a script. */
-void scratchSprite::startScript(QString id)
+/*! Runs blocks that can be run without screen refresh.*/
+void scratchSprite::frame(void)
 {
-	QString next = id;
-	while(true)
+	QStringList operationsToRemove;
+	operationsToRemove.clear();
+	for(int frame_i=0; frame_i < currentExecPos.count(); frame_i++)
 	{
-		// Load current block
-		QVariantMap block = blocks.value(next);
-		QString opcode = block.value("opcode").toString();
-		QMap<QString,QString> inputs = getInputs(block);
-		// Run current block
-		if(opcode == "motion_movesteps")
+		QString next = currentExecPos[frame_i];
+		bool frameEnd = false;
+		while(!frameEnd)
 		{
-			qreal steps = inputs.value("STEPS").toDouble();
-			// https://en.scratch-wiki.info/wiki/Move_()_Steps_(block)#Workaround
-			setXPos(spriteX + qSin(qDegreesToRadians(direction))*steps);
-			setYPos(spriteY + qCos(qDegreesToRadians(direction))*steps);
-		}
-		else if(opcode == "motion_turnright")
-			setDirection(direction + inputs.value("DEGREES").toDouble());
-		else if(opcode == "motion_turnleft")
-			setDirection(direction - inputs.value("DEGREES").toDouble());
-		else if(opcode == "motion_pointindirection")
-			setDirection(inputs.value("DIRECTION").toDouble());
-		else if(opcode == "motion_pointtowards")
-		{
-			QString targetName = inputs.value("TOWARDS");
-			scratchSprite *targetSprite = getSprite(targetName);
-			qreal deltaX = 0, deltaY = 0;
-			if(targetSprite == nullptr)
+			// Load current block
+			QString currentID = next;
+			QVariantMap block = blocks.value(currentID);
+			QString opcode = block.value("opcode").toString();
+			QMap<QString,QString> inputs = getInputs(block);
+			// Run current block
+			if(opcode == "motion_movesteps")
 			{
-				deltaX = mouseX - spriteX;
-				deltaY = mouseY - spriteY;
+				qreal steps = inputs.value("STEPS").toDouble();
+				// https://en.scratch-wiki.info/wiki/Move_()_Steps_(block)#Workaround
+				setXPos(spriteX + qSin(qDegreesToRadians(direction))*steps);
+				setYPos(spriteY + qCos(qDegreesToRadians(direction))*steps);
 			}
-			else
+			else if(opcode == "motion_turnright")
+				setDirection(direction + inputs.value("DEGREES").toDouble());
+			else if(opcode == "motion_turnleft")
+				setDirection(direction - inputs.value("DEGREES").toDouble());
+			else if(opcode == "motion_pointindirection")
+				setDirection(inputs.value("DIRECTION").toDouble());
+			else if(opcode == "motion_pointtowards")
 			{
-				deltaX = targetSprite->spriteX - spriteX;
-				deltaY = targetSprite->spriteY - spriteY;
-			}
-			// https://en.scratch-wiki.info/wiki/Point_Towards_()_(block)#Workaround
-			if(deltaY == 0)
-			{
-				if(deltaX < 0)
-					setDirection(-90);
-				else
-					setDirection(90);
-			}
-			else
-			{
-				qreal atanResult = qRadiansToDegrees(qAtan(deltaX/deltaY));
-				if(deltaY < 0)
-					setDirection(180 + atanResult);
-				else
-					setDirection(atanResult);
-			}
-		}
-		else if(opcode == "motion_gotoxy")
-		{
-			setXPos(inputs.value("X").toDouble());
-			setYPos(inputs.value("Y").toDouble());
-		}
-		else if(opcode == "motion_goto")
-		{
-			QString targetName = inputs.value("TO");
-			scratchSprite *targetSprite = getSprite(targetName);
-			if(targetSprite == nullptr)
-			{
-				if(targetName == "_mouse_")
+				QString targetName = inputs.value("TOWARDS");
+				scratchSprite *targetSprite = getSprite(targetName);
+				qreal deltaX = 0, deltaY = 0;
+				if(targetSprite == nullptr)
 				{
-					setXPos(mouseX);
-					setYPos(mouseY);
+					deltaX = mouseX - spriteX;
+					deltaY = mouseY - spriteY;
 				}
-				else if(targetName == "_random_")
+				else
 				{
-					setXPos(QRandomGenerator::global()->bounded(-240,240));
-					setYPos(QRandomGenerator::global()->bounded(-180,180));
+					deltaX = targetSprite->spriteX - spriteX;
+					deltaY = targetSprite->spriteY - spriteY;
+				}
+				// https://en.scratch-wiki.info/wiki/Point_Towards_()_(block)#Workaround
+				if(deltaY == 0)
+				{
+					if(deltaX < 0)
+						setDirection(-90);
+					else
+						setDirection(90);
+				}
+				else
+				{
+					qreal atanResult = qRadiansToDegrees(qAtan(deltaX/deltaY));
+					if(deltaY < 0)
+						setDirection(180 + atanResult);
+					else
+						setDirection(atanResult);
 				}
 			}
-			else
+			else if(opcode == "motion_gotoxy")
 			{
-				setXPos(targetSprite->spriteX);
-				setYPos(targetSprite->spriteY);
+				setXPos(inputs.value("X").toDouble());
+				setYPos(inputs.value("Y").toDouble());
 			}
-		}
-		else if((opcode == "motion_glidesecstoxy") || (opcode == "motion_glideto"))
-		{
-			qreal endX = 0, endY = 0;
-			if(opcode == "motion_glidesecstoxy")
-			{
-				endX = inputs.value("X").toDouble();
-				endY = inputs.value("Y").toDouble();
-			}
-			else
+			else if(opcode == "motion_goto")
 			{
 				QString targetName = inputs.value("TO");
 				scratchSprite *targetSprite = getSprite(targetName);
@@ -297,88 +274,133 @@ void scratchSprite::startScript(QString id)
 				{
 					if(targetName == "_mouse_")
 					{
-						endX = mouseX;
-						endY = mouseY;
+						setXPos(mouseX);
+						setYPos(mouseY);
 					}
 					else if(targetName == "_random_")
 					{
-						endX = QRandomGenerator::global()->bounded(-240,240);
-						endY = QRandomGenerator::global()->bounded(-180,180);
+						setXPos(QRandomGenerator::global()->bounded(-240,240));
+						setYPos(QRandomGenerator::global()->bounded(-180,180));
 					}
 				}
 				else
 				{
-					endX = targetSprite->spriteX;
-					endY = targetSprite->spriteY;
+					setXPos(targetSprite->spriteX);
+					setYPos(targetSprite->spriteY);
 				}
 			}
-			// Animation timer
-			QTimeLine *timer = new QTimeLine(inputs.value("SECS").toDouble()*1000);
-			timer->setFrameRange(0,inputs.value("SECS").toFloat()*20);
-			timer->setEasingCurve(QEasingCurve(QEasingCurve::Linear));
-			// Event loop
-			QEventLoop animLoop;
-			connect(timer,&QTimeLine::finished,&animLoop,&QEventLoop::quit);
-			connect(this,&scratchSprite::stopScripts,timer,&QTimeLine::stop);
-			// Animation
-			QGraphicsItemAnimation *glideAnim = new QGraphicsItemAnimation;
-			glideAnim->setItem(this);
-			glideAnim->setTimeLine(timer);
-			glideAnim->setPosAt(0.0,QPointF(translateX(spriteX),translateY(spriteY)));
-			glideAnim->setPosAt(1.0,QPointF(translateX(endX),translateY(endY)));
-			timer->start();
-			animLoop.exec();
-			setXPos(endX);
-			setYPos(endY);
-			
+			else if((opcode == "motion_glidesecstoxy") || (opcode == "motion_glideto"))
+			{
+				frameEnd = true;
+				// TODO: Implement glide as a multi-frame operation.
+				/*qreal endX = 0, endY = 0;
+				if(opcode == "motion_glidesecstoxy")
+				{
+					endX = inputs.value("X").toDouble();
+					endY = inputs.value("Y").toDouble();
+				}
+				else
+				{
+					QString targetName = inputs.value("TO");
+					scratchSprite *targetSprite = getSprite(targetName);
+					if(targetSprite == nullptr)
+					{
+						if(targetName == "_mouse_")
+						{
+							endX = mouseX;
+							endY = mouseY;
+						}
+						else if(targetName == "_random_")
+						{
+							endX = QRandomGenerator::global()->bounded(-240,240);
+							endY = QRandomGenerator::global()->bounded(-180,180);
+						}
+					}
+					else
+					{
+						endX = targetSprite->spriteX;
+						endY = targetSprite->spriteY;
+					}
+				}
+				// Animation timer
+				QTimeLine *timer = new QTimeLine(inputs.value("SECS").toDouble()*1000);
+				timer->setFrameRange(0,inputs.value("SECS").toFloat()*20);
+				timer->setEasingCurve(QEasingCurve(QEasingCurve::Linear));
+				// Event loop
+				QEventLoop animLoop;
+				connect(timer,&QTimeLine::finished,&animLoop,&QEventLoop::quit);
+				connect(this,&scratchSprite::stopScripts,timer,&QTimeLine::stop);
+				// Animation
+				QGraphicsItemAnimation *glideAnim = new QGraphicsItemAnimation;
+				glideAnim->setItem(this);
+				glideAnim->setTimeLine(timer);
+				glideAnim->setPosAt(0.0,QPointF(translateX(spriteX),translateY(spriteY)));
+				glideAnim->setPosAt(1.0,QPointF(translateX(endX),translateY(endY)));
+				timer->start();
+				animLoop.exec();
+				setXPos(endX);
+				setYPos(endY);*/
+				
+			}
+			else if(opcode == "motion_changexby")
+				setXPos(spriteX + inputs.value("DX").toDouble());
+			else if(opcode == "motion_setx")
+				setXPos(inputs.value("X").toDouble());
+			else if(opcode == "motion_changeyby")
+				setYPos(spriteY + inputs.value("DY").toDouble());
+			else if(opcode == "motion_sety")
+				setYPos(inputs.value("Y").toDouble());
+			else if(opcode == "motion_ifonedgebounce")
+			{
+				QRectF spriteRect = boundingRect();
+				// Right edge
+				if(spriteX + (spriteRect.width()/2) > 240)
+				{
+					setDirection(-direction);
+					setXPos(240 - (spriteRect.width()/2));
+				}
+				// Left edge
+				if(spriteX - (spriteRect.width()/2) < -240)
+				{
+					setDirection(-direction);
+					setXPos(-240 + (spriteRect.width()/2));
+				}
+				// Top edge
+				if(spriteY + (spriteRect.height()/2) > 180)
+				{
+					setDirection(180-direction);
+					setYPos(180 - (spriteRect.height()/2));
+				}
+				// Bottom edge
+				if(spriteY - (spriteRect.height()/2) < -180)
+				{
+					setDirection(180-direction);
+					setYPos(-180 + (spriteRect.height()/2));
+				}
+			}
+			else if(opcode == "motion_setrotationstyle")
+			{
+				rotationStyle = inputs.value("STYLE");
+				setDirection(direction);
+			}
+			// Get next block
+			QVariant nextValue = block.value("next");
+			if(nextValue.isNull())
+			{
+				currentExecPos[frame_i] = currentID;
+				operationsToRemove += currentID;
+				frameEnd = true;
+			}
+			else
+			{
+				next = nextValue.toString();
+				if(frameEnd)
+					currentExecPos[frame_i] = next;
+			}
 		}
-		else if(opcode == "motion_changexby")
-			setXPos(spriteX + inputs.value("DX").toDouble());
-		else if(opcode == "motion_setx")
-			setXPos(inputs.value("X").toDouble());
-		else if(opcode == "motion_changeyby")
-			setYPos(spriteY + inputs.value("DY").toDouble());
-		else if(opcode == "motion_sety")
-			setYPos(inputs.value("Y").toDouble());
-		else if(opcode == "motion_ifonedgebounce")
-		{
-			QRectF spriteRect = boundingRect();
-			// Right edge
-			if(spriteX + (spriteRect.width()/2) > 240)
-			{
-				setDirection(-direction);
-				setXPos(240 - (spriteRect.width()/2));
-			}
-			// Left edge
-			if(spriteX - (spriteRect.width()/2) < -240)
-			{
-				setDirection(-direction);
-				setXPos(-240 + (spriteRect.width()/2));
-			}
-			// Top edge
-			if(spriteY + (spriteRect.height()/2) > 180)
-			{
-				setDirection(180-direction);
-				setYPos(180 - (spriteRect.height()/2));
-			}
-			// Bottom edge
-			if(spriteY - (spriteRect.height()/2) < -180)
-			{
-				setDirection(180-direction);
-				setYPos(-180 + (spriteRect.height()/2));
-			}
-		}
-		else if(opcode == "motion_setrotationstyle")
-		{
-			rotationStyle = inputs.value("STYLE");
-			setDirection(direction);
-		}
-		// Get next block
-		QVariant nextValue = block.value("next");
-		if(nextValue.isNull())
-			break;
-		next = nextValue.toString();
 	}
+	for(int i=0; i < operationsToRemove.count(); i++)
+		currentExecPos.removeAll(operationsToRemove[i]);
 }
 
 /*! Reads block inputs and fields and returns a map. */

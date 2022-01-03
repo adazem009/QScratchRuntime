@@ -43,6 +43,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		void setMousePos(QPointF pos);
 		void setCostume(int id);
 		void setDirection(qreal angle);
+		void frame(void);
 		bool isStage; /*!< True if this is a stage. */
 		QString name; /*!< Sprite name. */
 		qreal spriteX; /*!< X position. */
@@ -56,7 +57,6 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		QString rotationStyle; /*!< Sprite rotation style ("all around", "left-right", or "don't rotate"). */
 
 	private:
-		void startScript(QString id);
 		QMap<QString,QString> getInputs(QVariantMap block, bool readFields = false);
 		qreal translateX(qreal x, bool toScratch = false);
 		qreal translateY(qreal y, bool toScratch = false);
@@ -74,6 +74,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		QList<QVariantMap> costumes;
 		QList<QVariantMap> sounds;
 		int layerOrder;
+		QStringList currentExecPos;
 
 	signals:
 		/*! A signal, which is emitted when the sprite should stop all its scripts. */
