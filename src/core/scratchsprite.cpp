@@ -55,6 +55,7 @@ scratchSprite::scratchSprite(QJsonObject spriteObject, QString spriteAssetDir, Q
 		speechBubbleText->setDefaultTextColor(QColor(0,0,0));
 		speechBubbleText->setPos(10,10);
 		speechBubble->setVisible(false);
+		speechBubbleText->setVisible(false);
 		setVisible(spriteObject.value("visible").toBool());
 		setXPos(spriteObject.value("x").toDouble());
 		setYPos(spriteObject.value("y").toDouble());
