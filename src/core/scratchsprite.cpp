@@ -304,19 +304,22 @@ QMap<QString,QString> scratchSprite::getInputs(QVariantMap block, bool readField
 	for(int i=0; i < blockInputsList.count(); i++)
 	{
 		QJsonValue inputValue = blockInputs.value(blockInputsList[i]).toArray().at(1);
+		bool typeConverted = false;
+		QJsonValue finalRawValue;
 		QString finalValue;
 		if(readFields)
 		{
 			// Input is in the first item
-			finalValue = blockInputs.value(blockInputsList[i]).toArray().at(0).toString();
+			finalRawValue = blockInputs.value(blockInputsList[i]).toArray().at(0);
 		}
 		else if(inputValue.isArray())
 		{
 			// Input representation as an array
-			finalValue = inputValue.toArray().at(1).toString();
+			finalRawValue = inputValue.toArray().at(1);
 		}
 		else
 		{
+			typeConverted = true;
 			// Load reporter block
 			// Note: Dropdown menus and color inputs are treated as reporter blocks
 			QVariantMap reporterBlock = blocks.value(inputValue.toString());
@@ -335,6 +338,15 @@ QMap<QString,QString> scratchSprite::getInputs(QVariantMap block, bool readField
 				finalValue = QString::number(spriteY);
 			else if(opcode == "motion_direction")
 				finalValue = QString::number(direction);
+		}
+		if(!typeConverted)
+		{
+			if(finalRawValue.isString())
+				finalValue = finalRawValue.toString();
+			else if(finalRawValue.isDouble())
+				finalValue = QString::number(finalRawValue.toDouble());
+			else if(finalRawValue.isBool())
+				finalValue = finalRawValue.toString();
 		}
 		out.insert(blockInputsList[i],finalValue);
 	}
