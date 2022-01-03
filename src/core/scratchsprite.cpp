@@ -221,8 +221,9 @@ void scratchSprite::frame(void)
 			QVariantMap block = blocks.value(currentID);
 			QString opcode = block.value("opcode").toString();
 			QMap<QString,QString> inputs = getInputs(block);
+			bool processEnd = false;
 			// Run current block
-			motionBlocks(opcode,inputs,frame_i,&frameEnd);
+			motionBlocks(opcode,inputs,frame_i,&frameEnd,&processEnd);
 			// Get next block
 			QVariant nextValue = block.value("next");
 			if(nextValue.isNull())
@@ -234,7 +235,7 @@ void scratchSprite::frame(void)
 			else
 			{
 				next = nextValue.toString();
-				if(frameEnd)
+				if(frameEnd && processEnd)
 					currentExecPos[frame_i]["id"] = next;
 			}
 		}

@@ -26,7 +26,7 @@
 #include "core/blocks.h"
 
 /*! Runs motion blocks. */
-bool scratchSprite::motionBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd)
+bool scratchSprite::motionBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd, bool *processEnd)
 {
 	if(frameEnd == nullptr)
 		frameEnd = new bool;
