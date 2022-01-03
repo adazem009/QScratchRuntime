@@ -38,6 +38,7 @@ MainWindow::MainWindow(QWidget *parent)
 	view->show();
 	// Connections
 	connect(ui->actionOpen,SIGNAL(triggered()),this,SLOT(openFile()));
+	connect(ui->greenFlag,&QPushButton::clicked,scene,&projectScene::greenFlag);
 }
 
 /*! Destroys MainWindow. */
@@ -70,7 +71,6 @@ void MainWindow::init(void)
 	// Add sprites
 	for(i=0; i < sprites.count(); i++)
 	{
-		connect(ui->greenFlag,SIGNAL(clicked()),sprites[i],SLOT(greenFlagClicked()));
 		if(!sprites[i]->isStage)
 			scene->addItem(sprites[i]);
 	}
