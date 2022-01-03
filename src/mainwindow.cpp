@@ -29,11 +29,10 @@ MainWindow::MainWindow(QWidget *parent)
 	ui->setupUi(this);
 	scene = new projectScene;
 	view = new QGraphicsView(scene,ui->centralwidget);
+	view->scale(2,2);
 	view->setMouseTracking(true);
 	ui->gridLayout->addWidget(view);
 	view->setSizePolicy(QSizePolicy::Preferred,QSizePolicy::Preferred);
-	view->setMinimumWidth(480);
-	view->setMinimumHeight(360);
 	view->setStyleSheet("QGraphicsView { background-color: rgb(255,255,255); }");
 	view->show();
 	// Connections
