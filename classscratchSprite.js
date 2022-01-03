@@ -6,7 +6,7 @@ var classscratchSprite =
     [ "getSprite", "classscratchSprite.html#a8a487ee0873b3069e4fa75c981adb7ef", null ],
     [ "greenFlagClicked", "classscratchSprite.html#a152b51974e513a0afb6f8770765bc177", null ],
     [ "loadSpriteList", "classscratchSprite.html#a2429ac26a3c4bec405a51b2f3a82ae49", null ],
-    [ "motionBlocks", "classscratchSprite.html#a88f9b5ba59ae571e4aa50de31179fc63", null ],
+    [ "motionBlocks", "classscratchSprite.html#a6765e0fceb125c7851d38c5b6ba1f782", null ],
     [ "setCostume", "classscratchSprite.html#a508ac9693e4f1ae523b4316fd9067833", null ],
     [ "setDirection", "classscratchSprite.html#a7ba47275426e6925d8e37d9ecb84e349", null ],
     [ "setMousePos", "classscratchSprite.html#a0f00f9ca722b62c15b74a3fee89f561a", null ],
