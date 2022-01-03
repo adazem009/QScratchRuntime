@@ -19,6 +19,7 @@ INCLUDEPATH += src/include
 
 SOURCES += \
     src/core/scratchsprite.cpp \
+    src/core/blocks.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
     src/projectscene.cpp \
@@ -26,6 +27,7 @@ SOURCES += \
 
 HEADERS += \
     src/include/core/scratchsprite.h \
+    src/include/core/blocks.h \
     src/include/mainwindow.h \
     src/include/projectscene.h \
     src/include/core/projectparser.h
