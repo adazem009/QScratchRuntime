@@ -243,7 +243,8 @@ void scratchSprite::frame(void)
 			QMap<QString,QString> inputs = getInputs(block);
 			bool processEnd = false;
 			// Run current block
-			motionBlocks(opcode,inputs,frame_i,&frameEnd,&processEnd);
+			motionBlocks(opcode,inputs,frame_i,&frameEnd,&processEnd) ||
+			looksBlocks(opcode,inputs,frame_i,&frameEnd,&processEnd);
 			// Get next block
 			QVariant nextValue = block.value("next");
 			if(nextValue.isNull())

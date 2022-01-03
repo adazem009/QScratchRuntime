@@ -210,3 +210,25 @@ bool scratchSprite::motionBlocks(QString opcode, QMap<QString,QString> inputs, i
 		return false;
 	return true;
 }
+
+/*! Runs looks blocks. */
+bool scratchSprite::looksBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd, bool *processEnd)
+{
+	if(frameEnd == nullptr)
+		frameEnd = new bool;
+	if(processEnd == nullptr)
+		processEnd = new bool;
+	*processEnd = false;
+	if(opcode == "looks_sayforsecs")
+	{
+		// TODO
+		showBubble(inputs.value("MESSAGE"));
+	}
+	else if(opcode == "looks_say")
+	{
+		showBubble(inputs.value("MESSAGE"));
+	}
+	else
+		return false;
+	return true;
+}
