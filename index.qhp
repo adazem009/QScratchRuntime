@@ -33,6 +33,7 @@
               <section title="getSprite" ref="classscratchSprite.html#a8a487ee0873b3069e4fa75c981adb7ef" />
               <section title="greenFlagClicked" ref="classscratchSprite.html#a152b51974e513a0afb6f8770765bc177" />
               <section title="loadSpriteList" ref="classscratchSprite.html#a2429ac26a3c4bec405a51b2f3a82ae49" />
+              <section title="motionBlocks" ref="classscratchSprite.html#a88f9b5ba59ae571e4aa50de31179fc63" />
               <section title="setCostume" ref="classscratchSprite.html#a508ac9693e4f1ae523b4316fd9067833" />
               <section title="setDirection" ref="classscratchSprite.html#a7ba47275426e6925d8e37d9ecb84e349" />
               <section title="setMousePos" ref="classscratchSprite.html#a0f00f9ca722b62c15b74a3fee89f561a" />
@@ -82,6 +83,7 @@
             <section title="src" ref="dir_68267d1309a1af8e8297ef4c3efbcdba.html">
               <section title="include" ref="dir_b0856f6b0d80ccb263b2f415c91f9e17.html">
                 <section title="core" ref="dir_4cf372765f693cf540fc4810db0c309c.html">
+                  <section title="blocks.h" ref="blocks_8h_source.html" />
                   <section title="projectparser.h" ref="projectparser_8h_source.html" />
                   <section title="scratchsprite.h" ref="scratchsprite_8h_source.html" />
                 </section>
@@ -148,6 +150,7 @@
       <keyword name="translateY" id="scratchSprite::translateY" ref="classscratchSprite.html#a7dc3024e6e5a0889dfe8dddf965fd6b6" />
       <keyword name="getSprite" id="scratchSprite::getSprite" ref="classscratchSprite.html#a8a487ee0873b3069e4fa75c981adb7ef" />
       <keyword name="bounce" id="scratchSprite::bounce" ref="classscratchSprite.html#aaaf3af3a09daaf49a09fece5b3fb3d96" />
+      <keyword name="motionBlocks" id="scratchSprite::motionBlocks" ref="classscratchSprite.html#a88f9b5ba59ae571e4aa50de31179fc63" />
       <keyword name="spriteList" id="scratchSprite::spriteList" ref="classscratchSprite.html#ad56bc969395f3e3713cb1eb43df262a4" />
       <keyword name="assetDir" id="scratchSprite::assetDir" ref="classscratchSprite.html#a502d307ecd55a8d7304a61f89dd4fe58" />
       <keyword name="mouseX" id="scratchSprite::mouseX" ref="classscratchSprite.html#ad3909db03a420af853a3a1cc1883adf4" />
@@ -188,6 +191,7 @@
       <file>search/mag_sel.svg</file>
       <file>search/search.css</file>
       <file>search/search.js</file>
+      <file>blocks_8h_source.html</file>
       <file>projectparser_8h_source.html</file>
       <file>scratchsprite_8h_source.html</file>
       <file>mainwindow_8h_source.html</file>
