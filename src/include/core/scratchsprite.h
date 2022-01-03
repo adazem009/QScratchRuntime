@@ -74,7 +74,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		QList<QVariantMap> costumes;
 		QList<QVariantMap> sounds;
 		int layerOrder;
-		QStringList currentExecPos;
+		QList<QVariantMap> currentExecPos;
 		// Blocks
 		bool motionBlocks(QString opcode, QMap<QString,QString> inputs, bool *frameEnd = nullptr);
 

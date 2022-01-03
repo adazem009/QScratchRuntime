@@ -102,7 +102,13 @@ void scratchSprite::greenFlagClicked(void)
 	{
 		QVariantMap block = blocks.value(blocksList[i]);
 		if(block.value("opcode").toString() == "event_whenflagclicked")
-			currentExecPos += blocksList[i];
+		{
+			QVariantMap blockMap;
+			blockMap.clear();
+			blockMap.insert("id",blocksList[i]);
+			blockMap.insert("special","");
+			currentExecPos += blockMap;
+		}
 	}
 }
 
@@ -206,7 +212,7 @@ void scratchSprite::frame(void)
 	operationsToRemove.clear();
 	for(int frame_i=0; frame_i < currentExecPos.count(); frame_i++)
 	{
-		QString next = currentExecPos[frame_i];
+		QString next = currentExecPos[frame_i]["id"].toString();
 		bool frameEnd = false;
 		while(!frameEnd)
 		{
@@ -221,7 +227,7 @@ void scratchSprite::frame(void)
 			QVariant nextValue = block.value("next");
 			if(nextValue.isNull())
 			{
-				currentExecPos[frame_i] = currentID;
+				currentExecPos[frame_i]["id"] = currentID;
 				operationsToRemove += currentID;
 				frameEnd = true;
 			}
@@ -229,12 +235,27 @@ void scratchSprite::frame(void)
 			{
 				next = nextValue.toString();
 				if(frameEnd)
-					currentExecPos[frame_i] = next;
+					currentExecPos[frame_i]["id"] = next;
 			}
 		}
 	}
 	for(int i=0; i < operationsToRemove.count(); i++)
-		currentExecPos.removeAll(operationsToRemove[i]);
+	{
+		bool removeEnd = false;
+		while(!removeEnd)
+		{
+			removeEnd = true;
+			for(int i2=0; i2 < currentExecPos.count(); i2++)
+			{
+				if(currentExecPos[i2]["id"].toString() == operationsToRemove[i])
+				{
+					currentExecPos.removeAt(i2);
+					removeEnd = false;
+					break;
+				}
+			}
+		}
+	}
 }
 
 /*! Reads block inputs and fields and returns a map. */
