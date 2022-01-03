@@ -217,6 +217,12 @@ void scratchSprite::setDirection(qreal angle)
 void scratchSprite::showBubble(QString text, bool thought)
 {
 	// TODO: Add thought bubble
+	if(text == "")
+	{
+		speechBubble->setVisible(false);
+		speechBubbleText->setVisible(false);
+		return;
+	}
 	speechBubble->setPixmap(QPixmap(":res/images/speech_bubble.png"));
 	speechBubbleText->setPlainText(text);
 	speechBubble->setPos(boundingRect().right(),boundingRect().top()-35);
@@ -224,6 +230,7 @@ void scratchSprite::showBubble(QString text, bool thought)
 	speechBubbleText->setPos(speechBubble->pos() + QPointF(30,speechBubbleText->boundingRect().height()/3.0));
 	speechBubble->setTransform(QTransform().scale(speechBubbleText->boundingRect().width()/65.0,speechBubbleText->boundingRect().height()/35.0));
 	speechBubble->setVisible(true);
+	speechBubbleText->setVisible(true);
 }
 
 /*! Runs blocks that can be run without screen refresh.*/
