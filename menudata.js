@@ -32,6 +32,7 @@ var menudata={children:[
 {text:"All",url:"functions.html",children:[
 {text:"c",url:"functions.html#index_c"},
 {text:"d",url:"functions.html#index_d"},
+{text:"f",url:"functions.html#index_f"},
 {text:"g",url:"functions.html#index_g"},
 {text:"i",url:"functions.html#index_i"},
 {text:"l",url:"functions.html#index_l"},

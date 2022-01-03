@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['init_0',['init',['../classMainWindow.html#adacc054a62e38fb27708c0e1e2924b3e',1,'MainWindow']]],
-  ['isstage_1',['isStage',['../classscratchSprite.html#a8e6b689dd4203bedb0e98e17a52a6ab4',1,'scratchSprite']]]
+  ['getinputs_0',['getInputs',['../classscratchSprite.html#aa5f6bafaf7dfe46162a7adeabb564179',1,'scratchSprite']]],
+  ['getsprite_1',['getSprite',['../classscratchSprite.html#a8a487ee0873b3069e4fa75c981adb7ef',1,'scratchSprite']]],
+  ['greenflag_2',['greenFlag',['../classprojectScene.html#a36bd395882d7dee2e570fbfb3aab1c30',1,'projectScene']]],
+  ['greenflagclicked_3',['greenFlagClicked',['../classscratchSprite.html#a152b51974e513a0afb6f8770765bc177',1,'scratchSprite']]]
 ];

@@ -1,6 +1,7 @@
 var classscratchSprite =
 [
     [ "scratchSprite", "classscratchSprite.html#a401307233d74f2cbec2728b728f159ba", null ],
+    [ "frame", "classscratchSprite.html#a189a29e1fb4f71052b2cb2d993d9abe0", null ],
     [ "getInputs", "classscratchSprite.html#aa5f6bafaf7dfe46162a7adeabb564179", null ],
     [ "getSprite", "classscratchSprite.html#a8a487ee0873b3069e4fa75c981adb7ef", null ],
     [ "greenFlagClicked", "classscratchSprite.html#a152b51974e513a0afb6f8770765bc177", null ],
@@ -10,7 +11,6 @@ var classscratchSprite =
     [ "setMousePos", "classscratchSprite.html#a0f00f9ca722b62c15b74a3fee89f561a", null ],
     [ "setXPos", "classscratchSprite.html#ade994e8c0803e447564e92545d69c8a8", null ],
     [ "setYPos", "classscratchSprite.html#ac3d432973f42391618ef53af03631301", null ],
-    [ "startScript", "classscratchSprite.html#a8fbaecb6623824426c351d7be0835edb", null ],
     [ "stopScripts", "classscratchSprite.html#a050df00d3d24f6cb179431f9c1c1257c", null ],
     [ "stopSprite", "classscratchSprite.html#ad9ec8bf8179adb85bf448b1b285e5e94", null ],
     [ "translateX", "classscratchSprite.html#a89c97be0b563e3ec0aee9d39d11525c5", null ],

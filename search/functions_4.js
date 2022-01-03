@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['openfile_0',['openFile',['../classMainWindow.html#ab14469aff316235cb2ee764483a6319d',1,'MainWindow']]]
+  ['mainwindow_0',['MainWindow',['../classMainWindow.html#a996c5a2b6f77944776856f08ec30858d',1,'MainWindow']]],
+  ['mousemoveevent_1',['mouseMoveEvent',['../classprojectScene.html#a381d1f0a59381d3a98553c656ef01d82',1,'projectScene']]]
 ];
