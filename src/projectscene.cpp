@@ -40,7 +40,7 @@ void projectScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
 	for(int i=0; i < spriteList.count(); i++)
 		spriteList[i]->setMousePos(event->scenePos());
-	
+	event->accept();
 }
 
 /*! Connected from %clicked() signal of greenFlag in MainWindow UI. */
