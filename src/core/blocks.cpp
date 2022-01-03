@@ -157,6 +157,7 @@ bool scratchSprite::motionBlocks(QString opcode, QMap<QString,QString> inputs, i
 			setXPos(endX);
 			setYPos(endY);
 			*processEnd = true;
+			*frameEnd = false;
 		}
 		else
 		{
