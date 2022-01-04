@@ -242,6 +242,29 @@ bool scratchSprite::looksBlocks(QString opcode, QMap<QString,QString> inputs, in
 	}
 	else if(opcode == "looks_say")
 		showBubble(inputs.value("MESSAGE"));
+	else if(opcode == "looks_thinkforsecs")
+	{
+		*frameEnd = true;
+		showBubble(inputs.value("MESSAGE"),true);
+		if(currentExecPos[processID]["special"].toString() != "wait")
+		{
+			currentExecPos[processID]["special"] = "wait";
+			currentExecPos[processID]["startTime"] = QDateTime::currentDateTimeUtc();
+			currentExecPos[processID]["endTime"] = QDateTime::currentDateTimeUtc().addSecs(inputs.value("SECS").toDouble());
+		}
+		QDateTime startTime = currentExecPos[processID]["startTime"].toDateTime();
+		QDateTime endTime = currentExecPos[processID]["endTime"].toDateTime();
+		QDateTime currentTime = QDateTime::currentDateTimeUtc();
+		qreal progress = (startTime.msecsTo(endTime) - currentTime.msecsTo(endTime)) / (inputs.value("SECS").toDouble() * 1000.0);
+		if(progress >= 1)
+		{
+			showBubble("");
+			*processEnd = true;
+			*frameEnd = false;
+		}
+	}
+	else if(opcode == "looks_think")
+		showBubble(inputs.value("MESSAGE"),true);
 	else
 		return false;
 	return true;
