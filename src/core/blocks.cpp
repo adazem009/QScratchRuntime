@@ -265,6 +265,10 @@ bool scratchSprite::looksBlocks(QString opcode, QMap<QString,QString> inputs, in
 	}
 	else if(opcode == "looks_think")
 		showBubble(inputs.value("MESSAGE"),true);
+	else if(opcode == "looks_show")
+		setVisible(true);
+	else if(opcode == "looks_hide")
+		setVisible(false);
 	else
 		return false;
 	return true;
