@@ -216,14 +216,16 @@ void scratchSprite::setDirection(qreal angle)
 /*! Shows a speech or thought bubble. */
 void scratchSprite::showBubble(QString text, bool thought)
 {
-	// TODO: Add thought bubble
 	if(text == "")
 	{
 		speechBubble->setVisible(false);
 		speechBubbleText->setVisible(false);
 		return;
 	}
-	speechBubble->setPixmap(QPixmap(":res/images/speech_bubble.png"));
+	if(thought)
+		speechBubble->setPixmap(QPixmap(":res/images/thought_bubble.png"));
+	else
+		speechBubble->setPixmap(QPixmap(":res/images/speech_bubble.png"));
 	speechBubbleText->setPlainText(text);
 	speechBubble->setPos(boundingRect().right(),boundingRect().top()-35);
 	speechBubbleText->setTextWidth(140);
