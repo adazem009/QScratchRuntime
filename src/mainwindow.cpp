@@ -61,18 +61,13 @@ void MainWindow::init(void)
 {
 	parser = new projectParser(fileName);
 	sprites = parser->sprites();
-	// Add stage
-	scene->addItem(parser->stage());
 	// Uncomment the following 2 lines to show X and Y axis
 	//scene->addLine(-240,0,240,0);
 	//scene->addLine(0,-180,0,180);
 	int i;
 	// Add sprites
 	for(i=0; i < sprites.count(); i++)
-	{
-		if(!sprites[i]->isStage)
-			scene->addItem(sprites[i]);
-	}
+		scene->addItem(sprites[i]);
 	// Add list to sprite pointers to every sprite
 	for(i=0; i < sprites.count(); i++)
 		sprites[i]->loadSpriteList(sprites);
