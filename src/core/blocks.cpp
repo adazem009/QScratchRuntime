@@ -26,12 +26,14 @@
 #include "core/blocks.h"
 
 /*! Runs motion blocks. */
-bool scratchSprite::motionBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd, bool *processEnd)
+bool scratchSprite::motionBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd, bool *processEnd, QString *returnValue)
 {
 	if(frameEnd == nullptr)
 		frameEnd = new bool;
 	if(processEnd == nullptr)
 		processEnd = new bool;
+	if(returnValue == nullptr)
+		returnValue = new QString();
 	*processEnd = false;
 	if(opcode == "motion_movesteps")
 	{
@@ -206,19 +208,34 @@ bool scratchSprite::motionBlocks(QString opcode, QMap<QString,QString> inputs, i
 		rotationStyle = inputs.value("STYLE");
 		setDirection(direction);
 	}
+	// Reporter blocks
+	else if(opcode == "motion_pointtowards_menu")
+		*returnValue = inputs.value("TOWARDS");
+	else if(opcode == "motion_goto_menu")
+		*returnValue = inputs.value("TO");
+	else if(opcode == "motion_glideto_menu")
+		*returnValue = inputs.value("TO");
+	else if(opcode == "motion_xposition")
+		*returnValue = QString::number(spriteX);
+	else if(opcode == "motion_yposition")
+		*returnValue = QString::number(spriteY);
+	else if(opcode == "motion_direction")
+		*returnValue = QString::number(direction);
 	else
 		return false;
 	return true;
 }
 
 /*! Runs looks blocks. */
-bool scratchSprite::looksBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd, bool *processEnd)
+bool scratchSprite::looksBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd, bool *processEnd, QString *returnValue)
 {
 	if(frameEnd == nullptr)
 		frameEnd = new bool;
 	if(processEnd == nullptr)
 		processEnd = new bool;
 	*processEnd = false;
+	if(returnValue == nullptr)
+		returnValue = new QString();
 	if(opcode == "looks_sayforsecs")
 	{
 		*frameEnd = true;

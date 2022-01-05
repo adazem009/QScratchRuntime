@@ -82,8 +82,8 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		QGraphicsTextItem *speechBubbleText;
 		QPixmap costumePixmap;
 		// Blocks
-		bool motionBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd = nullptr, bool *processEnd = nullptr);
-		bool looksBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd = nullptr, bool *processEnd = nullptr);
+		bool motionBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd = nullptr, bool *processEnd = nullptr, QString *returnValue = nullptr);
+		bool looksBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd = nullptr, bool *processEnd = nullptr, QString *returnValue = nullptr);
 
 	signals:
 		/*! A signal, which is emitted when the sprite should stop all its scripts. */

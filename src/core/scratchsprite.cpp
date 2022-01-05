@@ -380,7 +380,7 @@ QMap<QString,QString> scratchSprite::getInputs(QVariantMap block, bool readField
 		QJsonValue inputValue = blockInputs.value(blockInputsList[i]).toArray().at(1);
 		bool typeConverted = false;
 		QJsonValue finalRawValue;
-		QString finalValue;
+		QString finalValue = "";
 		if(readFields)
 		{
 			// Input is in the first item
@@ -400,18 +400,8 @@ QMap<QString,QString> scratchSprite::getInputs(QVariantMap block, bool readField
 			QString opcode = reporterBlock.value("opcode").toString();
 			QMap<QString,QString> inputs = getInputs(reporterBlock);
 			// Get reporter block value
-			if(opcode == "motion_pointtowards_menu")
-				finalValue = inputs.value("TOWARDS");
-			else if(opcode == "motion_goto_menu")
-				finalValue = inputs.value("TO");
-			else if(opcode == "motion_glideto_menu")
-				finalValue = inputs.value("TO");
-			else if(opcode == "motion_xposition")
-				finalValue = QString::number(spriteX);
-			else if(opcode == "motion_yposition")
-				finalValue = QString::number(spriteY);
-			else if(opcode == "motion_direction")
-				finalValue = QString::number(direction);
+			motionBlocks(opcode,inputs,0,nullptr,nullptr,&finalValue) ||
+			looksBlocks(opcode,inputs,0,nullptr,nullptr,&finalValue);
 		}
 		if(!typeConverted)
 		{
