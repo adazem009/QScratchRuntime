@@ -75,7 +75,6 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		QMap<QString,QString> broadcasts;
 		QMap<QString,QVariantMap> blocks;
 		QList<QVariantMap> sounds;
-		int layerOrder;
 		QMap<QString,qreal> graphicEffects;
 		QList<QVariantMap> currentExecPos;
 		QGraphicsPixmapItem *speechBubble;

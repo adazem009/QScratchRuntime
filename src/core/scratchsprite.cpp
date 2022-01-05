@@ -41,6 +41,7 @@ scratchSprite::scratchSprite(QJsonObject spriteObject, QString spriteAssetDir, Q
 	tempo = spriteObject.value("tempo").toInt();
 	if(isStage)
 	{
+		setZValue(0);
 		setVisible(true);
 		setXPos(0);
 		setYPos(0);
@@ -56,6 +57,7 @@ scratchSprite::scratchSprite(QJsonObject spriteObject, QString spriteAssetDir, Q
 		speechBubbleText->setPos(10,10);
 		speechBubble->setVisible(false);
 		speechBubbleText->setVisible(false);
+		setZValue(spriteObject.value("layerOrder").toInt());
 		setVisible(spriteObject.value("visible").toBool());
 		setXPos(spriteObject.value("x").toDouble());
 		setYPos(spriteObject.value("y").toDouble());
