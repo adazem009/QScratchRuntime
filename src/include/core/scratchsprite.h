@@ -76,6 +76,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		QList<QVariantMap> currentExecPos;
 		QGraphicsPixmapItem *speechBubble;
 		QGraphicsTextItem *speechBubbleText;
+		QPixmap costumePixmap;
 		// Blocks
 		bool motionBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd = nullptr, bool *processEnd = nullptr);
 		bool looksBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd = nullptr, bool *processEnd = nullptr);

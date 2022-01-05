@@ -171,7 +171,7 @@ void scratchSprite::setMousePos(QPointF pos)
 void scratchSprite::setCostume(int id)
 {
 	currentCostume = id;
-	QPixmap costumePixmap(assetDir + "/" + costumes[id].value("md5ext").toString());
+	costumePixmap = QPixmap(assetDir + "/" + costumes[id].value("md5ext").toString());
 	setPixmap(costumePixmap);
 	rotationCenterX = costumes[id].value("rotationCenterX").toDouble();
 	rotationCenterY = costumes[id].value("rotationCenterY").toDouble();
