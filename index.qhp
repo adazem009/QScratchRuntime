@@ -174,7 +174,6 @@
       <keyword name="broadcasts" id="scratchSprite::broadcasts" ref="classscratchSprite.html#a09dc2945fd6b71de4ac93f8c476e98a5" />
       <keyword name="blocks" id="scratchSprite::blocks" ref="classscratchSprite.html#a8ce313bda72ec1cfe3ba7c265d46f650" />
       <keyword name="sounds" id="scratchSprite::sounds" ref="classscratchSprite.html#a462a5b304ad12c8d27b93ce628cb4839" />
-      <keyword name="layerOrder" id="scratchSprite::layerOrder" ref="classscratchSprite.html#ab099cbe4bd4be0bd21bac1881db0a82e" />
       <keyword name="graphicEffects" id="scratchSprite::graphicEffects" ref="classscratchSprite.html#a62ce5be91764557d06d6619e39b4ceb5" />
       <keyword name="currentExecPos" id="scratchSprite::currentExecPos" ref="classscratchSprite.html#ab2dacb9bb35e947bb17a096153858b87" />
       <keyword name="speechBubble" id="scratchSprite::speechBubble" ref="classscratchSprite.html#a2e5aed6f92f8bda97ea12c7fc6dd5628" />
