@@ -331,6 +331,19 @@ bool scratchSprite::looksBlocks(QString opcode, QMap<QString,QString> inputs, in
 		}
 		stagePtr->setCostume(newCostume);
 	}
+	else if(opcode == "looks_switchbackdroptoandwait")
+	{
+		scratchSprite *stagePtr = getSprite("Stage");
+		QList<QVariantMap> *backdrops = &stagePtr->costumes;
+		int newCostume = stagePtr->currentCostume;
+		for(int i=0; i < backdrops->count(); i++)
+		{
+			if(backdrops->value(i).value("name").toString() == inputs.value("BACKDROP"))
+				newCostume = i;
+		}
+		stagePtr->setCostume(newCostume);
+		// TODO: This block should wait until all event_whenbackdropswitchesto scripts end
+	}
 	else if(opcode == "looks_nextbackdrop")
 	{
 		scratchSprite *stagePtr = getSprite("Stage");
