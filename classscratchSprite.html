@@ -198,10 +198,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>bounce</b> (void)</td
 <tr class="separator:a221f792a1ff70f3507818a35ec095e61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87a0eabc6bb2b1d5c1ec034ffb3a7542"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#a87a0eabc6bb2b1d5c1ec034ffb3a7542">installGraphicEffects</a> (void)</td></tr>
 <tr class="separator:a87a0eabc6bb2b1d5c1ec034ffb3a7542"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6765e0fceb125c7851d38c5b6ba1f782"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#a6765e0fceb125c7851d38c5b6ba1f782">motionBlocks</a> (QString opcode, QMap&lt; QString, QString &gt; inputs, int processID, bool *frameEnd=nullptr, bool *processEnd=nullptr)</td></tr>
-<tr class="separator:a6765e0fceb125c7851d38c5b6ba1f782"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe1fb518bcf38d9c05d886e0cce8d196"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#afe1fb518bcf38d9c05d886e0cce8d196">looksBlocks</a> (QString opcode, QMap&lt; QString, QString &gt; inputs, int processID, bool *frameEnd=nullptr, bool *processEnd=nullptr)</td></tr>
-<tr class="separator:afe1fb518bcf38d9c05d886e0cce8d196"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5afaa221267907bd4d0987d84dbdc652"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#a5afaa221267907bd4d0987d84dbdc652">motionBlocks</a> (QString opcode, QMap&lt; QString, QString &gt; inputs, int processID, bool *frameEnd=nullptr, bool *processEnd=nullptr, QString *returnValue=nullptr)</td></tr>
+<tr class="separator:a5afaa221267907bd4d0987d84dbdc652"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a385ea5a053d2929b439c310304940125"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#a385ea5a053d2929b439c310304940125">looksBlocks</a> (QString opcode, QMap&lt; QString, QString &gt; inputs, int processID, bool *frameEnd=nullptr, bool *processEnd=nullptr, QString *returnValue=nullptr)</td></tr>
+<tr class="separator:a385ea5a053d2929b439c310304940125"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -466,8 +466,8 @@ QPixmap&#160;</td><td class="memItemRight" valign="bottom"><b>costumePixmap</b><
 
 </div>
 </div>
-<a id="afe1fb518bcf38d9c05d886e0cce8d196" name="afe1fb518bcf38d9c05d886e0cce8d196"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe1fb518bcf38d9c05d886e0cce8d196">&#9670;&nbsp;</a></span>looksBlocks()</h2>
+<a id="a385ea5a053d2929b439c310304940125" name="a385ea5a053d2929b439c310304940125"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a385ea5a053d2929b439c310304940125">&#9670;&nbsp;</a></span>looksBlocks()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -503,7 +503,13 @@ QPixmap&#160;</td><td class="memItemRight" valign="bottom"><b>costumePixmap</b><
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool *&#160;</td>
-          <td class="paramname"><em>processEnd</em> = <code>nullptr</code>&#160;</td>
+          <td class="paramname"><em>processEnd</em> = <code>nullptr</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString *&#160;</td>
+          <td class="paramname"><em>returnValue</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -521,8 +527,8 @@ QPixmap&#160;</td><td class="memItemRight" valign="bottom"><b>costumePixmap</b><
 
 </div>
 </div>
-<a id="a6765e0fceb125c7851d38c5b6ba1f782" name="a6765e0fceb125c7851d38c5b6ba1f782"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6765e0fceb125c7851d38c5b6ba1f782">&#9670;&nbsp;</a></span>motionBlocks()</h2>
+<a id="a5afaa221267907bd4d0987d84dbdc652" name="a5afaa221267907bd4d0987d84dbdc652"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5afaa221267907bd4d0987d84dbdc652">&#9670;&nbsp;</a></span>motionBlocks()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -558,7 +564,13 @@ QPixmap&#160;</td><td class="memItemRight" valign="bottom"><b>costumePixmap</b><
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool *&#160;</td>
-          <td class="paramname"><em>processEnd</em> = <code>nullptr</code>&#160;</td>
+          <td class="paramname"><em>processEnd</em> = <code>nullptr</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString *&#160;</td>
+          <td class="paramname"><em>returnValue</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
           <td></td>

@@ -34,8 +34,8 @@
               <section title="greenFlagClicked" ref="classscratchSprite.html#a152b51974e513a0afb6f8770765bc177" />
               <section title="installGraphicEffects" ref="classscratchSprite.html#a87a0eabc6bb2b1d5c1ec034ffb3a7542" />
               <section title="loadSpriteList" ref="classscratchSprite.html#a2429ac26a3c4bec405a51b2f3a82ae49" />
-              <section title="looksBlocks" ref="classscratchSprite.html#afe1fb518bcf38d9c05d886e0cce8d196" />
-              <section title="motionBlocks" ref="classscratchSprite.html#a6765e0fceb125c7851d38c5b6ba1f782" />
+              <section title="looksBlocks" ref="classscratchSprite.html#a385ea5a053d2929b439c310304940125" />
+              <section title="motionBlocks" ref="classscratchSprite.html#a5afaa221267907bd4d0987d84dbdc652" />
               <section title="resetGraphicEffects" ref="classscratchSprite.html#a221f792a1ff70f3507818a35ec095e61" />
               <section title="setCostume" ref="classscratchSprite.html#a508ac9693e4f1ae523b4316fd9067833" />
               <section title="setDirection" ref="classscratchSprite.html#a7ba47275426e6925d8e37d9ecb84e349" />
@@ -159,8 +159,8 @@
       <keyword name="showBubble" id="scratchSprite::showBubble" ref="classscratchSprite.html#aa6d1bc1e75fcb29a8a70ff561a7039b7" />
       <keyword name="resetGraphicEffects" id="scratchSprite::resetGraphicEffects" ref="classscratchSprite.html#a221f792a1ff70f3507818a35ec095e61" />
       <keyword name="installGraphicEffects" id="scratchSprite::installGraphicEffects" ref="classscratchSprite.html#a87a0eabc6bb2b1d5c1ec034ffb3a7542" />
-      <keyword name="motionBlocks" id="scratchSprite::motionBlocks" ref="classscratchSprite.html#a6765e0fceb125c7851d38c5b6ba1f782" />
-      <keyword name="looksBlocks" id="scratchSprite::looksBlocks" ref="classscratchSprite.html#afe1fb518bcf38d9c05d886e0cce8d196" />
+      <keyword name="motionBlocks" id="scratchSprite::motionBlocks" ref="classscratchSprite.html#a5afaa221267907bd4d0987d84dbdc652" />
+      <keyword name="looksBlocks" id="scratchSprite::looksBlocks" ref="classscratchSprite.html#a385ea5a053d2929b439c310304940125" />
       <keyword name="spriteList" id="scratchSprite::spriteList" ref="classscratchSprite.html#ad56bc969395f3e3713cb1eb43df262a4" />
       <keyword name="assetDir" id="scratchSprite::assetDir" ref="classscratchSprite.html#a502d307ecd55a8d7304a61f89dd4fe58" />
       <keyword name="mouseX" id="scratchSprite::mouseX" ref="classscratchSprite.html#ad3909db03a420af853a3a1cc1883adf4" />
