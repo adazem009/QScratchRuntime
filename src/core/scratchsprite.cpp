@@ -128,8 +128,6 @@ void scratchSprite::stopSprite(void)
 	if(!isStage)
 		speechBubble->setVisible(false);
 	resetGraphicEffects();
-	// TODO: Remove event loops depending on obsolete stopScripts() signal.
-	emit stopScripts();
 }
 
 /*! Sets sprite X position. */

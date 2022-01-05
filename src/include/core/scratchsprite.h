@@ -84,10 +84,6 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		bool motionBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd = nullptr, bool *processEnd = nullptr, QString *returnValue = nullptr);
 		bool looksBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd = nullptr, bool *processEnd = nullptr, QString *returnValue = nullptr);
 
-	signals:
-		/*! A signal, which is emitted when the sprite should stop all its scripts. */
-		void stopScripts();
-
 	public slots:
 		void greenFlagClicked(void);
 		void stopSprite(void);
