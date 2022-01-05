@@ -61,6 +61,8 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		scratchSprite *getSprite(QString name);
 		void bounce(void);
 		void showBubble(QString text, bool thought = false);
+		void resetGraphicEffects(void);
+		void installGraphicEffects(void);
 		QList<scratchSprite*> spriteList;
 		QString assetDir;
 		qreal mouseX, mouseY;
@@ -73,6 +75,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		QList<QVariantMap> costumes;
 		QList<QVariantMap> sounds;
 		int layerOrder;
+		QMap<QString,qreal> graphicEffects;
 		QList<QVariantMap> currentExecPos;
 		QGraphicsPixmapItem *speechBubble;
 		QGraphicsTextItem *speechBubbleText;

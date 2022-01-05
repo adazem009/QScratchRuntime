@@ -64,6 +64,7 @@ scratchSprite::scratchSprite(QJsonObject spriteObject, QString spriteAssetDir, Q
 		setDirection(spriteObject.value("direction").toDouble());
 		draggable = spriteObject.value("draggable").toBool();
 	}
+	resetGraphicEffects();
 	// TODO: Load variables
 	// TODO: Load lists
 	// TODO: Load broadcasts
@@ -124,6 +125,7 @@ void scratchSprite::stopSprite(void)
 	currentExecPos.clear();
 	if(!isStage)
 		speechBubble->setVisible(false);
+	resetGraphicEffects();
 	// TODO: Remove event loops depending on obsolete stopScripts() signal.
 	emit stopScripts();
 }
@@ -176,6 +178,69 @@ void scratchSprite::setCostume(int id)
 	rotationCenterX = costumes[id].value("rotationCenterX").toDouble();
 	rotationCenterY = costumes[id].value("rotationCenterY").toDouble();
 	setTransformOriginPoint(QPointF(rotationCenterX,rotationCenterY));
+}
+
+/*! Resets the values of all graphic effects. */
+void scratchSprite::resetGraphicEffects(void)
+{
+	graphicEffects.clear();
+	graphicEffects.insert("COLOR",0);
+	graphicEffects.insert("FISHEYE",0);
+	graphicEffects.insert("WHIRL",0);
+	graphicEffects.insert("PIXELATE",0);
+	graphicEffects.insert("MOSAIC",0);
+	graphicEffects.insert("BRIGHTNESS",0);
+	graphicEffects.insert("GHOST",0);
+	installGraphicEffects();
+}
+
+/*!
+ * Sets graphic effects.
+ * Note: Only ghost, color and brightness is supported.
+ */
+void scratchSprite::installGraphicEffects(void)
+{
+	/*
+	 * TODO: Implement other effects in the loop below.
+	 * It should be possible without using QGraphicsEffect.
+	 */
+	QImage costumeImage = costumePixmap.toImage().convertToFormat(QImage::Format_ARGB32);
+	if((graphicEffects["COLOR"] != 0) || (graphicEffects["BRIGHTNESS"] != 0) || (graphicEffects["GHOST"] != 0))
+	{
+		for(int y=0; y < costumeImage.height(); y++)
+		{
+			for(int x=0; x < costumeImage.width(); x++)
+			{
+				QColor pixelColor = costumeImage.pixelColor(x,y);
+				int h, s, v, a;
+				pixelColor.getHsv(&h,&s,&v,&a);
+				// Color effect
+				h += graphicEffects["COLOR"]*1.8;
+				// Brightness effect
+				int brightness = graphicEffects["BRIGHTNESS"];
+				if(brightness >= 100)
+				{
+					v = 255;
+					s = 0;
+				}
+				else if(brightness > 0)
+					s -= brightness * (s/100.0);
+				else if(brightness > -100)
+					v += brightness * (v/100.0);
+				else if(brightness <= -100)
+					v = 0;
+				// Ghost effect
+				int ghost = graphicEffects["GHOST"];
+				if(ghost >= 100)
+					a = 0;
+				else if(ghost > 0)
+					a -= ghost * (a/100.0);
+				pixelColor.setHsv(h,s,v,a);
+				costumeImage.setPixelColor(x,y,pixelColor);
+			}
+		}
+	}
+	setPixmap(QPixmap::fromImage(costumeImage));
 }
 
 /*! Sets the sprite direction. */
