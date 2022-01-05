@@ -44,7 +44,7 @@ scratchSprite::scratchSprite(QJsonObject spriteObject, QString spriteAssetDir, Q
 		setVisible(true);
 		setXPos(0);
 		setYPos(0);
-		size = 100;
+		setSize(100);
 		setDirection(90);
 		draggable = false;
 	}
@@ -59,7 +59,7 @@ scratchSprite::scratchSprite(QJsonObject spriteObject, QString spriteAssetDir, Q
 		setVisible(spriteObject.value("visible").toBool());
 		setXPos(spriteObject.value("x").toDouble());
 		setYPos(spriteObject.value("y").toDouble());
-		size = spriteObject.value("size").toInt();
+		setSize(spriteObject.value("size").toDouble());
 		rotationStyle = spriteObject.value("rotationStyle").toString();
 		setDirection(spriteObject.value("direction").toDouble());
 		draggable = spriteObject.value("draggable").toBool();
@@ -241,6 +241,13 @@ void scratchSprite::installGraphicEffects(void)
 		}
 	}
 	setPixmap(QPixmap::fromImage(costumeImage));
+}
+
+/*! Sets the sprite size. */
+void scratchSprite::setSize(qreal newSize)
+{
+	setScale(newSize/100.0);
+	size = newSize;
 }
 
 /*! Sets the sprite direction. */

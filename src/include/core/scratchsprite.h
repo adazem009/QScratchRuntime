@@ -40,6 +40,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		void setYPos(qreal y);
 		void setMousePos(QPointF pos);
 		void setCostume(int id);
+		void setSize(qreal newSize);
 		void setDirection(qreal angle);
 		void frame(void);
 		bool isStage; /*!< True if this is a stage. */
@@ -49,7 +50,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		int currentCostume; /*!< Current costume ID. */
 		int volume; /*!< Volume for instrument blocks. */
 		int tempo; /*!< Tempo for instrument blocks. */
-		int size; /*!< Sprite size. */
+		qreal size; /*!< Sprite size. */
 		qreal direction; /*!< Sprite direction. */
 		bool draggable; /*!< True if the sprite is draggable. */
 		QString rotationStyle; /*!< Sprite rotation style ("all around", "left-right", or "don't rotate"). */
