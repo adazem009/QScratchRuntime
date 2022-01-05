@@ -348,7 +348,10 @@ void scratchSprite::frame(void)
 			{
 				next = nextValue.toString();
 				if(processEnd)
+				{
 					currentExecPos[frame_i]["id"] = next;
+					currentExecPos[frame_i]["special"] = "";
+				}
 			}
 		}
 	}
