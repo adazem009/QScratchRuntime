@@ -358,6 +358,20 @@ bool scratchSprite::looksBlocks(QString opcode, QMap<QString,QString> inputs, in
 			setZValue(1);
 		}
 	}
+	else if(opcode == "looks_goforwardbackwardlayers")
+	{
+		int delta = inputs.value("NUM").toInt();
+		if(inputs.value("FORWARD_BACKWARD") == "backward")
+			delta *= -1;
+		if(delta < 0)
+		{
+			for(int i=0; i < spriteList.count(); i++)
+				spriteList[i]->setZValue(spriteList[i]->zValue() + 1);
+		}
+		setZValue(zValue() + delta);
+		if(zValue() < 1)
+			setZValue(1);
+	}
 	// Reporter blocks
 	else if(opcode == "looks_size")
 		*returnValue = QString::number(size);
