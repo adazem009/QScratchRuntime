@@ -32,9 +32,11 @@
               <section title="getInputs" ref="classscratchSprite.html#aa5f6bafaf7dfe46162a7adeabb564179" />
               <section title="getSprite" ref="classscratchSprite.html#a8a487ee0873b3069e4fa75c981adb7ef" />
               <section title="greenFlagClicked" ref="classscratchSprite.html#a152b51974e513a0afb6f8770765bc177" />
+              <section title="installGraphicEffects" ref="classscratchSprite.html#a87a0eabc6bb2b1d5c1ec034ffb3a7542" />
               <section title="loadSpriteList" ref="classscratchSprite.html#a2429ac26a3c4bec405a51b2f3a82ae49" />
               <section title="looksBlocks" ref="classscratchSprite.html#afe1fb518bcf38d9c05d886e0cce8d196" />
               <section title="motionBlocks" ref="classscratchSprite.html#a6765e0fceb125c7851d38c5b6ba1f782" />
+              <section title="resetGraphicEffects" ref="classscratchSprite.html#a221f792a1ff70f3507818a35ec095e61" />
               <section title="setCostume" ref="classscratchSprite.html#a508ac9693e4f1ae523b4316fd9067833" />
               <section title="setDirection" ref="classscratchSprite.html#a7ba47275426e6925d8e37d9ecb84e349" />
               <section title="setMousePos" ref="classscratchSprite.html#a0f00f9ca722b62c15b74a3fee89f561a" />
@@ -153,6 +155,8 @@
       <keyword name="getSprite" id="scratchSprite::getSprite" ref="classscratchSprite.html#a8a487ee0873b3069e4fa75c981adb7ef" />
       <keyword name="bounce" id="scratchSprite::bounce" ref="classscratchSprite.html#aaaf3af3a09daaf49a09fece5b3fb3d96" />
       <keyword name="showBubble" id="scratchSprite::showBubble" ref="classscratchSprite.html#aa6d1bc1e75fcb29a8a70ff561a7039b7" />
+      <keyword name="resetGraphicEffects" id="scratchSprite::resetGraphicEffects" ref="classscratchSprite.html#a221f792a1ff70f3507818a35ec095e61" />
+      <keyword name="installGraphicEffects" id="scratchSprite::installGraphicEffects" ref="classscratchSprite.html#a87a0eabc6bb2b1d5c1ec034ffb3a7542" />
       <keyword name="motionBlocks" id="scratchSprite::motionBlocks" ref="classscratchSprite.html#a6765e0fceb125c7851d38c5b6ba1f782" />
       <keyword name="looksBlocks" id="scratchSprite::looksBlocks" ref="classscratchSprite.html#afe1fb518bcf38d9c05d886e0cce8d196" />
       <keyword name="spriteList" id="scratchSprite::spriteList" ref="classscratchSprite.html#ad56bc969395f3e3713cb1eb43df262a4" />
@@ -169,9 +173,11 @@
       <keyword name="costumes" id="scratchSprite::costumes" ref="classscratchSprite.html#a63765246346f8d3f541d6b13c8da303f" />
       <keyword name="sounds" id="scratchSprite::sounds" ref="classscratchSprite.html#a462a5b304ad12c8d27b93ce628cb4839" />
       <keyword name="layerOrder" id="scratchSprite::layerOrder" ref="classscratchSprite.html#ab099cbe4bd4be0bd21bac1881db0a82e" />
+      <keyword name="graphicEffects" id="scratchSprite::graphicEffects" ref="classscratchSprite.html#a62ce5be91764557d06d6619e39b4ceb5" />
       <keyword name="currentExecPos" id="scratchSprite::currentExecPos" ref="classscratchSprite.html#ab2dacb9bb35e947bb17a096153858b87" />
       <keyword name="speechBubble" id="scratchSprite::speechBubble" ref="classscratchSprite.html#a2e5aed6f92f8bda97ea12c7fc6dd5628" />
       <keyword name="speechBubbleText" id="scratchSprite::speechBubbleText" ref="classscratchSprite.html#a3efc88d261fddd4d3f8a1ccb6489490e" />
+      <keyword name="costumePixmap" id="scratchSprite::costumePixmap" ref="classscratchSprite.html#ab4e56ad2b43b23a3eb278dd4bfd497be" />
     </keywords>
     <files>
       <file>tabs.css</file>
@@ -248,6 +254,7 @@
       <file>functions.html</file>
       <file>functions.html</file>
       <file>functions.html</file>
+      <file>functions_func.html</file>
       <file>functions_func.html</file>
       <file>functions_func.html</file>
       <file>functions_func.html</file>
