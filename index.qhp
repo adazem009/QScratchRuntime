@@ -151,6 +151,7 @@
       <keyword name="direction" id="scratchSprite::direction" ref="classscratchSprite.html#a5b09a80137060595705512837eeba008" />
       <keyword name="draggable" id="scratchSprite::draggable" ref="classscratchSprite.html#a992e9be078ab605da7f7ccd41fc3a10f" />
       <keyword name="rotationStyle" id="scratchSprite::rotationStyle" ref="classscratchSprite.html#a61c929545c2178ffe8c5089a04a03d41" />
+      <keyword name="costumes" id="scratchSprite::costumes" ref="classscratchSprite.html#a63765246346f8d3f541d6b13c8da303f" />
       <keyword name="getInputs" id="scratchSprite::getInputs" ref="classscratchSprite.html#aa5f6bafaf7dfe46162a7adeabb564179" />
       <keyword name="translateX" id="scratchSprite::translateX" ref="classscratchSprite.html#a89c97be0b563e3ec0aee9d39d11525c5" />
       <keyword name="translateY" id="scratchSprite::translateY" ref="classscratchSprite.html#a7dc3024e6e5a0889dfe8dddf965fd6b6" />
@@ -172,7 +173,6 @@
       <keyword name="lists" id="scratchSprite::lists" ref="classscratchSprite.html#aea9f98f853bee9d720a7bd2ebd1cb9f6" />
       <keyword name="broadcasts" id="scratchSprite::broadcasts" ref="classscratchSprite.html#a09dc2945fd6b71de4ac93f8c476e98a5" />
       <keyword name="blocks" id="scratchSprite::blocks" ref="classscratchSprite.html#a8ce313bda72ec1cfe3ba7c265d46f650" />
-      <keyword name="costumes" id="scratchSprite::costumes" ref="classscratchSprite.html#a63765246346f8d3f541d6b13c8da303f" />
       <keyword name="sounds" id="scratchSprite::sounds" ref="classscratchSprite.html#a462a5b304ad12c8d27b93ce628cb4839" />
       <keyword name="layerOrder" id="scratchSprite::layerOrder" ref="classscratchSprite.html#ab099cbe4bd4be0bd21bac1881db0a82e" />
       <keyword name="graphicEffects" id="scratchSprite::graphicEffects" ref="classscratchSprite.html#a62ce5be91764557d06d6619e39b4ceb5" />
