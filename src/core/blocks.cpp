@@ -281,6 +281,10 @@ bool scratchSprite::looksBlocks(QString opcode, QMap<QString,QString> inputs, in
 	}
 	else if(opcode == "looks_cleargraphiceffects")
 		resetGraphicEffects();
+	else if(opcode == "looks_changesizeby")
+		setSize(size + inputs.value("CHANGE").toDouble());
+	else if(opcode == "looks_setsizeto")
+		setSize(inputs.value("SIZE").toDouble());
 	else
 		return false;
 	return true;
