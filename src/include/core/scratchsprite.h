@@ -54,6 +54,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		qreal direction; /*!< Sprite direction. */
 		bool draggable; /*!< True if the sprite is draggable. */
 		QString rotationStyle; /*!< Sprite rotation style ("all around", "left-right", or "don't rotate"). */
+		QList<QVariantMap> costumes;
 
 	private:
 		QMap<QString,QString> getInputs(QVariantMap block, bool readFields = false);
@@ -73,7 +74,6 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		QMap<QString,QPair<QString,QList<QString>>> lists;
 		QMap<QString,QString> broadcasts;
 		QMap<QString,QVariantMap> blocks;
-		QList<QVariantMap> costumes;
 		QList<QVariantMap> sounds;
 		int layerOrder;
 		QMap<QString,qreal> graphicEffects;
