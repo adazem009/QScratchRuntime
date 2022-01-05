@@ -178,6 +178,8 @@ void scratchSprite::setCostume(int id)
 	rotationCenterX = costumes[id].value("rotationCenterX").toDouble();
 	rotationCenterY = costumes[id].value("rotationCenterY").toDouble();
 	setTransformOriginPoint(QPointF(rotationCenterX,rotationCenterY));
+	setXPos(spriteX);
+	setYPos(spriteY);
 }
 
 /*! Resets the values of all graphic effects. */
