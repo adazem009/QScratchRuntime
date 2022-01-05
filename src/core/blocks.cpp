@@ -324,6 +324,8 @@ bool scratchSprite::looksBlocks(QString opcode, QMap<QString,QString> inputs, in
 		*returnValue = QString::number(size);
 	else if(opcode == "looks_costume")
 		*returnValue = inputs.value("COSTUME");
+	else if(opcode == "looks_backdrops")
+		*returnValue = inputs.value("BACKDROP");
 	else
 		return false;
 	return true;
