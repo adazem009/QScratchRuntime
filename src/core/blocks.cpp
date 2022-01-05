@@ -387,6 +387,13 @@ bool scratchSprite::looksBlocks(QString opcode, QMap<QString,QString> inputs, in
 		else
 			*returnValue = stagePtr->costumes[stagePtr->currentCostume].value("name").toString();
 	}
+	else if(opcode == "looks_costumenumbername")
+	{
+		if(inputs.value("NUMBER_NAME") == "number")
+			*returnValue = QString::number(currentCostume);
+		else
+			*returnValue = costumes[currentCostume].value("name").toString();
+	}
 	else
 		return false;
 	return true;
