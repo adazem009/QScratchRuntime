@@ -339,6 +339,25 @@ bool scratchSprite::looksBlocks(QString opcode, QMap<QString,QString> inputs, in
 			newCostume = 0;
 		stagePtr->setCostume(newCostume);
 	}
+	else if(opcode == "looks_gotofrontback")
+	{
+		if(inputs.value("FRONT_BACK") == "front")
+		{
+			int maxLayer = 0;
+			for(int i=0; i < spriteList.count(); i++)
+			{
+				if(spriteList[i]->zValue() > maxLayer)
+					maxLayer = spriteList[i]->zValue();
+			}
+			setZValue(maxLayer+1);
+		}
+		else
+		{
+			for(int i=0; i < spriteList.count(); i++)
+				spriteList[i]->setZValue(spriteList[i]->zValue() + 1);
+			setZValue(1);
+		}
+	}
 	// Reporter blocks
 	else if(opcode == "looks_size")
 		*returnValue = QString::number(size);
