@@ -60,12 +60,18 @@ void MainWindow::openFile(void)
 /*! Reads project.json and initializes the project. */
 void MainWindow::init(void)
 {
+	int i;
+	QList<QGraphicsItem*> oldItems = scene->items();
+	for(i=0; i < oldItems.count(); i++)
+	{
+		scene->removeItem(oldItems[i]);
+		delete oldItems[i];
+	}
 	parser = new projectParser(fileName);
 	sprites = parser->sprites();
 	// Uncomment the following 2 lines to show X and Y axis
 	//scene->addLine(-240,0,240,0);
 	//scene->addLine(0,-180,0,180);
-	int i;
 	// Add sprites
 	for(i=0; i < sprites.count(); i++)
 		scene->addItem(sprites[i]);
