@@ -302,6 +302,23 @@ bool scratchSprite::looksBlocks(QString opcode, QMap<QString,QString> inputs, in
 		setSize(size + inputs.value("CHANGE").toDouble());
 	else if(opcode == "looks_setsizeto")
 		setSize(inputs.value("SIZE").toDouble());
+	else if(opcode == "looks_switchcostumeto")
+	{
+		int newCostume = currentCostume;
+		for(int i=0; i < costumes.count(); i++)
+		{
+			if(costumes[i].value("name").toString() == inputs.value("COSTUME"))
+				newCostume = i;
+		}
+		setCostume(newCostume);
+	}
+	else if(opcode == "looks_nextcostume")
+	{
+		int newCostume = currentCostume + 1;
+		if(newCostume >= costumes.count())
+			newCostume = 0;
+		setCostume(newCostume);
+	}
 	// Reporter blocks
 	else if(opcode == "looks_size")
 		*returnValue = QString::number(size);
