@@ -319,6 +319,26 @@ bool scratchSprite::looksBlocks(QString opcode, QMap<QString,QString> inputs, in
 			newCostume = 0;
 		setCostume(newCostume);
 	}
+	else if(opcode == "looks_switchbackdropto")
+	{
+		scratchSprite *stagePtr = getSprite("Stage");
+		QList<QVariantMap> *backdrops = &stagePtr->costumes;
+		int newCostume = stagePtr->currentCostume;
+		for(int i=0; i < backdrops->count(); i++)
+		{
+			if(backdrops->value(i).value("name").toString() == inputs.value("BACKDROP"))
+				newCostume = i;
+		}
+		stagePtr->setCostume(newCostume);
+	}
+	else if(opcode == "looks_nextbackdrop")
+	{
+		scratchSprite *stagePtr = getSprite("Stage");
+		int newCostume = stagePtr->currentCostume + 1;
+		if(newCostume >= stagePtr->costumes.count())
+			newCostume = 0;
+		stagePtr->setCostume(newCostume);
+	}
 	// Reporter blocks
 	else if(opcode == "looks_size")
 		*returnValue = QString::number(size);
