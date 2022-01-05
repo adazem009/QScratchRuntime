@@ -302,6 +302,9 @@ bool scratchSprite::looksBlocks(QString opcode, QMap<QString,QString> inputs, in
 		setSize(size + inputs.value("CHANGE").toDouble());
 	else if(opcode == "looks_setsizeto")
 		setSize(inputs.value("SIZE").toDouble());
+	// Reporter blocks
+	else if(opcode == "looks_size")
+		*returnValue = QString::number(size);
 	else
 		return false;
 	return true;
