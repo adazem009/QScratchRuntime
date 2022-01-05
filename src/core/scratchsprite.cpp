@@ -246,6 +246,8 @@ void scratchSprite::installGraphicEffects(void)
 /*! Sets the sprite size. */
 void scratchSprite::setSize(qreal newSize)
 {
+	if(newSize < 0)
+		newSize = 0;
 	setScale(newSize/100.0);
 	size = newSize;
 }
