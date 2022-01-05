@@ -180,6 +180,7 @@ void scratchSprite::setCostume(int id)
 	setTransformOriginPoint(QPointF(rotationCenterX,rotationCenterY));
 	setXPos(spriteX);
 	setYPos(spriteY);
+	installGraphicEffects();
 }
 
 /*! Resets the values of all graphic effects. */
