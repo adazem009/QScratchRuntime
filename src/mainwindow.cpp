@@ -52,7 +52,8 @@ MainWindow::~MainWindow()
  */
 void MainWindow::openFile(void)
 {
-	fileName = QFileDialog::getOpenFileName(this,tr("Open Scratch project"),QString(),tr("Scratch project JSON file") + " (project.json)");
+	if((fileName = QFileDialog::getOpenFileName(this,tr("Open Scratch project"),QString(),tr("Scratch project JSON file") + " (project.json)")) == "")
+		return;
 	init();
 }
 
