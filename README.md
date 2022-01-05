@@ -8,7 +8,7 @@ This project is in development and it can't run most of Scratch projects. This i
 
 ### Blocks
 - [x] Motion blocks
-- [ ] Looks blocks
+- [x] Looks blocks
 - [ ] Sound blocks
 - [ ] Events blocks
 - [ ] Control blocks
