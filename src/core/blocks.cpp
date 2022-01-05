@@ -269,6 +269,18 @@ bool scratchSprite::looksBlocks(QString opcode, QMap<QString,QString> inputs, in
 		setVisible(true);
 	else if(opcode == "looks_hide")
 		setVisible(false);
+	else if(opcode == "looks_changeeffectby")
+	{
+		graphicEffects[inputs.value("EFFECT")] += inputs.value("CHANGE").toDouble();
+		installGraphicEffects();
+	}
+	else if(opcode == "looks_seteffectto")
+	{
+		graphicEffects[inputs.value("EFFECT")] = inputs.value("VALUE").toDouble();
+		installGraphicEffects();
+	}
+	else if(opcode == "looks_cleargraphiceffects")
+		resetGraphicEffects();
 	else
 		return false;
 	return true;
