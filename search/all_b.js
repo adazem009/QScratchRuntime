@@ -13,6 +13,5 @@ var searchData=
   ['spritex_10',['spriteX',['../classscratchSprite.html#ae7b66c6cd294335f2802ba4dbd946953',1,'scratchSprite']]],
   ['spritey_11',['spriteY',['../classscratchSprite.html#a1a8aa97382c17daf734c0e5d57b3829f',1,'scratchSprite']]],
   ['stage_12',['stage',['../classprojectParser.html#a652bca50042e3109eb9b7dfbab7d953e',1,'projectParser']]],
-  ['stopscripts_13',['stopScripts',['../classscratchSprite.html#a050df00d3d24f6cb179431f9c1c1257c',1,'scratchSprite']]],
-  ['stopsprite_14',['stopSprite',['../classscratchSprite.html#ad9ec8bf8179adb85bf448b1b285e5e94',1,'scratchSprite']]]
+  ['stopsprite_13',['stopSprite',['../classscratchSprite.html#ad9ec8bf8179adb85bf448b1b285e5e94',1,'scratchSprite']]]
 ];

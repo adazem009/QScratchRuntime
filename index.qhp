@@ -44,7 +44,6 @@
               <section title="setXPos" ref="classscratchSprite.html#ade994e8c0803e447564e92545d69c8a8" />
               <section title="setYPos" ref="classscratchSprite.html#ac3d432973f42391618ef53af03631301" />
               <section title="showBubble" ref="classscratchSprite.html#aa6d1bc1e75fcb29a8a70ff561a7039b7" />
-              <section title="stopScripts" ref="classscratchSprite.html#a050df00d3d24f6cb179431f9c1c1257c" />
               <section title="stopSprite" ref="classscratchSprite.html#ad9ec8bf8179adb85bf448b1b285e5e94" />
               <section title="translateX" ref="classscratchSprite.html#a89c97be0b563e3ec0aee9d39d11525c5" />
               <section title="translateY" ref="classscratchSprite.html#a7dc3024e6e5a0889dfe8dddf965fd6b6" />
@@ -130,7 +129,6 @@
       <keyword name="scratchSprite" id="scratchSprite" ref="classscratchSprite.html" />
       <keyword name="greenFlagClicked" id="scratchSprite::greenFlagClicked" ref="classscratchSprite.html#a152b51974e513a0afb6f8770765bc177" />
       <keyword name="stopSprite" id="scratchSprite::stopSprite" ref="classscratchSprite.html#ad9ec8bf8179adb85bf448b1b285e5e94" />
-      <keyword name="stopScripts" id="scratchSprite::stopScripts" ref="classscratchSprite.html#a050df00d3d24f6cb179431f9c1c1257c" />
       <keyword name="scratchSprite" id="scratchSprite::scratchSprite" ref="classscratchSprite.html#a401307233d74f2cbec2728b728f159ba" />
       <keyword name="loadSpriteList" id="scratchSprite::loadSpriteList" ref="classscratchSprite.html#a2429ac26a3c4bec405a51b2f3a82ae49" />
       <keyword name="setXPos" id="scratchSprite::setXPos" ref="classscratchSprite.html#ade994e8c0803e447564e92545d69c8a8" />

@@ -10,6 +10,5 @@ var searchData=
   ['showbubble_7',['showBubble',['../classscratchSprite.html#aa6d1bc1e75fcb29a8a70ff561a7039b7',1,'scratchSprite']]],
   ['sprites_8',['sprites',['../classprojectParser.html#ab4d4e9b006743666101d500a4c74608b',1,'projectParser']]],
   ['stage_9',['stage',['../classprojectParser.html#a652bca50042e3109eb9b7dfbab7d953e',1,'projectParser']]],
-  ['stopscripts_10',['stopScripts',['../classscratchSprite.html#a050df00d3d24f6cb179431f9c1c1257c',1,'scratchSprite']]],
-  ['stopsprite_11',['stopSprite',['../classscratchSprite.html#ad9ec8bf8179adb85bf448b1b285e5e94',1,'scratchSprite']]]
+  ['stopsprite_10',['stopSprite',['../classscratchSprite.html#ad9ec8bf8179adb85bf448b1b285e5e94',1,'scratchSprite']]]
 ];
