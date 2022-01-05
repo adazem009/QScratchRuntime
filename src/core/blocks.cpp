@@ -305,6 +305,8 @@ bool scratchSprite::looksBlocks(QString opcode, QMap<QString,QString> inputs, in
 	// Reporter blocks
 	else if(opcode == "looks_size")
 		*returnValue = QString::number(size);
+	else if(opcode == "looks_costume")
+		*returnValue = inputs.value("COSTUME");
 	else
 		return false;
 	return true;
