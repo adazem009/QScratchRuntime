@@ -23,7 +23,17 @@ This project is in development and it can't run most of Scratch projects. This i
 - [ ] Broadcasts
 - [ ] Variables
 - [ ] Lists
-- [ ] Graphics effects
+
+### Graphic effects
+- [x] Color
+- [ ] Fisheye
+- [ ] Whirl
+- [ ] Pixelate
+- [ ] Mosaic
+- [x] Brightness
+- [x] Ghost
+
+See the `installGraphicEffects()` function in [src/core/scratchsprite.cpp](https://github.com/adazem009/QScratchRuntime/blob/master/src/core/scratchsprite.cpp)
 
 ### Extensions
 - [ ] Pen
