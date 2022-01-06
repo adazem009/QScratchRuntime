@@ -23,7 +23,7 @@
  * All functions in this file are members of scratchSprite.
  */
 
-#include "core/blocks.h"
+#include "core/scratchsprite.h"
 
 /*! Runs motion blocks. */
 bool scratchSprite::motionBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd, bool *processEnd, QString *returnValue)

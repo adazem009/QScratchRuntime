@@ -27,7 +27,6 @@ SOURCES += \
 
 HEADERS += \
     src/include/core/scratchsprite.h \
-    src/include/core/blocks.h \
     src/include/mainwindow.h \
     src/include/projectscene.h \
     src/include/core/projectparser.h
