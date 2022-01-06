@@ -67,6 +67,11 @@ scratchSprite::scratchSprite(QJsonObject spriteObject, QString spriteAssetDir, Q
 		draggable = spriteObject.value("draggable").toBool();
 	}
 	resetGraphicEffects();
+	// Load sounds
+	QJsonArray soundsArray = spriteObject.value("sounds").toArray();
+	sounds.clear();
+	for(i=0; i < soundsArray.count(); i++)
+		sounds += soundsArray[i].toObject().toVariantMap();
 	// TODO: Load variables
 	// TODO: Load lists
 	// TODO: Load broadcasts
@@ -288,6 +293,31 @@ void scratchSprite::setDirection(qreal angle)
 		setRotation(direction-90);
 		setTransform(transform().scale(1,1));
 	}
+}
+
+/*!
+ * Starts playing a sound and returns a pointer to the QSound object of the playing sound.\n
+ * Returns nullptr if the sound isn't found.
+ */
+QSound *scratchSprite::playSound(QString soundName)
+{
+	int soundID = -1;
+	for(int i=0; i < sounds.count(); i++)
+	{
+		if(sounds[i].value("name").toString() == soundName)
+		{
+			soundID = i;
+			break;
+		}
+	}
+	if(soundID != -1)
+	{
+		QSound *sound = new QSound(assetDir + "/" + sounds[soundID].value("assetId").toString() + "." + sounds[soundID].value("dataFormat").toString());
+		sound->play();
+		return sound;
+	}
+	else
+		return nullptr;
 }
 
 /*! Shows a speech or thought bubble. */

@@ -28,6 +28,7 @@
 #include <QRandomGenerator>
 #include <QGraphicsSceneMouseEvent>
 #include <QDateTime>
+#include <QSound>
 
 /*! \brief The scratchSprite class is a QGraphicsPixmapItem, which represents a Scratch sprite. */
 class scratchSprite : public QObject, public QGraphicsPixmapItem
@@ -65,6 +66,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		void showBubble(QString text, bool thought = false);
 		void resetGraphicEffects(void);
 		void installGraphicEffects(void);
+		QSound *playSound(QString soundName);
 		QList<scratchSprite*> spriteList;
 		QString assetDir;
 		qreal mouseX, mouseY;
