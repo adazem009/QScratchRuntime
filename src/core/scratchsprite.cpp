@@ -332,6 +332,14 @@ QSound *scratchSprite::playSound(QString soundName)
 		return nullptr;
 }
 
+/*! Stops all sounds. */
+void scratchSprite::stopAllSounds(void)
+{
+	for(int i=0; i < allSounds.count(); i++)
+		allSounds[i]->stop();
+	allSounds.clear();
+}
+
 /*! Shows a speech or thought bubble. */
 void scratchSprite::showBubble(QString text, bool thought)
 {
