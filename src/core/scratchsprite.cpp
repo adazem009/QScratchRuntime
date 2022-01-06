@@ -325,6 +325,7 @@ QSound *scratchSprite::playSound(QString soundName)
 	{
 		QSound *sound = new QSound(assetDir + "/" + sounds[soundID].value("assetId").toString() + "." + sounds[soundID].value("dataFormat").toString());
 		sound->play();
+		allSounds += sound;
 		return sound;
 	}
 	else
