@@ -1,7 +1,6 @@
 var NAVTREEINDEX0 =
 {
 "annotated.html":[0,0],
-"blocks_8h_source.html":[1,0,0,0,0,0],
 "classMainWindow.html":[0,0,0],
 "classMainWindow.html#a996c5a2b6f77944776856f08ec30858d":[0,0,0,0],
 "classMainWindow.html#ab14469aff316235cb2ee764483a6319d":[0,0,0,3],
@@ -61,7 +60,7 @@ var NAVTREEINDEX0 =
 "index.html":[],
 "mainwindow_8h_source.html":[1,0,0,0,1],
 "pages.html":[],
-"projectparser_8h_source.html":[1,0,0,0,0,1],
+"projectparser_8h_source.html":[1,0,0,0,0,0],
 "projectscene_8h_source.html":[1,0,0,0,2],
-"scratchsprite_8h_source.html":[1,0,0,0,0,2]
+"scratchsprite_8h_source.html":[1,0,0,0,0,1]
 };

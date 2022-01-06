@@ -87,7 +87,6 @@
             <section title="src" ref="dir_68267d1309a1af8e8297ef4c3efbcdba.html">
               <section title="include" ref="dir_b0856f6b0d80ccb263b2f415c91f9e17.html">
                 <section title="core" ref="dir_4cf372765f693cf540fc4810db0c309c.html">
-                  <section title="blocks.h" ref="blocks_8h_source.html" />
                   <section title="projectparser.h" ref="projectparser_8h_source.html" />
                   <section title="scratchsprite.h" ref="scratchsprite_8h_source.html" />
                 </section>
@@ -203,7 +202,6 @@
       <file>search/mag_sel.svg</file>
       <file>search/search.css</file>
       <file>search/search.js</file>
-      <file>blocks_8h_source.html</file>
       <file>projectparser_8h_source.html</file>
       <file>scratchsprite_8h_source.html</file>
       <file>mainwindow_8h_source.html</file>
