@@ -424,6 +424,22 @@ bool scratchSprite::soundBlocks(QString opcode, QMap<QString,QString> inputs, in
 		returnValue = new QString();
 	if(opcode == "sound_play")
 		playSound(inputs.value("SOUND_MENU"));
+	else if(opcode == "sound_playuntildone")
+	{
+		*frameEnd = true;
+		if(currentExecPos[processID]["special"].toString() != "soundwait")
+		{
+			currentExecPos[processID]["special"] = "soundwait";
+			currentExecPos[processID]["sound"] = (qlonglong) (intptr_t) playSound(inputs.value("SOUND_MENU"));
+		}
+		QSound *sound = (QSound*) currentExecPos[processID]["sound"].toLongLong();
+		if(sound->isFinished())
+		{
+			delete sound;
+			*processEnd = true;
+			*frameEnd = false;
+		}
+	}
 	// Reporter blocks
 	else if(opcode == "sound_sounds_menu")
 		*returnValue = inputs.value("SOUND_MENU");
