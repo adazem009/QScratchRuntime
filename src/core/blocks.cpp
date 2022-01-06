@@ -440,6 +440,8 @@ bool scratchSprite::soundBlocks(QString opcode, QMap<QString,QString> inputs, in
 			*frameEnd = false;
 		}
 	}
+	else if(opcode == "sound_stopallsounds")
+		stopAllSounds();
 	// Reporter blocks
 	else if(opcode == "sound_sounds_menu")
 		*returnValue = inputs.value("SOUND_MENU");
