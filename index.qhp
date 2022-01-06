@@ -46,6 +46,7 @@
               <section title="setYPos" ref="classscratchSprite.html#ac3d432973f42391618ef53af03631301" />
               <section title="showBubble" ref="classscratchSprite.html#aa6d1bc1e75fcb29a8a70ff561a7039b7" />
               <section title="soundBlocks" ref="classscratchSprite.html#aca3408cd544bd96b5fda78d311c64721" />
+              <section title="stopAllSounds" ref="classscratchSprite.html#a11f668c698d5517f36f7b209b4602e41" />
               <section title="stopSprite" ref="classscratchSprite.html#ad9ec8bf8179adb85bf448b1b285e5e94" />
               <section title="translateX" ref="classscratchSprite.html#a89c97be0b563e3ec0aee9d39d11525c5" />
               <section title="translateY" ref="classscratchSprite.html#a7dc3024e6e5a0889dfe8dddf965fd6b6" />
@@ -92,6 +93,7 @@
                   <section title="projectparser.h" ref="projectparser_8h_source.html" />
                   <section title="scratchsprite.h" ref="scratchsprite_8h_source.html" />
                 </section>
+                <section title="global.h" ref="global_8h_source.html" />
                 <section title="mainwindow.h" ref="mainwindow_8h_source.html" />
                 <section title="projectscene.h" ref="projectscene_8h_source.html" />
               </section>
@@ -139,6 +141,7 @@
       <keyword name="setSize" id="scratchSprite::setSize" ref="classscratchSprite.html#aaa192f3c27395177029a47366ee143d8" />
       <keyword name="setDirection" id="scratchSprite::setDirection" ref="classscratchSprite.html#a7ba47275426e6925d8e37d9ecb84e349" />
       <keyword name="frame" id="scratchSprite::frame" ref="classscratchSprite.html#a189a29e1fb4f71052b2cb2d993d9abe0" />
+      <keyword name="stopAllSounds" id="scratchSprite::stopAllSounds" ref="classscratchSprite.html#a11f668c698d5517f36f7b209b4602e41" />
       <keyword name="isStage" id="scratchSprite::isStage" ref="classscratchSprite.html#a8e6b689dd4203bedb0e98e17a52a6ab4" />
       <keyword name="name" id="scratchSprite::name" ref="classscratchSprite.html#a76b078e8b25c8f18aff783eb5055d987" />
       <keyword name="spriteX" id="scratchSprite::spriteX" ref="classscratchSprite.html#ae7b66c6cd294335f2802ba4dbd946953" />
@@ -208,6 +211,7 @@
       <file>search/search.js</file>
       <file>projectparser_8h_source.html</file>
       <file>scratchsprite_8h_source.html</file>
+      <file>global_8h_source.html</file>
       <file>mainwindow_8h_source.html</file>
       <file>projectscene_8h_source.html</file>
       <file>classMainWindow.html</file>

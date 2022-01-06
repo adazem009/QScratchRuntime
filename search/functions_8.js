@@ -11,5 +11,6 @@ var searchData=
   ['soundblocks_8',['soundBlocks',['../classscratchSprite.html#aca3408cd544bd96b5fda78d311c64721',1,'scratchSprite']]],
   ['sprites_9',['sprites',['../classprojectParser.html#ab4d4e9b006743666101d500a4c74608b',1,'projectParser']]],
   ['stage_10',['stage',['../classprojectParser.html#a652bca50042e3109eb9b7dfbab7d953e',1,'projectParser']]],
-  ['stopsprite_11',['stopSprite',['../classscratchSprite.html#ad9ec8bf8179adb85bf448b1b285e5e94',1,'scratchSprite']]]
+  ['stopallsounds_11',['stopAllSounds',['../classscratchSprite.html#a11f668c698d5517f36f7b209b4602e41',1,'scratchSprite']]],
+  ['stopsprite_12',['stopSprite',['../classscratchSprite.html#ad9ec8bf8179adb85bf448b1b285e5e94',1,'scratchSprite']]]
 ];

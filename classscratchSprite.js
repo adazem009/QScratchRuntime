@@ -19,6 +19,7 @@ var classscratchSprite =
     [ "setYPos", "classscratchSprite.html#ac3d432973f42391618ef53af03631301", null ],
     [ "showBubble", "classscratchSprite.html#aa6d1bc1e75fcb29a8a70ff561a7039b7", null ],
     [ "soundBlocks", "classscratchSprite.html#aca3408cd544bd96b5fda78d311c64721", null ],
+    [ "stopAllSounds", "classscratchSprite.html#a11f668c698d5517f36f7b209b4602e41", null ],
     [ "stopSprite", "classscratchSprite.html#ad9ec8bf8179adb85bf448b1b285e5e94", null ],
     [ "translateX", "classscratchSprite.html#a89c97be0b563e3ec0aee9d39d11525c5", null ],
     [ "translateY", "classscratchSprite.html#a7dc3024e6e5a0889dfe8dddf965fd6b6", null ],

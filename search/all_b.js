@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['scratchsprite_0',['scratchSprite',['../classscratchSprite.html',1,'scratchSprite'],['../classscratchSprite.html#a401307233d74f2cbec2728b728f159ba',1,'scratchSprite::scratchSprite(QJsonObject spriteObject, QString assetDir, QGraphicsItem *parent=nullptr)']]],
+  ['scratchsprite_0',['scratchSprite',['../classscratchSprite.html#a401307233d74f2cbec2728b728f159ba',1,'scratchSprite::scratchSprite()'],['../classscratchSprite.html',1,'scratchSprite']]],
   ['setcostume_1',['setCostume',['../classscratchSprite.html#a508ac9693e4f1ae523b4316fd9067833',1,'scratchSprite']]],
   ['setdirection_2',['setDirection',['../classscratchSprite.html#a7ba47275426e6925d8e37d9ecb84e349',1,'scratchSprite']]],
   ['setmousepos_3',['setMousePos',['../classscratchSprite.html#a0f00f9ca722b62c15b74a3fee89f561a',1,'scratchSprite']]],
@@ -14,5 +14,6 @@ var searchData=
   ['spritex_11',['spriteX',['../classscratchSprite.html#ae7b66c6cd294335f2802ba4dbd946953',1,'scratchSprite']]],
   ['spritey_12',['spriteY',['../classscratchSprite.html#a1a8aa97382c17daf734c0e5d57b3829f',1,'scratchSprite']]],
   ['stage_13',['stage',['../classprojectParser.html#a652bca50042e3109eb9b7dfbab7d953e',1,'projectParser']]],
-  ['stopsprite_14',['stopSprite',['../classscratchSprite.html#ad9ec8bf8179adb85bf448b1b285e5e94',1,'scratchSprite']]]
+  ['stopallsounds_14',['stopAllSounds',['../classscratchSprite.html#a11f668c698d5517f36f7b209b4602e41',1,'scratchSprite']]],
+  ['stopsprite_15',['stopSprite',['../classscratchSprite.html#ad9ec8bf8179adb85bf448b1b285e5e94',1,'scratchSprite']]]
 ];
