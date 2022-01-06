@@ -8,7 +8,8 @@ var searchData=
   ['setxpos_5',['setXPos',['../classscratchSprite.html#ade994e8c0803e447564e92545d69c8a8',1,'scratchSprite']]],
   ['setypos_6',['setYPos',['../classscratchSprite.html#ac3d432973f42391618ef53af03631301',1,'scratchSprite']]],
   ['showbubble_7',['showBubble',['../classscratchSprite.html#aa6d1bc1e75fcb29a8a70ff561a7039b7',1,'scratchSprite']]],
-  ['sprites_8',['sprites',['../classprojectParser.html#ab4d4e9b006743666101d500a4c74608b',1,'projectParser']]],
-  ['stage_9',['stage',['../classprojectParser.html#a652bca50042e3109eb9b7dfbab7d953e',1,'projectParser']]],
-  ['stopsprite_10',['stopSprite',['../classscratchSprite.html#ad9ec8bf8179adb85bf448b1b285e5e94',1,'scratchSprite']]]
+  ['soundblocks_8',['soundBlocks',['../classscratchSprite.html#aca3408cd544bd96b5fda78d311c64721',1,'scratchSprite']]],
+  ['sprites_9',['sprites',['../classprojectParser.html#ab4d4e9b006743666101d500a4c74608b',1,'projectParser']]],
+  ['stage_10',['stage',['../classprojectParser.html#a652bca50042e3109eb9b7dfbab7d953e',1,'projectParser']]],
+  ['stopsprite_11',['stopSprite',['../classscratchSprite.html#ad9ec8bf8179adb85bf448b1b285e5e94',1,'scratchSprite']]]
 ];
