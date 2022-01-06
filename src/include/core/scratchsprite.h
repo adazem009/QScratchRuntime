@@ -83,6 +83,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		// Blocks
 		bool motionBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd = nullptr, bool *processEnd = nullptr, QString *returnValue = nullptr);
 		bool looksBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd = nullptr, bool *processEnd = nullptr, QString *returnValue = nullptr);
+		bool soundBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd = nullptr, bool *processEnd = nullptr, QString *returnValue = nullptr);
 
 	public slots:
 		void greenFlagClicked(void);

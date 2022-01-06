@@ -331,7 +331,8 @@ void scratchSprite::frame(void)
 			bool processEnd = false;
 			// Run current block
 			motionBlocks(opcode,inputs,frame_i,&frameEnd,&processEnd) ||
-			looksBlocks(opcode,inputs,frame_i,&frameEnd,&processEnd);
+			looksBlocks(opcode,inputs,frame_i,&frameEnd,&processEnd) ||
+			soundBlocks(opcode,inputs,frame_i,&frameEnd,&processEnd);
 			// Get next block
 			QVariant nextValue = block.value("next");
 			if(frameEnd)
@@ -409,7 +410,8 @@ QMap<QString,QString> scratchSprite::getInputs(QVariantMap block, bool readField
 			QMap<QString,QString> inputs = getInputs(reporterBlock);
 			// Get reporter block value
 			motionBlocks(opcode,inputs,0,nullptr,nullptr,&finalValue) ||
-			looksBlocks(opcode,inputs,0,nullptr,nullptr,&finalValue);
+			looksBlocks(opcode,inputs,0,nullptr,nullptr,&finalValue) ||
+			soundBlocks(opcode,inputs,0,nullptr,nullptr,&finalValue);
 		}
 		if(!typeConverted)
 		{

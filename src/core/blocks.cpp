@@ -411,3 +411,16 @@ bool scratchSprite::looksBlocks(QString opcode, QMap<QString,QString> inputs, in
 		return false;
 	return true;
 }
+
+/*! Runs sound blocks. */
+bool scratchSprite::soundBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd, bool *processEnd, QString *returnValue)
+{
+	if(frameEnd == nullptr)
+		frameEnd = new bool;
+	if(processEnd == nullptr)
+		processEnd = new bool;
+	*processEnd = false;
+	if(returnValue == nullptr)
+		returnValue = new QString();
+	return false;
+}
