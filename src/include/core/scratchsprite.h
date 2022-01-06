@@ -29,6 +29,7 @@
 #include <QGraphicsSceneMouseEvent>
 #include <QDateTime>
 #include <QSound>
+#include "global.h"
 
 /*! \brief The scratchSprite class is a QGraphicsPixmapItem, which represents a Scratch sprite. */
 class scratchSprite : public QObject, public QGraphicsPixmapItem

@@ -301,6 +301,17 @@ void scratchSprite::setDirection(qreal angle)
  */
 QSound *scratchSprite::playSound(QString soundName)
 {
+	// Remove finished sounds
+	QList<QSound*> soundsToRemove;
+	soundsToRemove.clear();
+	for(int i=0; i < allSounds.count(); i++)
+	{
+		if(allSounds[i]->isFinished())
+			soundsToRemove += allSounds[i];
+	}
+	for(int i=0; i < soundsToRemove.count(); i++)
+		allSounds.removeAll(soundsToRemove[i]);
+	// Play the sound
 	int soundID = -1;
 	for(int i=0; i < sounds.count(); i++)
 	{
