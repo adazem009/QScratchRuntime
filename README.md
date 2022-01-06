@@ -35,6 +35,10 @@ This project is in development and it can't run most of Scratch projects. This i
 
 See the `installGraphicEffects()` function in [src/core/scratchsprite.cpp](https://github.com/adazem009/QScratchRuntime/blob/master/src/core/scratchsprite.cpp)
 
+### Sound effects
+- [ ] Pitch
+- [ ] Pan left/right
+
 ### Extensions
 - [ ] Pen
 
