@@ -296,17 +296,17 @@ void scratchSprite::setDirection(qreal angle)
 }
 
 /*!
- * Starts playing a sound and returns a pointer to the QSound object of the playing sound.\n
+ * Starts playing a sound and returns a pointer to the QSoundEffect object of the playing sound.\n
  * Returns nullptr if the sound isn't found.
  */
-QSound *scratchSprite::playSound(QString soundName)
+QSoundEffect *scratchSprite::playSound(QString soundName)
 {
 	// Remove finished sounds
-	QList<QSound*> soundsToRemove;
+	QList<QSoundEffect*> soundsToRemove;
 	soundsToRemove.clear();
 	for(int i=0; i < allSounds.count(); i++)
 	{
-		if(allSounds[i]->isFinished())
+		if(allSounds[i]->isMuted())
 			soundsToRemove += allSounds[i];
 	}
 	for(int i=0; i < soundsToRemove.count(); i++)
@@ -323,7 +323,8 @@ QSound *scratchSprite::playSound(QString soundName)
 	}
 	if(soundID != -1)
 	{
-		QSound *sound = new QSound(assetDir + "/" + sounds[soundID].value("assetId").toString() + "." + sounds[soundID].value("dataFormat").toString());
+		QSoundEffect *sound = new QSoundEffect();
+		sound->setSource(QUrl::fromLocalFile(assetDir + "/" + sounds[soundID].value("assetId").toString() + "." + sounds[soundID].value("dataFormat").toString()));
 		sound->play();
 		allSounds += sound;
 		return sound;

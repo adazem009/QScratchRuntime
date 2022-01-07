@@ -19,6 +19,6 @@
  */
 
 #include <QList>
-#include <QSound>
+#include <QSoundEffect>
 
-extern QList<QSound*> allSounds;
+extern QList<QSoundEffect*> allSounds;
