@@ -36,10 +36,8 @@ void projectScene::loadSpriteList(QList<scratchSprite*> list)
 	for(int i=0; i < spriteList.count(); i++)
 	{
 		if(spriteList[i]->isStage)
-		{
 			connect(spriteList[i],&scratchSprite::backdropSwitched,this,&projectScene::backdropSwitched);
-			connect(spriteList[i],&scratchSprite::broadcast,this,&projectScene::broadcastSent);
-		}
+		connect(spriteList[i],&scratchSprite::broadcast,this,&projectScene::broadcastSent);
 	}
 }
 
