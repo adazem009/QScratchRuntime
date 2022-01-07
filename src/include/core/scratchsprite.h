@@ -52,6 +52,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		void keyPressed(int key, QString keyText);
 		bool checkKey(int QtKey, QString keyText, QString scratchKey);
 		void backdropSwitchEvent(QVariantMap *script);
+		void broadcastReceived(QString broadcastName, QVariantMap *script);
 		bool isStage; /*!< True if this is a stage. */
 		QString name; /*!< Sprite name. */
 		qreal spriteX; /*!< X position. */
@@ -103,6 +104,8 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 	signals:
 		/*! A signal, which is emitted from the stage when the backdrop switches. */
 		void backdropSwitched(QVariantMap *script);
+		/*! A signal, which is emitted when the sprite sends a broadcast. */
+		void broadcast(QString broadcastName, QVariantMap *script = nullptr);
 
 	public slots:
 		void greenFlagClicked(void);

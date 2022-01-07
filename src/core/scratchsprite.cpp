@@ -271,6 +271,42 @@ void scratchSprite::spriteTimerEvent(void)
 	}
 }
 
+/*! Starts "when broadcast received" event blocks. */
+void scratchSprite::broadcastReceived(QString broadcastName, QVariantMap *script)
+{
+	QStringList blocksList = blocks.keys();
+	for(int i=0; i < blocksList.count(); i++)
+	{
+		QVariantMap block = blocks.value(blocksList[i]);
+		if(block.value("opcode").toString() == "event_whenbroadcastreceived")
+		{
+			QMap<QString,QString> inputs = getInputs(block);
+			if(inputs.value("BROADCAST_OPTION") == broadcastName)
+			{
+				// Stop running instances of this broadcast event
+				QList<QVariantMap> operationsToRemove;
+				operationsToRemove.clear();
+				for(int i2=0; i2 < currentExecPos.count(); i2++)
+				{
+					if(currentExecPos[i2]["toplevelblock"] == blocksList[i])
+						operationsToRemove += currentExecPos[i2];
+				}
+				for(int i2=0; i2 < operationsToRemove.count(); i2++)
+					currentExecPos.removeAll(operationsToRemove[i2]);
+				// Start the script
+				QVariantMap blockMap;
+				blockMap.clear();
+				blockMap.insert("id",blocksList[i]);
+				blockMap.insert("special","");
+				if(script != nullptr)
+					script->insert("activescripts",script->value("activescripts").toInt()+1);
+				blockMap.insert("callerptr", (qlonglong) (intptr_t) script);
+				currentExecPos += blockMap;
+			}
+		}
+	}
+}
+
 /*! Stops the sprite. */
 void scratchSprite::stopSprite(void)
 {
