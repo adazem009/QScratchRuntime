@@ -296,7 +296,7 @@ void scratchSprite::resetGraphicEffects(void)
 }
 
 /*!
- * Sets graphic effects.
+ * Sets graphic effects.\n
  * Note: Only ghost, color and brightness is supported.
  */
 void scratchSprite::installGraphicEffects(void)
