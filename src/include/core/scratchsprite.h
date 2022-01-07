@@ -50,6 +50,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		void spriteClicked(void);
 		void keyPressed(int key, QString keyText);
 		bool checkKey(int QtKey, QString keyText, QString scratchKey);
+		void backdropSwitchEvent(void);
 		bool isStage; /*!< True if this is a stage. */
 		QString name; /*!< Sprite name. */
 		qreal spriteX; /*!< X position. */
@@ -92,6 +93,10 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		bool motionBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd = nullptr, bool *processEnd = nullptr, QString *returnValue = nullptr);
 		bool looksBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd = nullptr, bool *processEnd = nullptr, QString *returnValue = nullptr);
 		bool soundBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd = nullptr, bool *processEnd = nullptr, QString *returnValue = nullptr);
+
+	signals:
+		/*! A signal, which is emitted from the stage when the backdrop switches. */
+		void backdropSwitched();
 
 	public slots:
 		void greenFlagClicked(void);

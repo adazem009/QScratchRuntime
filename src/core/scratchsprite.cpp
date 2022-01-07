@@ -189,6 +189,29 @@ bool scratchSprite::checkKey(int keyID, QString keyText, QString scratchKey)
 	return keyMap.keys(scratchKey).contains(keyID);
 }
 
+/*! Starts "when backdrop switches to" event blocks when the backdrop switches. */
+void scratchSprite::backdropSwitchEvent(void)
+{
+	QStringList blocksList = blocks.keys();
+	for(int i=0; i < blocksList.count(); i++)
+	{
+		QVariantMap block = blocks.value(blocksList[i]);
+		if(block.value("opcode").toString() == "event_whenbackdropswitchesto")
+		{
+			QMap<QString,QString> inputs = getInputs(block);
+			scratchSprite *stagePtr = getSprite("Stage");
+			if(inputs.value("BACKDROP") == stagePtr->costumes[stagePtr->currentCostume].value("name"))
+			{
+				QVariantMap blockMap;
+				blockMap.clear();
+				blockMap.insert("id",blocksList[i]);
+				blockMap.insert("special","");
+				currentExecPos += blockMap;
+			}
+		}
+	}
+}
+
 /*! Stops the sprite. */
 void scratchSprite::stopSprite(void)
 {
@@ -249,6 +272,8 @@ void scratchSprite::setCostume(int id)
 	setXPos(spriteX);
 	setYPos(spriteY);
 	installGraphicEffects();
+	if(isStage)
+		emit backdropSwitched();
 }
 
 /*! Resets the values of all graphic effects. */
