@@ -40,6 +40,8 @@ class projectScene : public QGraphicsScene
 
 	protected:
 		void timerEvent(QTimerEvent *event);
+		void mousePressEvent(QGraphicsSceneMouseEvent *event);
+		void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event);
 		void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
 		void keyPressEvent(QKeyEvent *event);
 };
