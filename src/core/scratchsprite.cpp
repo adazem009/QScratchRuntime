@@ -163,7 +163,7 @@ void scratchSprite::spriteClicked(void)
 	for(int i=0; i < blocksList.count(); i++)
 	{
 		QVariantMap block = blocks.value(blocksList[i]);
-		if(block.value("opcode").toString() == "event_whenthisspriteclicked")
+		if((block.value("opcode").toString() == "event_whenthisspriteclicked") || (block.value("opcode").toString() == "event_whenstageclicked"))
 		{
 			QVariantMap blockMap;
 			blockMap.clear();
