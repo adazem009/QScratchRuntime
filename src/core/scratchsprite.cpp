@@ -111,6 +111,8 @@ scratchSprite *scratchSprite::getSprite(QString targetName)
 void scratchSprite::greenFlagClicked(void)
 {
 	stopSprite();
+	// TODO: Add stopAll() (maybe static?) function
+	stopAllSounds();
 	QStringList blocksList = blocks.keys();
 	for(int i=0; i < blocksList.count(); i++)
 	{
