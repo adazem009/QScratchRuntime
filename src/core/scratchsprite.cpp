@@ -126,6 +126,51 @@ void scratchSprite::greenFlagClicked(void)
 	}
 }
 
+/*! Starts "when key pressed" event blocks when a key is pressed. */
+void scratchSprite::keyPressed(int key, QString keyText)
+{
+	QStringList blocksList = blocks.keys();
+	for(int i=0; i < blocksList.count(); i++)
+	{
+		QVariantMap block = blocks.value(blocksList[i]);
+		if(block.value("opcode").toString() == "event_whenkeypressed")
+		{
+			QMap<QString,QString> inputs = getInputs(block);
+			if(checkKey(key,keyText,inputs.value("KEY_OPTION")))
+			{
+				QVariantMap blockMap;
+				blockMap.clear();
+				blockMap.insert("id",blocksList[i]);
+				blockMap.insert("special","");
+				currentExecPos += blockMap;
+			}
+		}
+	}
+}
+
+/*! Returns true if key ID or key text matches the key in string. */
+bool scratchSprite::checkKey(int keyID, QString keyText, QString scratchKey)
+{
+	// Any key
+	if(scratchKey == "any")
+		return true;
+	// Compare key text
+	if(QString::compare(keyText,scratchKey,Qt::CaseInsensitive) == 0)
+		return true;
+	// Generate map of built-in Scratch keys
+	QMap<int,QString> keyMap;
+	keyMap.clear();
+	keyMap.insert(Qt::Key_Space,"space");
+	keyMap.insert(Qt::Key_Up,"up arrow");
+	keyMap.insert(Qt::Key_Down,"down arrow");
+	keyMap.insert(Qt::Key_Right,"right arrow");
+	keyMap.insert(Qt::Key_Left,"left arrow");
+	keyMap.insert(Qt::Key_Enter,"enter");
+	keyMap.insert(Qt::Key_Return,"enter");
+	// Check key match
+	return keyMap.keys(scratchKey).contains(keyID);
+}
+
 /*! Stops the sprite. */
 void scratchSprite::stopSprite(void)
 {
