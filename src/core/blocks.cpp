@@ -500,8 +500,28 @@ bool scratchSprite::eventBlocks(QString opcode, QMap<QString,QString> inputs, in
 	*processEnd = false;
 	if(returnValue == nullptr)
 		returnValue = new QString();
+	if(opcode == "event_broadcast")
+		emit broadcast(inputs.value("BROADCAST_INPUT"));
+	else if(opcode == "event_broadcastandwait")
+	{
+		*frameEnd = true;
+		if(currentExecPos[processID]["special"].toString() != "waituntilend")
+		{
+			currentExecPos[processID]["special"] = "waituntilend";
+			currentExecPos[processID]["activescripts"] = 0;
+			emit broadcast(inputs.value("BROADCAST_INPUT"),&currentExecPos[processID]);
+		}
+		else
+		{
+			if(currentExecPos[processID]["activescripts"].toInt() == 0)
+			{
+				*processEnd = true;
+				*frameEnd = false;
+			}
+		}
+	}
 	// Reporter blocks
-	if(opcode == "event_broadcast_menu")
+	else if(opcode == "event_broadcast_menu")
 		*returnValue = inputs.value("BROADCAST_OPTION");
 	return false;
 }
