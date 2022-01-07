@@ -500,5 +500,8 @@ bool scratchSprite::eventBlocks(QString opcode, QMap<QString,QString> inputs, in
 	*processEnd = false;
 	if(returnValue == nullptr)
 		returnValue = new QString();
+	// Reporter blocks
+	if(opcode == "event_broadcast_menu")
+		*returnValue = inputs.value("BROADCAST_OPTION");
 	return false;
 }
