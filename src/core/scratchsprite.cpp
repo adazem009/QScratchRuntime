@@ -192,7 +192,7 @@ bool scratchSprite::checkKey(int keyID, QString keyText, QString scratchKey)
 }
 
 /*! Starts "when backdrop switches to" event blocks when the backdrop switches. */
-void scratchSprite::backdropSwitchEvent(void)
+void scratchSprite::backdropSwitchEvent(QVariantMap *script)
 {
 	QStringList blocksList = blocks.keys();
 	for(int i=0; i < blocksList.count(); i++)
@@ -208,6 +208,9 @@ void scratchSprite::backdropSwitchEvent(void)
 				blockMap.clear();
 				blockMap.insert("id",blocksList[i]);
 				blockMap.insert("special","");
+				if(script != nullptr)
+					script->insert("activescripts",script->value("activescripts").toInt()+1);
+				blockMap.insert("callerptr", (qlonglong) (intptr_t) script);
 				currentExecPos += blockMap;
 			}
 		}
@@ -263,7 +266,7 @@ void scratchSprite::setMousePos(QPointF pos)
 }
 
 /*! Sets the sprite costume. */
-void scratchSprite::setCostume(int id)
+void scratchSprite::setCostume(int id, QVariantMap *script)
 {
 	currentCostume = id;
 	costumePixmap = QPixmap(assetDir + "/" + costumes[id].value("assetId").toString() + "." + costumes[id].value("dataFormat").toString());
@@ -274,8 +277,8 @@ void scratchSprite::setCostume(int id)
 	setXPos(spriteX);
 	setYPos(spriteY);
 	installGraphicEffects();
-	if(isStage)
-		emit backdropSwitched();
+	if((isStage) && (script != nullptr))
+		emit backdropSwitched(script);
 }
 
 /*! Resets the values of all graphic effects. */
@@ -490,6 +493,9 @@ void scratchSprite::frame(void)
 			else if(nextValue.isNull())
 			{
 				currentExecPos[frame_i]["id"] = currentID;
+				QVariantMap *callerScript = (QVariantMap*) currentExecPos[frame_i]["callerptr"].toLongLong();
+				if(callerScript != nullptr)
+					callerScript->insert("activescripts",callerScript->value("activescripts").toInt()-1);
 				operationsToRemove += currentID;
 				frameEnd = true;
 			}

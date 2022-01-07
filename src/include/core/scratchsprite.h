@@ -41,7 +41,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		void setXPos(qreal x);
 		void setYPos(qreal y);
 		void setMousePos(QPointF pos);
-		void setCostume(int id);
+		void setCostume(int id, QVariantMap *scripts = nullptr);
 		void setSize(qreal newSize);
 		void setDirection(qreal angle);
 		void frame(void);
@@ -50,7 +50,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		void spriteClicked(void);
 		void keyPressed(int key, QString keyText);
 		bool checkKey(int QtKey, QString keyText, QString scratchKey);
-		void backdropSwitchEvent(void);
+		void backdropSwitchEvent(QVariantMap *script);
 		bool isStage; /*!< True if this is a stage. */
 		QString name; /*!< Sprite name. */
 		qreal spriteX; /*!< X position. */
@@ -96,7 +96,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 
 	signals:
 		/*! A signal, which is emitted from the stage when the backdrop switches. */
-		void backdropSwitched();
+		void backdropSwitched(QVariantMap *script);
 
 	public slots:
 		void greenFlagClicked(void);
