@@ -85,6 +85,7 @@ $(document).ready(function(){initNavTree('classscratchSprite.html',''); initResi
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-slots">Public Slots</a> &#124;
 <a href="#signals">Signals</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -122,6 +123,12 @@ Collaboration diagram for scratchSprite:</div>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a79f5e6547f5f8a36caa7b7ad8cc37959"><td class="memItemLeft" align="right" valign="top"><a id="a79f5e6547f5f8a36caa7b7ad8cc37959" name="a79f5e6547f5f8a36caa7b7ad8cc37959"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>Type</b> = UserType + 1
+ }</td></tr>
+<tr class="separator:a79f5e6547f5f8a36caa7b7ad8cc37959"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-slots" name="pub-slots"></a>
 Public Slots</h2></td></tr>
 <tr class="memitem:a152b51974e513a0afb6f8770765bc177"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#a152b51974e513a0afb6f8770765bc177">greenFlagClicked</a> (void)</td></tr>
@@ -140,6 +147,8 @@ Signals</h2></td></tr>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a401307233d74f2cbec2728b728f159ba"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#a401307233d74f2cbec2728b728f159ba">scratchSprite</a> (QJsonObject spriteObject, QString assetDir, QGraphicsItem *parent=nullptr)</td></tr>
 <tr class="separator:a401307233d74f2cbec2728b728f159ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16f3cdfc2b5707d7a17e33d9b5d033d5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#a16f3cdfc2b5707d7a17e33d9b5d033d5">type</a> (void) const override</td></tr>
+<tr class="separator:a16f3cdfc2b5707d7a17e33d9b5d033d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2429ac26a3c4bec405a51b2f3a82ae49"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#a2429ac26a3c4bec405a51b2f3a82ae49">loadSpriteList</a> (QList&lt; <a class="el" href="classscratchSprite.html">scratchSprite</a> * &gt; lists)</td></tr>
 <tr class="separator:a2429ac26a3c4bec405a51b2f3a82ae49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade994e8c0803e447564e92545d69c8a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#ade994e8c0803e447564e92545d69c8a8">setXPos</a> (qreal x)</td></tr>
@@ -1327,6 +1336,33 @@ Returns nullptr if the sound isn't found. </p>
 </table>
 </div><div class="memdoc">
 <p >Translates Y position from Scratch coordinate system to QGraphicsScene coordinate system or vice versa. </p>
+
+</div>
+</div>
+<a id="a16f3cdfc2b5707d7a17e33d9b5d033d5" name="a16f3cdfc2b5707d7a17e33d9b5d033d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16f3cdfc2b5707d7a17e33d9b5d033d5">&#9670;&nbsp;</a></span>type()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int scratchSprite::type </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Returns user type of QGraphicsItem. </p>
 
 </div>
 </div>

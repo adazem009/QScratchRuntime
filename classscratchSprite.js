@@ -33,6 +33,7 @@ var classscratchSprite =
     [ "stopSprite", "classscratchSprite.html#ad9ec8bf8179adb85bf448b1b285e5e94", null ],
     [ "translateX", "classscratchSprite.html#a89c97be0b563e3ec0aee9d39d11525c5", null ],
     [ "translateY", "classscratchSprite.html#a7dc3024e6e5a0889dfe8dddf965fd6b6", null ],
+    [ "type", "classscratchSprite.html#a16f3cdfc2b5707d7a17e33d9b5d033d5", null ],
     [ "currentCostume", "classscratchSprite.html#ae9affb7540903c1ad8936ae1699eeb70", null ],
     [ "direction", "classscratchSprite.html#a5b09a80137060595705512837eeba008", null ],
     [ "draggable", "classscratchSprite.html#a992e9be078ab605da7f7ccd41fc3a10f", null ],
