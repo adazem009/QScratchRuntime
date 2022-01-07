@@ -95,6 +95,12 @@ scratchSprite::scratchSprite(QJsonObject spriteObject, QString spriteAssetDir, Q
 	}
 }
 
+/*! Returns user type of QGraphicsItem. */
+int scratchSprite::type(void) const
+{
+	return Type;
+}
+
 /*! Loads list of sprite pointers. */
 void scratchSprite::loadSpriteList(QList<scratchSprite*> list)
 {

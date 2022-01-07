@@ -37,7 +37,9 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 {
 	Q_OBJECT
 	public:
+		enum { Type = UserType + 1 };
 		explicit scratchSprite(QJsonObject spriteObject, QString assetDir, QGraphicsItem *parent = nullptr);
+		int type(void) const override;
 		void loadSpriteList(QList<scratchSprite*> lists);
 		void setXPos(qreal x);
 		void setYPos(qreal y);
