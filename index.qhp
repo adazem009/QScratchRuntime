@@ -203,6 +203,7 @@
       <keyword name="speechBubble" id="scratchSprite::speechBubble" ref="classscratchSprite.html#a2e5aed6f92f8bda97ea12c7fc6dd5628" />
       <keyword name="speechBubbleText" id="scratchSprite::speechBubbleText" ref="classscratchSprite.html#a3efc88d261fddd4d3f8a1ccb6489490e" />
       <keyword name="costumePixmap" id="scratchSprite::costumePixmap" ref="classscratchSprite.html#ab4e56ad2b43b23a3eb278dd4bfd497be" />
+      <keyword name="timer" id="scratchSprite::timer" ref="classscratchSprite.html#ac25a4b10bbbaf94a8fb148d9ed3ca9a8" />
     </keywords>
     <files>
       <file>tabs.css</file>
