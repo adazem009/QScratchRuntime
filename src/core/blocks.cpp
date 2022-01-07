@@ -453,6 +453,8 @@ bool scratchSprite::soundBlocks(QString opcode, QMap<QString,QString> inputs, in
 	// Reporter blocks
 	else if(opcode == "sound_sounds_menu")
 		*returnValue = inputs.value("SOUND_MENU");
+	else if(opcode == "sound_volume")
+		*returnValue = QString::number(volume);
 	else
 		return false;
 	return true;
