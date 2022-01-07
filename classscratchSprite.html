@@ -86,6 +86,7 @@ $(document).ready(function(){initNavTree('classscratchSprite.html',''); initResi
 <div class="header">
   <div class="summary">
 <a href="#pub-slots">Public Slots</a> &#124;
+<a href="#signals">Signals</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
@@ -128,6 +129,11 @@ Public Slots</h2></td></tr>
 <tr class="memitem:ad9ec8bf8179adb85bf448b1b285e5e94"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#ad9ec8bf8179adb85bf448b1b285e5e94">stopSprite</a> (void)</td></tr>
 <tr class="separator:ad9ec8bf8179adb85bf448b1b285e5e94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="signals" name="signals"></a>
+Signals</h2></td></tr>
+<tr class="memitem:a426580f049374ef2f2f1871983006daa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#a426580f049374ef2f2f1871983006daa">backdropSwitched</a> ()</td></tr>
+<tr class="separator:a426580f049374ef2f2f1871983006daa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a401307233d74f2cbec2728b728f159ba"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#a401307233d74f2cbec2728b728f159ba">scratchSprite</a> (QJsonObject spriteObject, QString assetDir, QGraphicsItem *parent=nullptr)</td></tr>
@@ -156,6 +162,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a088476078fa21b3c71572b26f46294b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa41f796acf1b9c95ece39e28353c252e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#aa41f796acf1b9c95ece39e28353c252e">checkKey</a> (int QtKey, QString keyText, QString scratchKey)</td></tr>
 <tr class="separator:aa41f796acf1b9c95ece39e28353c252e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b0d4d124a23d832b6d818d92a897088"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#a7b0d4d124a23d832b6d818d92a897088">backdropSwitchEvent</a> (void)</td></tr>
+<tr class="separator:a7b0d4d124a23d832b6d818d92a897088"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -319,6 +327,51 @@ QPixmap&#160;</td><td class="memItemRight" valign="bottom"><b>costumePixmap</b><
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a426580f049374ef2f2f1871983006daa" name="a426580f049374ef2f2f1871983006daa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a426580f049374ef2f2f1871983006daa">&#9670;&nbsp;</a></span>backdropSwitched</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void scratchSprite::backdropSwitched </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >A signal, which is emitted from the stage when the backdrop switches. </p>
+
+</div>
+</div>
+<a id="a7b0d4d124a23d832b6d818d92a897088" name="a7b0d4d124a23d832b6d818d92a897088"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b0d4d124a23d832b6d818d92a897088">&#9670;&nbsp;</a></span>backdropSwitchEvent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void scratchSprite::backdropSwitchEvent </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Starts "when backdrop switches to" event blocks when the backdrop switches. </p>
+
+</div>
+</div>
 <a id="aa41f796acf1b9c95ece39e28353c252e" name="aa41f796acf1b9c95ece39e28353c252e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa41f796acf1b9c95ece39e28353c252e">&#9670;&nbsp;</a></span>checkKey()</h2>
 

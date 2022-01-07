@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['openfile_0',['openFile',['../classMainWindow.html#ab14469aff316235cb2ee764483a6319d',1,'MainWindow']]]
+  ['name_0',['name',['../classscratchSprite.html#a76b078e8b25c8f18aff783eb5055d987',1,'scratchSprite']]]
 ];

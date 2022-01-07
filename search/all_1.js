@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['direction_0',['direction',['../classscratchSprite.html#a5b09a80137060595705512837eeba008',1,'scratchSprite']]],
-  ['draggable_1',['draggable',['../classscratchSprite.html#a992e9be078ab605da7f7ccd41fc3a10f',1,'scratchSprite']]]
+  ['checkkey_0',['checkKey',['../classscratchSprite.html#aa41f796acf1b9c95ece39e28353c252e',1,'scratchSprite']]],
+  ['currentcostume_1',['currentCostume',['../classscratchSprite.html#ae9affb7540903c1ad8936ae1699eeb70',1,'scratchSprite']]]
 ];
