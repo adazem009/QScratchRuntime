@@ -88,8 +88,8 @@ void projectScene::timerEvent(QTimerEvent *event)
 }
 
 /*! Connected from scratchSprite#backdropSwitched() (only from the stage). */
-void projectScene::backdropSwitched(void)
+void projectScene::backdropSwitched(QVariantMap *script)
 {
 	for(int i=0; i < spriteList.count(); i++)
-		spriteList[i]->backdropSwitchEvent();
+		spriteList[i]->backdropSwitchEvent(script);
 }
