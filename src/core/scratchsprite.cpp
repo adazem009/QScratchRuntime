@@ -126,6 +126,24 @@ void scratchSprite::greenFlagClicked(void)
 	}
 }
 
+/*! Starts "when this sprite clicked" event blocks when this sprite is clicked. */
+void scratchSprite::spriteClicked(void)
+{
+	QStringList blocksList = blocks.keys();
+	for(int i=0; i < blocksList.count(); i++)
+	{
+		QVariantMap block = blocks.value(blocksList[i]);
+		if(block.value("opcode").toString() == "event_whenthisspriteclicked")
+		{
+			QVariantMap blockMap;
+			blockMap.clear();
+			blockMap.insert("id",blocksList[i]);
+			blockMap.insert("special","");
+			currentExecPos += blockMap;
+		}
+	}
+}
+
 /*! Starts "when key pressed" event blocks when a key is pressed. */
 void scratchSprite::keyPressed(int key, QString keyText)
 {

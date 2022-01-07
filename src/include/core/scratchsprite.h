@@ -47,6 +47,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		void frame(void);
 		static void stopAllSounds(void);
 		void setVolume(qreal newVolume);
+		void spriteClicked(void);
 		void keyPressed(int key, QString keyText);
 		bool checkKey(int QtKey, QString keyText, QString scratchKey);
 		bool isStage; /*!< True if this is a stage. */
