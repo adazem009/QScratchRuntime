@@ -36,7 +36,10 @@ void projectScene::loadSpriteList(QList<scratchSprite*> list)
 	for(int i=0; i < spriteList.count(); i++)
 	{
 		if(spriteList[i]->isStage)
+		{
 			connect(spriteList[i],&scratchSprite::backdropSwitched,this,&projectScene::backdropSwitched);
+			connect(spriteList[i],&scratchSprite::broadcast,this,&projectScene::broadcastSent);
+		}
 	}
 }
 
@@ -92,4 +95,11 @@ void projectScene::backdropSwitched(QVariantMap *script)
 {
 	for(int i=0; i < spriteList.count(); i++)
 		spriteList[i]->backdropSwitchEvent(script);
+}
+
+/*! Connected from scratchSprite#broadcast(). */
+void projectScene::broadcastSent(QString broadcastName, QVariantMap *script)
+{
+	for(int i=0; i < spriteList.count(); i++)
+		spriteList[i]->broadcastReceived(broadcastName,script);
 }

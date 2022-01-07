@@ -38,6 +38,7 @@ class projectScene : public QGraphicsScene
 	public slots:
 		void greenFlag(void);
 		void backdropSwitched(QVariantMap *script);
+		void broadcastSent(QString broadcastName, QVariantMap *script = nullptr);
 
 	protected:
 		void timerEvent(QTimerEvent *event);
