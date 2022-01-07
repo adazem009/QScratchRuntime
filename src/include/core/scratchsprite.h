@@ -46,6 +46,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		void setDirection(qreal angle);
 		void frame(void);
 		static void stopAllSounds(void);
+		void setVolume(qreal newVolume);
 		bool isStage; /*!< True if this is a stage. */
 		QString name; /*!< Sprite name. */
 		qreal spriteX; /*!< X position. */

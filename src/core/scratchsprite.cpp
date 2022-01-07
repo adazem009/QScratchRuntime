@@ -37,7 +37,7 @@ scratchSprite::scratchSprite(QJsonObject spriteObject, QString spriteAssetDir, Q
 	// Load attributes
 	isStage = spriteObject.value("isStage").toBool();
 	name = spriteObject.value("name").toString();
-	volume = spriteObject.value("volume").toInt();
+	setVolume(spriteObject.value("volume").toDouble());
 	tempo = spriteObject.value("tempo").toInt();
 	if(isStage)
 	{
@@ -339,6 +339,14 @@ void scratchSprite::stopAllSounds(void)
 	for(int i=0; i < allSounds.count(); i++)
 		allSounds[i]->stop();
 	allSounds.clear();
+}
+
+/*! Sets sound volume. */
+void scratchSprite::setVolume(qreal newVolume)
+{
+	volume = newVolume;
+	for(int i=0; i < allSounds.count(); i++)
+		allSounds[i]->setVolume(newVolume/100.0);
 }
 
 /*! Shows a speech or thought bubble. */
