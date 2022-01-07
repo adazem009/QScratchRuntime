@@ -80,8 +80,19 @@ scratchSprite::scratchSprite(QJsonObject spriteObject, QString spriteAssetDir, Q
 	QJsonObject blocksObject = spriteObject.value("blocks").toObject();
 	QStringList blocksList = blocksObject.keys();
 	blocks.clear();
+	frameEvents.clear();
 	for(i=0; i < blocksList.count(); i++)
+	{
 		blocks.insert(blocksList[i],blocksObject.value(blocksList[i]).toObject().toVariantMap());
+		QString opcode = blocks.value(blocksList[i]).value("opcode").toString();
+		if(opcode == "event_whengreaterthan")
+		{
+			QVariantMap block = blocks[blocksList[i]];
+			block.insert("special_timereventused",false);
+			blocks.insert(blocksList[i],block);
+			frameEvents.insert(blocksList[i],blocks.value(blocksList[i]));
+		}
+	}
 }
 
 /*! Loads list of sprite pointers. */
@@ -112,7 +123,7 @@ scratchSprite *scratchSprite::getSprite(QString targetName)
 void scratchSprite::greenFlagClicked(void)
 {
 	stopSprite();
-	timer.start();
+	resetTimer();
 	// TODO: Add stopAll() (maybe static?) function
 	stopAllSounds();
 	QStringList blocksList = blocks.keys();
@@ -126,6 +137,21 @@ void scratchSprite::greenFlagClicked(void)
 			blockMap.insert("id",blocksList[i]);
 			blockMap.insert("special","");
 			currentExecPos += blockMap;
+		}
+	}
+}
+
+void scratchSprite::resetTimer(void)
+{
+	timer.start();
+	QStringList blocksList = frameEvents.keys();
+	for(int i=0; i < blocksList.count(); i++)
+	{
+		QVariantMap block = frameEvents.value(blocksList[i]);
+		if(block.value("opcode").toString() == "event_whengreaterthan")
+		{
+			block.insert("special_timereventused",false);
+			frameEvents.insert(blocksList[i],block);
 		}
 	}
 }
@@ -213,6 +239,32 @@ void scratchSprite::backdropSwitchEvent(QVariantMap *script)
 				if(script != nullptr)
 					script->insert("activescripts",script->value("activescripts").toInt()+1);
 				blockMap.insert("callerptr", (qlonglong) (intptr_t) script);
+				currentExecPos += blockMap;
+			}
+		}
+	}
+}
+
+/*! Starts "when timer is greater than" event blocks if input time is greater than timer value (in seconds). */
+void scratchSprite::spriteTimerEvent(void)
+{
+	// frameEvents instead of blocks can be used here
+	QStringList blocksList = frameEvents.keys();
+	for(int i=0; i < blocksList.count(); i++)
+	{
+		QVariantMap block = frameEvents.value(blocksList[i]);
+		if(block.value("opcode").toString() == "event_whengreaterthan")
+		{
+			QMap<QString,QString> inputs = getInputs(block);
+			if((inputs.value("WHENGREATERTHANMENU") == "TIMER") && (timer.elapsed()/1000.0 > inputs.value("VALUE").toDouble())
+				&& !block.value("special_timereventused").toBool())
+			{
+				block.insert("special_timereventused",true);
+				frameEvents.insert(blocksList[i],block);
+				QVariantMap blockMap;
+				blockMap.clear();
+				blockMap.insert("id",blocksList[i]);
+				blockMap.insert("special","");
 				currentExecPos += blockMap;
 			}
 		}
@@ -470,6 +522,19 @@ void scratchSprite::showBubble(QString text, bool thought)
 /*! Runs blocks that can be run without screen refresh.*/
 void scratchSprite::frame(void)
 {
+	QStringList frameEventBlocks = frameEvents.keys();
+	for(int i=0; i < frameEventBlocks.count(); i++)
+	{
+		QVariantMap block = frameEvents.value(frameEventBlocks[i]);
+		QString opcode = block.value("opcode").toString();
+		QMap<QString,QString> inputs = getInputs(block);
+		if(opcode == "event_whengreaterthan")
+		{
+			if(inputs.value("WHENGREATERTHANMENU") == "LOUDNESS"); // TODO: Implement audio input loudness
+			else if(inputs.value("WHENGREATERTHANMENU") == "TIMER")
+				spriteTimerEvent();
+		}
+	}
 	QStringList operationsToRemove;
 	operationsToRemove.clear();
 	for(int frame_i=0; frame_i < currentExecPos.count(); frame_i++)

@@ -75,6 +75,8 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		void resetGraphicEffects(void);
 		void installGraphicEffects(void);
 		QSoundEffect *playSound(QString soundName);
+		void spriteTimerEvent(void);
+		void resetTimer(void);
 		QList<scratchSprite*> spriteList;
 		QString assetDir;
 		qreal mouseX, mouseY;
@@ -91,6 +93,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		QGraphicsTextItem *speechBubbleText;
 		QPixmap costumePixmap;
 		QElapsedTimer timer;
+		QMap<QString,QVariantMap> frameEvents;
 		// Blocks
 		bool motionBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd = nullptr, bool *processEnd = nullptr, QString *returnValue = nullptr);
 		bool looksBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd = nullptr, bool *processEnd = nullptr, QString *returnValue = nullptr);
