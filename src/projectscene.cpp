@@ -82,11 +82,8 @@ void projectScene::greenFlag(void)
 /*! Overrides QObject#timerEvent(). */
 void projectScene::timerEvent(QTimerEvent *event)
 {
-	if(projectRunning)
-	{
-		for(int i=0; i < spriteList.count(); i++)
-			spriteList[i]->frame();
-	}
+	for(int i=0; i < spriteList.count(); i++)
+		spriteList[i]->frame();
 	event->accept();
 }
 
