@@ -9,7 +9,7 @@ var classscratchSprite =
     [ "loadSpriteList", "classscratchSprite.html#a2429ac26a3c4bec405a51b2f3a82ae49", null ],
     [ "looksBlocks", "classscratchSprite.html#a385ea5a053d2929b439c310304940125", null ],
     [ "motionBlocks", "classscratchSprite.html#a5afaa221267907bd4d0987d84dbdc652", null ],
-    [ "playSound", "classscratchSprite.html#a4e34d48e8da861ba411ce12125013cdd", null ],
+    [ "playSound", "classscratchSprite.html#adb8cf0cd73a2b82cfbe93d56aff79eaf", null ],
     [ "resetGraphicEffects", "classscratchSprite.html#a221f792a1ff70f3507818a35ec095e61", null ],
     [ "setCostume", "classscratchSprite.html#a508ac9693e4f1ae523b4316fd9067833", null ],
     [ "setDirection", "classscratchSprite.html#a7ba47275426e6925d8e37d9ecb84e349", null ],
