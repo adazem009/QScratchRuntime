@@ -546,6 +546,12 @@ void scratchSprite::frame(void)
 			// Load current block
 			QString currentID = next;
 			QVariantMap block = blocks.value(currentID);
+			if(block.value("topLevel").toBool())
+			{
+				QVariantMap posMap = currentExecPos[frame_i];
+				posMap.insert("toplevelblock",currentID);
+				currentExecPos[frame_i] = posMap;
+			}
 			QString opcode = block.value("opcode").toString();
 			QMap<QString,QString> inputs = getInputs(block);
 			bool processEnd = false;
