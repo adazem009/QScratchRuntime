@@ -98,8 +98,8 @@ bool scratchSprite::motionBlocks(QString opcode, QMap<QString,QString> inputs, i
 			}
 			else if(targetName == "_random_")
 			{
-				setXPos(QRandomGenerator::global()->bounded(-240,240));
-				setYPos(QRandomGenerator::global()->bounded(-180,180));
+				setXPos(QRandomGenerator::global()->bounded(-240,241));
+				setYPos(QRandomGenerator::global()->bounded(-180,181));
 			}
 		}
 		else
@@ -130,8 +130,8 @@ bool scratchSprite::motionBlocks(QString opcode, QMap<QString,QString> inputs, i
 				}
 				else if(targetName == "_random_")
 				{
-					endX = QRandomGenerator::global()->bounded(-240,240);
-					endY = QRandomGenerator::global()->bounded(-180,180);
+					endX = QRandomGenerator::global()->bounded(-240,241);
+					endY = QRandomGenerator::global()->bounded(-180,181);
 				}
 			}
 			else
