@@ -9,7 +9,7 @@ This project is in development and it can't run most of Scratch projects. This i
 ### Blocks
 - [x] Motion blocks
 - [x] Looks blocks
-- [ ] Sound blocks
+- [x] Sound blocks
 - [ ] Events blocks
 - [ ] Control blocks
 - [ ] Sensing blocks
