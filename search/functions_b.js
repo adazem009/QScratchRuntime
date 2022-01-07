@@ -12,7 +12,8 @@ var searchData=
   ['soundblocks_9',['soundBlocks',['../classscratchSprite.html#aca3408cd544bd96b5fda78d311c64721',1,'scratchSprite']]],
   ['spriteclicked_10',['spriteClicked',['../classscratchSprite.html#ac43a0ca298760cdf978a21aa6ef7038a',1,'scratchSprite']]],
   ['sprites_11',['sprites',['../classprojectParser.html#ab4d4e9b006743666101d500a4c74608b',1,'projectParser']]],
-  ['stage_12',['stage',['../classprojectParser.html#a652bca50042e3109eb9b7dfbab7d953e',1,'projectParser']]],
-  ['stopallsounds_13',['stopAllSounds',['../classscratchSprite.html#a11f668c698d5517f36f7b209b4602e41',1,'scratchSprite']]],
-  ['stopsprite_14',['stopSprite',['../classscratchSprite.html#ad9ec8bf8179adb85bf448b1b285e5e94',1,'scratchSprite']]]
+  ['spritetimerevent_12',['spriteTimerEvent',['../classscratchSprite.html#a9ec05ce7032732d946bff6a0099ec30a',1,'scratchSprite']]],
+  ['stage_13',['stage',['../classprojectParser.html#a652bca50042e3109eb9b7dfbab7d953e',1,'projectParser']]],
+  ['stopallsounds_14',['stopAllSounds',['../classscratchSprite.html#a11f668c698d5517f36f7b209b4602e41',1,'scratchSprite']]],
+  ['stopsprite_15',['stopSprite',['../classscratchSprite.html#ad9ec8bf8179adb85bf448b1b285e5e94',1,'scratchSprite']]]
 ];

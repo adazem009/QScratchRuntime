@@ -25,6 +25,7 @@ var classscratchSprite =
     [ "showBubble", "classscratchSprite.html#aa6d1bc1e75fcb29a8a70ff561a7039b7", null ],
     [ "soundBlocks", "classscratchSprite.html#aca3408cd544bd96b5fda78d311c64721", null ],
     [ "spriteClicked", "classscratchSprite.html#ac43a0ca298760cdf978a21aa6ef7038a", null ],
+    [ "spriteTimerEvent", "classscratchSprite.html#a9ec05ce7032732d946bff6a0099ec30a", null ],
     [ "stopAllSounds", "classscratchSprite.html#a11f668c698d5517f36f7b209b4602e41", null ],
     [ "stopSprite", "classscratchSprite.html#ad9ec8bf8179adb85bf448b1b285e5e94", null ],
     [ "translateX", "classscratchSprite.html#a89c97be0b563e3ec0aee9d39d11525c5", null ],

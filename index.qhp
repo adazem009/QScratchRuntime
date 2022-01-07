@@ -56,6 +56,7 @@
               <section title="showBubble" ref="classscratchSprite.html#aa6d1bc1e75fcb29a8a70ff561a7039b7" />
               <section title="soundBlocks" ref="classscratchSprite.html#aca3408cd544bd96b5fda78d311c64721" />
               <section title="spriteClicked" ref="classscratchSprite.html#ac43a0ca298760cdf978a21aa6ef7038a" />
+              <section title="spriteTimerEvent" ref="classscratchSprite.html#a9ec05ce7032732d946bff6a0099ec30a" />
               <section title="stopAllSounds" ref="classscratchSprite.html#a11f668c698d5517f36f7b209b4602e41" />
               <section title="stopSprite" ref="classscratchSprite.html#ad9ec8bf8179adb85bf448b1b285e5e94" />
               <section title="translateX" ref="classscratchSprite.html#a89c97be0b563e3ec0aee9d39d11525c5" />
@@ -183,6 +184,8 @@
       <keyword name="resetGraphicEffects" id="scratchSprite::resetGraphicEffects" ref="classscratchSprite.html#a221f792a1ff70f3507818a35ec095e61" />
       <keyword name="installGraphicEffects" id="scratchSprite::installGraphicEffects" ref="classscratchSprite.html#a87a0eabc6bb2b1d5c1ec034ffb3a7542" />
       <keyword name="playSound" id="scratchSprite::playSound" ref="classscratchSprite.html#adb8cf0cd73a2b82cfbe93d56aff79eaf" />
+      <keyword name="spriteTimerEvent" id="scratchSprite::spriteTimerEvent" ref="classscratchSprite.html#a9ec05ce7032732d946bff6a0099ec30a" />
+      <keyword name="resetTimer" id="scratchSprite::resetTimer" ref="classscratchSprite.html#a6c758cc005ffe70f7285de7ae0198b2d" />
       <keyword name="motionBlocks" id="scratchSprite::motionBlocks" ref="classscratchSprite.html#a5afaa221267907bd4d0987d84dbdc652" />
       <keyword name="looksBlocks" id="scratchSprite::looksBlocks" ref="classscratchSprite.html#a385ea5a053d2929b439c310304940125" />
       <keyword name="soundBlocks" id="scratchSprite::soundBlocks" ref="classscratchSprite.html#aca3408cd544bd96b5fda78d311c64721" />
@@ -204,6 +207,7 @@
       <keyword name="speechBubbleText" id="scratchSprite::speechBubbleText" ref="classscratchSprite.html#a3efc88d261fddd4d3f8a1ccb6489490e" />
       <keyword name="costumePixmap" id="scratchSprite::costumePixmap" ref="classscratchSprite.html#ab4e56ad2b43b23a3eb278dd4bfd497be" />
       <keyword name="timer" id="scratchSprite::timer" ref="classscratchSprite.html#ac25a4b10bbbaf94a8fb148d9ed3ca9a8" />
+      <keyword name="frameEvents" id="scratchSprite::frameEvents" ref="classscratchSprite.html#aab5a48ed0f1df56a9e3e9446d56b108f" />
     </keywords>
     <files>
       <file>tabs.css</file>
