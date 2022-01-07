@@ -51,7 +51,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		qreal spriteX; /*!< X position. */
 		qreal spriteY; /*!< Y position. */
 		int currentCostume; /*!< Current costume ID. */
-		int volume; /*!< Volume for instrument blocks. */
+		int volume; /*!< Volume for sound blocks. */
 		int tempo; /*!< Tempo for instrument blocks. */
 		qreal size; /*!< Sprite size. */
 		qreal direction; /*!< Sprite direction. */
