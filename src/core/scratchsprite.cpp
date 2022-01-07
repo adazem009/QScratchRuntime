@@ -165,6 +165,17 @@ void scratchSprite::spriteClicked(void)
 		QVariantMap block = blocks.value(blocksList[i]);
 		if((block.value("opcode").toString() == "event_whenthisspriteclicked") || (block.value("opcode").toString() == "event_whenstageclicked"))
 		{
+			// Stop running instances of this event
+			QList<QVariantMap> operationsToRemove;
+			operationsToRemove.clear();
+			for(int i2=0; i2 < currentExecPos.count(); i2++)
+			{
+				if(currentExecPos[i2]["toplevelblock"] == blocksList[i])
+					operationsToRemove += currentExecPos[i2];
+			}
+			for(int i2=0; i2 < operationsToRemove.count(); i2++)
+				currentExecPos.removeAll(operationsToRemove[i2]);
+			// Start the script
 			QVariantMap blockMap;
 			blockMap.clear();
 			blockMap.insert("id",blocksList[i]);
@@ -186,6 +197,17 @@ void scratchSprite::keyPressed(int key, QString keyText)
 			QMap<QString,QString> inputs = getInputs(block);
 			if(checkKey(key,keyText,inputs.value("KEY_OPTION")))
 			{
+				// Stop running instances of this event
+				QList<QVariantMap> operationsToRemove;
+				operationsToRemove.clear();
+				for(int i2=0; i2 < currentExecPos.count(); i2++)
+				{
+					if(currentExecPos[i2]["toplevelblock"] == blocksList[i])
+						operationsToRemove += currentExecPos[i2];
+				}
+				for(int i2=0; i2 < operationsToRemove.count(); i2++)
+					currentExecPos.removeAll(operationsToRemove[i2]);
+				// Start the script
 				QVariantMap blockMap;
 				blockMap.clear();
 				blockMap.insert("id",blocksList[i]);
@@ -232,6 +254,17 @@ void scratchSprite::backdropSwitchEvent(QVariantMap *script)
 			scratchSprite *stagePtr = getSprite("Stage");
 			if(inputs.value("BACKDROP") == stagePtr->costumes[stagePtr->currentCostume].value("name"))
 			{
+				// Stop running instances of this event
+				QList<QVariantMap> operationsToRemove;
+				operationsToRemove.clear();
+				for(int i2=0; i2 < currentExecPos.count(); i2++)
+				{
+					if(currentExecPos[i2]["toplevelblock"] == blocksList[i])
+						operationsToRemove += currentExecPos[i2];
+				}
+				for(int i2=0; i2 < operationsToRemove.count(); i2++)
+					currentExecPos.removeAll(operationsToRemove[i2]);
+				// Start the script
 				QVariantMap blockMap;
 				blockMap.clear();
 				blockMap.insert("id",blocksList[i]);
@@ -259,6 +292,17 @@ void scratchSprite::spriteTimerEvent(void)
 			if((inputs.value("WHENGREATERTHANMENU") == "TIMER") && (timer.elapsed()/1000.0 > inputs.value("VALUE").toDouble())
 				&& !block.value("special_timereventused").toBool())
 			{
+				// Stop running instances of this event
+				QList<QVariantMap> operationsToRemove;
+				operationsToRemove.clear();
+				for(int i2=0; i2 < currentExecPos.count(); i2++)
+				{
+					if(currentExecPos[i2]["toplevelblock"] == blocksList[i])
+						operationsToRemove += currentExecPos[i2];
+				}
+				for(int i2=0; i2 < operationsToRemove.count(); i2++)
+					currentExecPos.removeAll(operationsToRemove[i2]);
+				// Start the script
 				block.insert("special_timereventused",true);
 				frameEvents.insert(blocksList[i],block);
 				QVariantMap blockMap;
