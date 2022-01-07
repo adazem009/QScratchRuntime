@@ -43,6 +43,14 @@ void projectScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 	event->accept();
 }
 
+/*! Overrides QGraphicsScene#keyPressEvent(). */
+void projectScene::keyPressEvent(QKeyEvent *event)
+{
+	for(int i=0; i < spriteList.count(); i++)
+		spriteList[i]->keyPressed(event->key(),event->text());
+	event->accept();
+}
+
 /*! Connected from %clicked() signal of greenFlag in MainWindow UI. */
 void projectScene::greenFlag(void)
 {
