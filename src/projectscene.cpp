@@ -44,9 +44,13 @@ void projectScene::loadSpriteList(QList<scratchSprite*> list)
 /*! Overrides QGraphicsScene#mousePressEvent(). */
 void projectScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
-	scratchSprite *clickedSprite = (scratchSprite*) itemAt(event->scenePos(),QTransform());
-	if(clickedSprite != nullptr)
-		clickedSprite->spriteClicked();
+	QGraphicsItem *clickedItem = itemAt(event->scenePos(),QTransform());
+	if(clickedItem->type() == scratchSprite::Type)
+	{
+		scratchSprite *clickedSprite = (scratchSprite*) clickedItem;
+		if(clickedSprite != nullptr)
+			clickedSprite->spriteClicked();
+	}
 	event->accept();
 }
 
