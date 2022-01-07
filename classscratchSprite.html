@@ -150,6 +150,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a189a29e1fb4f71052b2cb2d993d9abe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13d937e2bd01ac7c4ff72e14cc6cabc0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#a13d937e2bd01ac7c4ff72e14cc6cabc0">setVolume</a> (qreal newVolume)</td></tr>
 <tr class="separator:a13d937e2bd01ac7c4ff72e14cc6cabc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a088476078fa21b3c71572b26f46294b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#a088476078fa21b3c71572b26f46294b3">keyPressed</a> (int key, QString keyText)</td></tr>
+<tr class="separator:a088476078fa21b3c71572b26f46294b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa41f796acf1b9c95ece39e28353c252e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#aa41f796acf1b9c95ece39e28353c252e">checkKey</a> (int QtKey, QString keyText, QString scratchKey)</td></tr>
+<tr class="separator:aa41f796acf1b9c95ece39e28353c252e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -313,6 +317,41 @@ QPixmap&#160;</td><td class="memItemRight" valign="bottom"><b>costumePixmap</b><
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa41f796acf1b9c95ece39e28353c252e" name="aa41f796acf1b9c95ece39e28353c252e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa41f796acf1b9c95ece39e28353c252e">&#9670;&nbsp;</a></span>checkKey()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool scratchSprite::checkKey </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>keyID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>keyText</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>scratchKey</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Returns true if key ID or key text matches the key in string. </p>
+
+</div>
+</div>
 <a id="a189a29e1fb4f71052b2cb2d993d9abe0" name="a189a29e1fb4f71052b2cb2d993d9abe0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a189a29e1fb4f71052b2cb2d993d9abe0">&#9670;&nbsp;</a></span>frame()</h2>
 
@@ -447,6 +486,35 @@ QPixmap&#160;</td><td class="memItemRight" valign="bottom"><b>costumePixmap</b><
 </table>
 </div><div class="memdoc">
 <p >Sets graphic effects. Note: Only ghost, color and brightness is supported. </p>
+
+</div>
+</div>
+<a id="a088476078fa21b3c71572b26f46294b3" name="a088476078fa21b3c71572b26f46294b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a088476078fa21b3c71572b26f46294b3">&#9670;&nbsp;</a></span>keyPressed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void scratchSprite::keyPressed </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>keyText</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Starts "when key pressed" event blocks when a key is pressed. </p>
 
 </div>
 </div>

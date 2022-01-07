@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['mainwindow_0',['MainWindow',['../classMainWindow.html#a996c5a2b6f77944776856f08ec30858d',1,'MainWindow']]],
-  ['motionblocks_1',['motionBlocks',['../classscratchSprite.html#a5afaa221267907bd4d0987d84dbdc652',1,'scratchSprite']]],
-  ['mousemoveevent_2',['mouseMoveEvent',['../classprojectScene.html#a381d1f0a59381d3a98553c656ef01d82',1,'projectScene']]]
+  ['keypressed_0',['keyPressed',['../classscratchSprite.html#a088476078fa21b3c71572b26f46294b3',1,'scratchSprite']]],
+  ['keypressevent_1',['keyPressEvent',['../classprojectScene.html#a0a039a537c5f7a44db11706799d0b8b6',1,'projectScene']]]
 ];

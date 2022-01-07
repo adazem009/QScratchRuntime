@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['loadspritelist_0',['loadSpriteList',['../classscratchSprite.html#a2429ac26a3c4bec405a51b2f3a82ae49',1,'scratchSprite::loadSpriteList()'],['../classprojectScene.html#a82704fa5c1e2296e615a4eb57caff0c2',1,'projectScene::loadSpriteList()']]],
-  ['looksblocks_1',['looksBlocks',['../classscratchSprite.html#a385ea5a053d2929b439c310304940125',1,'scratchSprite']]]
+  ['init_0',['init',['../classMainWindow.html#adacc054a62e38fb27708c0e1e2924b3e',1,'MainWindow']]],
+  ['installgraphiceffects_1',['installGraphicEffects',['../classscratchSprite.html#a87a0eabc6bb2b1d5c1ec034ffb3a7542',1,'scratchSprite']]]
 ];

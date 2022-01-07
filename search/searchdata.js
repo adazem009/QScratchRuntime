@@ -1,8 +1,8 @@
 var indexSectionsWithContent =
 {
-  0: "cdfgilmnoprstv~",
+  0: "cdfgiklmnoprstv~",
   1: "mps",
-  2: "fgilmoprst~",
+  2: "cfgiklmoprst~",
   3: "cdinrstv"
 };
 

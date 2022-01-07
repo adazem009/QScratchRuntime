@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['playsound_0',['playSound',['../classscratchSprite.html#adb8cf0cd73a2b82cfbe93d56aff79eaf',1,'scratchSprite']]],
-  ['projectparser_1',['projectParser',['../classprojectParser.html#aad1ce885c9b066b43ad3baa077788212',1,'projectParser']]],
-  ['projectscene_2',['projectScene',['../classprojectScene.html#a8c8ee7ea57b02c439c400f501ca7eb50',1,'projectScene']]]
+  ['mainwindow_0',['MainWindow',['../classMainWindow.html#a996c5a2b6f77944776856f08ec30858d',1,'MainWindow']]],
+  ['motionblocks_1',['motionBlocks',['../classscratchSprite.html#a5afaa221267907bd4d0987d84dbdc652',1,'scratchSprite']]],
+  ['mousemoveevent_2',['mouseMoveEvent',['../classprojectScene.html#a381d1f0a59381d3a98553c656ef01d82',1,'projectScene']]]
 ];

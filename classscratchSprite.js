@@ -1,11 +1,13 @@
 var classscratchSprite =
 [
     [ "scratchSprite", "classscratchSprite.html#a401307233d74f2cbec2728b728f159ba", null ],
+    [ "checkKey", "classscratchSprite.html#aa41f796acf1b9c95ece39e28353c252e", null ],
     [ "frame", "classscratchSprite.html#a189a29e1fb4f71052b2cb2d993d9abe0", null ],
     [ "getInputs", "classscratchSprite.html#aa5f6bafaf7dfe46162a7adeabb564179", null ],
     [ "getSprite", "classscratchSprite.html#a8a487ee0873b3069e4fa75c981adb7ef", null ],
     [ "greenFlagClicked", "classscratchSprite.html#a152b51974e513a0afb6f8770765bc177", null ],
     [ "installGraphicEffects", "classscratchSprite.html#a87a0eabc6bb2b1d5c1ec034ffb3a7542", null ],
+    [ "keyPressed", "classscratchSprite.html#a088476078fa21b3c71572b26f46294b3", null ],
     [ "loadSpriteList", "classscratchSprite.html#a2429ac26a3c4bec405a51b2f3a82ae49", null ],
     [ "looksBlocks", "classscratchSprite.html#a385ea5a053d2929b439c310304940125", null ],
     [ "motionBlocks", "classscratchSprite.html#a5afaa221267907bd4d0987d84dbdc652", null ],
