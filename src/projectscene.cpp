@@ -33,6 +33,11 @@ projectScene::projectScene(qreal x, qreal y, qreal width, qreal height, QObject 
 void projectScene::loadSpriteList(QList<scratchSprite*> list)
 {
 	spriteList = list;
+	for(int i=0; i < spriteList.count(); i++)
+	{
+		if(spriteList[i]->isStage)
+			connect(spriteList[i],&scratchSprite::backdropSwitched,this,&projectScene::backdropSwitched);
+	}
 }
 
 /*! Overrides QGraphicsScene#mousePressEvent(). */
@@ -83,4 +88,11 @@ void projectScene::timerEvent(QTimerEvent *event)
 			spriteList[i]->frame();
 	}
 	event->accept();
+}
+
+/*! Connected from scratchSprite#backdropSwitched() (only from the stage). */
+void projectScene::backdropSwitched(void)
+{
+	for(int i=0; i < spriteList.count(); i++)
+		spriteList[i]->backdropSwitchEvent();
 }

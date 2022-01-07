@@ -37,6 +37,7 @@ class projectScene : public QGraphicsScene
 
 	public slots:
 		void greenFlag(void);
+		void backdropSwitched(void);
 
 	protected:
 		void timerEvent(QTimerEvent *event);
