@@ -23,6 +23,8 @@ This project is in development and it can't run most of Scratch projects. This i
 - [ ] Broadcasts
 - [ ] Variables
 - [ ] Lists
+- [ ] Load project from .sb3
+- [ ] Load project from URL
 
 ### Graphic effects
 - [x] Color
