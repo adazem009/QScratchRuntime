@@ -29,6 +29,7 @@
 #include <QGraphicsSceneMouseEvent>
 #include <QDateTime>
 #include <QSoundEffect>
+#include <QElapsedTimer>
 #include "global.h"
 
 /*! \brief The scratchSprite class is a QGraphicsPixmapItem, which represents a Scratch sprite. */
@@ -89,6 +90,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		QGraphicsPixmapItem *speechBubble;
 		QGraphicsTextItem *speechBubbleText;
 		QPixmap costumePixmap;
+		QElapsedTimer timer;
 		// Blocks
 		bool motionBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd = nullptr, bool *processEnd = nullptr, QString *returnValue = nullptr);
 		bool looksBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd = nullptr, bool *processEnd = nullptr, QString *returnValue = nullptr);

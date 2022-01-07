@@ -67,6 +67,7 @@ scratchSprite::scratchSprite(QJsonObject spriteObject, QString spriteAssetDir, Q
 		draggable = spriteObject.value("draggable").toBool();
 	}
 	resetGraphicEffects();
+	timer.start();
 	// Load sounds
 	QJsonArray soundsArray = spriteObject.value("sounds").toArray();
 	sounds.clear();
@@ -111,6 +112,7 @@ scratchSprite *scratchSprite::getSprite(QString targetName)
 void scratchSprite::greenFlagClicked(void)
 {
 	stopSprite();
+	timer.start();
 	// TODO: Add stopAll() (maybe static?) function
 	stopAllSounds();
 	QStringList blocksList = blocks.keys();
