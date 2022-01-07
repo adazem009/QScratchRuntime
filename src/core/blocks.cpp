@@ -319,30 +319,40 @@ bool scratchSprite::looksBlocks(QString opcode, QMap<QString,QString> inputs, in
 			newCostume = 0;
 		setCostume(newCostume);
 	}
-	else if(opcode == "looks_switchbackdropto")
+	else if((opcode == "looks_switchbackdropto") || (opcode == "looks_switchbackdroptoandwait"))
 	{
 		scratchSprite *stagePtr = getSprite("Stage");
 		QList<QVariantMap> *backdrops = &stagePtr->costumes;
 		int newCostume = stagePtr->currentCostume;
+		bool backdropFound = false;
 		for(int i=0; i < backdrops->count(); i++)
 		{
 			if(backdrops->value(i).value("name").toString() == inputs.value("BACKDROP"))
+			{
 				newCostume = i;
+				backdropFound = true;
+				break;
+			}
 		}
-		stagePtr->setCostume(newCostume);
-	}
-	else if(opcode == "looks_switchbackdroptoandwait")
-	{
-		scratchSprite *stagePtr = getSprite("Stage");
-		QList<QVariantMap> *backdrops = &stagePtr->costumes;
-		int newCostume = stagePtr->currentCostume;
-		for(int i=0; i < backdrops->count(); i++)
+		if(!backdropFound)
 		{
-			if(backdrops->value(i).value("name").toString() == inputs.value("BACKDROP"))
-				newCostume = i;
+			if(inputs.value("BACKDROP") == "next backdrop")
+			{
+				newCostume = stagePtr->currentCostume + 1;
+				if(newCostume >= stagePtr->costumes.count())
+					newCostume = 0;
+			}
+			else if(inputs.value("BACKDROP") == "previous backdrop")
+			{
+				newCostume = stagePtr->currentCostume - 1;
+				if(newCostume < 0)
+					newCostume = stagePtr->costumes.count() - 1;
+			}
+			else if(inputs.value("BACKDROP") == "random backdrop")
+				newCostume = QRandomGenerator::global()->bounded(0,stagePtr->costumes.count());
 		}
 		stagePtr->setCostume(newCostume);
-		// TODO: This block should wait until all event_whenbackdropswitchesto scripts end
+		// TODO: The "and wait" block should wait until all event_whenbackdropswitchesto scripts end
 	}
 	else if(opcode == "looks_nextbackdrop")
 	{
