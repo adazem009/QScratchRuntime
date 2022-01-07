@@ -3,6 +3,8 @@ var classscratchSprite =
     [ "scratchSprite", "classscratchSprite.html#a401307233d74f2cbec2728b728f159ba", null ],
     [ "backdropSwitched", "classscratchSprite.html#ab1f212229b9769a0ffbb7638e9e429a5", null ],
     [ "backdropSwitchEvent", "classscratchSprite.html#adbcc2ad144281a8af540dc1bd496533c", null ],
+    [ "broadcast", "classscratchSprite.html#a44460a997beb1ebcf1e9d1f87f697aa7", null ],
+    [ "broadcastReceived", "classscratchSprite.html#a5bad3d16269b8a6c329546a56619cb55", null ],
     [ "checkKey", "classscratchSprite.html#aa41f796acf1b9c95ece39e28353c252e", null ],
     [ "eventBlocks", "classscratchSprite.html#a7f32c3853ada16e3581a07d685de491d", null ],
     [ "frame", "classscratchSprite.html#a189a29e1fb4f71052b2cb2d993d9abe0", null ],

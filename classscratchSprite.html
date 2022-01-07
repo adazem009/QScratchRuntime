@@ -133,6 +133,8 @@ Public Slots</h2></td></tr>
 Signals</h2></td></tr>
 <tr class="memitem:ab1f212229b9769a0ffbb7638e9e429a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#ab1f212229b9769a0ffbb7638e9e429a5">backdropSwitched</a> (QVariantMap *script)</td></tr>
 <tr class="separator:ab1f212229b9769a0ffbb7638e9e429a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44460a997beb1ebcf1e9d1f87f697aa7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#a44460a997beb1ebcf1e9d1f87f697aa7">broadcast</a> (QString broadcastName, QVariantMap *script=nullptr)</td></tr>
+<tr class="separator:a44460a997beb1ebcf1e9d1f87f697aa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -164,6 +166,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa41f796acf1b9c95ece39e28353c252e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adbcc2ad144281a8af540dc1bd496533c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#adbcc2ad144281a8af540dc1bd496533c">backdropSwitchEvent</a> (QVariantMap *script)</td></tr>
 <tr class="separator:adbcc2ad144281a8af540dc1bd496533c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bad3d16269b8a6c329546a56619cb55"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#a5bad3d16269b8a6c329546a56619cb55">broadcastReceived</a> (QString broadcastName, QVariantMap *script)</td></tr>
+<tr class="separator:a5bad3d16269b8a6c329546a56619cb55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -383,6 +387,72 @@ QMap&lt; QString, QVariantMap &gt;&#160;</td><td class="memItemRight" valign="bo
       </table>
 </div><div class="memdoc">
 <p >Starts "when backdrop switches to" event blocks when the backdrop switches. </p>
+
+</div>
+</div>
+<a id="a44460a997beb1ebcf1e9d1f87f697aa7" name="a44460a997beb1ebcf1e9d1f87f697aa7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44460a997beb1ebcf1e9d1f87f697aa7">&#9670;&nbsp;</a></span>broadcast</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void scratchSprite::broadcast </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>broadcastName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QVariantMap *&#160;</td>
+          <td class="paramname"><em>script</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >A signal, which is emitted when the sprite sends a broadcast. </p>
+
+</div>
+</div>
+<a id="a5bad3d16269b8a6c329546a56619cb55" name="a5bad3d16269b8a6c329546a56619cb55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bad3d16269b8a6c329546a56619cb55">&#9670;&nbsp;</a></span>broadcastReceived()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void scratchSprite::broadcastReceived </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>broadcastName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QVariantMap *&#160;</td>
+          <td class="paramname"><em>script</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Starts "when broadcast received" event blocks. </p>
 
 </div>
 </div>

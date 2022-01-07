@@ -2,6 +2,7 @@ var classprojectScene =
 [
     [ "projectScene", "classprojectScene.html#a8c8ee7ea57b02c439c400f501ca7eb50", null ],
     [ "backdropSwitched", "classprojectScene.html#a3f50e196d9897278264da8d2fa3db779", null ],
+    [ "broadcastSent", "classprojectScene.html#a8c3b992f8304cbc161911112281e24cf", null ],
     [ "greenFlag", "classprojectScene.html#a36bd395882d7dee2e570fbfb3aab1c30", null ],
     [ "keyPressEvent", "classprojectScene.html#a0a039a537c5f7a44db11706799d0b8b6", null ],
     [ "loadSpriteList", "classprojectScene.html#a82704fa5c1e2296e615a4eb57caff0c2", null ],
