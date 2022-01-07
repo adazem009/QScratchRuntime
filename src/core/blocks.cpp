@@ -446,6 +446,10 @@ bool scratchSprite::soundBlocks(QString opcode, QMap<QString,QString> inputs, in
 		// TODO: Add sound effects (see QAudioDecoder)
 	else if(opcode == "sound_changeeffectby");
 	else if(opcode == "sound_cleareffects");
+	else if(opcode == "sound_changevolumeby")
+		setVolume(volume + inputs.value("VOLUME").toDouble());
+	else if(opcode == "sound_setvolumeto")
+		setVolume(inputs.value("VOLUME").toDouble());
 	// Reporter blocks
 	else if(opcode == "sound_sounds_menu")
 		*returnValue = inputs.value("SOUND_MENU");
