@@ -1,8 +1,8 @@
 var classscratchSprite =
 [
     [ "scratchSprite", "classscratchSprite.html#a401307233d74f2cbec2728b728f159ba", null ],
-    [ "backdropSwitched", "classscratchSprite.html#a426580f049374ef2f2f1871983006daa", null ],
-    [ "backdropSwitchEvent", "classscratchSprite.html#a7b0d4d124a23d832b6d818d92a897088", null ],
+    [ "backdropSwitched", "classscratchSprite.html#ab1f212229b9769a0ffbb7638e9e429a5", null ],
+    [ "backdropSwitchEvent", "classscratchSprite.html#adbcc2ad144281a8af540dc1bd496533c", null ],
     [ "checkKey", "classscratchSprite.html#aa41f796acf1b9c95ece39e28353c252e", null ],
     [ "frame", "classscratchSprite.html#a189a29e1fb4f71052b2cb2d993d9abe0", null ],
     [ "getInputs", "classscratchSprite.html#aa5f6bafaf7dfe46162a7adeabb564179", null ],
@@ -15,7 +15,7 @@ var classscratchSprite =
     [ "motionBlocks", "classscratchSprite.html#a5afaa221267907bd4d0987d84dbdc652", null ],
     [ "playSound", "classscratchSprite.html#adb8cf0cd73a2b82cfbe93d56aff79eaf", null ],
     [ "resetGraphicEffects", "classscratchSprite.html#a221f792a1ff70f3507818a35ec095e61", null ],
-    [ "setCostume", "classscratchSprite.html#a508ac9693e4f1ae523b4316fd9067833", null ],
+    [ "setCostume", "classscratchSprite.html#ac0bf3c62a2c6788d6f782c995766b30b", null ],
     [ "setDirection", "classscratchSprite.html#a7ba47275426e6925d8e37d9ecb84e349", null ],
     [ "setMousePos", "classscratchSprite.html#a0f00f9ca722b62c15b74a3fee89f561a", null ],
     [ "setSize", "classscratchSprite.html#aaa192f3c27395177029a47366ee143d8", null ],

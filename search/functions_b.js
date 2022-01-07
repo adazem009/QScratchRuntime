@@ -1,7 +1,7 @@
 var searchData=
 [
   ['scratchsprite_0',['scratchSprite',['../classscratchSprite.html#a401307233d74f2cbec2728b728f159ba',1,'scratchSprite']]],
-  ['setcostume_1',['setCostume',['../classscratchSprite.html#a508ac9693e4f1ae523b4316fd9067833',1,'scratchSprite']]],
+  ['setcostume_1',['setCostume',['../classscratchSprite.html#ac0bf3c62a2c6788d6f782c995766b30b',1,'scratchSprite']]],
   ['setdirection_2',['setDirection',['../classscratchSprite.html#a7ba47275426e6925d8e37d9ecb84e349',1,'scratchSprite']]],
   ['setmousepos_3',['setMousePos',['../classscratchSprite.html#a0f00f9ca722b62c15b74a3fee89f561a',1,'scratchSprite']]],
   ['setsize_4',['setSize',['../classscratchSprite.html#aaa192f3c27395177029a47366ee143d8',1,'scratchSprite']]],

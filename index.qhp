@@ -21,7 +21,7 @@
             </section>
             <section title="projectScene" ref="classprojectScene.html">
               <section title="projectScene" ref="classprojectScene.html#a8c8ee7ea57b02c439c400f501ca7eb50" />
-              <section title="backdropSwitched" ref="classprojectScene.html#a5bba6fd3578fb927893b53effa2e25c1" />
+              <section title="backdropSwitched" ref="classprojectScene.html#a3f50e196d9897278264da8d2fa3db779" />
               <section title="greenFlag" ref="classprojectScene.html#a36bd395882d7dee2e570fbfb3aab1c30" />
               <section title="keyPressEvent" ref="classprojectScene.html#a0a039a537c5f7a44db11706799d0b8b6" />
               <section title="loadSpriteList" ref="classprojectScene.html#a82704fa5c1e2296e615a4eb57caff0c2" />
@@ -32,8 +32,8 @@
             </section>
             <section title="scratchSprite" ref="classscratchSprite.html">
               <section title="scratchSprite" ref="classscratchSprite.html#a401307233d74f2cbec2728b728f159ba" />
-              <section title="backdropSwitched" ref="classscratchSprite.html#a426580f049374ef2f2f1871983006daa" />
-              <section title="backdropSwitchEvent" ref="classscratchSprite.html#a7b0d4d124a23d832b6d818d92a897088" />
+              <section title="backdropSwitched" ref="classscratchSprite.html#ab1f212229b9769a0ffbb7638e9e429a5" />
+              <section title="backdropSwitchEvent" ref="classscratchSprite.html#adbcc2ad144281a8af540dc1bd496533c" />
               <section title="checkKey" ref="classscratchSprite.html#aa41f796acf1b9c95ece39e28353c252e" />
               <section title="frame" ref="classscratchSprite.html#a189a29e1fb4f71052b2cb2d993d9abe0" />
               <section title="getInputs" ref="classscratchSprite.html#aa5f6bafaf7dfe46162a7adeabb564179" />
@@ -46,7 +46,7 @@
               <section title="motionBlocks" ref="classscratchSprite.html#a5afaa221267907bd4d0987d84dbdc652" />
               <section title="playSound" ref="classscratchSprite.html#adb8cf0cd73a2b82cfbe93d56aff79eaf" />
               <section title="resetGraphicEffects" ref="classscratchSprite.html#a221f792a1ff70f3507818a35ec095e61" />
-              <section title="setCostume" ref="classscratchSprite.html#a508ac9693e4f1ae523b4316fd9067833" />
+              <section title="setCostume" ref="classscratchSprite.html#ac0bf3c62a2c6788d6f782c995766b30b" />
               <section title="setDirection" ref="classscratchSprite.html#a7ba47275426e6925d8e37d9ecb84e349" />
               <section title="setMousePos" ref="classscratchSprite.html#a0f00f9ca722b62c15b74a3fee89f561a" />
               <section title="setSize" ref="classscratchSprite.html#aaa192f3c27395177029a47366ee143d8" />
@@ -133,7 +133,7 @@
       <keyword name="assetDir" id="projectParser::assetDir" ref="classprojectParser.html#a0731408dc18783c91c67d24060a1a9d8" />
       <keyword name="projectScene" id="projectScene" ref="classprojectScene.html" />
       <keyword name="greenFlag" id="projectScene::greenFlag" ref="classprojectScene.html#a36bd395882d7dee2e570fbfb3aab1c30" />
-      <keyword name="backdropSwitched" id="projectScene::backdropSwitched" ref="classprojectScene.html#a5bba6fd3578fb927893b53effa2e25c1" />
+      <keyword name="backdropSwitched" id="projectScene::backdropSwitched" ref="classprojectScene.html#a3f50e196d9897278264da8d2fa3db779" />
       <keyword name="projectScene" id="projectScene::projectScene" ref="classprojectScene.html#a8c8ee7ea57b02c439c400f501ca7eb50" />
       <keyword name="loadSpriteList" id="projectScene::loadSpriteList" ref="classprojectScene.html#a82704fa5c1e2296e615a4eb57caff0c2" />
       <keyword name="timerEvent" id="projectScene::timerEvent" ref="classprojectScene.html#a485d4400a0b80cf8556545b7741a3b5d" />
@@ -146,13 +146,13 @@
       <keyword name="scratchSprite" id="scratchSprite" ref="classscratchSprite.html" />
       <keyword name="greenFlagClicked" id="scratchSprite::greenFlagClicked" ref="classscratchSprite.html#a152b51974e513a0afb6f8770765bc177" />
       <keyword name="stopSprite" id="scratchSprite::stopSprite" ref="classscratchSprite.html#ad9ec8bf8179adb85bf448b1b285e5e94" />
-      <keyword name="backdropSwitched" id="scratchSprite::backdropSwitched" ref="classscratchSprite.html#a426580f049374ef2f2f1871983006daa" />
+      <keyword name="backdropSwitched" id="scratchSprite::backdropSwitched" ref="classscratchSprite.html#ab1f212229b9769a0ffbb7638e9e429a5" />
       <keyword name="scratchSprite" id="scratchSprite::scratchSprite" ref="classscratchSprite.html#a401307233d74f2cbec2728b728f159ba" />
       <keyword name="loadSpriteList" id="scratchSprite::loadSpriteList" ref="classscratchSprite.html#a2429ac26a3c4bec405a51b2f3a82ae49" />
       <keyword name="setXPos" id="scratchSprite::setXPos" ref="classscratchSprite.html#ade994e8c0803e447564e92545d69c8a8" />
       <keyword name="setYPos" id="scratchSprite::setYPos" ref="classscratchSprite.html#ac3d432973f42391618ef53af03631301" />
       <keyword name="setMousePos" id="scratchSprite::setMousePos" ref="classscratchSprite.html#a0f00f9ca722b62c15b74a3fee89f561a" />
-      <keyword name="setCostume" id="scratchSprite::setCostume" ref="classscratchSprite.html#a508ac9693e4f1ae523b4316fd9067833" />
+      <keyword name="setCostume" id="scratchSprite::setCostume" ref="classscratchSprite.html#ac0bf3c62a2c6788d6f782c995766b30b" />
       <keyword name="setSize" id="scratchSprite::setSize" ref="classscratchSprite.html#aaa192f3c27395177029a47366ee143d8" />
       <keyword name="setDirection" id="scratchSprite::setDirection" ref="classscratchSprite.html#a7ba47275426e6925d8e37d9ecb84e349" />
       <keyword name="frame" id="scratchSprite::frame" ref="classscratchSprite.html#a189a29e1fb4f71052b2cb2d993d9abe0" />
@@ -160,7 +160,7 @@
       <keyword name="spriteClicked" id="scratchSprite::spriteClicked" ref="classscratchSprite.html#ac43a0ca298760cdf978a21aa6ef7038a" />
       <keyword name="keyPressed" id="scratchSprite::keyPressed" ref="classscratchSprite.html#a088476078fa21b3c71572b26f46294b3" />
       <keyword name="checkKey" id="scratchSprite::checkKey" ref="classscratchSprite.html#aa41f796acf1b9c95ece39e28353c252e" />
-      <keyword name="backdropSwitchEvent" id="scratchSprite::backdropSwitchEvent" ref="classscratchSprite.html#a7b0d4d124a23d832b6d818d92a897088" />
+      <keyword name="backdropSwitchEvent" id="scratchSprite::backdropSwitchEvent" ref="classscratchSprite.html#adbcc2ad144281a8af540dc1bd496533c" />
       <keyword name="stopAllSounds" id="scratchSprite::stopAllSounds" ref="classscratchSprite.html#a11f668c698d5517f36f7b209b4602e41" />
       <keyword name="isStage" id="scratchSprite::isStage" ref="classscratchSprite.html#a8e6b689dd4203bedb0e98e17a52a6ab4" />
       <keyword name="name" id="scratchSprite::name" ref="classscratchSprite.html#a76b078e8b25c8f18aff783eb5055d987" />
