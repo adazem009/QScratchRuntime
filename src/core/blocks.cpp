@@ -432,12 +432,14 @@ bool scratchSprite::soundBlocks(QString opcode, QMap<QString,QString> inputs, in
 			currentExecPos[processID]["special"] = "soundwait";
 			currentExecPos[processID]["sound"] = (qlonglong) (intptr_t) playSound(inputs.value("SOUND_MENU"));
 		}
-		QSoundEffect *sound = (QSoundEffect*) currentExecPos[processID]["sound"].toLongLong();
-		if(sound->isMuted())
+		else
 		{
-			delete sound;
-			*processEnd = true;
-			*frameEnd = false;
+			QSoundEffect *sound = (QSoundEffect*) currentExecPos[processID]["sound"].toLongLong();
+			if(!sound->isPlaying())
+			{
+				*processEnd = true;
+				*frameEnd = false;
+			}
 		}
 	}
 	else if(opcode == "sound_stopallsounds")

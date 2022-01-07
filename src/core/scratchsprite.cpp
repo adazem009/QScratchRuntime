@@ -306,7 +306,7 @@ QSoundEffect *scratchSprite::playSound(QString soundName)
 	soundsToRemove.clear();
 	for(int i=0; i < allSounds.count(); i++)
 	{
-		if(allSounds[i]->isMuted())
+		if(!allSounds[i]->isPlaying())
 			soundsToRemove += allSounds[i];
 	}
 	for(int i=0; i < soundsToRemove.count(); i++)
@@ -325,6 +325,7 @@ QSoundEffect *scratchSprite::playSound(QString soundName)
 	{
 		QSoundEffect *sound = new QSoundEffect();
 		sound->setSource(QUrl::fromLocalFile(assetDir + "/" + sounds[soundID].value("assetId").toString() + "." + sounds[soundID].value("dataFormat").toString()));
+		sound->setVolume(volume/100.0);
 		sound->play();
 		allSounds += sound;
 		return sound;
