@@ -10,7 +10,7 @@ This project is in development and it can't run most of Scratch projects. This i
 - [x] Motion blocks
 - [x] Looks blocks
 - [x] Sound blocks
-- [ ] Events blocks
+- [x] Event blocks
 - [ ] Control blocks
 - [ ] Sensing blocks
 - [ ] Operator blocks
@@ -20,7 +20,7 @@ This project is in development and it can't run most of Scratch projects. This i
 
 ### Features
 - [x] Reporter blocks
-- [ ] Broadcasts
+- [x] Broadcasts
 - [ ] Variables
 - [ ] Lists
 - [ ] Audio input -
