@@ -351,8 +351,26 @@ bool scratchSprite::looksBlocks(QString opcode, QMap<QString,QString> inputs, in
 			else if(inputs.value("BACKDROP") == "random backdrop")
 				newCostume = QRandomGenerator::global()->bounded(0,stagePtr->costumes.count());
 		}
-		stagePtr->setCostume(newCostume);
-		// TODO: The "and wait" block should wait until all event_whenbackdropswitchesto scripts end
+		if(opcode == "looks_switchbackdroptoandwait")
+		{
+			*frameEnd = true;
+			if(currentExecPos[processID]["special"].toString() != "waituntilend")
+			{
+				currentExecPos[processID]["special"] = "waituntilend";
+				currentExecPos[processID]["activescripts"] = 0;
+				stagePtr->setCostume(newCostume,&currentExecPos[processID]);
+			}
+			else
+			{
+				if(currentExecPos[processID]["activescripts"].toInt() == 0)
+				{
+					*processEnd = true;
+					*frameEnd = false;
+				}
+			}
+		}
+		else
+			stagePtr->setCostume(newCostume);
 	}
 	else if(opcode == "looks_nextbackdrop")
 	{
