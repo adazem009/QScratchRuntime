@@ -442,6 +442,9 @@ bool scratchSprite::soundBlocks(QString opcode, QMap<QString,QString> inputs, in
 	}
 	else if(opcode == "sound_stopallsounds")
 		stopAllSounds();
+	else if(opcode == "sound_seteffectto");
+		// TODO: Add sound effects (see QAudioDecoder)
+	else if(opcode == "sound_changeeffectby");
 	// Reporter blocks
 	else if(opcode == "sound_sounds_menu")
 		*returnValue = inputs.value("SOUND_MENU");
