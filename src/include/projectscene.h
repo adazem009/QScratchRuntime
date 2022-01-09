@@ -22,6 +22,7 @@
 #define PROJECTSCENE_H
 
 #include <QGraphicsScene>
+#include <QKeyEvent>
 #include "core/scratchsprite.h"
 
 /*! \brief The projectScene class is a QGraphicsScene used to manage all sprites. */
