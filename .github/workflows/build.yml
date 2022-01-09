@@ -6,10 +6,10 @@ on:
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu, windows, macos]
+        os: [ubuntu-18.04, ubuntu-20.04, windows-latest, macos-latest]
         qt-version: ['5.12.8']
         qt-target: ['desktop']
     steps:
@@ -25,6 +25,7 @@ jobs:
         arch: 'win32_mingw73'
         target: ${{ matrix.qt-target }}
         dir: '${{ github.workspace }}'
+        modules: 'qtcharts'
         setup-python: 'false'
     - if: contains(matrix.os, 'windows')
       name: Install 32-bit MinGW
@@ -40,6 +41,7 @@ jobs:
         host: 'linux'
         target: ${{ matrix.qt-target }}
         dir: '${{ github.workspace }}'
+        modules: 'qtcharts'
         setup-python: 'false'
     # MacOS
     - if: contains(matrix.os, 'macos')
@@ -50,9 +52,35 @@ jobs:
         host: 'mac'
         target: ${{ matrix.qt-target }}
         dir: '${{ github.workspace }}'
+        modules: 'qtcharts'
         setup-python: 'false'
     ## Build
-    - run: source .ci/${{ matrix.os }}-build.sh
+    # Windows
+    - if: contains(matrix.os, 'windows')
+      run: source .ci/windows-build.sh
+      shell: bash
+    # Ubuntu
+    - if: contains(matrix.os, 'ubuntu')
+      run: |
+        source .ci/ubuntu-build.sh
+        mkdir -p debpkg/usr/local/bin
+        cp QScratchRuntime debpkg/usr/local/bin/
+        echo "libc6_version=$(dpkg -s libc6 | grep '^Version:' | cut -d' ' -f2 | cut -d'-' -f1)" >> $GITHUB_ENV
+        echo "libstdcpp6_version=$(dpkg -s libstdc++6 | grep '^Version:' | cut -d' ' -f2 | cut -d'-' -f1)" >> $GITHUB_ENV
+      shell: bash
+    - if: contains(matrix.os, 'ubuntu')
+      uses: jiro4989/build-deb-action@v2
+      with:
+        package: qscratchruntime
+        package_root: debpkg
+        maintainer: adazem009
+        version: '2.2.0'
+        arch: 'amd64'
+        depends: 'libc6 (>= ${{ env.libc6_version }}), libstdc++6 (>= ${{ env.libstdcpp6_version }}), libqt5core5a (>= ${{ matrix.qt-version }}), libqt5gui5 (>= ${{ matrix.qt-version }}), libqt5widgets5 (>= ${{ matrix.qt-version }}), libqt5network5 (>= ${{ matrix.qt-version }}), libqt5charts5 (>= ${{ matrix.qt-version }}), libssl1.1 (>= 1.1.0)'
+        desc: 'Scratch VM written in C++'
+    # MacOS
+    - if: contains(matrix.os, 'macos')
+      run: source .ci/macos-build.sh
       shell: bash
     ## Package
     # Windows
@@ -81,4 +109,66 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: build-macos
-        path: '*.zip'
+        path: '*.dmg'
+  wasm-build:
+    runs-on: ${{ matrix.os }}-latest
+    strategy:
+      matrix:
+        os: [ubuntu]
+        qt-version: ['5.15.2']
+        qt-target: ['desktop']
+    steps:
+    - uses: actions/checkout@v2
+    ## Install Qt
+    # Ubuntu
+    - if: contains(matrix.os, 'ubuntu')
+      name: Install Qt
+      uses: jurplel/install-qt-action@v2
+      with:
+        version: ${{ matrix.qt-version }}
+        host: 'linux'
+        arch: 'wasm_32'
+        target: ${{ matrix.qt-target }}
+        dir: '${{ github.workspace }}'
+        modules: 'qtcharts'
+        setup-python: 'false'
+    ## Install emscripten
+    - uses: mymindstorm/setup-emsdk@v11
+      with:
+        version: 1.39.8
+        actions-cache-folder: 'emsdk-cache'
+    ## Build
+    #- run: source .ci/${{ matrix.os }}-build-wasm.sh
+    - run: |
+        qmake
+        make
+      shell: bash
+    - uses: actions/upload-artifact@v2
+      with:
+        name: build-wasm
+        path: |
+          *.html
+          *.js
+          *.wasm
+          *.svg
+    ## Deploy
+    - run: |
+        mkdir -p ../online-app-deploy
+        cp *.html ../online-app-deploy/
+        cp *.js ../online-app-deploy/
+        cp *.wasm ../online-app-deploy/
+        cp *.svg ../online-app-deploy/
+    - uses: actions/checkout@v2
+      with:
+        ref: 'gh-pages'
+    - run: |
+        mv ../online-app-deploy/* ./
+        git add -A
+        git config user.name "GitHub Actions Bot"
+        git config user.email "<>"
+        git commit -m "online app deploy"
+    - name: Push online-app
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: gh-pages
