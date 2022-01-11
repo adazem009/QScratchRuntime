@@ -359,7 +359,13 @@ bool scratchSprite::looksBlocks(QString opcode, QMap<QString,QString> inputs, in
 					newCostume = stagePtr->costumes.count() - 1;
 			}
 			else if(inputs.value("BACKDROP") == "random backdrop")
+			{
+#if QT_VERSION >= QT_VERSION_CHECK(5, 10, 0)
 				newCostume = QRandomGenerator::global()->bounded(0,stagePtr->costumes.count());
+#else
+				newCostume = qrand() % stagePtr->costumes.count();
+#endif
+			}
 		}
 		if(opcode == "looks_switchbackdroptoandwait")
 		{
