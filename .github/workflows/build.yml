@@ -12,8 +12,25 @@ jobs:
         os: [ubuntu-18.04, ubuntu-20.04, windows-latest, macos-latest]
         qt-version: ['5.12.8']
         qt-target: ['desktop']
+        include:
+          - os: ubuntu-18.04
+            qt-version: '5.9.5'
+            qt-target: 'desktop'
+          - os: windows-latest
+            qt-version: '5.12.8'
+            mingw-version: 73
+        exclude:
+         - os: ubuntu-18.04
+           qt-version: '5.12.8'
     steps:
     - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: 'Get Previous tag'
+      id: previoustag
+      uses: WyriHaximus/github-action-get-previous-tag@v1
+      with:
+        fallback: 0.0.1
     ## Install Qt
     # Windows
     - if: contains(matrix.os, 'windows')
@@ -22,7 +39,7 @@ jobs:
       with:
         version: ${{ matrix.qt-version }}
         host: 'windows'
-        arch: 'win32_mingw73'
+        arch: 'win32_mingw${{ matrix.mingw-version }}'
         target: ${{ matrix.qt-target }}
         dir: '${{ github.workspace }}'
         modules: 'qtcharts'
@@ -66,18 +83,27 @@ jobs:
         mkdir -p debpkg/usr/local/bin
         cp QScratchRuntime debpkg/usr/local/bin/
         echo "libc6_version=$(dpkg -s libc6 | grep '^Version:' | cut -d' ' -f2 | cut -d'-' -f1)" >> $GITHUB_ENV
-        echo "libstdcpp6_version=$(dpkg -s libstdc++6 | grep '^Version:' | cut -d' ' -f2 | cut -d'-' -f1)" >> $GITHUB_ENV
+        echo "distro=$(lsb_release -is | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+        echo "codename=$(lsb_release -cs)" >> $GITHUB_ENV
+        echo "package=qscratchruntime" >> $GITHUB_ENV
+        PKG_VERSION=${{ steps.previoustag.outputs.tag }}
+        echo "package_version=${PKG_VERSION//v}" >> $GITHUB_ENV
+        echo "package_arch=amd64" >> $GITHUB_ENV
       shell: bash
     - if: contains(matrix.os, 'ubuntu')
+      id: debpkg
       uses: jiro4989/build-deb-action@v2
       with:
-        package: qscratchruntime
+        package: ${{ env.package }}
         package_root: debpkg
         maintainer: adazem009
-        version: '0.0.1'
-        arch: 'amd64'
-        depends: 'libc6 (>= ${{ env.libc6_version }}), libstdc++6 (>= ${{ env.libstdcpp6_version }}), libqt5core5a (>= ${{ matrix.qt-version }}), libqt5gui5 (>= ${{ matrix.qt-version }}), libqt5widgets5 (>= ${{ matrix.qt-version }}), libqt5network5 (>= ${{ matrix.qt-version }}), libqt5charts5 (>= ${{ matrix.qt-version }}), libssl1.1 (>= 1.1.0)'
+        version: ${{ env.package_version }}
+        arch: ${{ env.package_arch }}
+        depends: 'libc6 (>= ${{ env.libc6_version }}), libstdc++6 (>= 8.4), libqt5core5a (>= ${{ matrix.qt-version }}), libqt5gui5 (>= ${{ matrix.qt-version }}), libqt5widgets5 (>= ${{ matrix.qt-version }}), libqt5network5 (>= ${{ matrix.qt-version }}), libqt5charts5 (>= ${{ matrix.qt-version }}), libssl1.1 (>= 1.1.0)'
         desc: 'Scratch VM written in C++'
+    - if: contains(matrix.os, 'ubuntu')
+      name: Set deb package name according to distribution
+      run: 'mv ${{ steps.debpkg.outputs.file_name }} ${{ env.package }}_${{ env.package_version }}-0-${{ env.distro }}-${{ env.codename }}_${{ env.package_arch }}.deb'
     # MacOS
     - if: contains(matrix.os, 'macos')
       run: source .ci/macos-build.sh
@@ -101,9 +127,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: build-ubuntu
-        path: |
-          QScratchRuntime
-          *.deb
+        path: '*.deb'
     # MacOS
     - if: contains(matrix.os, 'macos')
       uses: actions/upload-artifact@v2
