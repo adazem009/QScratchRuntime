@@ -25,7 +25,9 @@
 #include <QJsonObject>
 #include <QJsonArray>
 #include <QtMath>
+#if QT_VERSION >= QT_VERSION_CHECK(5, 10, 0)
 #include <QRandomGenerator>
+#endif
 #include <QGraphicsSceneMouseEvent>
 #include <QDateTime>
 #include <QSoundEffect>
