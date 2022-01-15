@@ -50,9 +50,10 @@ class MainWindow : public QMainWindow
 		QList<scratchSprite*> sprites;
 		QNetworkAccessManager *manager = nullptr;
 		QNetworkReply *currentReply = nullptr;
+		QVector<QNetworkReply*> assetReplies;
 		bool projectDataLoaded;
 		QList<QMap<QString,QString>> assets;
-		int currentAsset;
+		int loadedAssets;
 		void continueLoading(QNetworkReply* reply);
 		void init(void);
 

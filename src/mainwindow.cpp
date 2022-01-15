@@ -66,6 +66,9 @@ void MainWindow::openFile(void)
 		currentReply->deleteLater();
 		manager = nullptr;
 		currentReply = nullptr;
+		for(int i=0; i < assetReplies.count(); i++)
+			assetReplies[i]->deleteLater();
+		assetReplies.clear();
 	}
 	ui->loaderFrame->hide();
 	view->show();
@@ -93,6 +96,9 @@ void MainWindow::loadFromUrl(void)
 		currentReply->deleteLater();
 		manager = nullptr;
 		currentReply = nullptr;
+		for(int i=0; i < assetReplies.count(); i++)
+			assetReplies[i]->deleteLater();
+		assetReplies.clear();
 	}
 	manager = new QNetworkAccessManager(this);
 	connect(manager,&QNetworkAccessManager::finished,this,&MainWindow::continueLoading);
@@ -120,6 +126,7 @@ void MainWindow::loadFromUrl(void)
 void MainWindow::continueLoading(QNetworkReply* reply)
 {
 	QString loadingAssetsText = tr("Loading assets...");
+	int currentAsset;
 	if(!projectDataLoaded)
 	{
 		parser = new projectParser("",reply->readAll());
@@ -129,23 +136,28 @@ void MainWindow::continueLoading(QNetworkReply* reply)
 		projectAssets.clear();
 		projectDataLoaded = true;
 		currentAsset = 0;
+		loadedAssets = 0;
+		assetReplies.clear();
+		for(int i=0; i < assets.count(); i++)
+			assetReplies += manager->get(QNetworkRequest(QUrl("https://assets.scratch.mit.edu/internalapi/asset/" + assets[i]["assetId"] + "." + assets[i]["dataFormat"] + "/get/")));
 	}
 	else
 	{
-		ui->loadingProgressBar->setValue(currentAsset+1);
-		ui->loadingProgressLabel->setText(loadingAssetsText + " (" + QString::number(currentAsset+1) + "/" + QString::number(assets.count()) + ")");
+		currentAsset = assetReplies.indexOf(reply);
+		ui->loadingProgressBar->setValue(loadedAssets+1);
+		ui->loadingProgressLabel->setText(loadingAssetsText + " (" + QString::number(loadedAssets+1) + "/" + QString::number(assets.count()) + ")");
 		QByteArray *assetData = new QByteArray(reply->readAll());
 		projectAssets.insert(assets[currentAsset]["assetId"],assetData);
-		currentAsset++;
+		loadedAssets++;
 	}
-	if(currentAsset < assets.count())
-		currentReply = manager->get(QNetworkRequest(QUrl("https://assets.scratch.mit.edu/internalapi/asset/" + assets[currentAsset]["assetId"] + "." + assets[currentAsset]["dataFormat"] + "/get/")));
-	else
+	for(int i=0; i < assetReplies.count(); i++)
 	{
-		ui->loaderFrame->hide();
-		view->show();
-		init();
+		if(assetReplies[i]->isRunning())
+			return;
 	}
+	ui->loaderFrame->hide();
+	view->show();
+	init();
 }
 
 /*! Reads project.json and initializes the project. */
