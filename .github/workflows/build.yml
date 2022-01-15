@@ -139,7 +139,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu]
-        qt-version: ['6.2.2']
+        qt-version: ['5.15.8']
         qt-target: ['desktop']
     steps:
     - uses: actions/checkout@v2
