@@ -45,6 +45,8 @@ void projectScene::loadSpriteList(QList<scratchSprite*> list)
 void projectScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
 	QGraphicsItem *clickedItem = itemAt(event->scenePos(),QTransform());
+	if(clickedItem == nullptr)
+		return;
 	if(clickedItem->type() == scratchSprite::Type)
 	{
 		scratchSprite *clickedSprite = (scratchSprite*) clickedItem;
