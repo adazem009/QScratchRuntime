@@ -36,6 +36,7 @@ MainWindow::MainWindow(QWidget *parent)
 	view->setStyleSheet("QGraphicsView { background-color: rgb(255,255,255); }");
 	view->hide();
 	ui->loaderFrame->hide();
+	ui->greenFlag->setEnabled(false);
 	// Connections
 	connect(ui->actionOpen,SIGNAL(triggered()),this,SLOT(openFile()));
 	connect(ui->loadFromUrlButton,SIGNAL(clicked()),this,SLOT(loadFromUrl()));
@@ -78,6 +79,7 @@ void MainWindow::openFile(void)
  */
 void MainWindow::loadFromUrl(void)
 {
+	ui->greenFlag->setEnabled(false);
 	view->hide();
 	ui->loaderFrame->show();
 	ui->loadingProgressBar->setRange(0,1);
@@ -170,4 +172,6 @@ void MainWindow::init(void)
 		sprites[i]->loadSpriteList(sprites);
 	// Add sprite list to scene
 	scene->loadSpriteList(sprites);
+	// Enable control buttons
+	ui->greenFlag->setEnabled(true);
 }
