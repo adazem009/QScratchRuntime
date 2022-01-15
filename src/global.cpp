@@ -22,3 +22,6 @@
 
 /*! List of QSoundEffect pointers. */
 QList<QSoundEffect*> allSounds = QList<QSoundEffect*>();
+
+/*! Map of project assets. */
+QMap<QString,QByteArray*> projectAssets = QMap<QString,QByteArray*>();

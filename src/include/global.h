@@ -22,3 +22,4 @@
 #include <QSoundEffect>
 
 extern QList<QSoundEffect*> allSounds;
+extern QMap<QString,QByteArray*> projectAssets;
