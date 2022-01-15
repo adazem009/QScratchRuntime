@@ -56,6 +56,18 @@ void MainWindow::openFile(void)
 {
 	if((fileName = QFileDialog::getOpenFileName(this,tr("Open Scratch project"),QString(),tr("Scratch project JSON file") + " (project.json)")) == "")
 		return;
+	if(manager != nullptr)
+	{
+		disconnect(manager,nullptr,nullptr,nullptr);
+		if(currentReply != nullptr)
+			currentReply->abort();
+		manager->deleteLater();
+		currentReply->deleteLater();
+		manager = nullptr;
+		currentReply = nullptr;
+	}
+	ui->loaderFrame->hide();
+	view->show();
 	parser = new projectParser(fileName);
 	init();
 }
@@ -70,11 +82,15 @@ void MainWindow::loadFromUrl(void)
 	ui->loaderFrame->show();
 	ui->loadingProgressBar->setRange(0,1);
 	ui->loadingProgressBar->setValue(0);
-	if((manager != nullptr) && (currentReply != nullptr))
+	if(manager != nullptr)
 	{
 		disconnect(manager,nullptr,nullptr,nullptr);
-		currentReply->abort();
-		delete manager;
+		if(currentReply != nullptr)
+			currentReply->abort();
+		manager->deleteLater();
+		currentReply->deleteLater();
+		manager = nullptr;
+		currentReply = nullptr;
 	}
 	manager = new QNetworkAccessManager(this);
 	connect(manager,&QNetworkAccessManager::finished,this,&MainWindow::continueLoading);
