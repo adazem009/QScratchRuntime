@@ -146,16 +146,6 @@ jobs:
     ## Install Qt
     # Ubuntu
     - if: contains(matrix.os, 'ubuntu')
-      name: Install Qt (gcc_64)
-      uses: jurplel/install-qt-action@v2
-      with:
-        version: ${{ matrix.qt-version }}
-        host: 'linux'
-        target: ${{ matrix.qt-target }}
-        dir: '${{ github.workspace }}'
-        modules: 'qtmultimedia'
-        setup-python: 'false'
-    - if: contains(matrix.os, 'ubuntu')
       name: Install Qt
       uses: jurplel/install-qt-action@v2
       with:
