@@ -21,21 +21,26 @@
 #include "core/projectparser.h"
 
 /*! Constructs projectParser. */
-projectParser::projectParser(QString fileName, QObject *parent) :
+projectParser::projectParser(QString fileName, QByteArray projectJson, QObject *parent) :
 	QObject(parent)
 {
-	QFileInfo fileInfo(fileName);
-	assetDir = fileInfo.path();
-	// Read JSON
-	QFile jsonFile(fileName);
-	if(!jsonFile.exists())
+	if(projectJson == "")
 	{
-		jsonFile.open(QIODevice::WriteOnly | QIODevice::Text);
+		QFileInfo fileInfo(fileName);
+		assetDir = fileInfo.path();
+		// Read JSON
+		QFile jsonFile(fileName);
+		if(!jsonFile.exists())
+		{
+			jsonFile.open(QIODevice::WriteOnly | QIODevice::Text);
+			jsonFile.close();
+		}
+		jsonFile.open(QIODevice::ReadOnly | QIODevice::Text);
+		document = QJsonDocument::fromJson(jsonFile.readAll());
 		jsonFile.close();
 	}
-	jsonFile.open(QIODevice::ReadOnly | QIODevice::Text);
-	document = QJsonDocument::fromJson(jsonFile.readAll());
-	jsonFile.close();
+	else
+		document = document = QJsonDocument::fromJson(projectJson);
 	// Read object
 	mainObject = document.object();
 }

@@ -35,7 +35,7 @@ class projectParser : public QObject
 {
 	Q_OBJECT
 	public:
-		explicit projectParser(QString fileName, QObject *parent = nullptr);
+		explicit projectParser(QString fileName, QByteArray projectJson = "", QObject *parent = nullptr);
 		QList<scratchSprite*> sprites(void);
 		scratchSprite* stage(void);
 		QList<QMap<QString,QString>> assetIDs(void);
