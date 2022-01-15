@@ -21,6 +21,7 @@
 #include <QList>
 #include <QSoundEffect>
 #include <QTemporaryFile>
+#include <QMap>
 
 extern QList<QSoundEffect*> allSounds;
 extern QList<QTemporaryFile*> allSoundFiles;
