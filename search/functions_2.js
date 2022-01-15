@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['eventblocks_0',['eventBlocks',['../classscratchSprite.html#a7f32c3853ada16e3581a07d685de491d',1,'scratchSprite']]]
+  ['checkkey_0',['checkKey',['../classscratchSprite.html#aa41f796acf1b9c95ece39e28353c252e',1,'scratchSprite']]]
 ];

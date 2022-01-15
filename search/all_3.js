@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['eventblocks_0',['eventBlocks',['../classscratchSprite.html#a7f32c3853ada16e3581a07d685de491d',1,'scratchSprite']]]
+  ['direction_0',['direction',['../classscratchSprite.html#a5b09a80137060595705512837eeba008',1,'scratchSprite']]],
+  ['draggable_1',['draggable',['../classscratchSprite.html#a992e9be078ab605da7f7ccd41fc3a10f',1,'scratchSprite']]]
 ];

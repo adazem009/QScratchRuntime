@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['frame_0',['frame',['../classscratchSprite.html#a189a29e1fb4f71052b2cb2d993d9abe0',1,'scratchSprite']]]
+  ['eventblocks_0',['eventBlocks',['../classscratchSprite.html#a7f32c3853ada16e3581a07d685de491d',1,'scratchSprite']]]
 ];

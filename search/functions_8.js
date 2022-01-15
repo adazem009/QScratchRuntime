@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['mainwindow_0',['MainWindow',['../classMainWindow.html#a996c5a2b6f77944776856f08ec30858d',1,'MainWindow']]],
-  ['motionblocks_1',['motionBlocks',['../classscratchSprite.html#a5afaa221267907bd4d0987d84dbdc652',1,'scratchSprite']]],
-  ['mousedoubleclickevent_2',['mouseDoubleClickEvent',['../classprojectScene.html#a0dc2c5484c1ef8f83acbf12b9cbc6fed',1,'projectScene']]],
-  ['mousemoveevent_3',['mouseMoveEvent',['../classprojectScene.html#a381d1f0a59381d3a98553c656ef01d82',1,'projectScene']]],
-  ['mousepressevent_4',['mousePressEvent',['../classprojectScene.html#a7be8c52d061099acca42eef41e39840b',1,'projectScene']]]
+  ['loadfromurl_0',['loadFromUrl',['../classMainWindow.html#acf9b021aef67e5c38af3f4d218169f0b',1,'MainWindow']]],
+  ['loadspritelist_1',['loadSpriteList',['../classscratchSprite.html#a2429ac26a3c4bec405a51b2f3a82ae49',1,'scratchSprite::loadSpriteList()'],['../classprojectScene.html#a82704fa5c1e2296e615a4eb57caff0c2',1,'projectScene::loadSpriteList()']]],
+  ['looksblocks_2',['looksBlocks',['../classscratchSprite.html#a385ea5a053d2929b439c310304940125',1,'scratchSprite']]]
 ];

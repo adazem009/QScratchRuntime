@@ -12,10 +12,12 @@
               <section title="MainWindow" ref="classMainWindow.html#a996c5a2b6f77944776856f08ec30858d" />
               <section title="~MainWindow" ref="classMainWindow.html#ae98d00a93bc118200eeef9f9bba1dba7" />
               <section title="init" ref="classMainWindow.html#adacc054a62e38fb27708c0e1e2924b3e" />
+              <section title="loadFromUrl" ref="classMainWindow.html#acf9b021aef67e5c38af3f4d218169f0b" />
               <section title="openFile" ref="classMainWindow.html#ab14469aff316235cb2ee764483a6319d" />
             </section>
             <section title="projectParser" ref="classprojectParser.html">
-              <section title="projectParser" ref="classprojectParser.html#aad1ce885c9b066b43ad3baa077788212" />
+              <section title="projectParser" ref="classprojectParser.html#ae0bb73dcc19d4eea98cdc807fb650d3d" />
+              <section title="assetIDs" ref="classprojectParser.html#ac39b6e9320cce22aae72d0837f1a96ff" />
               <section title="sprites" ref="classprojectParser.html#ab4d4e9b006743666101d500a4c74608b" />
               <section title="stage" ref="classprojectParser.html#a652bca50042e3109eb9b7dfbab7d953e" />
             </section>
@@ -123,6 +125,7 @@
       <keyword name="MainWindow" id="MainWindow::MainWindow" ref="classMainWindow.html#a996c5a2b6f77944776856f08ec30858d" />
       <keyword name="~MainWindow" id="MainWindow::~MainWindow" ref="classMainWindow.html#ae98d00a93bc118200eeef9f9bba1dba7" />
       <keyword name="openFile" id="MainWindow::openFile" ref="classMainWindow.html#ab14469aff316235cb2ee764483a6319d" />
+      <keyword name="loadFromUrl" id="MainWindow::loadFromUrl" ref="classMainWindow.html#acf9b021aef67e5c38af3f4d218169f0b" />
       <keyword name="init" id="MainWindow::init" ref="classMainWindow.html#adacc054a62e38fb27708c0e1e2924b3e" />
       <keyword name="ui" id="MainWindow::ui" ref="classMainWindow.html#a35466a70ed47252a0191168126a352a5" />
       <keyword name="fileName" id="MainWindow::fileName" ref="classMainWindow.html#a06968aebc42a16ab51c5888b4784075d" />
@@ -131,9 +134,10 @@
       <keyword name="view" id="MainWindow::view" ref="classMainWindow.html#a6e33bc418ea3e6d93b3021933bfa3baa" />
       <keyword name="sprites" id="MainWindow::sprites" ref="classMainWindow.html#ab30b754daa12fffa11e1b90315fa5c6c" />
       <keyword name="projectParser" id="projectParser" ref="classprojectParser.html" />
-      <keyword name="projectParser" id="projectParser::projectParser" ref="classprojectParser.html#aad1ce885c9b066b43ad3baa077788212" />
+      <keyword name="projectParser" id="projectParser::projectParser" ref="classprojectParser.html#ae0bb73dcc19d4eea98cdc807fb650d3d" />
       <keyword name="sprites" id="projectParser::sprites" ref="classprojectParser.html#ab4d4e9b006743666101d500a4c74608b" />
       <keyword name="stage" id="projectParser::stage" ref="classprojectParser.html#a652bca50042e3109eb9b7dfbab7d953e" />
+      <keyword name="assetIDs" id="projectParser::assetIDs" ref="classprojectParser.html#ac39b6e9320cce22aae72d0837f1a96ff" />
       <keyword name="document" id="projectParser::document" ref="classprojectParser.html#a7bfc9162d394499dead3856817a76bde" />
       <keyword name="mainObject" id="projectParser::mainObject" ref="classprojectParser.html#a7cffc1d8d0fe7f2c0330e86b4acdfb48" />
       <keyword name="assetDir" id="projectParser::assetDir" ref="classprojectParser.html#a0731408dc18783c91c67d24060a1a9d8" />
@@ -297,6 +301,8 @@
       <file>functions.html</file>
       <file>functions.html</file>
       <file>functions.html</file>
+      <file>functions.html</file>
+      <file>functions_func.html</file>
       <file>functions_func.html</file>
       <file>functions_func.html</file>
       <file>functions_func.html</file>
