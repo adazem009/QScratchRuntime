@@ -24,6 +24,8 @@
 #include <QMainWindow>
 #include <QFileDialog>
 #include <QGraphicsView>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
 #include "projectscene.h"
 #include "core/projectparser.h"
 
@@ -50,6 +52,7 @@ class MainWindow : public QMainWindow
 
 	private slots:
 		void openFile(void);
+		void loadFromUrl(void);
 };
 
 #endif // MAINWINDOW_H

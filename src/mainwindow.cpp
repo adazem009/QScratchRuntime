@@ -37,6 +37,7 @@ MainWindow::MainWindow(QWidget *parent)
 	view->show();
 	// Connections
 	connect(ui->actionOpen,SIGNAL(triggered()),this,SLOT(openFile()));
+	connect(ui->loadFromUrlButton,SIGNAL(clicked()),this,SLOT(loadFromUrl()));
 	connect(ui->greenFlag,&QPushButton::clicked,scene,&projectScene::greenFlag);
 }
 
@@ -54,6 +55,51 @@ void MainWindow::openFile(void)
 {
 	if((fileName = QFileDialog::getOpenFileName(this,tr("Open Scratch project"),QString(),tr("Scratch project JSON file") + " (project.json)")) == "")
 		return;
+	parser = new projectParser(fileName);
+	init();
+}
+
+/*!
+ * Connected from loadFromUrlButton->clicked().\n
+ * Loads a project from URL in urlEdit.
+ */
+void MainWindow::loadFromUrl(void)
+{
+	QNetworkAccessManager *manager = new QNetworkAccessManager(this);
+	QNetworkReply *reply;
+	QEventLoop requestLoop;
+	connect(manager,&QNetworkAccessManager::finished,&requestLoop,&QEventLoop::quit);
+	// Get project ID
+	QString buffer = "", projectID = "";
+	for(int i=0; i < ui->urlEdit->text().count(); i++)
+	{
+		if((ui->urlEdit->text().at(i) == '/') || (i+1 == ui->urlEdit->text().count()))
+		{
+			if(!(ui->urlEdit->text().at(i) == '/'))
+				buffer += ui->urlEdit->text().at(i);
+			projectID = buffer;
+			buffer = "";
+		}
+		else
+			buffer += ui->urlEdit->text().at(i);
+	}
+	// Download project.json
+	reply = manager->get(QNetworkRequest(QUrl("https://projects.scratch.mit.edu/" + projectID)));
+	requestLoop.exec(QEventLoop::ExcludeUserInputEvents);
+	reply->waitForReadyRead(-1);
+	parser = new projectParser("",reply->readAll());
+	// Download assets
+	QList<QMap<QString,QString>> assets = parser->assetIDs();
+	projectAssets.clear();
+	for(int i=0; i < assets.count(); i++)
+	{
+		qDebug() << QString("Downloading ") + QString("https://assets.scratch.mit.edu/internalapi/asset/") + assets[i]["assetId"] + "." + assets[i]["dataFormat"] + QString("/get/");
+		reply = manager->get(QNetworkRequest(QUrl("https://assets.scratch.mit.edu/internalapi/asset/" + assets[i]["assetId"] + "." + assets[i]["dataFormat"] + "/get/")));
+		requestLoop.exec(QEventLoop::ExcludeUserInputEvents);
+		reply->waitForReadyRead(-1);
+		QByteArray *assetData = new QByteArray(reply->readAll());
+		projectAssets.insert(assets[i]["assetId"],assetData);
+	}
 	init();
 }
 
@@ -67,7 +113,8 @@ void MainWindow::init(void)
 		scene->removeItem(oldItems[i]);
 		delete oldItems[i];
 	}
-	parser = new projectParser(fileName);
+	allSounds.clear();
+	allSoundFiles.clear();
 	sprites = parser->sprites();
 	// Uncomment the following 2 lines to show X and Y axis
 	//scene->addLine(-240,0,240,0);
