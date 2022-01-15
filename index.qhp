@@ -137,9 +137,10 @@
       <keyword name="sprites" id="MainWindow::sprites" ref="classMainWindow.html#ab30b754daa12fffa11e1b90315fa5c6c" />
       <keyword name="manager" id="MainWindow::manager" ref="classMainWindow.html#ada57966f51638291da96f299bf0cf267" />
       <keyword name="currentReply" id="MainWindow::currentReply" ref="classMainWindow.html#ae2bbda164eb3807dbedad8d74da6ff09" />
+      <keyword name="assetReplies" id="MainWindow::assetReplies" ref="classMainWindow.html#adc48f3a0563ec06860d0853991c26104" />
       <keyword name="projectDataLoaded" id="MainWindow::projectDataLoaded" ref="classMainWindow.html#ab2ef28e41e3769f1cbe43cc705e69987" />
       <keyword name="assets" id="MainWindow::assets" ref="classMainWindow.html#a8551cf6da3bc97adef43b72e309a2d7d" />
-      <keyword name="currentAsset" id="MainWindow::currentAsset" ref="classMainWindow.html#ab601a9281c8732af549e73b0d3567f1a" />
+      <keyword name="loadedAssets" id="MainWindow::loadedAssets" ref="classMainWindow.html#adaea0072677b2b0746e5989b282a0c9c" />
       <keyword name="projectParser" id="projectParser" ref="classprojectParser.html" />
       <keyword name="projectParser" id="projectParser::projectParser" ref="classprojectParser.html#ae0bb73dcc19d4eea98cdc807fb650d3d" />
       <keyword name="sprites" id="projectParser::sprites" ref="classprojectParser.html#ab4d4e9b006743666101d500a4c74608b" />
