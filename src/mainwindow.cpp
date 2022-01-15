@@ -70,10 +70,14 @@ void MainWindow::loadFromUrl(void)
 	ui->loaderFrame->show();
 	ui->loadingProgressBar->setRange(0,1);
 	ui->loadingProgressBar->setValue(0);
-	QNetworkAccessManager *manager = new QNetworkAccessManager(this);
-	QNetworkReply *reply;
-	QEventLoop requestLoop;
-	connect(manager,&QNetworkAccessManager::finished,&requestLoop,&QEventLoop::quit);
+	if((manager != nullptr) && (currentReply != nullptr))
+	{
+		disconnect(manager,nullptr,nullptr,nullptr);
+		currentReply->abort();
+		delete manager;
+	}
+	manager = new QNetworkAccessManager(this);
+	connect(manager,&QNetworkAccessManager::finished,this,&MainWindow::continueLoading);
 	// Get project ID
 	QString buffer = "", projectID = "";
 	for(int i=0; i < ui->urlEdit->text().count(); i++)
@@ -90,29 +94,40 @@ void MainWindow::loadFromUrl(void)
 	}
 	// Download project.json
 	ui->loadingProgressLabel->setText(tr("Loading project data..."));
-	reply = manager->get(QNetworkRequest(QUrl("https://projects.scratch.mit.edu/" + projectID)));
-	requestLoop.exec(QEventLoop::ExcludeUserInputEvents);
-	reply->waitForReadyRead(-1);
-	parser = new projectParser("",reply->readAll());
-	// Download assets
+	projectDataLoaded = false;
+	currentReply = manager->get(QNetworkRequest(QUrl("https://projects.scratch.mit.edu/" + projectID)));
+}
+
+/*! Continues loading the project. */
+void MainWindow::continueLoading(QNetworkReply* reply)
+{
 	QString loadingAssetsText = tr("Loading assets...");
-	ui->loadingProgressLabel->setText(loadingAssetsText);
-	QList<QMap<QString,QString>> assets = parser->assetIDs();
-	ui->loadingProgressBar->setRange(0,assets.count());
-	projectAssets.clear();
-	for(int i=0; i < assets.count(); i++)
+	if(!projectDataLoaded)
 	{
-		ui->loadingProgressBar->setValue(i+1);
-		ui->loadingProgressLabel->setText(loadingAssetsText + " (" + QString::number(i+1) + "/" + QString::number(assets.count()) + ")");
-		reply = manager->get(QNetworkRequest(QUrl("https://assets.scratch.mit.edu/internalapi/asset/" + assets[i]["assetId"] + "." + assets[i]["dataFormat"] + "/get/")));
-		requestLoop.exec(QEventLoop::ExcludeUserInputEvents);
-		reply->waitForReadyRead(-1);
-		QByteArray *assetData = new QByteArray(reply->readAll());
-		projectAssets.insert(assets[i]["assetId"],assetData);
+		parser = new projectParser("",reply->readAll());
+		ui->loadingProgressLabel->setText(loadingAssetsText);
+		assets = parser->assetIDs();
+		ui->loadingProgressBar->setRange(0,assets.count());
+		projectAssets.clear();
+		projectDataLoaded = true;
+		currentAsset = 0;
 	}
-	ui->loaderFrame->hide();
-	view->show();
-	init();
+	else
+	{
+		ui->loadingProgressBar->setValue(currentAsset+1);
+		ui->loadingProgressLabel->setText(loadingAssetsText + " (" + QString::number(currentAsset+1) + "/" + QString::number(assets.count()) + ")");
+		QByteArray *assetData = new QByteArray(reply->readAll());
+		projectAssets.insert(assets[currentAsset]["assetId"],assetData);
+		currentAsset++;
+	}
+	if(currentAsset < assets.count())
+		currentReply = manager->get(QNetworkRequest(QUrl("https://assets.scratch.mit.edu/internalapi/asset/" + assets[currentAsset]["assetId"] + "." + assets[currentAsset]["dataFormat"] + "/get/")));
+	else
+	{
+		ui->loaderFrame->hide();
+		view->show();
+		init();
+	}
 }
 
 /*! Reads project.json and initializes the project. */

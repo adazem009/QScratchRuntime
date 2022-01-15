@@ -48,6 +48,12 @@ class MainWindow : public QMainWindow
 		projectScene *scene;
 		QGraphicsView *view;
 		QList<scratchSprite*> sprites;
+		QNetworkAccessManager *manager = nullptr;
+		QNetworkReply *currentReply = nullptr;
+		bool projectDataLoaded;
+		QList<QMap<QString,QString>> assets;
+		int currentAsset;
+		void continueLoading(QNetworkReply* reply);
 		void init(void);
 
 	private slots:
