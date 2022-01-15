@@ -27,7 +27,7 @@ This project is in development and it can't run most of Scratch projects. This i
 could be implemented using [QAudioInput](https://doc.qt.io/qt-5/qaudioinput.html)
 - [ ] Timers
 - [ ] Load project from .sb3
-- [ ] Load project from URL
+- [x] Load project from URL
 
 ### Graphic effects
 - [x] Color
