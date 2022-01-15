@@ -20,6 +20,8 @@
 
 #include <QList>
 #include <QSoundEffect>
+#include <QTemporaryFile>
 
 extern QList<QSoundEffect*> allSounds;
+extern QList<QTemporaryFile*> allSoundFiles;
 extern QMap<QString,QByteArray*> projectAssets;
