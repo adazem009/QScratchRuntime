@@ -31,10 +31,11 @@ MainWindow::MainWindow(QWidget *parent)
 	view = new QGraphicsView(scene,ui->centralwidget);
 	view->scale(2,2);
 	view->setMouseTracking(true);
-	ui->gridLayout->addWidget(view);
-	view->setSizePolicy(QSizePolicy::Preferred,QSizePolicy::Preferred);
+	ui->projectLayout->addWidget(view);
+	view->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
 	view->setStyleSheet("QGraphicsView { background-color: rgb(255,255,255); }");
-	view->show();
+	view->hide();
+	ui->loaderFrame->hide();
 	// Connections
 	connect(ui->actionOpen,SIGNAL(triggered()),this,SLOT(openFile()));
 	connect(ui->loadFromUrlButton,SIGNAL(clicked()),this,SLOT(loadFromUrl()));
@@ -65,6 +66,10 @@ void MainWindow::openFile(void)
  */
 void MainWindow::loadFromUrl(void)
 {
+	view->hide();
+	ui->loaderFrame->show();
+	ui->loadingProgressBar->setRange(0,1);
+	ui->loadingProgressBar->setValue(0);
 	QNetworkAccessManager *manager = new QNetworkAccessManager(this);
 	QNetworkReply *reply;
 	QEventLoop requestLoop;
@@ -84,15 +89,21 @@ void MainWindow::loadFromUrl(void)
 			buffer += ui->urlEdit->text().at(i);
 	}
 	// Download project.json
+	ui->loadingProgressLabel->setText(tr("Loading project data..."));
 	reply = manager->get(QNetworkRequest(QUrl("https://projects.scratch.mit.edu/" + projectID)));
 	requestLoop.exec(QEventLoop::ExcludeUserInputEvents);
 	reply->waitForReadyRead(-1);
 	parser = new projectParser("",reply->readAll());
 	// Download assets
+	QString loadingAssetsText = tr("Loading assets...");
+	ui->loadingProgressLabel->setText(loadingAssetsText);
 	QList<QMap<QString,QString>> assets = parser->assetIDs();
+	ui->loadingProgressBar->setRange(0,assets.count());
 	projectAssets.clear();
 	for(int i=0; i < assets.count(); i++)
 	{
+		ui->loadingProgressBar->setValue(i+1);
+		ui->loadingProgressLabel->setText(loadingAssetsText + " (" + QString::number(i+1) + "/" + QString::number(assets.count()) + ")");
 		qDebug() << QString("Downloading ") + QString("https://assets.scratch.mit.edu/internalapi/asset/") + assets[i]["assetId"] + "." + assets[i]["dataFormat"] + QString("/get/");
 		reply = manager->get(QNetworkRequest(QUrl("https://assets.scratch.mit.edu/internalapi/asset/" + assets[i]["assetId"] + "." + assets[i]["dataFormat"] + "/get/")));
 		requestLoop.exec(QEventLoop::ExcludeUserInputEvents);
@@ -100,6 +111,8 @@ void MainWindow::loadFromUrl(void)
 		QByteArray *assetData = new QByteArray(reply->readAll());
 		projectAssets.insert(assets[i]["assetId"],assetData);
 	}
+	ui->loaderFrame->hide();
+	view->show();
 	init();
 }
 
