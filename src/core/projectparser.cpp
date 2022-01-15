@@ -2,7 +2,7 @@
  * projectparser.cpp
  * This file is part of QScratchRuntime
  *
- * Copyright (C) 2021 - adazem009
+ * Copyright (C) 2021-2022 - adazem009
  *
  * QScratchRuntime is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -63,4 +63,32 @@ scratchSprite *projectParser::stage(void)
 			return currentSprite;
 	}
 	return nullptr;
+}
+
+/*! Returns list of asset maps (asset ID and data format). */
+QList<QMap<QString,QString>> projectParser::assetIDs(void)
+{
+	QList<QMap<QString,QString>> out;
+	out.clear();
+	QJsonArray targets = mainObject.value("targets").toArray();
+	for(int i=0; i < targets.count(); i++)
+	{
+		QJsonObject currentTarget = targets[i].toObject();
+		QJsonArray costumes = currentTarget.value("costumes").toArray();
+		QMap<QString,QString> asset;
+		for(int i2=0; i2 < costumes.count(); i2++)
+		{
+			asset.insert("assetId",costumes[i2].toObject().value("assetId").toString());
+			asset.insert("dataFormat",costumes[i2].toObject().value("dataFormat").toString());
+			out += asset;
+		}
+		QJsonArray sounds = currentTarget.value("sounds").toArray();
+		for(int i2=0; i2 < sounds.count(); i2++)
+		{
+			asset.insert("assetId",sounds[i2].toObject().value("assetId").toString());
+			asset.insert("dataFormat",sounds[i2].toObject().value("dataFormat").toString());
+			out += asset;
+		}
+	}
+	return out;
 }
