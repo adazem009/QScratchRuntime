@@ -104,7 +104,6 @@ void MainWindow::loadFromUrl(void)
 	{
 		ui->loadingProgressBar->setValue(i+1);
 		ui->loadingProgressLabel->setText(loadingAssetsText + " (" + QString::number(i+1) + "/" + QString::number(assets.count()) + ")");
-		qDebug() << QString("Downloading ") + QString("https://assets.scratch.mit.edu/internalapi/asset/") + assets[i]["assetId"] + "." + assets[i]["dataFormat"] + QString("/get/");
 		reply = manager->get(QNetworkRequest(QUrl("https://assets.scratch.mit.edu/internalapi/asset/" + assets[i]["assetId"] + "." + assets[i]["dataFormat"] + "/get/")));
 		requestLoop.exec(QEventLoop::ExcludeUserInputEvents);
 		reply->waitForReadyRead(-1);
