@@ -134,6 +134,8 @@ Private Slots</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
+<tr class="memitem:a72b0f5ec864d378156f19836d57b2033"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWindow.html#a72b0f5ec864d378156f19836d57b2033">continueLoading</a> (QNetworkReply *reply)</td></tr>
+<tr class="separator:a72b0f5ec864d378156f19836d57b2033"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adacc054a62e38fb27708c0e1e2924b3e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWindow.html#adacc054a62e38fb27708c0e1e2924b3e">init</a> (void)</td></tr>
 <tr class="separator:adacc054a62e38fb27708c0e1e2924b3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -157,6 +159,21 @@ QGraphicsView *&#160;</td><td class="memItemRight" valign="bottom"><b>view</b></
 <tr class="memitem:ab30b754daa12fffa11e1b90315fa5c6c"><td class="memItemLeft" align="right" valign="top"><a id="ab30b754daa12fffa11e1b90315fa5c6c" name="ab30b754daa12fffa11e1b90315fa5c6c"></a>
 QList&lt; <a class="el" href="classscratchSprite.html">scratchSprite</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>sprites</b></td></tr>
 <tr class="separator:ab30b754daa12fffa11e1b90315fa5c6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada57966f51638291da96f299bf0cf267"><td class="memItemLeft" align="right" valign="top"><a id="ada57966f51638291da96f299bf0cf267" name="ada57966f51638291da96f299bf0cf267"></a>
+QNetworkAccessManager *&#160;</td><td class="memItemRight" valign="bottom"><b>manager</b> = nullptr</td></tr>
+<tr class="separator:ada57966f51638291da96f299bf0cf267"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2bbda164eb3807dbedad8d74da6ff09"><td class="memItemLeft" align="right" valign="top"><a id="ae2bbda164eb3807dbedad8d74da6ff09" name="ae2bbda164eb3807dbedad8d74da6ff09"></a>
+QNetworkReply *&#160;</td><td class="memItemRight" valign="bottom"><b>currentReply</b> = nullptr</td></tr>
+<tr class="separator:ae2bbda164eb3807dbedad8d74da6ff09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2ef28e41e3769f1cbe43cc705e69987"><td class="memItemLeft" align="right" valign="top"><a id="ab2ef28e41e3769f1cbe43cc705e69987" name="ab2ef28e41e3769f1cbe43cc705e69987"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>projectDataLoaded</b></td></tr>
+<tr class="separator:ab2ef28e41e3769f1cbe43cc705e69987"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8551cf6da3bc97adef43b72e309a2d7d"><td class="memItemLeft" align="right" valign="top"><a id="a8551cf6da3bc97adef43b72e309a2d7d" name="a8551cf6da3bc97adef43b72e309a2d7d"></a>
+QList&lt; QMap&lt; QString, QString &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>assets</b></td></tr>
+<tr class="separator:a8551cf6da3bc97adef43b72e309a2d7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab601a9281c8732af549e73b0d3567f1a"><td class="memItemLeft" align="right" valign="top"><a id="ab601a9281c8732af549e73b0d3567f1a" name="ab601a9281c8732af549e73b0d3567f1a"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>currentAsset</b></td></tr>
+<tr class="separator:ab601a9281c8732af549e73b0d3567f1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The <a class="el" href="classMainWindow.html">MainWindow</a> class is the main window of QScratchRuntime. </p>
@@ -199,6 +216,33 @@ QList&lt; <a class="el" href="classscratchSprite.html">scratchSprite</a> * &gt;&
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a72b0f5ec864d378156f19836d57b2033" name="a72b0f5ec864d378156f19836d57b2033"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72b0f5ec864d378156f19836d57b2033">&#9670;&nbsp;</a></span>continueLoading()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWindow::continueLoading </td>
+          <td>(</td>
+          <td class="paramtype">QNetworkReply *&#160;</td>
+          <td class="paramname"><em>reply</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Continues loading the project. </p>
+
+</div>
+</div>
 <a id="adacc054a62e38fb27708c0e1e2924b3e" name="adacc054a62e38fb27708c0e1e2924b3e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adacc054a62e38fb27708c0e1e2924b3e">&#9670;&nbsp;</a></span>init()</h2>
 

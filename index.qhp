@@ -11,6 +11,7 @@
             <section title="MainWindow" ref="classMainWindow.html">
               <section title="MainWindow" ref="classMainWindow.html#a996c5a2b6f77944776856f08ec30858d" />
               <section title="~MainWindow" ref="classMainWindow.html#ae98d00a93bc118200eeef9f9bba1dba7" />
+              <section title="continueLoading" ref="classMainWindow.html#a72b0f5ec864d378156f19836d57b2033" />
               <section title="init" ref="classMainWindow.html#adacc054a62e38fb27708c0e1e2924b3e" />
               <section title="loadFromUrl" ref="classMainWindow.html#acf9b021aef67e5c38af3f4d218169f0b" />
               <section title="openFile" ref="classMainWindow.html#ab14469aff316235cb2ee764483a6319d" />
@@ -126,6 +127,7 @@
       <keyword name="~MainWindow" id="MainWindow::~MainWindow" ref="classMainWindow.html#ae98d00a93bc118200eeef9f9bba1dba7" />
       <keyword name="openFile" id="MainWindow::openFile" ref="classMainWindow.html#ab14469aff316235cb2ee764483a6319d" />
       <keyword name="loadFromUrl" id="MainWindow::loadFromUrl" ref="classMainWindow.html#acf9b021aef67e5c38af3f4d218169f0b" />
+      <keyword name="continueLoading" id="MainWindow::continueLoading" ref="classMainWindow.html#a72b0f5ec864d378156f19836d57b2033" />
       <keyword name="init" id="MainWindow::init" ref="classMainWindow.html#adacc054a62e38fb27708c0e1e2924b3e" />
       <keyword name="ui" id="MainWindow::ui" ref="classMainWindow.html#a35466a70ed47252a0191168126a352a5" />
       <keyword name="fileName" id="MainWindow::fileName" ref="classMainWindow.html#a06968aebc42a16ab51c5888b4784075d" />
@@ -133,6 +135,11 @@
       <keyword name="scene" id="MainWindow::scene" ref="classMainWindow.html#adeb75646213834b4bad1d1785ba74e7b" />
       <keyword name="view" id="MainWindow::view" ref="classMainWindow.html#a6e33bc418ea3e6d93b3021933bfa3baa" />
       <keyword name="sprites" id="MainWindow::sprites" ref="classMainWindow.html#ab30b754daa12fffa11e1b90315fa5c6c" />
+      <keyword name="manager" id="MainWindow::manager" ref="classMainWindow.html#ada57966f51638291da96f299bf0cf267" />
+      <keyword name="currentReply" id="MainWindow::currentReply" ref="classMainWindow.html#ae2bbda164eb3807dbedad8d74da6ff09" />
+      <keyword name="projectDataLoaded" id="MainWindow::projectDataLoaded" ref="classMainWindow.html#ab2ef28e41e3769f1cbe43cc705e69987" />
+      <keyword name="assets" id="MainWindow::assets" ref="classMainWindow.html#a8551cf6da3bc97adef43b72e309a2d7d" />
+      <keyword name="currentAsset" id="MainWindow::currentAsset" ref="classMainWindow.html#ab601a9281c8732af549e73b0d3567f1a" />
       <keyword name="projectParser" id="projectParser" ref="classprojectParser.html" />
       <keyword name="projectParser" id="projectParser::projectParser" ref="classprojectParser.html#ae0bb73dcc19d4eea98cdc807fb650d3d" />
       <keyword name="sprites" id="projectParser::sprites" ref="classprojectParser.html#ab4d4e9b006743666101d500a4c74608b" />
