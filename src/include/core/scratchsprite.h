@@ -32,6 +32,7 @@
 #include <QDateTime>
 #include <QSoundEffect>
 #include <QElapsedTimer>
+#include <QTemporaryFile>
 #include "global.h"
 
 /*! \brief The scratchSprite class is a QGraphicsPixmapItem, which represents a Scratch sprite. */

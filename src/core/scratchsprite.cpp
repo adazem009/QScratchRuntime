@@ -409,7 +409,13 @@ void scratchSprite::setMousePos(QPointF pos)
 void scratchSprite::setCostume(int id, QVariantMap *script)
 {
 	currentCostume = id;
-	costumePixmap = QPixmap(assetDir + "/" + costumes[id].value("assetId").toString() + "." + costumes[id].value("dataFormat").toString());
+	if(assetDir == "")
+	{
+		costumePixmap = QPixmap();
+		costumePixmap.loadFromData(*projectAssets[costumes[id].value("assetId").toString()]);
+	}
+	else
+		costumePixmap = QPixmap(assetDir + "/" + costumes[id].value("assetId").toString() + "." + costumes[id].value("dataFormat").toString());
 	setPixmap(costumePixmap);
 	rotationCenterX = costumes[id].value("rotationCenterX").toDouble();
 	rotationCenterY = costumes[id].value("rotationCenterY").toDouble();
@@ -537,13 +543,22 @@ QSoundEffect *scratchSprite::playSound(QString soundName)
 	// Remove finished sounds
 	QList<QSoundEffect*> soundsToRemove;
 	soundsToRemove.clear();
+	QList<QTemporaryFile*> soundFilesToRemove;
+	soundFilesToRemove.clear();
 	for(int i=0; i < allSounds.count(); i++)
 	{
 		if(!allSounds[i]->isPlaying())
+		{
 			soundsToRemove += allSounds[i];
+			allSoundFiles[i]->deleteLater();
+			soundFilesToRemove += allSoundFiles[i];
+		}
 	}
 	for(int i=0; i < soundsToRemove.count(); i++)
+	{
 		allSounds.removeAll(soundsToRemove[i]);
+		allSoundFiles.removeAll(soundFilesToRemove[i]);
+	}
 	// Play the sound
 	int soundID = -1;
 	for(int i=0; i < sounds.count(); i++)
@@ -556,11 +571,25 @@ QSoundEffect *scratchSprite::playSound(QString soundName)
 	}
 	if(soundID != -1)
 	{
-		QSoundEffect *sound = new QSoundEffect();
-		sound->setSource(QUrl::fromLocalFile(assetDir + "/" + sounds[soundID].value("assetId").toString() + "." + sounds[soundID].value("dataFormat").toString()));
+		QSoundEffect *sound = new QSoundEffect(this);
+		QTemporaryFile *soundFile = new QTemporaryFile;
+		if(assetDir == "")
+		{
+			if(soundFile->open())
+			{
+				soundFile->write(*projectAssets[sounds[soundID].value("assetId").toString()]);
+				soundFile->close();
+			}
+			else
+				return nullptr;
+			sound->setSource(QUrl::fromLocalFile(soundFile->fileName()));
+		}
+		else
+			sound->setSource(QUrl::fromLocalFile(assetDir + "/" + sounds[soundID].value("assetId").toString() + "." + sounds[soundID].value("dataFormat").toString()));
 		sound->setVolume(volume/100.0);
 		sound->play();
 		allSounds += sound;
+		allSoundFiles += soundFile;
 		return sound;
 	}
 	else
@@ -571,8 +600,12 @@ QSoundEffect *scratchSprite::playSound(QString soundName)
 void scratchSprite::stopAllSounds(void)
 {
 	for(int i=0; i < allSounds.count(); i++)
+	{
 		allSounds[i]->stop();
+		allSoundFiles[i]->deleteLater();
+	}
 	allSounds.clear();
+	allSoundFiles.clear();
 }
 
 /*! Sets sound volume. */
