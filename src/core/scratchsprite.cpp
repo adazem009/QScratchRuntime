@@ -75,7 +75,6 @@ scratchSprite::scratchSprite(QJsonObject spriteObject, QString spriteAssetDir, Q
 		sounds += soundsArray[i].toObject().toVariantMap();
 	// TODO: Load variables
 	// TODO: Load lists
-	// TODO: Load broadcasts
 	// Load blocks
 	QJsonObject blocksObject = spriteObject.value("blocks").toObject();
 	QStringList blocksList = blocksObject.keys();
