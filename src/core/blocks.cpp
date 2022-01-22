@@ -541,3 +541,28 @@ bool scratchSprite::eventBlocks(QString opcode, QMap<QString,QString> inputs, in
 		*returnValue = inputs.value("BROADCAST_OPTION");
 	return false;
 }
+
+/*! Runs control blocks. */
+bool scratchSprite::controlBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd, bool *processEnd, QString *returnValue)
+{
+	if(frameEnd == nullptr)
+		frameEnd = new bool;
+	if(processEnd == nullptr)
+		processEnd = new bool;
+	*processEnd = false;
+	if(returnValue == nullptr)
+		returnValue = new QString();
+	if(opcode == "control_forever")
+	{
+		newStack = new QVariantMap;
+		newStack->clear();
+		newStack->insert("id",inputs.value("SUBSTACK"));
+		newStack->insert("special","");
+		newStack->insert("loop_type","forever");
+		newStack->insert("loop_start",inputs.value("SUBSTACK"));
+		currentExecPos[processID]["special"] = "abort_block";
+	}
+	else
+		return false;
+	return true;
+}

@@ -95,6 +95,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		QList<QVariantMap> sounds;
 		QMap<QString,qreal> graphicEffects;
 		QList<QVariantMap> currentExecPos;
+		QVariantMap *newStack;
 		QGraphicsPixmapItem *speechBubble;
 		QGraphicsTextItem *speechBubbleText;
 		QPixmap costumePixmap;
@@ -105,6 +106,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		bool looksBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd = nullptr, bool *processEnd = nullptr, QString *returnValue = nullptr);
 		bool soundBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd = nullptr, bool *processEnd = nullptr, QString *returnValue = nullptr);
 		bool eventBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd = nullptr, bool *processEnd = nullptr, QString *returnValue = nullptr);
+		bool controlBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd = nullptr, bool *processEnd = nullptr, QString *returnValue = nullptr);
 
 	signals:
 		/*! A signal, which is emitted from the stage when the backdrop switches. */

@@ -655,10 +655,15 @@ void scratchSprite::frame(void)
 	}
 	QStringList operationsToRemove;
 	operationsToRemove.clear();
+	newStack = nullptr;
+	QList<QVariantMap*> newStacks;
+	newStacks.clear();
 	for(int frame_i=0; frame_i < currentExecPos.count(); frame_i++)
 	{
 		QString next = currentExecPos[frame_i]["id"].toString();
 		bool frameEnd = false;
+		if(currentExecPos[frame_i]["special"].toString() == "abort_block")
+			frameEnd = true;
 		while(!frameEnd)
 		{
 			// Load current block
@@ -677,18 +682,31 @@ void scratchSprite::frame(void)
 			motionBlocks(opcode,inputs,frame_i,&frameEnd,&processEnd) ||
 			looksBlocks(opcode,inputs,frame_i,&frameEnd,&processEnd) ||
 			soundBlocks(opcode,inputs,frame_i,&frameEnd,&processEnd) ||
-			eventBlocks(opcode,inputs,frame_i,&frameEnd,&processEnd);
+			eventBlocks(opcode,inputs,frame_i,&frameEnd,&processEnd) ||
+			controlBlocks(opcode,inputs,frame_i,&frameEnd,&processEnd);
 			// Get next block
 			QVariant nextValue = block.value("next");
+			if(newStack != nullptr)
+				newStacks += newStack;
 			if(frameEnd)
 				currentExecPos[frame_i]["id"] = currentID;
 			else if(nextValue.isNull())
 			{
-				currentExecPos[frame_i]["id"] = currentID;
-				QVariantMap *callerScript = (QVariantMap*) currentExecPos[frame_i]["callerptr"].toLongLong();
-				if(callerScript != nullptr)
-					callerScript->insert("activescripts",callerScript->value("activescripts").toInt()-1);
-				operationsToRemove += currentID;
+				if(currentExecPos[frame_i].contains("loop_type"))
+				{
+					QString loopType = currentExecPos[frame_i]["loop_type"].toString();
+					//if(loopType == "repeat")
+					next = currentExecPos[frame_i]["loop_start"].toString();
+					currentExecPos[frame_i]["id"] = next;
+				}
+				else
+				{
+					currentExecPos[frame_i]["id"] = currentID;
+					QVariantMap *callerScript = (QVariantMap*) currentExecPos[frame_i]["callerptr"].toLongLong();
+					if(callerScript != nullptr)
+						callerScript->insert("activescripts",callerScript->value("activescripts").toInt()-1);
+					operationsToRemove += currentID;
+				}
 				frameEnd = true;
 			}
 			else
@@ -702,6 +720,8 @@ void scratchSprite::frame(void)
 			}
 		}
 	}
+	for(int i=0; i < newStacks.count(); i++)
+		currentExecPos += *newStacks[i];
 	for(int i=0; i < operationsToRemove.count(); i++)
 	{
 		bool removeEnd = false;
@@ -738,6 +758,12 @@ QMap<QString,QString> scratchSprite::getInputs(QVariantMap block, bool readField
 		bool typeConverted = false;
 		QJsonValue finalRawValue;
 		QString finalValue = "";
+		if(blockInputsList[i] == "SUBSTACK")
+		{
+			// Start of a blocks stack
+			typeConverted = true;
+			finalValue = blockInputs.value(blockInputsList[i]).toArray().at(1).toString();
+		}
 		if(readFields)
 		{
 			// Input is in the first item
@@ -760,7 +786,8 @@ QMap<QString,QString> scratchSprite::getInputs(QVariantMap block, bool readField
 			motionBlocks(opcode,inputs,0,nullptr,nullptr,&finalValue) ||
 			looksBlocks(opcode,inputs,0,nullptr,nullptr,&finalValue) ||
 			soundBlocks(opcode,inputs,0,nullptr,nullptr,&finalValue) ||
-			eventBlocks(opcode,inputs,0,nullptr,nullptr,&finalValue);
+			eventBlocks(opcode,inputs,0,nullptr,nullptr,&finalValue) ||
+			controlBlocks(opcode,inputs,0,nullptr,nullptr,&finalValue);
 		}
 		if(!typeConverted)
 		{
