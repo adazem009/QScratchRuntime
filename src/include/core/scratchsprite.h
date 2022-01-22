@@ -101,6 +101,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		QPixmap costumePixmap;
 		QElapsedTimer timer;
 		QMap<QString,QVariantMap> frameEvents;
+		qlonglong loopCount;
 		// Blocks
 		bool motionBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd = nullptr, bool *processEnd = nullptr, QString *returnValue = nullptr);
 		bool looksBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd = nullptr, bool *processEnd = nullptr, QString *returnValue = nullptr);

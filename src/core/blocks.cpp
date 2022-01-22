@@ -554,13 +554,35 @@ bool scratchSprite::controlBlocks(QString opcode, QMap<QString,QString> inputs, 
 		returnValue = new QString();
 	if(opcode == "control_forever")
 	{
+		*frameEnd = true;
 		newStack = new QVariantMap;
 		newStack->clear();
 		newStack->insert("id",inputs.value("SUBSTACK"));
 		newStack->insert("special","");
 		newStack->insert("loop_type","forever");
 		newStack->insert("loop_start",inputs.value("SUBSTACK"));
+		newStack->insert("loop_finished",false);
+		newStack->insert("loop_id",loopCount);
 		currentExecPos[processID]["special"] = "abort_block";
+		currentExecPos[processID]["loop_reference"] = loopCount;
+		loopCount++;
+	}
+	else if(opcode == "control_repeat")
+	{
+		*frameEnd = true;
+		newStack = new QVariantMap;
+		newStack->clear();
+		newStack->insert("id",inputs.value("SUBSTACK"));
+		newStack->insert("special","");
+		newStack->insert("loop_type","repeat");
+		newStack->insert("loop_count",inputs.value("TIMES").toInt());
+		newStack->insert("loop_current",0);
+		newStack->insert("loop_start",inputs.value("SUBSTACK"));
+		newStack->insert("loop_finished",false);
+		newStack->insert("loop_id",loopCount);
+		currentExecPos[processID]["special"] = "abort_block";
+		currentExecPos[processID]["loop_reference"] = loopCount;
+		loopCount++;
 	}
 	else
 		return false;
