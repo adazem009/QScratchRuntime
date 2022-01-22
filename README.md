@@ -29,6 +29,7 @@ could be implemented using [QAudioInput](https://doc.qt.io/qt-5/qaudioinput.html
 - [ ] Load project from .sb3
 - [x] Load project from URL
 - [ ] Turbo mode
+- [ ] Draggable sprites
 
 ### Graphic effects
 - [x] Color
