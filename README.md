@@ -28,6 +28,7 @@ could be implemented using [QAudioInput](https://doc.qt.io/qt-5/qaudioinput.html
 - [ ] Timers
 - [ ] Load project from .sb3
 - [x] Load project from URL
+- [ ] Turbo mode
 
 ### Graphic effects
 - [x] Color
