@@ -41,6 +41,7 @@
               <section title="broadcast" ref="classscratchSprite.html#a44460a997beb1ebcf1e9d1f87f697aa7" />
               <section title="broadcastReceived" ref="classscratchSprite.html#a5bad3d16269b8a6c329546a56619cb55" />
               <section title="checkKey" ref="classscratchSprite.html#aa41f796acf1b9c95ece39e28353c252e" />
+              <section title="controlBlocks" ref="classscratchSprite.html#a8bf8391d97d27320e0e28c160c9a0bbb" />
               <section title="eventBlocks" ref="classscratchSprite.html#a7f32c3853ada16e3581a07d685de491d" />
               <section title="frame" ref="classscratchSprite.html#a189a29e1fb4f71052b2cb2d993d9abe0" />
               <section title="getInputs" ref="classscratchSprite.html#aa5f6bafaf7dfe46162a7adeabb564179" />
@@ -211,6 +212,7 @@
       <keyword name="looksBlocks" id="scratchSprite::looksBlocks" ref="classscratchSprite.html#a385ea5a053d2929b439c310304940125" />
       <keyword name="soundBlocks" id="scratchSprite::soundBlocks" ref="classscratchSprite.html#aca3408cd544bd96b5fda78d311c64721" />
       <keyword name="eventBlocks" id="scratchSprite::eventBlocks" ref="classscratchSprite.html#a7f32c3853ada16e3581a07d685de491d" />
+      <keyword name="controlBlocks" id="scratchSprite::controlBlocks" ref="classscratchSprite.html#a8bf8391d97d27320e0e28c160c9a0bbb" />
       <keyword name="spriteList" id="scratchSprite::spriteList" ref="classscratchSprite.html#ad56bc969395f3e3713cb1eb43df262a4" />
       <keyword name="assetDir" id="scratchSprite::assetDir" ref="classscratchSprite.html#a502d307ecd55a8d7304a61f89dd4fe58" />
       <keyword name="mouseX" id="scratchSprite::mouseX" ref="classscratchSprite.html#ad3909db03a420af853a3a1cc1883adf4" />
@@ -225,6 +227,7 @@
       <keyword name="sounds" id="scratchSprite::sounds" ref="classscratchSprite.html#a462a5b304ad12c8d27b93ce628cb4839" />
       <keyword name="graphicEffects" id="scratchSprite::graphicEffects" ref="classscratchSprite.html#a62ce5be91764557d06d6619e39b4ceb5" />
       <keyword name="currentExecPos" id="scratchSprite::currentExecPos" ref="classscratchSprite.html#ab2dacb9bb35e947bb17a096153858b87" />
+      <keyword name="newStack" id="scratchSprite::newStack" ref="classscratchSprite.html#ac70180b9e826e0193b57ce8d0400d49d" />
       <keyword name="speechBubble" id="scratchSprite::speechBubble" ref="classscratchSprite.html#a2e5aed6f92f8bda97ea12c7fc6dd5628" />
       <keyword name="speechBubbleText" id="scratchSprite::speechBubbleText" ref="classscratchSprite.html#a3efc88d261fddd4d3f8a1ccb6489490e" />
       <keyword name="costumePixmap" id="scratchSprite::costumePixmap" ref="classscratchSprite.html#ab4e56ad2b43b23a3eb278dd4bfd497be" />

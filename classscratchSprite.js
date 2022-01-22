@@ -6,6 +6,7 @@ var classscratchSprite =
     [ "broadcast", "classscratchSprite.html#a44460a997beb1ebcf1e9d1f87f697aa7", null ],
     [ "broadcastReceived", "classscratchSprite.html#a5bad3d16269b8a6c329546a56619cb55", null ],
     [ "checkKey", "classscratchSprite.html#aa41f796acf1b9c95ece39e28353c252e", null ],
+    [ "controlBlocks", "classscratchSprite.html#a8bf8391d97d27320e0e28c160c9a0bbb", null ],
     [ "eventBlocks", "classscratchSprite.html#a7f32c3853ada16e3581a07d685de491d", null ],
     [ "frame", "classscratchSprite.html#a189a29e1fb4f71052b2cb2d993d9abe0", null ],
     [ "getInputs", "classscratchSprite.html#aa5f6bafaf7dfe46162a7adeabb564179", null ],
