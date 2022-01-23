@@ -233,6 +233,7 @@
       <keyword name="costumePixmap" id="scratchSprite::costumePixmap" ref="classscratchSprite.html#ab4e56ad2b43b23a3eb278dd4bfd497be" />
       <keyword name="timer" id="scratchSprite::timer" ref="classscratchSprite.html#ac25a4b10bbbaf94a8fb148d9ed3ca9a8" />
       <keyword name="frameEvents" id="scratchSprite::frameEvents" ref="classscratchSprite.html#aab5a48ed0f1df56a9e3e9446d56b108f" />
+      <keyword name="loopCount" id="scratchSprite::loopCount" ref="classscratchSprite.html#a54b34d2e57304e99fc94eae8d515af6c" />
     </keywords>
     <files>
       <file>tabs.css</file>
