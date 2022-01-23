@@ -709,6 +709,7 @@ void scratchSprite::frame(void)
 			QString opcode = block.value("opcode").toString();
 			QMap<QString,QString> inputs = getInputs(block);
 			bool processEnd = false;
+			newStack = nullptr;
 			// Run current block
 			motionBlocks(opcode,inputs,frame_i,&frameEnd,&processEnd) ||
 			looksBlocks(opcode,inputs,frame_i,&frameEnd,&processEnd) ||
