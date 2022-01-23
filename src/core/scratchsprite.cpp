@@ -464,6 +464,9 @@ void scratchSprite::installGraphicEffects(void)
 				pixelColor.getHsv(&h,&s,&v,&a);
 				// Color effect
 				h += graphicEffects["COLOR"]*1.8;
+				h %= 360;
+				if(h < 0)
+					h += 360;
 				// Brightness effect
 				int brightness = graphicEffects["BRIGHTNESS"];
 				if(brightness >= 100)
