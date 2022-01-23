@@ -558,6 +558,7 @@ bool scratchSprite::controlBlocks(QString opcode, QMap<QString,QString> inputs, 
 		newStack = new QVariantMap;
 		newStack->clear();
 		newStack->insert("id",inputs.value("SUBSTACK"));
+		newStack->insert("toplevelblock",currentExecPos[processID]["toplevelblock"]);
 		newStack->insert("special","");
 		newStack->insert("loop_type","forever");
 		newStack->insert("loop_start",inputs.value("SUBSTACK"));
@@ -573,6 +574,7 @@ bool scratchSprite::controlBlocks(QString opcode, QMap<QString,QString> inputs, 
 		newStack = new QVariantMap;
 		newStack->clear();
 		newStack->insert("id",inputs.value("SUBSTACK"));
+		newStack->insert("toplevelblock",currentExecPos[processID]["toplevelblock"]);
 		newStack->insert("special","");
 		newStack->insert("loop_type","repeat");
 		newStack->insert("loop_count",inputs.value("TIMES").toInt());
