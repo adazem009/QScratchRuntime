@@ -759,6 +759,7 @@ void scratchSprite::frame(void)
 						operationsToRemove += currentID;
 				}
 				frameEnd = true;
+				currentExecPos[frame_i]["special"] = "";
 			}
 			else
 			{
