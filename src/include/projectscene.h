@@ -31,6 +31,7 @@ class projectScene : public QGraphicsScene
 	public:
 		explicit projectScene(qreal x = -240, qreal y = -180, qreal width = 480, qreal height = 360, QObject *parent = nullptr);
 		void loadSpriteList(QList<scratchSprite*> list);
+		void clearSpriteList(void);
 
 	private:
 		QList<scratchSprite*> spriteList;

@@ -41,6 +41,12 @@ void projectScene::loadSpriteList(QList<scratchSprite*> list)
 	}
 }
 
+/*! Clears list of sprite pointers. */
+void projectScene::clearSpriteList(void)
+{
+	spriteList.clear();
+}
+
 /*! Overrides QGraphicsScene#mousePressEvent(). */
 void projectScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
