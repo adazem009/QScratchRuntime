@@ -586,6 +586,14 @@ bool scratchSprite::controlBlocks(QString opcode, QMap<QString,QString> inputs, 
 		currentExecPos[processID]["loop_reference"] = loopCount;
 		loopCount++;
 	}
+	else if(opcode == "control_if")
+	{
+		// TODO: Add if block
+	}
+	else if(opcode == "control_if_else")
+	{
+		// TODO: Add if else block
+	}
 	else
 		return false;
 	return true;
