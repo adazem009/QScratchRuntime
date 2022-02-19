@@ -6,116 +6,117 @@
     <filterAttribute>doxygen</filterAttribute>
     <toc>
       <section title="QScratchRuntime" ref="index.html">
-        <section title="Classes" ref="annotated.html">
-          <section title="Class List" ref="annotated.html">
-            <section title="MainWindow" ref="classMainWindow.html">
-              <section title="MainWindow" ref="classMainWindow.html#a996c5a2b6f77944776856f08ec30858d" />
-              <section title="~MainWindow" ref="classMainWindow.html#ae98d00a93bc118200eeef9f9bba1dba7" />
-              <section title="continueLoading" ref="classMainWindow.html#a72b0f5ec864d378156f19836d57b2033" />
-              <section title="init" ref="classMainWindow.html#adacc054a62e38fb27708c0e1e2924b3e" />
-              <section title="loadFromUrl" ref="classMainWindow.html#acf9b021aef67e5c38af3f4d218169f0b" />
-              <section title="openFile" ref="classMainWindow.html#ab14469aff316235cb2ee764483a6319d" />
+        <section title="Classes" ref="annotated">
+          <section title="Class List" ref="annotated">
+            <section title="MainWindow" ref="classMainWindow">
+              <section title="MainWindow" ref="classMainWindow#a996c5a2b6f77944776856f08ec30858d" />
+              <section title="~MainWindow" ref="classMainWindow#ae98d00a93bc118200eeef9f9bba1dba7" />
+              <section title="continueLoading" ref="classMainWindow#a72b0f5ec864d378156f19836d57b2033" />
+              <section title="init" ref="classMainWindow#adacc054a62e38fb27708c0e1e2924b3e" />
+              <section title="loadFromUrl" ref="classMainWindow#acf9b021aef67e5c38af3f4d218169f0b" />
+              <section title="openFile" ref="classMainWindow#ab14469aff316235cb2ee764483a6319d" />
             </section>
-            <section title="projectParser" ref="classprojectParser.html">
-              <section title="projectParser" ref="classprojectParser.html#ae0bb73dcc19d4eea98cdc807fb650d3d" />
-              <section title="assetIDs" ref="classprojectParser.html#ac39b6e9320cce22aae72d0837f1a96ff" />
-              <section title="sprites" ref="classprojectParser.html#ab4d4e9b006743666101d500a4c74608b" />
-              <section title="stage" ref="classprojectParser.html#a652bca50042e3109eb9b7dfbab7d953e" />
+            <section title="projectParser" ref="classprojectParser">
+              <section title="projectParser" ref="classprojectParser#ae0bb73dcc19d4eea98cdc807fb650d3d" />
+              <section title="assetIDs" ref="classprojectParser#ac39b6e9320cce22aae72d0837f1a96ff" />
+              <section title="sprites" ref="classprojectParser#ab4d4e9b006743666101d500a4c74608b" />
+              <section title="stage" ref="classprojectParser#a652bca50042e3109eb9b7dfbab7d953e" />
             </section>
-            <section title="projectScene" ref="classprojectScene.html">
-              <section title="projectScene" ref="classprojectScene.html#a8c8ee7ea57b02c439c400f501ca7eb50" />
-              <section title="backdropSwitched" ref="classprojectScene.html#a3f50e196d9897278264da8d2fa3db779" />
-              <section title="broadcastSent" ref="classprojectScene.html#a8c3b992f8304cbc161911112281e24cf" />
-              <section title="greenFlag" ref="classprojectScene.html#a36bd395882d7dee2e570fbfb3aab1c30" />
-              <section title="keyPressEvent" ref="classprojectScene.html#a0a039a537c5f7a44db11706799d0b8b6" />
-              <section title="loadSpriteList" ref="classprojectScene.html#a82704fa5c1e2296e615a4eb57caff0c2" />
-              <section title="mouseDoubleClickEvent" ref="classprojectScene.html#a0dc2c5484c1ef8f83acbf12b9cbc6fed" />
-              <section title="mouseMoveEvent" ref="classprojectScene.html#a381d1f0a59381d3a98553c656ef01d82" />
-              <section title="mousePressEvent" ref="classprojectScene.html#a7be8c52d061099acca42eef41e39840b" />
-              <section title="timerEvent" ref="classprojectScene.html#a485d4400a0b80cf8556545b7741a3b5d" />
+            <section title="projectScene" ref="classprojectScene">
+              <section title="projectScene" ref="classprojectScene#a8c8ee7ea57b02c439c400f501ca7eb50" />
+              <section title="backdropSwitched" ref="classprojectScene#a3f50e196d9897278264da8d2fa3db779" />
+              <section title="broadcastSent" ref="classprojectScene#a8c3b992f8304cbc161911112281e24cf" />
+              <section title="clearSpriteList" ref="classprojectScene#a00167146ef77ffbd8975476bd45ae662" />
+              <section title="greenFlag" ref="classprojectScene#a36bd395882d7dee2e570fbfb3aab1c30" />
+              <section title="keyPressEvent" ref="classprojectScene#a0a039a537c5f7a44db11706799d0b8b6" />
+              <section title="loadSpriteList" ref="classprojectScene#a82704fa5c1e2296e615a4eb57caff0c2" />
+              <section title="mouseDoubleClickEvent" ref="classprojectScene#a0dc2c5484c1ef8f83acbf12b9cbc6fed" />
+              <section title="mouseMoveEvent" ref="classprojectScene#a381d1f0a59381d3a98553c656ef01d82" />
+              <section title="mousePressEvent" ref="classprojectScene#a7be8c52d061099acca42eef41e39840b" />
+              <section title="timerEvent" ref="classprojectScene#a485d4400a0b80cf8556545b7741a3b5d" />
             </section>
-            <section title="scratchSprite" ref="classscratchSprite.html">
-              <section title="scratchSprite" ref="classscratchSprite.html#a401307233d74f2cbec2728b728f159ba" />
-              <section title="backdropSwitched" ref="classscratchSprite.html#ab1f212229b9769a0ffbb7638e9e429a5" />
-              <section title="backdropSwitchEvent" ref="classscratchSprite.html#adbcc2ad144281a8af540dc1bd496533c" />
-              <section title="broadcast" ref="classscratchSprite.html#a44460a997beb1ebcf1e9d1f87f697aa7" />
-              <section title="broadcastReceived" ref="classscratchSprite.html#a5bad3d16269b8a6c329546a56619cb55" />
-              <section title="checkKey" ref="classscratchSprite.html#aa41f796acf1b9c95ece39e28353c252e" />
-              <section title="controlBlocks" ref="classscratchSprite.html#a8bf8391d97d27320e0e28c160c9a0bbb" />
-              <section title="eventBlocks" ref="classscratchSprite.html#a7f32c3853ada16e3581a07d685de491d" />
-              <section title="frame" ref="classscratchSprite.html#a189a29e1fb4f71052b2cb2d993d9abe0" />
-              <section title="getInputs" ref="classscratchSprite.html#aa5f6bafaf7dfe46162a7adeabb564179" />
-              <section title="getSprite" ref="classscratchSprite.html#a8a487ee0873b3069e4fa75c981adb7ef" />
-              <section title="greenFlagClicked" ref="classscratchSprite.html#a152b51974e513a0afb6f8770765bc177" />
-              <section title="installGraphicEffects" ref="classscratchSprite.html#a87a0eabc6bb2b1d5c1ec034ffb3a7542" />
-              <section title="keyPressed" ref="classscratchSprite.html#a088476078fa21b3c71572b26f46294b3" />
-              <section title="loadSpriteList" ref="classscratchSprite.html#a2429ac26a3c4bec405a51b2f3a82ae49" />
-              <section title="looksBlocks" ref="classscratchSprite.html#a385ea5a053d2929b439c310304940125" />
-              <section title="motionBlocks" ref="classscratchSprite.html#a5afaa221267907bd4d0987d84dbdc652" />
-              <section title="playSound" ref="classscratchSprite.html#adb8cf0cd73a2b82cfbe93d56aff79eaf" />
-              <section title="resetGraphicEffects" ref="classscratchSprite.html#a221f792a1ff70f3507818a35ec095e61" />
-              <section title="setCostume" ref="classscratchSprite.html#ac0bf3c62a2c6788d6f782c995766b30b" />
-              <section title="setDirection" ref="classscratchSprite.html#a7ba47275426e6925d8e37d9ecb84e349" />
-              <section title="setMousePos" ref="classscratchSprite.html#a0f00f9ca722b62c15b74a3fee89f561a" />
-              <section title="setSize" ref="classscratchSprite.html#aaa192f3c27395177029a47366ee143d8" />
-              <section title="setVolume" ref="classscratchSprite.html#a13d937e2bd01ac7c4ff72e14cc6cabc0" />
-              <section title="setXPos" ref="classscratchSprite.html#ade994e8c0803e447564e92545d69c8a8" />
-              <section title="setYPos" ref="classscratchSprite.html#ac3d432973f42391618ef53af03631301" />
-              <section title="showBubble" ref="classscratchSprite.html#aa6d1bc1e75fcb29a8a70ff561a7039b7" />
-              <section title="soundBlocks" ref="classscratchSprite.html#aca3408cd544bd96b5fda78d311c64721" />
-              <section title="spriteClicked" ref="classscratchSprite.html#ac43a0ca298760cdf978a21aa6ef7038a" />
-              <section title="spriteTimerEvent" ref="classscratchSprite.html#a9ec05ce7032732d946bff6a0099ec30a" />
-              <section title="stopAllSounds" ref="classscratchSprite.html#a11f668c698d5517f36f7b209b4602e41" />
-              <section title="stopSprite" ref="classscratchSprite.html#ad9ec8bf8179adb85bf448b1b285e5e94" />
-              <section title="translateX" ref="classscratchSprite.html#a89c97be0b563e3ec0aee9d39d11525c5" />
-              <section title="translateY" ref="classscratchSprite.html#a7dc3024e6e5a0889dfe8dddf965fd6b6" />
-              <section title="type" ref="classscratchSprite.html#a16f3cdfc2b5707d7a17e33d9b5d033d5" />
-              <section title="currentCostume" ref="classscratchSprite.html#ae9affb7540903c1ad8936ae1699eeb70" />
-              <section title="direction" ref="classscratchSprite.html#a5b09a80137060595705512837eeba008" />
-              <section title="draggable" ref="classscratchSprite.html#a992e9be078ab605da7f7ccd41fc3a10f" />
-              <section title="isStage" ref="classscratchSprite.html#a8e6b689dd4203bedb0e98e17a52a6ab4" />
-              <section title="name" ref="classscratchSprite.html#a76b078e8b25c8f18aff783eb5055d987" />
-              <section title="rotationStyle" ref="classscratchSprite.html#a61c929545c2178ffe8c5089a04a03d41" />
-              <section title="size" ref="classscratchSprite.html#a5a8241f37d98f1eba39eda2e1cafc9d4" />
-              <section title="spriteX" ref="classscratchSprite.html#ae7b66c6cd294335f2802ba4dbd946953" />
-              <section title="spriteY" ref="classscratchSprite.html#a1a8aa97382c17daf734c0e5d57b3829f" />
-              <section title="tempo" ref="classscratchSprite.html#a184419eddfb047ccdfedea052837e3b0" />
-              <section title="volume" ref="classscratchSprite.html#abb2c3103c37176b668d265f66d5313f1" />
+            <section title="scratchSprite" ref="classscratchSprite">
+              <section title="scratchSprite" ref="classscratchSprite#a401307233d74f2cbec2728b728f159ba" />
+              <section title="backdropSwitched" ref="classscratchSprite#ab1f212229b9769a0ffbb7638e9e429a5" />
+              <section title="backdropSwitchEvent" ref="classscratchSprite#adbcc2ad144281a8af540dc1bd496533c" />
+              <section title="broadcast" ref="classscratchSprite#a44460a997beb1ebcf1e9d1f87f697aa7" />
+              <section title="broadcastReceived" ref="classscratchSprite#a5bad3d16269b8a6c329546a56619cb55" />
+              <section title="checkKey" ref="classscratchSprite#aa41f796acf1b9c95ece39e28353c252e" />
+              <section title="controlBlocks" ref="classscratchSprite#a8bf8391d97d27320e0e28c160c9a0bbb" />
+              <section title="eventBlocks" ref="classscratchSprite#a7f32c3853ada16e3581a07d685de491d" />
+              <section title="frame" ref="classscratchSprite#a189a29e1fb4f71052b2cb2d993d9abe0" />
+              <section title="getInputs" ref="classscratchSprite#aa5f6bafaf7dfe46162a7adeabb564179" />
+              <section title="getSprite" ref="classscratchSprite#a8a487ee0873b3069e4fa75c981adb7ef" />
+              <section title="greenFlagClicked" ref="classscratchSprite#a152b51974e513a0afb6f8770765bc177" />
+              <section title="installGraphicEffects" ref="classscratchSprite#a87a0eabc6bb2b1d5c1ec034ffb3a7542" />
+              <section title="keyPressed" ref="classscratchSprite#a088476078fa21b3c71572b26f46294b3" />
+              <section title="loadSpriteList" ref="classscratchSprite#a2429ac26a3c4bec405a51b2f3a82ae49" />
+              <section title="looksBlocks" ref="classscratchSprite#a385ea5a053d2929b439c310304940125" />
+              <section title="motionBlocks" ref="classscratchSprite#a5afaa221267907bd4d0987d84dbdc652" />
+              <section title="playSound" ref="classscratchSprite#adb8cf0cd73a2b82cfbe93d56aff79eaf" />
+              <section title="resetGraphicEffects" ref="classscratchSprite#a221f792a1ff70f3507818a35ec095e61" />
+              <section title="setCostume" ref="classscratchSprite#ac0bf3c62a2c6788d6f782c995766b30b" />
+              <section title="setDirection" ref="classscratchSprite#a7ba47275426e6925d8e37d9ecb84e349" />
+              <section title="setMousePos" ref="classscratchSprite#a0f00f9ca722b62c15b74a3fee89f561a" />
+              <section title="setSize" ref="classscratchSprite#aaa192f3c27395177029a47366ee143d8" />
+              <section title="setVolume" ref="classscratchSprite#a13d937e2bd01ac7c4ff72e14cc6cabc0" />
+              <section title="setXPos" ref="classscratchSprite#ade994e8c0803e447564e92545d69c8a8" />
+              <section title="setYPos" ref="classscratchSprite#ac3d432973f42391618ef53af03631301" />
+              <section title="showBubble" ref="classscratchSprite#aa6d1bc1e75fcb29a8a70ff561a7039b7" />
+              <section title="soundBlocks" ref="classscratchSprite#aca3408cd544bd96b5fda78d311c64721" />
+              <section title="spriteClicked" ref="classscratchSprite#ac43a0ca298760cdf978a21aa6ef7038a" />
+              <section title="spriteTimerEvent" ref="classscratchSprite#a9ec05ce7032732d946bff6a0099ec30a" />
+              <section title="stopAllSounds" ref="classscratchSprite#a11f668c698d5517f36f7b209b4602e41" />
+              <section title="stopSprite" ref="classscratchSprite#ad9ec8bf8179adb85bf448b1b285e5e94" />
+              <section title="translateX" ref="classscratchSprite#a89c97be0b563e3ec0aee9d39d11525c5" />
+              <section title="translateY" ref="classscratchSprite#a7dc3024e6e5a0889dfe8dddf965fd6b6" />
+              <section title="type" ref="classscratchSprite#a16f3cdfc2b5707d7a17e33d9b5d033d5" />
+              <section title="currentCostume" ref="classscratchSprite#ae9affb7540903c1ad8936ae1699eeb70" />
+              <section title="direction" ref="classscratchSprite#a5b09a80137060595705512837eeba008" />
+              <section title="draggable" ref="classscratchSprite#a992e9be078ab605da7f7ccd41fc3a10f" />
+              <section title="isStage" ref="classscratchSprite#a8e6b689dd4203bedb0e98e17a52a6ab4" />
+              <section title="name" ref="classscratchSprite#a76b078e8b25c8f18aff783eb5055d987" />
+              <section title="rotationStyle" ref="classscratchSprite#a61c929545c2178ffe8c5089a04a03d41" />
+              <section title="size" ref="classscratchSprite#a5a8241f37d98f1eba39eda2e1cafc9d4" />
+              <section title="spriteX" ref="classscratchSprite#ae7b66c6cd294335f2802ba4dbd946953" />
+              <section title="spriteY" ref="classscratchSprite#a1a8aa97382c17daf734c0e5d57b3829f" />
+              <section title="tempo" ref="classscratchSprite#a184419eddfb047ccdfedea052837e3b0" />
+              <section title="volume" ref="classscratchSprite#abb2c3103c37176b668d265f66d5313f1" />
             </section>
           </section>
-          <section title="Class Index" ref="classes.html" />
-          <section title="Class Hierarchy" ref="hierarchy.html">
+          <section title="Class Index" ref="classes" />
+          <section title="Class Hierarchy" ref="hierarchy">
             <section title="QGraphicsPixmapItem" ref="">
-              <section title="scratchSprite" ref="classscratchSprite.html" />
+              <section title="scratchSprite" ref="classscratchSprite" />
             </section>
             <section title="QGraphicsScene" ref="">
-              <section title="projectScene" ref="classprojectScene.html" />
+              <section title="projectScene" ref="classprojectScene" />
             </section>
             <section title="QMainWindow" ref="">
-              <section title="MainWindow" ref="classMainWindow.html" />
+              <section title="MainWindow" ref="classMainWindow" />
             </section>
             <section title="QObject" ref="">
-              <section title="projectParser" ref="classprojectParser.html" />
-              <section title="scratchSprite" ref="classscratchSprite.html" />
+              <section title="projectParser" ref="classprojectParser" />
+              <section title="scratchSprite" ref="classscratchSprite" />
             </section>
           </section>
-          <section title="Class Members" ref="functions.html">
-            <section title="All" ref="functions.html" />
-            <section title="Functions" ref="functions_func.html" />
-            <section title="Variables" ref="functions_vars.html" />
+          <section title="Class Members" ref="functions">
+            <section title="All" ref="functions" />
+            <section title="Functions" ref="functions_func" />
+            <section title="Variables" ref="functions_vars" />
           </section>
         </section>
-        <section title="Files" ref="files.html">
-          <section title="File List" ref="files.html">
-            <section title="src" ref="dir_68267d1309a1af8e8297ef4c3efbcdba.html">
-              <section title="include" ref="dir_b0856f6b0d80ccb263b2f415c91f9e17.html">
-                <section title="core" ref="dir_4cf372765f693cf540fc4810db0c309c.html">
-                  <section title="projectparser.h" ref="projectparser_8h_source.html" />
-                  <section title="scratchsprite.h" ref="scratchsprite_8h_source.html" />
+        <section title="Files" ref="files">
+          <section title="File List" ref="files">
+            <section title="src" ref="dir_68267d1309a1af8e8297ef4c3efbcdba">
+              <section title="include" ref="dir_b0856f6b0d80ccb263b2f415c91f9e17">
+                <section title="core" ref="dir_4cf372765f693cf540fc4810db0c309c">
+                  <section title="projectparser.h" ref="projectparser_8h_source" />
+                  <section title="scratchsprite.h" ref="scratchsprite_8h_source" />
                 </section>
-                <section title="global.h" ref="global_8h_source.html" />
-                <section title="mainwindow.h" ref="mainwindow_8h_source.html" />
-                <section title="projectscene.h" ref="projectscene_8h_source.html" />
+                <section title="global.h" ref="global_8h_source" />
+                <section title="mainwindow.h" ref="mainwindow_8h_source" />
+                <section title="projectscene.h" ref="projectscene_8h_source" />
               </section>
             </section>
           </section>
@@ -123,117 +124,77 @@
       </section>
     </toc>
     <keywords>
-      <keyword name="MainWindow" id="MainWindow" ref="classMainWindow.html" />
-      <keyword name="MainWindow" id="MainWindow::MainWindow" ref="classMainWindow.html#a996c5a2b6f77944776856f08ec30858d" />
-      <keyword name="~MainWindow" id="MainWindow::~MainWindow" ref="classMainWindow.html#ae98d00a93bc118200eeef9f9bba1dba7" />
-      <keyword name="openFile" id="MainWindow::openFile" ref="classMainWindow.html#ab14469aff316235cb2ee764483a6319d" />
-      <keyword name="loadFromUrl" id="MainWindow::loadFromUrl" ref="classMainWindow.html#acf9b021aef67e5c38af3f4d218169f0b" />
-      <keyword name="continueLoading" id="MainWindow::continueLoading" ref="classMainWindow.html#a72b0f5ec864d378156f19836d57b2033" />
-      <keyword name="init" id="MainWindow::init" ref="classMainWindow.html#adacc054a62e38fb27708c0e1e2924b3e" />
-      <keyword name="ui" id="MainWindow::ui" ref="classMainWindow.html#a35466a70ed47252a0191168126a352a5" />
-      <keyword name="fileName" id="MainWindow::fileName" ref="classMainWindow.html#a06968aebc42a16ab51c5888b4784075d" />
-      <keyword name="parser" id="MainWindow::parser" ref="classMainWindow.html#aa296992814583b95139ed6387d7fa897" />
-      <keyword name="scene" id="MainWindow::scene" ref="classMainWindow.html#adeb75646213834b4bad1d1785ba74e7b" />
-      <keyword name="view" id="MainWindow::view" ref="classMainWindow.html#a6e33bc418ea3e6d93b3021933bfa3baa" />
-      <keyword name="sprites" id="MainWindow::sprites" ref="classMainWindow.html#ab30b754daa12fffa11e1b90315fa5c6c" />
-      <keyword name="manager" id="MainWindow::manager" ref="classMainWindow.html#ada57966f51638291da96f299bf0cf267" />
-      <keyword name="currentReply" id="MainWindow::currentReply" ref="classMainWindow.html#ae2bbda164eb3807dbedad8d74da6ff09" />
-      <keyword name="assetReplies" id="MainWindow::assetReplies" ref="classMainWindow.html#adc48f3a0563ec06860d0853991c26104" />
-      <keyword name="projectDataLoaded" id="MainWindow::projectDataLoaded" ref="classMainWindow.html#ab2ef28e41e3769f1cbe43cc705e69987" />
-      <keyword name="assets" id="MainWindow::assets" ref="classMainWindow.html#a8551cf6da3bc97adef43b72e309a2d7d" />
-      <keyword name="loadedAssets" id="MainWindow::loadedAssets" ref="classMainWindow.html#adaea0072677b2b0746e5989b282a0c9c" />
-      <keyword name="projectParser" id="projectParser" ref="classprojectParser.html" />
-      <keyword name="projectParser" id="projectParser::projectParser" ref="classprojectParser.html#ae0bb73dcc19d4eea98cdc807fb650d3d" />
-      <keyword name="sprites" id="projectParser::sprites" ref="classprojectParser.html#ab4d4e9b006743666101d500a4c74608b" />
-      <keyword name="stage" id="projectParser::stage" ref="classprojectParser.html#a652bca50042e3109eb9b7dfbab7d953e" />
-      <keyword name="assetIDs" id="projectParser::assetIDs" ref="classprojectParser.html#ac39b6e9320cce22aae72d0837f1a96ff" />
-      <keyword name="document" id="projectParser::document" ref="classprojectParser.html#a7bfc9162d394499dead3856817a76bde" />
-      <keyword name="mainObject" id="projectParser::mainObject" ref="classprojectParser.html#a7cffc1d8d0fe7f2c0330e86b4acdfb48" />
-      <keyword name="assetDir" id="projectParser::assetDir" ref="classprojectParser.html#a0731408dc18783c91c67d24060a1a9d8" />
-      <keyword name="projectScene" id="projectScene" ref="classprojectScene.html" />
-      <keyword name="greenFlag" id="projectScene::greenFlag" ref="classprojectScene.html#a36bd395882d7dee2e570fbfb3aab1c30" />
-      <keyword name="backdropSwitched" id="projectScene::backdropSwitched" ref="classprojectScene.html#a3f50e196d9897278264da8d2fa3db779" />
-      <keyword name="broadcastSent" id="projectScene::broadcastSent" ref="classprojectScene.html#a8c3b992f8304cbc161911112281e24cf" />
-      <keyword name="projectScene" id="projectScene::projectScene" ref="classprojectScene.html#a8c8ee7ea57b02c439c400f501ca7eb50" />
-      <keyword name="loadSpriteList" id="projectScene::loadSpriteList" ref="classprojectScene.html#a82704fa5c1e2296e615a4eb57caff0c2" />
-      <keyword name="timerEvent" id="projectScene::timerEvent" ref="classprojectScene.html#a485d4400a0b80cf8556545b7741a3b5d" />
-      <keyword name="mousePressEvent" id="projectScene::mousePressEvent" ref="classprojectScene.html#a7be8c52d061099acca42eef41e39840b" />
-      <keyword name="mouseDoubleClickEvent" id="projectScene::mouseDoubleClickEvent" ref="classprojectScene.html#a0dc2c5484c1ef8f83acbf12b9cbc6fed" />
-      <keyword name="mouseMoveEvent" id="projectScene::mouseMoveEvent" ref="classprojectScene.html#a381d1f0a59381d3a98553c656ef01d82" />
-      <keyword name="keyPressEvent" id="projectScene::keyPressEvent" ref="classprojectScene.html#a0a039a537c5f7a44db11706799d0b8b6" />
-      <keyword name="spriteList" id="projectScene::spriteList" ref="classprojectScene.html#ac1d4df157ee3ec9cdf17869393f7d0cf" />
-      <keyword name="projectRunning" id="projectScene::projectRunning" ref="classprojectScene.html#a5bf8993b06057dc3fcbf7b6833e28070" />
-      <keyword name="scratchSprite" id="scratchSprite" ref="classscratchSprite.html" />
-      <keyword name="greenFlagClicked" id="scratchSprite::greenFlagClicked" ref="classscratchSprite.html#a152b51974e513a0afb6f8770765bc177" />
-      <keyword name="stopSprite" id="scratchSprite::stopSprite" ref="classscratchSprite.html#ad9ec8bf8179adb85bf448b1b285e5e94" />
-      <keyword name="backdropSwitched" id="scratchSprite::backdropSwitched" ref="classscratchSprite.html#ab1f212229b9769a0ffbb7638e9e429a5" />
-      <keyword name="broadcast" id="scratchSprite::broadcast" ref="classscratchSprite.html#a44460a997beb1ebcf1e9d1f87f697aa7" />
-      <keyword name="scratchSprite" id="scratchSprite::scratchSprite" ref="classscratchSprite.html#a401307233d74f2cbec2728b728f159ba" />
-      <keyword name="type" id="scratchSprite::type" ref="classscratchSprite.html#a16f3cdfc2b5707d7a17e33d9b5d033d5" />
-      <keyword name="loadSpriteList" id="scratchSprite::loadSpriteList" ref="classscratchSprite.html#a2429ac26a3c4bec405a51b2f3a82ae49" />
-      <keyword name="setXPos" id="scratchSprite::setXPos" ref="classscratchSprite.html#ade994e8c0803e447564e92545d69c8a8" />
-      <keyword name="setYPos" id="scratchSprite::setYPos" ref="classscratchSprite.html#ac3d432973f42391618ef53af03631301" />
-      <keyword name="setMousePos" id="scratchSprite::setMousePos" ref="classscratchSprite.html#a0f00f9ca722b62c15b74a3fee89f561a" />
-      <keyword name="setCostume" id="scratchSprite::setCostume" ref="classscratchSprite.html#ac0bf3c62a2c6788d6f782c995766b30b" />
-      <keyword name="setSize" id="scratchSprite::setSize" ref="classscratchSprite.html#aaa192f3c27395177029a47366ee143d8" />
-      <keyword name="setDirection" id="scratchSprite::setDirection" ref="classscratchSprite.html#a7ba47275426e6925d8e37d9ecb84e349" />
-      <keyword name="frame" id="scratchSprite::frame" ref="classscratchSprite.html#a189a29e1fb4f71052b2cb2d993d9abe0" />
-      <keyword name="setVolume" id="scratchSprite::setVolume" ref="classscratchSprite.html#a13d937e2bd01ac7c4ff72e14cc6cabc0" />
-      <keyword name="spriteClicked" id="scratchSprite::spriteClicked" ref="classscratchSprite.html#ac43a0ca298760cdf978a21aa6ef7038a" />
-      <keyword name="keyPressed" id="scratchSprite::keyPressed" ref="classscratchSprite.html#a088476078fa21b3c71572b26f46294b3" />
-      <keyword name="checkKey" id="scratchSprite::checkKey" ref="classscratchSprite.html#aa41f796acf1b9c95ece39e28353c252e" />
-      <keyword name="backdropSwitchEvent" id="scratchSprite::backdropSwitchEvent" ref="classscratchSprite.html#adbcc2ad144281a8af540dc1bd496533c" />
-      <keyword name="broadcastReceived" id="scratchSprite::broadcastReceived" ref="classscratchSprite.html#a5bad3d16269b8a6c329546a56619cb55" />
-      <keyword name="stopAllSounds" id="scratchSprite::stopAllSounds" ref="classscratchSprite.html#a11f668c698d5517f36f7b209b4602e41" />
-      <keyword name="isStage" id="scratchSprite::isStage" ref="classscratchSprite.html#a8e6b689dd4203bedb0e98e17a52a6ab4" />
-      <keyword name="name" id="scratchSprite::name" ref="classscratchSprite.html#a76b078e8b25c8f18aff783eb5055d987" />
-      <keyword name="spriteX" id="scratchSprite::spriteX" ref="classscratchSprite.html#ae7b66c6cd294335f2802ba4dbd946953" />
-      <keyword name="spriteY" id="scratchSprite::spriteY" ref="classscratchSprite.html#a1a8aa97382c17daf734c0e5d57b3829f" />
-      <keyword name="currentCostume" id="scratchSprite::currentCostume" ref="classscratchSprite.html#ae9affb7540903c1ad8936ae1699eeb70" />
-      <keyword name="volume" id="scratchSprite::volume" ref="classscratchSprite.html#abb2c3103c37176b668d265f66d5313f1" />
-      <keyword name="tempo" id="scratchSprite::tempo" ref="classscratchSprite.html#a184419eddfb047ccdfedea052837e3b0" />
-      <keyword name="size" id="scratchSprite::size" ref="classscratchSprite.html#a5a8241f37d98f1eba39eda2e1cafc9d4" />
-      <keyword name="direction" id="scratchSprite::direction" ref="classscratchSprite.html#a5b09a80137060595705512837eeba008" />
-      <keyword name="draggable" id="scratchSprite::draggable" ref="classscratchSprite.html#a992e9be078ab605da7f7ccd41fc3a10f" />
-      <keyword name="rotationStyle" id="scratchSprite::rotationStyle" ref="classscratchSprite.html#a61c929545c2178ffe8c5089a04a03d41" />
-      <keyword name="costumes" id="scratchSprite::costumes" ref="classscratchSprite.html#a63765246346f8d3f541d6b13c8da303f" />
-      <keyword name="getInputs" id="scratchSprite::getInputs" ref="classscratchSprite.html#aa5f6bafaf7dfe46162a7adeabb564179" />
-      <keyword name="translateX" id="scratchSprite::translateX" ref="classscratchSprite.html#a89c97be0b563e3ec0aee9d39d11525c5" />
-      <keyword name="translateY" id="scratchSprite::translateY" ref="classscratchSprite.html#a7dc3024e6e5a0889dfe8dddf965fd6b6" />
-      <keyword name="getSprite" id="scratchSprite::getSprite" ref="classscratchSprite.html#a8a487ee0873b3069e4fa75c981adb7ef" />
-      <keyword name="bounce" id="scratchSprite::bounce" ref="classscratchSprite.html#aaaf3af3a09daaf49a09fece5b3fb3d96" />
-      <keyword name="showBubble" id="scratchSprite::showBubble" ref="classscratchSprite.html#aa6d1bc1e75fcb29a8a70ff561a7039b7" />
-      <keyword name="resetGraphicEffects" id="scratchSprite::resetGraphicEffects" ref="classscratchSprite.html#a221f792a1ff70f3507818a35ec095e61" />
-      <keyword name="installGraphicEffects" id="scratchSprite::installGraphicEffects" ref="classscratchSprite.html#a87a0eabc6bb2b1d5c1ec034ffb3a7542" />
-      <keyword name="playSound" id="scratchSprite::playSound" ref="classscratchSprite.html#adb8cf0cd73a2b82cfbe93d56aff79eaf" />
-      <keyword name="spriteTimerEvent" id="scratchSprite::spriteTimerEvent" ref="classscratchSprite.html#a9ec05ce7032732d946bff6a0099ec30a" />
-      <keyword name="resetTimer" id="scratchSprite::resetTimer" ref="classscratchSprite.html#a6c758cc005ffe70f7285de7ae0198b2d" />
-      <keyword name="motionBlocks" id="scratchSprite::motionBlocks" ref="classscratchSprite.html#a5afaa221267907bd4d0987d84dbdc652" />
-      <keyword name="looksBlocks" id="scratchSprite::looksBlocks" ref="classscratchSprite.html#a385ea5a053d2929b439c310304940125" />
-      <keyword name="soundBlocks" id="scratchSprite::soundBlocks" ref="classscratchSprite.html#aca3408cd544bd96b5fda78d311c64721" />
-      <keyword name="eventBlocks" id="scratchSprite::eventBlocks" ref="classscratchSprite.html#a7f32c3853ada16e3581a07d685de491d" />
-      <keyword name="controlBlocks" id="scratchSprite::controlBlocks" ref="classscratchSprite.html#a8bf8391d97d27320e0e28c160c9a0bbb" />
-      <keyword name="spriteList" id="scratchSprite::spriteList" ref="classscratchSprite.html#ad56bc969395f3e3713cb1eb43df262a4" />
-      <keyword name="assetDir" id="scratchSprite::assetDir" ref="classscratchSprite.html#a502d307ecd55a8d7304a61f89dd4fe58" />
-      <keyword name="mouseX" id="scratchSprite::mouseX" ref="classscratchSprite.html#ad3909db03a420af853a3a1cc1883adf4" />
-      <keyword name="mouseY" id="scratchSprite::mouseY" ref="classscratchSprite.html#a2b41ff6959f679c5bc345ea868c3ab63" />
-      <keyword name="rotationCenterX" id="scratchSprite::rotationCenterX" ref="classscratchSprite.html#a5c12a07fefe4e9dc4ee278aa54fe4c55" />
-      <keyword name="rotationCenterY" id="scratchSprite::rotationCenterY" ref="classscratchSprite.html#adebcfcffbee6b30bb8f3f6cb11a683ef" />
-      <keyword name="pointingLeft" id="scratchSprite::pointingLeft" ref="classscratchSprite.html#a6e27975013ce499c7946df87a2fa9ff3" />
-      <keyword name="variables" id="scratchSprite::variables" ref="classscratchSprite.html#ae7ce386775c360ab215544e4ff88fc3f" />
-      <keyword name="lists" id="scratchSprite::lists" ref="classscratchSprite.html#aea9f98f853bee9d720a7bd2ebd1cb9f6" />
-      <keyword name="broadcasts" id="scratchSprite::broadcasts" ref="classscratchSprite.html#a09dc2945fd6b71de4ac93f8c476e98a5" />
-      <keyword name="blocks" id="scratchSprite::blocks" ref="classscratchSprite.html#a8ce313bda72ec1cfe3ba7c265d46f650" />
-      <keyword name="sounds" id="scratchSprite::sounds" ref="classscratchSprite.html#a462a5b304ad12c8d27b93ce628cb4839" />
-      <keyword name="graphicEffects" id="scratchSprite::graphicEffects" ref="classscratchSprite.html#a62ce5be91764557d06d6619e39b4ceb5" />
-      <keyword name="currentExecPos" id="scratchSprite::currentExecPos" ref="classscratchSprite.html#ab2dacb9bb35e947bb17a096153858b87" />
-      <keyword name="newStack" id="scratchSprite::newStack" ref="classscratchSprite.html#ac70180b9e826e0193b57ce8d0400d49d" />
-      <keyword name="speechBubble" id="scratchSprite::speechBubble" ref="classscratchSprite.html#a2e5aed6f92f8bda97ea12c7fc6dd5628" />
-      <keyword name="speechBubbleText" id="scratchSprite::speechBubbleText" ref="classscratchSprite.html#a3efc88d261fddd4d3f8a1ccb6489490e" />
-      <keyword name="costumePixmap" id="scratchSprite::costumePixmap" ref="classscratchSprite.html#ab4e56ad2b43b23a3eb278dd4bfd497be" />
-      <keyword name="timer" id="scratchSprite::timer" ref="classscratchSprite.html#ac25a4b10bbbaf94a8fb148d9ed3ca9a8" />
-      <keyword name="frameEvents" id="scratchSprite::frameEvents" ref="classscratchSprite.html#aab5a48ed0f1df56a9e3e9446d56b108f" />
-      <keyword name="loopCount" id="scratchSprite::loopCount" ref="classscratchSprite.html#a54b34d2e57304e99fc94eae8d515af6c" />
+      <keyword name="MainWindow" id="MainWindow" ref="classMainWindow" />
+      <keyword name="projectParser" id="projectParser" ref="classprojectParser" />
+      <keyword name="projectScene" id="projectScene" ref="classprojectScene" />
+      <keyword name="scratchSprite" id="scratchSprite" ref="classscratchSprite" />
+      <keyword name="assetIDs" id="projectParser::assetIDs" ref="classprojectParser#ac39b6e9320cce22aae72d0837f1a96ff" />
+      <keyword name="backdropSwitched" id="scratchSprite::backdropSwitched" ref="classscratchSprite#ab1f212229b9769a0ffbb7638e9e429a5" />
+      <keyword name="backdropSwitched" id="projectScene::backdropSwitched" ref="classprojectScene#a3f50e196d9897278264da8d2fa3db779" />
+      <keyword name="backdropSwitchEvent" id="scratchSprite::backdropSwitchEvent" ref="classscratchSprite#adbcc2ad144281a8af540dc1bd496533c" />
+      <keyword name="broadcast" id="scratchSprite::broadcast" ref="classscratchSprite#a44460a997beb1ebcf1e9d1f87f697aa7" />
+      <keyword name="broadcastReceived" id="scratchSprite::broadcastReceived" ref="classscratchSprite#a5bad3d16269b8a6c329546a56619cb55" />
+      <keyword name="broadcastSent" id="projectScene::broadcastSent" ref="classprojectScene#a8c3b992f8304cbc161911112281e24cf" />
+      <keyword name="checkKey" id="scratchSprite::checkKey" ref="classscratchSprite#aa41f796acf1b9c95ece39e28353c252e" />
+      <keyword name="clearSpriteList" id="projectScene::clearSpriteList" ref="classprojectScene#a00167146ef77ffbd8975476bd45ae662" />
+      <keyword name="continueLoading" id="MainWindow::continueLoading" ref="classMainWindow#a72b0f5ec864d378156f19836d57b2033" />
+      <keyword name="controlBlocks" id="scratchSprite::controlBlocks" ref="classscratchSprite#a8bf8391d97d27320e0e28c160c9a0bbb" />
+      <keyword name="currentCostume" id="scratchSprite::currentCostume" ref="classscratchSprite#ae9affb7540903c1ad8936ae1699eeb70" />
+      <keyword name="direction" id="scratchSprite::direction" ref="classscratchSprite#a5b09a80137060595705512837eeba008" />
+      <keyword name="draggable" id="scratchSprite::draggable" ref="classscratchSprite#a992e9be078ab605da7f7ccd41fc3a10f" />
+      <keyword name="eventBlocks" id="scratchSprite::eventBlocks" ref="classscratchSprite#a7f32c3853ada16e3581a07d685de491d" />
+      <keyword name="frame" id="scratchSprite::frame" ref="classscratchSprite#a189a29e1fb4f71052b2cb2d993d9abe0" />
+      <keyword name="getInputs" id="scratchSprite::getInputs" ref="classscratchSprite#aa5f6bafaf7dfe46162a7adeabb564179" />
+      <keyword name="getSprite" id="scratchSprite::getSprite" ref="classscratchSprite#a8a487ee0873b3069e4fa75c981adb7ef" />
+      <keyword name="greenFlag" id="projectScene::greenFlag" ref="classprojectScene#a36bd395882d7dee2e570fbfb3aab1c30" />
+      <keyword name="greenFlagClicked" id="scratchSprite::greenFlagClicked" ref="classscratchSprite#a152b51974e513a0afb6f8770765bc177" />
+      <keyword name="init" id="MainWindow::init" ref="classMainWindow#adacc054a62e38fb27708c0e1e2924b3e" />
+      <keyword name="installGraphicEffects" id="scratchSprite::installGraphicEffects" ref="classscratchSprite#a87a0eabc6bb2b1d5c1ec034ffb3a7542" />
+      <keyword name="isStage" id="scratchSprite::isStage" ref="classscratchSprite#a8e6b689dd4203bedb0e98e17a52a6ab4" />
+      <keyword name="keyPressed" id="scratchSprite::keyPressed" ref="classscratchSprite#a088476078fa21b3c71572b26f46294b3" />
+      <keyword name="keyPressEvent" id="projectScene::keyPressEvent" ref="classprojectScene#a0a039a537c5f7a44db11706799d0b8b6" />
+      <keyword name="loadFromUrl" id="MainWindow::loadFromUrl" ref="classMainWindow#acf9b021aef67e5c38af3f4d218169f0b" />
+      <keyword name="loadSpriteList" id="scratchSprite::loadSpriteList" ref="classscratchSprite#a2429ac26a3c4bec405a51b2f3a82ae49" />
+      <keyword name="loadSpriteList" id="projectScene::loadSpriteList" ref="classprojectScene#a82704fa5c1e2296e615a4eb57caff0c2" />
+      <keyword name="looksBlocks" id="scratchSprite::looksBlocks" ref="classscratchSprite#a385ea5a053d2929b439c310304940125" />
+      <keyword name="MainWindow" id="MainWindow::MainWindow" ref="classMainWindow#a996c5a2b6f77944776856f08ec30858d" />
+      <keyword name="motionBlocks" id="scratchSprite::motionBlocks" ref="classscratchSprite#a5afaa221267907bd4d0987d84dbdc652" />
+      <keyword name="mouseDoubleClickEvent" id="projectScene::mouseDoubleClickEvent" ref="classprojectScene#a0dc2c5484c1ef8f83acbf12b9cbc6fed" />
+      <keyword name="mouseMoveEvent" id="projectScene::mouseMoveEvent" ref="classprojectScene#a381d1f0a59381d3a98553c656ef01d82" />
+      <keyword name="mousePressEvent" id="projectScene::mousePressEvent" ref="classprojectScene#a7be8c52d061099acca42eef41e39840b" />
+      <keyword name="name" id="scratchSprite::name" ref="classscratchSprite#a76b078e8b25c8f18aff783eb5055d987" />
+      <keyword name="openFile" id="MainWindow::openFile" ref="classMainWindow#ab14469aff316235cb2ee764483a6319d" />
+      <keyword name="playSound" id="scratchSprite::playSound" ref="classscratchSprite#adb8cf0cd73a2b82cfbe93d56aff79eaf" />
+      <keyword name="projectParser" id="projectParser::projectParser" ref="classprojectParser#ae0bb73dcc19d4eea98cdc807fb650d3d" />
+      <keyword name="projectScene" id="projectScene::projectScene" ref="classprojectScene#a8c8ee7ea57b02c439c400f501ca7eb50" />
+      <keyword name="resetGraphicEffects" id="scratchSprite::resetGraphicEffects" ref="classscratchSprite#a221f792a1ff70f3507818a35ec095e61" />
+      <keyword name="rotationStyle" id="scratchSprite::rotationStyle" ref="classscratchSprite#a61c929545c2178ffe8c5089a04a03d41" />
+      <keyword name="scratchSprite" id="scratchSprite::scratchSprite" ref="classscratchSprite#a401307233d74f2cbec2728b728f159ba" />
+      <keyword name="setCostume" id="scratchSprite::setCostume" ref="classscratchSprite#ac0bf3c62a2c6788d6f782c995766b30b" />
+      <keyword name="setDirection" id="scratchSprite::setDirection" ref="classscratchSprite#a7ba47275426e6925d8e37d9ecb84e349" />
+      <keyword name="setMousePos" id="scratchSprite::setMousePos" ref="classscratchSprite#a0f00f9ca722b62c15b74a3fee89f561a" />
+      <keyword name="setSize" id="scratchSprite::setSize" ref="classscratchSprite#aaa192f3c27395177029a47366ee143d8" />
+      <keyword name="setVolume" id="scratchSprite::setVolume" ref="classscratchSprite#a13d937e2bd01ac7c4ff72e14cc6cabc0" />
+      <keyword name="setXPos" id="scratchSprite::setXPos" ref="classscratchSprite#ade994e8c0803e447564e92545d69c8a8" />
+      <keyword name="setYPos" id="scratchSprite::setYPos" ref="classscratchSprite#ac3d432973f42391618ef53af03631301" />
+      <keyword name="showBubble" id="scratchSprite::showBubble" ref="classscratchSprite#aa6d1bc1e75fcb29a8a70ff561a7039b7" />
+      <keyword name="size" id="scratchSprite::size" ref="classscratchSprite#a5a8241f37d98f1eba39eda2e1cafc9d4" />
+      <keyword name="soundBlocks" id="scratchSprite::soundBlocks" ref="classscratchSprite#aca3408cd544bd96b5fda78d311c64721" />
+      <keyword name="spriteClicked" id="scratchSprite::spriteClicked" ref="classscratchSprite#ac43a0ca298760cdf978a21aa6ef7038a" />
+      <keyword name="sprites" id="projectParser::sprites" ref="classprojectParser#ab4d4e9b006743666101d500a4c74608b" />
+      <keyword name="spriteTimerEvent" id="scratchSprite::spriteTimerEvent" ref="classscratchSprite#a9ec05ce7032732d946bff6a0099ec30a" />
+      <keyword name="spriteX" id="scratchSprite::spriteX" ref="classscratchSprite#ae7b66c6cd294335f2802ba4dbd946953" />
+      <keyword name="spriteY" id="scratchSprite::spriteY" ref="classscratchSprite#a1a8aa97382c17daf734c0e5d57b3829f" />
+      <keyword name="stage" id="projectParser::stage" ref="classprojectParser#a652bca50042e3109eb9b7dfbab7d953e" />
+      <keyword name="stopAllSounds" id="scratchSprite::stopAllSounds" ref="classscratchSprite#a11f668c698d5517f36f7b209b4602e41" />
+      <keyword name="stopSprite" id="scratchSprite::stopSprite" ref="classscratchSprite#ad9ec8bf8179adb85bf448b1b285e5e94" />
+      <keyword name="tempo" id="scratchSprite::tempo" ref="classscratchSprite#a184419eddfb047ccdfedea052837e3b0" />
+      <keyword name="timerEvent" id="projectScene::timerEvent" ref="classprojectScene#a485d4400a0b80cf8556545b7741a3b5d" />
+      <keyword name="translateX" id="scratchSprite::translateX" ref="classscratchSprite#a89c97be0b563e3ec0aee9d39d11525c5" />
+      <keyword name="translateY" id="scratchSprite::translateY" ref="classscratchSprite#a7dc3024e6e5a0889dfe8dddf965fd6b6" />
+      <keyword name="type" id="scratchSprite::type" ref="classscratchSprite#a16f3cdfc2b5707d7a17e33d9b5d033d5" />
+      <keyword name="volume" id="scratchSprite::volume" ref="classscratchSprite#abb2c3103c37176b668d265f66d5313f1" />
+      <keyword name="~MainWindow" id="MainWindow::~MainWindow" ref="classMainWindow#ae98d00a93bc118200eeef9f9bba1dba7" />
     </keywords>
     <files>
       <file>tabs.css</file>
@@ -244,11 +205,13 @@
       <file>nav_h.png</file>
       <file>nav_f.png</file>
       <file>bc_s.png</file>
+      <file>doxygen.svg</file>
       <file>closed.png</file>
       <file>open.png</file>
       <file>bdwn.png</file>
       <file>sync_on.png</file>
       <file>sync_off.png</file>
+      <file>nav_g.png</file>
       <file>doxygen.css</file>
       <file>doxygen-awesome.css</file>
       <file>jquery.js</file>
@@ -260,6 +223,10 @@
       <file>search/mag_sel.svg</file>
       <file>search/search.css</file>
       <file>search/search.js</file>
+      <file>doc.png</file>
+      <file>folderopen.png</file>
+      <file>folderclosed.png</file>
+      <file>splitbar.png</file>
       <file>projectparser_8h_source.html</file>
       <file>scratchsprite_8h_source.html</file>
       <file>global_8h_source.html</file>
@@ -284,8 +251,11 @@
       <file>graph_legend.png</file>
       <file>graph_legend.html</file>
       <file>dir_aebb8dcc11953d78e620bbef0b9e2183.html</file>
+      <file>dir_aebb8dcc11953d78e620bbef0b9e2183_dep.png</file>
       <file>dir_4cf372765f693cf540fc4810db0c309c.html</file>
+      <file>dir_4cf372765f693cf540fc4810db0c309c_dep.png</file>
       <file>dir_b0856f6b0d80ccb263b2f415c91f9e17.html</file>
+      <file>dir_b0856f6b0d80ccb263b2f415c91f9e17_dep.png</file>
       <file>dir_68267d1309a1af8e8297ef4c3efbcdba.html</file>
       <file>index.html</file>
       <file>annotated.html</file>
