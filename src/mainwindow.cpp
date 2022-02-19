@@ -82,6 +82,15 @@ void MainWindow::openFile(void)
  */
 void MainWindow::loadFromUrl(void)
 {
+	scene->clearSpriteList();
+	QList<QGraphicsItem*> oldItems = scene->items();
+	for(int i=0; i < oldItems.count(); i++)
+	{
+		scene->removeItem(oldItems[i]);
+		delete oldItems[i];
+	}
+	allSounds.clear();
+	allSoundFiles.clear();
 	ui->greenFlag->setEnabled(false);
 	view->hide();
 	ui->loaderFrame->show();
@@ -164,6 +173,7 @@ void MainWindow::continueLoading(QNetworkReply* reply)
 void MainWindow::init(void)
 {
 	int i;
+	scene->clearSpriteList();
 	QList<QGraphicsItem*> oldItems = scene->items();
 	for(i=0; i < oldItems.count(); i++)
 	{
