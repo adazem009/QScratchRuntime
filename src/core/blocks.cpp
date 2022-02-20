@@ -606,6 +606,14 @@ bool scratchSprite::controlBlocks(QString opcode, QMap<QString,QString> inputs, 
 	{
 		// TODO: Add if else block
 	}
+	else if(opcode == "control_stop")
+	{
+		if(inputs.value("STOP_OPTION") == "all")
+		{
+			for(int i=0; i < spriteList.count(); i++)
+				spriteList[i]->stopSprite();
+		}
+	}
 	else
 		return false;
 	return true;
