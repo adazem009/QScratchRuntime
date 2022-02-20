@@ -28,6 +28,7 @@
 /*! \brief The projectScene class is a QGraphicsScene used to manage all sprites. */
 class projectScene : public QGraphicsScene
 {
+	Q_OBJECT
 	public:
 		explicit projectScene(qreal x = -240, qreal y = -180, qreal width = 480, qreal height = 360, QObject *parent = nullptr);
 		void loadSpriteList(QList<scratchSprite*> list);
