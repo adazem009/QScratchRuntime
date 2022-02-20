@@ -35,6 +35,13 @@ MainWindow::MainWindow(QWidget *parent)
 	view->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
 	view->setStyleSheet("QGraphicsView { background-color: rgb(255,255,255); }");
 	view->hide();
+#ifndef Q_OS_WASM
+	QOpenGLWidget *gl = new QOpenGLWidget();
+	QSurfaceFormat format;
+	format.setSamples(4);
+	gl->setFormat(format);
+	view->setViewport(gl);
+#endif
 	ui->loaderFrame->hide();
 	ui->greenFlag->setEnabled(false);
 	// Connections

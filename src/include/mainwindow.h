@@ -26,6 +26,8 @@
 #include <QGraphicsView>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
+#include <QOpenGLWidget>
+#include <QSurfaceFormat>
 #include "projectscene.h"
 #include "core/projectparser.h"
 
