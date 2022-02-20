@@ -656,7 +656,7 @@ void scratchSprite::frame(void)
 				spriteTimerEvent();
 		}
 	}
-	QStringList operationsToRemove;
+	QList<QVariantMap> operationsToRemove;
 	operationsToRemove.clear();
 	newStack = nullptr;
 	QList<QVariantMap*> newStacks;
@@ -726,7 +726,7 @@ void scratchSprite::frame(void)
 						currentExecPos[frame_i]["special"] = "";
 					}
 					else
-						operationsToRemove += currentID;
+						operationsToRemove += currentExecPos[frame_i];
 				}
 				else
 				{
@@ -734,7 +734,7 @@ void scratchSprite::frame(void)
 					QVariantMap *callerScript = (QVariantMap*) currentExecPos[frame_i]["callerptr"].toLongLong();
 					if(callerScript != nullptr)
 						callerScript->insert("activescripts",callerScript->value("activescripts").toInt()-1);
-					operationsToRemove += currentID;
+					operationsToRemove += currentExecPos[frame_i];
 				}
 				frameEnd = true;
 			}
@@ -752,22 +752,7 @@ void scratchSprite::frame(void)
 	for(int i=0; i < newStacks.count(); i++)
 		currentExecPos += *newStacks[i];
 	for(int i=0; i < operationsToRemove.count(); i++)
-	{
-		bool removeEnd = false;
-		while(!removeEnd)
-		{
-			removeEnd = true;
-			for(int i2=0; i2 < currentExecPos.count(); i2++)
-			{
-				if(currentExecPos[i2]["id"].toString() == operationsToRemove[i])
-				{
-					currentExecPos.removeAt(i2);
-					removeEnd = false;
-					break;
-				}
-			}
-		}
-	}
+		currentExecPos.removeAll(operationsToRemove[i]);
 }
 
 /*! Reads block inputs and fields and returns a map. */
