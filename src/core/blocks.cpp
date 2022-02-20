@@ -117,44 +117,51 @@ bool scratchSprite::motionBlocks(QString opcode, QMap<QString,QString> inputs, i
 	{
 		*frameEnd = true;
 		qreal endX = 0, endY = 0;
-		if(opcode == "motion_glidesecstoxy")
+		if(currentExecPos[processID]["special"].toString() == "glide")
 		{
-			endX = inputs.value("X").toDouble();
-			endY = inputs.value("Y").toDouble();
+			endX = currentExecPos[processID]["endX"].toDouble();
+			endY = currentExecPos[processID]["endY"].toDouble();
 		}
 		else
 		{
-			QString targetName = inputs.value("TO");
-			scratchSprite *targetSprite = getSprite(targetName);
-			if(targetSprite == nullptr)
+			if(opcode == "motion_glidesecstoxy")
 			{
-				if(targetName == "_mouse_")
-				{
-					endX = mouseX;
-					endY = mouseY;
-				}
-				else if(targetName == "_random_")
-				{
-#if QT_VERSION >= QT_VERSION_CHECK(5, 10, 0)
-					endX = QRandomGenerator::global()->bounded(-240,241);
-					endY = QRandomGenerator::global()->bounded(-180,181);
-#else
-					endX = qrand()%481 - 240;
-					endY = qrand()%361 - 180;
-#endif
-				}
+				endX = inputs.value("X").toDouble();
+				endY = inputs.value("Y").toDouble();
 			}
 			else
 			{
-				endX = targetSprite->spriteX;
-				endY = targetSprite->spriteY;
+				QString targetName = inputs.value("TO");
+				scratchSprite *targetSprite = getSprite(targetName);
+				if(targetSprite == nullptr)
+				{
+					if(targetName == "_mouse_")
+					{
+						endX = mouseX;
+						endY = mouseY;
+					}
+					else if(targetName == "_random_")
+					{
+#if QT_VERSION >= QT_VERSION_CHECK(5, 10, 0)
+						endX = QRandomGenerator::global()->bounded(-240,241);
+						endY = QRandomGenerator::global()->bounded(-180,181);
+#else
+						endX = qrand()%481 - 240;
+						endY = qrand()%361 - 180;
+#endif
+					}
+				}
+				else
+				{
+					endX = targetSprite->spriteX;
+					endY = targetSprite->spriteY;
+				}
 			}
-		}
-		if(currentExecPos[processID]["special"].toString() != "glide")
-		{
 			currentExecPos[processID]["special"] = "glide";
 			currentExecPos[processID]["startX"] = spriteX;
 			currentExecPos[processID]["startY"] = spriteY;
+			currentExecPos[processID]["endX"] = endX;
+			currentExecPos[processID]["endY"] = endY;
 			currentExecPos[processID]["startTime"] = QDateTime::currentDateTimeUtc();
 			currentExecPos[processID]["endTime"] = QDateTime::currentDateTimeUtc().addSecs(inputs.value("SECS").toDouble());
 		}
