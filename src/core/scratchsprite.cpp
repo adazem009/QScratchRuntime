@@ -816,7 +816,7 @@ QMap<QString,QString> scratchSprite::getInputs(QVariantMap block, bool readField
 			typeConverted = true;
 			finalValue = blockInputs.value(blockInputsList[i]).toArray().at(1).toString();
 		}
-		if(readFields)
+		else if(readFields)
 		{
 			// Input is in the first item
 			finalRawValue = blockInputs.value(blockInputsList[i]).toArray().at(0);
