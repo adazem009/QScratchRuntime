@@ -682,11 +682,14 @@ void scratchSprite::frame(void)
 			bool processEnd = false;
 			newStack = nullptr;
 			// Run current block
+			int previousLength = currentExecPos.count();
 			motionBlocks(opcode,inputs,frame_i,&frameEnd,&processEnd) ||
 			looksBlocks(opcode,inputs,frame_i,&frameEnd,&processEnd) ||
 			soundBlocks(opcode,inputs,frame_i,&frameEnd,&processEnd) ||
 			eventBlocks(opcode,inputs,frame_i,&frameEnd,&processEnd) ||
 			controlBlocks(opcode,inputs,frame_i,&frameEnd,&processEnd);
+			if(currentExecPos.count() != previousLength)
+				return;
 			// Get next block
 			QVariant nextValue = block.value("next");
 			if(newStack != nullptr)
