@@ -559,39 +559,44 @@ bool scratchSprite::controlBlocks(QString opcode, QMap<QString,QString> inputs, 
 	*processEnd = false;
 	if(returnValue == nullptr)
 		returnValue = new QString();
-	if(opcode == "control_forever")
+	if((opcode == "control_forever") || (opcode == "control_repeat"))
 	{
-		*frameEnd = true;
-		newStack = new QVariantMap;
-		newStack->clear();
-		newStack->insert("id",inputs.value("SUBSTACK"));
-		newStack->insert("toplevelblock",currentExecPos[processID]["toplevelblock"]);
-		newStack->insert("special","");
-		newStack->insert("loop_type","forever");
-		newStack->insert("loop_start",inputs.value("SUBSTACK"));
-		newStack->insert("loop_finished",false);
-		newStack->insert("loop_id",loopCount);
-		currentExecPos[processID]["special"] = "abort_block";
-		currentExecPos[processID]["loop_reference"] = loopCount;
-		loopCount++;
-	}
-	else if(opcode == "control_repeat")
-	{
-		*frameEnd = true;
-		newStack = new QVariantMap;
-		newStack->clear();
-		newStack->insert("id",inputs.value("SUBSTACK"));
-		newStack->insert("toplevelblock",currentExecPos[processID]["toplevelblock"]);
-		newStack->insert("special","");
-		newStack->insert("loop_type","repeat");
-		newStack->insert("loop_count",inputs.value("TIMES").toInt());
-		newStack->insert("loop_current",0);
-		newStack->insert("loop_start",inputs.value("SUBSTACK"));
-		newStack->insert("loop_finished",false);
-		newStack->insert("loop_id",loopCount);
-		currentExecPos[processID]["special"] = "abort_block";
-		currentExecPos[processID]["loop_reference"] = loopCount;
-		loopCount++;
+		if(currentExecPos[processID]["special"].toString() == "loop")
+		{
+			QVariantMap *loopStack = (QVariantMap*) currentExecPos[processID]["loop_reference"].toLongLong();
+			if(loopStack->value("loop_finished").toBool() == true)
+			{
+				currentExecPos[processID]["special"] = "";
+				*processEnd = true;
+			}
+			else
+				*frameEnd = true;
+		}
+		else
+		{
+			if((opcode == "control_forever") || ((opcode == "control_repeat") && (inputs.value("TIMES").toInt() > 0)))
+			{
+				*frameEnd = true;
+				newStack = new QVariantMap;
+				newStack->clear();
+				newStack->insert("id",inputs.value("SUBSTACK"));
+				newStack->insert("toplevelblock",currentExecPos[processID]["toplevelblock"]);
+				newStack->insert("special","");
+				newStack->insert("loop_start",inputs.value("SUBSTACK"));
+				newStack->insert("loop_finished",false);
+				newStack->insert("loop_ptr", (qlonglong) (intptr_t) newStack);
+				currentExecPos[processID]["special"] = "loop";
+				currentExecPos[processID]["loop_reference"] = (qlonglong) (intptr_t) newStack;
+				if(opcode == "control_forever")
+					newStack->insert("loop_type","forever");
+				else if(opcode == "control_repeat")
+				{
+					newStack->insert("loop_type","repeat");
+					newStack->insert("loop_count",inputs.value("TIMES").toInt());
+					newStack->insert("loop_current",0);
+				}
+			}
+		}
 	}
 	else if(opcode == "control_if")
 	{

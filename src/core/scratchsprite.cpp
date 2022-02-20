@@ -25,7 +25,6 @@ scratchSprite::scratchSprite(QJsonObject spriteObject, QString spriteAssetDir, Q
 	QGraphicsPixmapItem(parent)
 {
 	assetDir = spriteAssetDir;
-	loopCount = 0;
 	int i;
 	pointingLeft = false;
 	// Load costumes
@@ -361,7 +360,6 @@ void scratchSprite::broadcastReceived(QString broadcastName, QVariantMap *script
 void scratchSprite::stopSprite(void)
 {
 	currentExecPos.clear();
-	loopCount = 0;
 	if(!isStage)
 		speechBubble->setVisible(false);
 	resetGraphicEffects();
@@ -667,39 +665,12 @@ void scratchSprite::frame(void)
 	{
 		QString next = currentExecPos[frame_i]["id"].toString();
 		bool frameEnd = false;
-		if(currentExecPos[frame_i]["special"].toString() == "abort_block")
-		{
-			frameEnd = true;
-			if(currentExecPos[frame_i].contains("loop_reference"))
-			{
-				bool finished = false;
-				int loopReference = currentExecPos[frame_i]["loop_reference"].toInt();
-				for(int i=0; i < currentExecPos.count(); i++)
-				{
-					if(currentExecPos[i].contains("loop_id"))
-					{
-						if(loopReference == currentExecPos[i]["loop_id"].toLongLong())
-							finished = currentExecPos[i]["loop_finished"].toBool();
-					}
-				}
-				if(finished)
-				{
-					frameEnd = false;
-					currentExecPos[frame_i]["special"] = "";
-					next = blocks.value(next).value("next").toString();
-				}
-			}
-		}
-		else if(currentExecPos[frame_i]["special"].toString() == "remove_operation")
-		{
-			frameEnd = true;
-			operationsToRemove += currentExecPos[frame_i]["id"].toString();
-		}
 		while(!frameEnd)
 		{
 			// Load current block
 			QString currentID = next;
 			QVariantMap block = blocks.value(currentID);
+			currentExecPos[frame_i]["id"] = currentID;
 			if(block.value("topLevel").toBool())
 			{
 				QVariantMap posMap = currentExecPos[frame_i];
@@ -724,10 +695,14 @@ void scratchSprite::frame(void)
 				currentExecPos[frame_i]["id"] = currentID;
 			else if(nextValue.isNull())
 			{
-				bool stackEnd = false;
-				bool removeException = false;
 				if(currentExecPos[frame_i].contains("loop_type"))
 				{
+					bool goBack = true;
+					if(currentExecPos[frame_i]["special"].toString() == "loop")
+					{
+						QVariantMap *loopStack = (QVariantMap*) currentExecPos[frame_i]["loop_reference"].toLongLong();
+						goBack = loopStack->value("loop_finished").toBool();
+					}
 					QString loopType = currentExecPos[frame_i]["loop_type"].toString();
 					if(loopType == "repeat")
 					{
@@ -735,31 +710,33 @@ void scratchSprite::frame(void)
 						currentExecPos[frame_i]["loop_current"] = loopCurrent;
 						if(loopCurrent >= currentExecPos[frame_i]["loop_count"].toInt())
 						{
-							stackEnd = true;
+							QVariantMap *loopStack = (QVariantMap*) currentExecPos[frame_i]["loop_ptr"].toLongLong();
+							loopStack->insert("loop_finished",true);
 							currentExecPos[frame_i]["loop_finished"] = true;
-							currentExecPos[frame_i]["special"] = "remove_operation";
-							removeException = true;
+							QVariantMap posMap = currentExecPos[frame_i];
+							posMap.remove("loop_type");
+							currentExecPos[frame_i] = posMap;
+							goBack = false;
 						}
 					}
-					if(!stackEnd)
+					if(goBack)
 					{
 						next = currentExecPos[frame_i]["loop_start"].toString();
 						currentExecPos[frame_i]["id"] = next;
+						currentExecPos[frame_i]["special"] = "";
 					}
+					else
+						operationsToRemove += currentID;
 				}
 				else
-					stackEnd = true;
-				if(stackEnd)
 				{
 					currentExecPos[frame_i]["id"] = currentID;
 					QVariantMap *callerScript = (QVariantMap*) currentExecPos[frame_i]["callerptr"].toLongLong();
 					if(callerScript != nullptr)
 						callerScript->insert("activescripts",callerScript->value("activescripts").toInt()-1);
-					if(!removeException)
-						operationsToRemove += currentID;
+					operationsToRemove += currentID;
 				}
 				frameEnd = true;
-				currentExecPos[frame_i]["special"] = "";
 			}
 			else
 			{
