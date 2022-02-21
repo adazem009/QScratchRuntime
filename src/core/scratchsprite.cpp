@@ -450,23 +450,25 @@ void scratchSprite::installGraphicEffects(void)
 	 * TODO: Implement other effects in the loop below.
 	 * It should be possible without using QGraphicsEffect.
 	 */
-	QImage costumeImage = costumePixmap.toImage().convertToFormat(QImage::Format_ARGB32);
-	if((graphicEffects["COLOR"] != 0) || (graphicEffects["BRIGHTNESS"] != 0) || (graphicEffects["GHOST"] != 0))
+	qreal colorEffect = graphicEffects["COLOR"];
+	qreal brightnessEffect = graphicEffects["BRIGHTNESS"];
+	qreal ghostEffect = graphicEffects["GHOST"];
+	if((colorEffect != 0) || (colorEffect != 0) || (ghostEffect != 0))
 	{
+		QImage costumeImage = costumePixmap.toImage().convertToFormat(QImage::Format_ARGB32);
+		int h=0, s=0, v=0, a=0;
 		for(int y=0; y < costumeImage.height(); y++)
 		{
 			for(int x=0; x < costumeImage.width(); x++)
 			{
-				QColor pixelColor = costumeImage.pixelColor(x,y);
-				int h, s, v, a;
-				pixelColor.getHsv(&h,&s,&v,&a);
+				costumeImage.pixelColor(x,y).getHsv(&h,&s,&v,&a);
 				// Color effect
-				h += graphicEffects["COLOR"]*1.8;
+				h += colorEffect*1.8;
 				h %= 360;
 				if(h < 0)
 					h += 360;
 				// Brightness effect
-				int brightness = graphicEffects["BRIGHTNESS"];
+				int brightness = brightnessEffect;
 				if(brightness >= 100)
 				{
 					v = 255;
@@ -479,17 +481,16 @@ void scratchSprite::installGraphicEffects(void)
 				else if(brightness <= -100)
 					v = 0;
 				// Ghost effect
-				int ghost = graphicEffects["GHOST"];
+				int ghost = ghostEffect;
 				if(ghost >= 100)
 					a = 0;
 				else if(ghost > 0)
 					a -= ghost * (a/100.0);
-				pixelColor.setHsv(h,s,v,a);
-				costumeImage.setPixelColor(x,y,pixelColor);
+				costumeImage.setPixelColor(x,y,QColor::fromHsv(h,s,v,a));
 			}
 		}
+		setPixmap(QPixmap::fromImage(costumeImage));
 	}
-	setPixmap(QPixmap::fromImage(costumeImage));
 }
 
 /*! Sets the sprite size. */
