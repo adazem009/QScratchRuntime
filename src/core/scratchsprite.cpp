@@ -455,6 +455,11 @@ void scratchSprite::installGraphicEffects(void)
 	qreal ghostEffect = graphicEffects["GHOST"];
 	if((colorEffect != 0) || (colorEffect != 0) || (ghostEffect != 0))
 	{
+		if((colorEffect == 0) && (brightnessEffect == 0))
+		{
+			setOpacity((100 - ghostEffect) / 100.0);
+			return;
+		}
 		QImage costumeImage = costumePixmap.toImage().convertToFormat(QImage::Format_ARGB32);
 		int h=0, s=0, v=0, a=0;
 		for(int y=0; y < costumeImage.height(); y++)
