@@ -615,6 +615,19 @@ bool scratchSprite::controlBlocks(QString opcode, QMap<QString,QString> inputs, 
 		}
 		else if(inputs.value("STOP_OPTION") == "this script")
 			currentExecPos[processID]["special"] = "remove_operation";
+		else if(inputs.value("STOP_OPTION") == "other scripts in sprite")
+		{
+			QList<QVariantMap> operationsToRemove;
+			operationsToRemove.clear();
+			for(int i=0; i < currentExecPos.count(); i++)
+			{
+				// TODO: This may not work if there are e.g multiple instances of the same custom block running
+				if(currentExecPos[i]["toplevelblock"].toString() != currentExecPos[processID]["toplevelblock"].toString())
+					operationsToRemove += currentExecPos[i];
+			}
+			for(int i=0; i < operationsToRemove.count(); i++)
+				currentExecPos.removeAll(operationsToRemove[i]);
+		}
 	}
 	else
 		return false;
