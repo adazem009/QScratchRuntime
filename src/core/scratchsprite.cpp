@@ -696,6 +696,11 @@ void scratchSprite::frame(void)
 			controlBlocks(opcode,inputs,frame_i,&frameEnd,&processEnd);
 			if(currentExecPos.count() != previousLength)
 				return;
+			if(currentExecPos[frame_i]["special"].toString() == "remove_operation")
+			{
+				operationsToRemove += currentExecPos[frame_i];
+				frameEnd = true;
+			}
 			// Get next block
 			QVariant nextValue = block.value("next");
 			if(newStack != nullptr)
