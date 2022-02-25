@@ -613,6 +613,8 @@ bool scratchSprite::controlBlocks(QString opcode, QMap<QString,QString> inputs, 
 			for(int i=0; i < spriteList.count(); i++)
 				spriteList[i]->stopSprite();
 		}
+		else if(inputs.value("STOP_OPTION") == "this script")
+			currentExecPos[processID]["special"] = "remove_operation";
 	}
 	else
 		return false;
