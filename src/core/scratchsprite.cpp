@@ -695,7 +695,7 @@ void scratchSprite::frame(void)
 			eventBlocks(opcode,inputs,frame_i,&frameEnd,&processEnd) ||
 			controlBlocks(opcode,inputs,frame_i,&frameEnd,&processEnd);
 			if(currentExecPos.count() != previousLength)
-				return;
+				goto end;
 			if(currentExecPos[frame_i]["special"].toString() == "remove_operation")
 			{
 				operationsToRemove += currentExecPos[frame_i];
@@ -763,10 +763,11 @@ void scratchSprite::frame(void)
 			}
 		}
 	}
-	for(int i=0; i < newStacks.count(); i++)
-		currentExecPos += *newStacks[i];
-	for(int i=0; i < operationsToRemove.count(); i++)
-		currentExecPos.removeAll(operationsToRemove[i]);
+	end:
+		for(int i=0; i < newStacks.count(); i++)
+			currentExecPos += *newStacks[i];
+		for(int i=0; i < operationsToRemove.count(); i++)
+			currentExecPos.removeAll(operationsToRemove[i]);
 }
 
 /*! Reads block inputs and fields and returns a map. */
