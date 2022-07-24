@@ -54,6 +54,11 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
 	delete ui;
+	for(int i=0; i < assetPointers.count(); i++)
+	{
+		if(assetPointers[i])
+			delete assetPointers[i];
+	}
 }
 
 /*!
@@ -79,7 +84,7 @@ void MainWindow::openFile(void)
 	}
 	ui->loaderFrame->hide();
 	view->show();
-	parser = new projectParser(fileName);
+	parser = new projectParser(fileName, "", this);
 	init();
 }
 
@@ -149,6 +154,8 @@ void MainWindow::continueLoading(QNetworkReply* reply)
 		ui->loadingProgressLabel->setText(loadingAssetsText);
 		assets = parser->assetIDs();
 		ui->loadingProgressBar->setRange(0,assets.count());
+		for(int i=0; i < projectAssets.count(); i++)
+			delete projectAssets[projectAssets.keys().at(i)];
 		projectAssets.clear();
 		projectDataLoaded = true;
 		currentAsset = 0;
@@ -164,6 +171,7 @@ void MainWindow::continueLoading(QNetworkReply* reply)
 		ui->loadingProgressLabel->setText(loadingAssetsText + " (" + QString::number(loadedAssets+1) + "/" + QString::number(assets.count()) + ")");
 		QByteArray *assetData = new QByteArray(reply->readAll());
 		projectAssets.insert(assets[currentAsset]["assetId"],assetData);
+		assetPointers.append(assetData);
 		loadedAssets++;
 	}
 	for(int i=0; i < assetReplies.count(); i++)

@@ -56,6 +56,7 @@ class MainWindow : public QMainWindow
 		bool projectDataLoaded;
 		QList<QMap<QString,QString>> assets;
 		int loadedAssets;
+		QVector<QByteArray*> assetPointers;
 		void continueLoading(QNetworkReply* reply);
 		void init(void);
 
