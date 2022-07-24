@@ -29,11 +29,20 @@
 bool scratchSprite::motionBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd, bool *processEnd, QString *returnValue)
 {
 	if(frameEnd == nullptr)
-		frameEnd = new bool;
+	{
+		bool tmpFrameEnd;
+		frameEnd = &tmpFrameEnd;
+	}
 	if(processEnd == nullptr)
-		processEnd = new bool;
+	{
+		bool tmpProcessEnd;
+		processEnd = &tmpProcessEnd;
+	}
 	if(returnValue == nullptr)
-		returnValue = new QString();
+	{
+		QString tmpReturnValue;
+		returnValue = &tmpReturnValue;
+	}
 	*processEnd = false;
 	if(opcode == "motion_movesteps")
 	{
@@ -82,8 +91,11 @@ bool scratchSprite::motionBlocks(QString opcode, QMap<QString,QString> inputs, i
 	}
 	else if(opcode == "motion_gotoxy")
 	{
-		setXPos(inputs.value("X").toDouble());
-		setYPos(inputs.value("Y").toDouble());
+		if(inputs.contains("X"))
+		{
+				setXPos(inputs.value("X").toDouble());
+				setYPos(inputs.value("Y").toDouble());
+		}
 	}
 	else if(opcode == "motion_goto")
 	{
@@ -247,12 +259,21 @@ bool scratchSprite::motionBlocks(QString opcode, QMap<QString,QString> inputs, i
 bool scratchSprite::looksBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd, bool *processEnd, QString *returnValue)
 {
 	if(frameEnd == nullptr)
-		frameEnd = new bool;
+	{
+		bool tmpFrameEnd;
+		frameEnd = &tmpFrameEnd;
+	}
 	if(processEnd == nullptr)
-		processEnd = new bool;
-	*processEnd = false;
+	{
+		bool tmpProcessEnd;
+		processEnd = &tmpProcessEnd;
+	}
 	if(returnValue == nullptr)
-		returnValue = new QString();
+	{
+		QString tmpReturnValue;
+		returnValue = &tmpReturnValue;
+	}
+	*processEnd = false;
 	if(opcode == "looks_sayforsecs")
 	{
 		*frameEnd = true;
@@ -324,7 +345,7 @@ bool scratchSprite::looksBlocks(QString opcode, QMap<QString,QString> inputs, in
 		int newCostume = currentCostume;
 		for(int i=0; i < costumes.count(); i++)
 		{
-			if(costumes[i].value("name").toString() == inputs.value("COSTUME"))
+			if((costumes[i].contains("name")) && (costumes[i].value("name").toString() == inputs.value("COSTUME")))
 				newCostume = i;
 		}
 		setCostume(newCostume);
@@ -467,12 +488,21 @@ bool scratchSprite::looksBlocks(QString opcode, QMap<QString,QString> inputs, in
 bool scratchSprite::soundBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd, bool *processEnd, QString *returnValue)
 {
 	if(frameEnd == nullptr)
-		frameEnd = new bool;
+	{
+		bool tmpFrameEnd;
+		frameEnd = &tmpFrameEnd;
+	}
 	if(processEnd == nullptr)
-		processEnd = new bool;
-	*processEnd = false;
+	{
+		bool tmpProcessEnd;
+		processEnd = &tmpProcessEnd;
+	}
 	if(returnValue == nullptr)
-		returnValue = new QString();
+	{
+		QString tmpReturnValue;
+		returnValue = &tmpReturnValue;
+	}
+	*processEnd = false;
 	if(opcode == "sound_play")
 		playSound(inputs.value("SOUND_MENU"));
 	else if(opcode == "sound_playuntildone")
@@ -490,6 +520,7 @@ bool scratchSprite::soundBlocks(QString opcode, QMap<QString,QString> inputs, in
 			{
 				*processEnd = true;
 				*frameEnd = false;
+				sound->deleteLater();
 			}
 		}
 	}
@@ -517,12 +548,21 @@ bool scratchSprite::soundBlocks(QString opcode, QMap<QString,QString> inputs, in
 bool scratchSprite::eventBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd, bool *processEnd, QString *returnValue)
 {
 	if(frameEnd == nullptr)
-		frameEnd = new bool;
+	{
+		bool tmpFrameEnd;
+		frameEnd = &tmpFrameEnd;
+	}
 	if(processEnd == nullptr)
-		processEnd = new bool;
-	*processEnd = false;
+	{
+		bool tmpProcessEnd;
+		processEnd = &tmpProcessEnd;
+	}
 	if(returnValue == nullptr)
-		returnValue = new QString();
+	{
+		QString tmpReturnValue;
+		returnValue = &tmpReturnValue;
+	}
+	*processEnd = false;
 	if(opcode == "event_broadcast")
 		emit broadcast(inputs.value("BROADCAST_INPUT"));
 	else if(opcode == "event_broadcastandwait")
@@ -553,12 +593,21 @@ bool scratchSprite::eventBlocks(QString opcode, QMap<QString,QString> inputs, in
 bool scratchSprite::controlBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd, bool *processEnd, QString *returnValue)
 {
 	if(frameEnd == nullptr)
-		frameEnd = new bool;
+	{
+		bool tmpFrameEnd;
+		frameEnd = &tmpFrameEnd;
+	}
 	if(processEnd == nullptr)
-		processEnd = new bool;
-	*processEnd = false;
+	{
+		bool tmpProcessEnd;
+		processEnd = &tmpProcessEnd;
+	}
 	if(returnValue == nullptr)
-		returnValue = new QString();
+	{
+		QString tmpReturnValue;
+		returnValue = &tmpReturnValue;
+	}
+	*processEnd = false;
 	if((opcode == "control_forever") || (opcode == "control_repeat"))
 	{
 		if(currentExecPos[processID]["special"].toString() == "loop")
@@ -567,6 +616,7 @@ bool scratchSprite::controlBlocks(QString opcode, QMap<QString,QString> inputs, 
 			if(loopStack->value("loop_finished").toBool() == true)
 			{
 				currentExecPos[processID]["special"] = "";
+				delete loopStack;
 				*processEnd = true;
 			}
 			else
@@ -587,6 +637,7 @@ bool scratchSprite::controlBlocks(QString opcode, QMap<QString,QString> inputs, 
 				newStack->insert("loop_ptr", (qlonglong) (intptr_t) newStack);
 				currentExecPos[processID]["special"] = "loop";
 				currentExecPos[processID]["loop_reference"] = (qlonglong) (intptr_t) newStack;
+				stackPointers.append(newStack);
 				if(opcode == "control_forever")
 					newStack->insert("loop_type","forever");
 				else if(opcode == "control_repeat")
