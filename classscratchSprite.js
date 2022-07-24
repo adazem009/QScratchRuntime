@@ -1,6 +1,7 @@
 var classscratchSprite =
 [
     [ "scratchSprite", "classscratchSprite.html#a401307233d74f2cbec2728b728f159ba", null ],
+    [ "~scratchSprite", "classscratchSprite.html#a8153f90495e9ed67928bc32bd78a83f0", null ],
     [ "backdropSwitched", "classscratchSprite.html#ab1f212229b9769a0ffbb7638e9e429a5", null ],
     [ "backdropSwitchEvent", "classscratchSprite.html#adbcc2ad144281a8af540dc1bd496533c", null ],
     [ "broadcast", "classscratchSprite.html#a44460a997beb1ebcf1e9d1f87f697aa7", null ],
