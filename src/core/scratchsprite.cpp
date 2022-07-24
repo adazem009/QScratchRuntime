@@ -94,6 +94,16 @@ scratchSprite::scratchSprite(QJsonObject spriteObject, QString spriteAssetDir, Q
 	}
 }
 
+/*! Destroys the scratchSprite object. */
+scratchSprite::~scratchSprite()
+{
+	for(int i=0; i < stackPointers.count(); i++)
+	{
+		if(stackPointers[i])
+			delete stackPointers[i];
+	}
+}
+
 /*! Returns user type of QGraphicsItem. */
 int scratchSprite::type(void) const
 {
@@ -558,7 +568,6 @@ QSoundEffect *scratchSprite::playSound(QString soundName)
 		if(!allSounds[i]->isPlaying())
 		{
 			soundsToRemove += allSounds[i];
-			allSoundFiles[i]->deleteLater();
 			soundFilesToRemove += allSoundFiles[i];
 		}
 	}
@@ -580,7 +589,7 @@ QSoundEffect *scratchSprite::playSound(QString soundName)
 	if(soundID != -1)
 	{
 		QSoundEffect *sound = new QSoundEffect(this);
-		QTemporaryFile *soundFile = new QTemporaryFile;
+		QTemporaryFile *soundFile = new QTemporaryFile(sound);
 		if(assetDir == "")
 		{
 			if(soundFile->open())
@@ -609,8 +618,8 @@ void scratchSprite::stopAllSounds(void)
 {
 	for(int i=0; i < allSounds.count(); i++)
 	{
-		allSounds[i]->stop();
-		allSoundFiles[i]->deleteLater();
+		/*if(allSounds[i]->isPlaying())
+			allSounds[i]->stop();*/
 	}
 	allSounds.clear();
 	allSoundFiles.clear();

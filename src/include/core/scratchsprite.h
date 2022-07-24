@@ -42,6 +42,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 	public:
 		enum { Type = UserType + 1 };
 		explicit scratchSprite(QJsonObject spriteObject, QString assetDir, QGraphicsItem *parent = nullptr);
+		~scratchSprite();
 		int type(void) const override;
 		void loadSpriteList(QList<scratchSprite*> lists);
 		void setXPos(qreal x);
@@ -58,10 +59,10 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		bool checkKey(int QtKey, QString keyText, QString scratchKey);
 		void backdropSwitchEvent(QVariantMap *script);
 		void broadcastReceived(QString broadcastName, QVariantMap *script);
-		bool isStage; /*!< True if this is a stage. */
+		bool isStage = false; /*!< True if this is a stage. */
 		QString name; /*!< Sprite name. */
-		qreal spriteX; /*!< X position. */
-		qreal spriteY; /*!< Y position. */
+		qreal spriteX = 0; /*!< X position. */
+		qreal spriteY = 0; /*!< Y position. */
 		int currentCostume; /*!< Current costume ID. */
 		int volume; /*!< Volume for sound blocks. */
 		int tempo; /*!< Tempo for instrument blocks. */
@@ -101,6 +102,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		QPixmap costumePixmap;
 		QElapsedTimer timer;
 		QMap<QString,QVariantMap> frameEvents;
+		QVector<QVariantMap*> stackPointers;
 		// Blocks
 		bool motionBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd = nullptr, bool *processEnd = nullptr, QString *returnValue = nullptr);
 		bool looksBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd = nullptr, bool *processEnd = nullptr, QString *returnValue = nullptr);
