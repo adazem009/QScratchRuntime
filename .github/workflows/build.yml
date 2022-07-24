@@ -12,14 +12,14 @@ jobs:
         os: [ubuntu-latest, macos-latest]
         qt-version: ['5.15.2']
         qt-target: ['desktop']
-        include:
-          - os: windows-latest
-            qt-version: '5.15.2'
-            qt-target: 'desktop'
-            mingw-version: 81
-        exclude:
-          - os: windows-latest
-            qt-version: '5.15.2'
+        #include:
+        #  - os: windows-latest
+        #    qt-version: '5.15.2'
+        #    qt-target: 'desktop'
+        #    mingw-version: 81
+        #exclude:
+        #  - os: windows-latest
+        #    qt-version: '5.15.2'
     steps:
     - uses: actions/checkout@v2
       with:
