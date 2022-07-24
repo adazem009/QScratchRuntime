@@ -588,7 +588,7 @@ QSoundEffect *scratchSprite::playSound(QString soundName)
 	}
 	if(soundID != -1)
 	{
-		QSoundEffect *sound = new QSoundEffect(this);
+		QPointer<QSoundEffect> sound = new QSoundEffect(this);
 		QTemporaryFile *soundFile = new QTemporaryFile(sound);
 		if(assetDir == "")
 		{
@@ -618,8 +618,8 @@ void scratchSprite::stopAllSounds(void)
 {
 	for(int i=0; i < allSounds.count(); i++)
 	{
-		/*if(allSounds[i]->isPlaying())
-			allSounds[i]->stop();*/
+		if(!allSounds[i].isNull() && allSounds[i]->isPlaying())
+			allSounds[i]->stop();
 	}
 	allSounds.clear();
 	allSoundFiles.clear();
