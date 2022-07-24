@@ -19,10 +19,11 @@
  */
 
 #include <QList>
+#include <QPointer>
 #include <QSoundEffect>
 #include <QTemporaryFile>
 #include <QMap>
 
-extern QList<QSoundEffect*> allSounds;
+extern QList<QPointer<QSoundEffect>> allSounds;
 extern QList<QTemporaryFile*> allSoundFiles;
 extern QMap<QString,QByteArray*> projectAssets;

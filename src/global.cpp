@@ -21,7 +21,7 @@
 #include "global.h"
 
 /*! List of QSoundEffect pointers. */
-QList<QSoundEffect*> allSounds = QList<QSoundEffect*>();
+QList<QPointer<QSoundEffect>> allSounds;
 
 /*! List of QTemporaryFile pointers (used by sounds). */
 QList<QTemporaryFile*> allSoundFiles = QList<QTemporaryFile*>();
