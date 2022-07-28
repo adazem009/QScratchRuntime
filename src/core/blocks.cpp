@@ -586,7 +586,9 @@ bool scratchSprite::eventBlocks(QString opcode, QMap<QString,QString> inputs, in
 	// Reporter blocks
 	else if(opcode == "event_broadcast_menu")
 		*returnValue = inputs.value("BROADCAST_OPTION");
-	return false;
+	else
+		return false;
+	return true;
 }
 
 /*! Runs control blocks. */
