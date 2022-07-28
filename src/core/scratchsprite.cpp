@@ -698,11 +698,14 @@ void scratchSprite::frame(void)
 			newStack = nullptr;
 			// Run current block
 			int previousLength = currentExecPos.count();
-			motionBlocks(opcode,inputs,frame_i,&frameEnd,&processEnd) ||
-			looksBlocks(opcode,inputs,frame_i,&frameEnd,&processEnd) ||
-			soundBlocks(opcode,inputs,frame_i,&frameEnd,&processEnd) ||
-			eventBlocks(opcode,inputs,frame_i,&frameEnd,&processEnd) ||
-			controlBlocks(opcode,inputs,frame_i,&frameEnd,&processEnd);
+			if(!(
+				motionBlocks(opcode,inputs,frame_i,&frameEnd,&processEnd) ||
+				looksBlocks(opcode,inputs,frame_i,&frameEnd,&processEnd) ||
+				soundBlocks(opcode,inputs,frame_i,&frameEnd,&processEnd) ||
+				eventBlocks(opcode,inputs,frame_i,&frameEnd,&processEnd) ||
+				controlBlocks(opcode,inputs,frame_i,&frameEnd,&processEnd)
+			))
+				qWarning() << "Warning: unsupported block:" << opcode;
 			if(currentExecPos.count() != previousLength)
 				goto end;
 			if(currentExecPos[frame_i]["special"].toString() == "remove_operation")
@@ -821,11 +824,14 @@ QMap<QString,QString> scratchSprite::getInputs(QVariantMap block, bool readField
 			QString opcode = reporterBlock.value("opcode").toString();
 			QMap<QString,QString> inputs = getInputs(reporterBlock);
 			// Get reporter block value
-			motionBlocks(opcode,inputs,0,nullptr,nullptr,&finalValue) ||
-			looksBlocks(opcode,inputs,0,nullptr,nullptr,&finalValue) ||
-			soundBlocks(opcode,inputs,0,nullptr,nullptr,&finalValue) ||
-			eventBlocks(opcode,inputs,0,nullptr,nullptr,&finalValue) ||
-			controlBlocks(opcode,inputs,0,nullptr,nullptr,&finalValue);
+			if(!(
+				motionBlocks(opcode,inputs,0,nullptr,nullptr,&finalValue) ||
+				looksBlocks(opcode,inputs,0,nullptr,nullptr,&finalValue) ||
+				soundBlocks(opcode,inputs,0,nullptr,nullptr,&finalValue) ||
+				eventBlocks(opcode,inputs,0,nullptr,nullptr,&finalValue) ||
+				controlBlocks(opcode,inputs,0,nullptr,nullptr,&finalValue)
+			))
+				qWarning() << "Warning: unsupported reporter block:" << opcode;
 		}
 		if(!typeConverted)
 		{
