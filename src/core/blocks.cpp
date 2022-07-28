@@ -652,7 +652,35 @@ bool scratchSprite::controlBlocks(QString opcode, QMap<QString,QString> inputs, 
 	}
 	else if(opcode == "control_if")
 	{
-		// TODO: Add if block
+		if(currentExecPos[processID]["special"].toString() == "loop")
+		{
+			currentExecPos[processID]["special"] = "";
+			*processEnd = true;
+		}
+		else
+		{
+			if(inputs.value("CONDITION") == "true")
+			{
+				// Using a repeat(1) loop if the condition is true
+				*frameEnd = true;
+				newStack = new QVariantMap;
+				newStack->clear();
+				newStack->insert("id", inputs.value("SUBSTACK"));
+				newStack->insert("toplevelblock", currentExecPos[processID]["toplevelblock"]);
+				newStack->insert("special", "");
+				newStack->insert("loop_start", inputs.value("SUBSTACK"));
+				newStack->insert("loop_finished", false);
+				newStack->insert("loop_ptr", (qlonglong) (intptr_t) newStack);
+				currentExecPos[processID]["special"] = "loop";
+				currentExecPos[processID]["loop_reference"] = (qlonglong) (intptr_t) newStack;
+				stackPointers.append(newStack);
+				newStack->insert("loop_type", "repeat");
+				newStack->insert("loop_count", 1);
+				newStack->insert("loop_current", 0);
+			}
+			else
+				*processEnd = true;
+		}
 	}
 	else if(opcode == "control_if_else")
 	{
