@@ -616,7 +616,6 @@ bool scratchSprite::controlBlocks(QString opcode, QMap<QString,QString> inputs, 
 			if(loopStack->value("loop_finished").toBool() == true)
 			{
 				currentExecPos[processID]["special"] = "";
-				delete loopStack;
 				*processEnd = true;
 			}
 			else
