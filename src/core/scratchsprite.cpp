@@ -799,7 +799,7 @@ QMap<QString,QString> scratchSprite::getInputs(QVariantMap block, bool readField
 		bool typeConverted = false;
 		QJsonValue finalRawValue;
 		QString finalValue = "";
-		if(blockInputsList[i] == "SUBSTACK")
+		if(blockInputsList[i].contains("SUBSTACK"))
 		{
 			// Start of a blocks stack
 			typeConverted = true;
