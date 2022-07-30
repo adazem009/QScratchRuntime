@@ -650,7 +650,7 @@ bool scratchSprite::controlBlocks(QString opcode, QMap<QString,QString> inputs, 
 			}
 		}
 	}
-	else if(opcode == "control_if")
+	else if((opcode == "control_if") || (opcode == "control_if_else"))
 	{
 		if(currentExecPos[processID]["special"].toString() == "loop")
 		{
@@ -659,16 +659,26 @@ bool scratchSprite::controlBlocks(QString opcode, QMap<QString,QString> inputs, 
 		}
 		else
 		{
-			if(inputs.value("CONDITION") == "true")
+			bool isIfElse = (opcode == "control_if_else");
+			bool condition = (inputs.value("CONDITION") == "true");
+			if((condition && (inputs.value("SUBSTACK") != "")) || (isIfElse && !condition && (inputs.value("SUBSTACK2") != "")))
 			{
 				// Using a repeat(1) loop if the condition is true
 				*frameEnd = true;
 				newStack = new QVariantMap;
 				newStack->clear();
-				newStack->insert("id", inputs.value("SUBSTACK"));
+				if(condition)
+				{
+					newStack->insert("id", inputs.value("SUBSTACK"));
+					newStack->insert("loop_start", inputs.value("SUBSTACK"));
+				}
+				else
+				{
+					newStack->insert("id", inputs.value("SUBSTACK2"));
+					newStack->insert("loop_start", inputs.value("SUBSTACK2"));
+				}
 				newStack->insert("toplevelblock", currentExecPos[processID]["toplevelblock"]);
 				newStack->insert("special", "");
-				newStack->insert("loop_start", inputs.value("SUBSTACK"));
 				newStack->insert("loop_finished", false);
 				newStack->insert("loop_ptr", (qlonglong) (intptr_t) newStack);
 				currentExecPos[processID]["special"] = "loop";
@@ -681,10 +691,6 @@ bool scratchSprite::controlBlocks(QString opcode, QMap<QString,QString> inputs, 
 			else
 				*processEnd = true;
 		}
-	}
-	else if(opcode == "control_if_else")
-	{
-		// TODO: Add if else block
 	}
 	else if(opcode == "control_stop")
 	{
