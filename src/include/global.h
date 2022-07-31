@@ -27,3 +27,4 @@
 extern QList<QPointer<QSoundEffect>> allSounds;
 extern QList<QTemporaryFile*> allSoundFiles;
 extern QMap<QString,QByteArray*> projectAssets;
+extern bool __run_frame_again;

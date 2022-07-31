@@ -28,3 +28,6 @@ QList<QTemporaryFile*> allSoundFiles = QList<QTemporaryFile*>();
 
 /*! Map of project assets. */
 QMap<QString,QByteArray*> projectAssets = QMap<QString,QByteArray*>();
+
+/*! Sprites can use this variable to run next frame without screen refresh. */
+bool __run_frame_again = false;
