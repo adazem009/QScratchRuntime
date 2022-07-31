@@ -662,8 +662,14 @@ bool scratchSprite::controlBlocks(QString opcode, QMap<QString,QString> inputs, 
 	{
 		if(currentExecPos[processID]["special"].toString() == "loop")
 		{
-			currentExecPos[processID]["special"] = "";
-			*processEnd = true;
+			QVariantMap *loopStack = (QVariantMap*) currentExecPos[processID]["loop_reference"].toLongLong();
+			if(loopStack->value("loop_finished").toBool() == true)
+			{
+				currentExecPos[processID]["special"] = "";
+				*processEnd = true;
+			}
+			else
+				*frameEnd = true;
 		}
 		else
 		{
