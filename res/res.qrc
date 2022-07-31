@@ -2,5 +2,7 @@
     <qresource prefix="/res">
         <file>images/speech_bubble.png</file>
         <file>images/thought_bubble.png</file>
+        <file>images/green_flag.svg</file>
+        <file>images/stop.svg</file>
     </qresource>
 </RCC>
