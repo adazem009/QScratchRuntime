@@ -158,7 +158,10 @@ void MainWindow::continueLoading(QNetworkReply* reply)
 		assets = parser->assetIDs();
 		ui->loadingProgressBar->setRange(0,assets.count());
 		for(int i=0; i < projectAssets.count(); i++)
+		{
+			assetPointers.removeAll(projectAssets[projectAssets.keys().at(i)]);
 			delete projectAssets[projectAssets.keys().at(i)];
+		}
 		projectAssets.clear();
 		projectDataLoaded = true;
 		currentAsset = 0;
