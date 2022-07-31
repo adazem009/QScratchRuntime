@@ -118,6 +118,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 
 	public slots:
 		void greenFlagClicked(void);
+		void stopAll(void);
 		void stopSprite(void);
 };
 

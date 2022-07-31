@@ -139,7 +139,6 @@ void scratchSprite::greenFlagClicked(void)
 {
 	stopSprite();
 	resetTimer();
-	// TODO: Add stopAll() (maybe static?) function
 	stopAllSounds();
 	QStringList blocksList = blocks.keys();
 	for(int i=0; i < blocksList.count(); i++)
@@ -154,6 +153,14 @@ void scratchSprite::greenFlagClicked(void)
 			currentExecPos += blockMap;
 		}
 	}
+}
+
+/*! Stops the sprite, resets the timer and stops all sounds coming from the sprite. */
+void scratchSprite::stopAll(void)
+{
+	stopSprite();
+	resetTimer();
+	stopAllSounds();
 }
 
 void scratchSprite::resetTimer(void)
