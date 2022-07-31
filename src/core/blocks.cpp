@@ -586,7 +586,13 @@ bool scratchSprite::eventBlocks(QString opcode, QMap<QString,QString> inputs, in
 	// Reporter blocks
 	else if(opcode == "event_broadcast_menu")
 		*returnValue = inputs.value("BROADCAST_OPTION");
-	else if(opcode != "event_whenflagclicked")
+	else if((opcode != "event_whenflagclicked") &&
+		(opcode != "event_whenkeypressed") &&
+		(opcode != "event_whenthisspriteclicked") &&
+		(opcode != "event_whenstageclicked") &&
+		(opcode != "event_whenbackdropswitchesto") &&
+		(opcode != "event_whengreaterthan") &&
+		(opcode != "event_whenbroadcastreceived"))
 		return false;
 	return true;
 }
