@@ -432,9 +432,13 @@ void scratchSprite::setCostume(int id, QVariantMap *script)
 	}
 	else
 		costumePixmap = QPixmap(assetDir + "/" + costumes[id].value("assetId").toString() + "." + costumes[id].value("dataFormat").toString());
+	double scale = 1;
+	if(costumes[id].value("dataFormat").toString() != "svg")
+		scale = 0.5; // non-vector images are 2 times bigger for some reason
+	costumePixmap = costumePixmap.scaledToHeight(costumePixmap.height() * scale);
 	setPixmap(costumePixmap);
-	rotationCenterX = costumes[id].value("rotationCenterX").toDouble();
-	rotationCenterY = costumes[id].value("rotationCenterY").toDouble();
+	rotationCenterX = costumes[id].value("rotationCenterX").toDouble() * scale;
+	rotationCenterY = costumes[id].value("rotationCenterY").toDouble() * scale;
 	setTransformOriginPoint(QPointF(rotationCenterX,rotationCenterY));
 	setXPos(spriteX);
 	setYPos(spriteY);
