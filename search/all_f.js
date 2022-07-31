@@ -17,6 +17,8 @@ var searchData=
   ['spritex_14',['spriteX',['../classscratchSprite.html#ae7b66c6cd294335f2802ba4dbd946953',1,'scratchSprite']]],
   ['spritey_15',['spriteY',['../classscratchSprite.html#a1a8aa97382c17daf734c0e5d57b3829f',1,'scratchSprite']]],
   ['stage_16',['stage',['../classprojectParser.html#a652bca50042e3109eb9b7dfbab7d953e',1,'projectParser']]],
-  ['stopallsounds_17',['stopAllSounds',['../classscratchSprite.html#a11f668c698d5517f36f7b209b4602e41',1,'scratchSprite']]],
-  ['stopsprite_18',['stopSprite',['../classscratchSprite.html#ad9ec8bf8179adb85bf448b1b285e5e94',1,'scratchSprite']]]
+  ['stop_17',['stop',['../classprojectScene.html#a9ff31bd7af48c9e6d6c54554637926e3',1,'projectScene']]],
+  ['stopall_18',['stopAll',['../classscratchSprite.html#a4e2eb024f2582079b3c4f60adcc7ae6f',1,'scratchSprite']]],
+  ['stopallsounds_19',['stopAllSounds',['../classscratchSprite.html#a11f668c698d5517f36f7b209b4602e41',1,'scratchSprite']]],
+  ['stopsprite_20',['stopSprite',['../classscratchSprite.html#ad9ec8bf8179adb85bf448b1b285e5e94',1,'scratchSprite']]]
 ];
