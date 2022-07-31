@@ -44,10 +44,12 @@ MainWindow::MainWindow(QWidget *parent)
 #endif
 	ui->loaderFrame->hide();
 	ui->greenFlag->setEnabled(false);
+	ui->stopButton->setEnabled(false);
 	// Connections
 	connect(ui->actionOpen,SIGNAL(triggered()),this,SLOT(openFile()));
 	connect(ui->loadFromUrlButton,SIGNAL(clicked()),this,SLOT(loadFromUrl()));
 	connect(ui->greenFlag,&QPushButton::clicked,scene,&projectScene::greenFlag);
+	connect(ui->stopButton,&QPushButton::clicked,scene,&projectScene::stop);
 }
 
 /*! Destroys MainWindow. */
@@ -104,6 +106,7 @@ void MainWindow::loadFromUrl(void)
 	allSounds.clear();
 	allSoundFiles.clear();
 	ui->greenFlag->setEnabled(false);
+	ui->stopButton->setEnabled(false);
 	view->hide();
 	ui->loaderFrame->show();
 	ui->loadingProgressBar->setRange(0,1);
@@ -211,4 +214,5 @@ void MainWindow::init(void)
 	scene->loadSpriteList(sprites);
 	// Enable control buttons
 	ui->greenFlag->setEnabled(true);
+	ui->stopButton->setEnabled(true);
 }
