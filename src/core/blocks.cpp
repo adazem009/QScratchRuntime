@@ -647,6 +647,8 @@ bool scratchSprite::controlBlocks(QString opcode, QMap<QString,QString> inputs, 
 					newStack->insert("loop_count",inputs.value("TIMES").toInt());
 					newStack->insert("loop_current",0);
 				}
+				// Avoid screen refresh after starting the loop
+				__run_frame_again = true;
 			}
 		}
 	}
@@ -687,6 +689,8 @@ bool scratchSprite::controlBlocks(QString opcode, QMap<QString,QString> inputs, 
 				newStack->insert("loop_type", "repeat");
 				newStack->insert("loop_count", 1);
 				newStack->insert("loop_current", 0);
+				// Avoid screen refresh after creating the substack
+				__run_frame_again = true;
 			}
 			else
 				*processEnd = true;
