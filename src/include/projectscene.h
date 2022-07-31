@@ -40,6 +40,7 @@ class projectScene : public QGraphicsScene
 
 	public slots:
 		void greenFlag(void);
+		void stop(void);
 		void backdropSwitched(QVariantMap *script);
 		void broadcastSent(QString broadcastName, QVariantMap *script = nullptr);
 

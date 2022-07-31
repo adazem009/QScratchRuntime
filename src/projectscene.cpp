@@ -92,6 +92,14 @@ void projectScene::greenFlag(void)
 	projectRunning = true;
 }
 
+/*! Stops the project. */
+void projectScene::stop(void)
+{
+	for(int i=0; i < spriteList.count(); i++)
+		spriteList[i]->stopAll();
+	projectRunning = false;
+}
+
 /*! Overrides QObject#timerEvent(). */
 void projectScene::timerEvent(QTimerEvent *event)
 {
