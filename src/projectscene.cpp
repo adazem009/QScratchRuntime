@@ -96,7 +96,12 @@ void projectScene::greenFlag(void)
 void projectScene::timerEvent(QTimerEvent *event)
 {
 	for(int i=0; i < spriteList.count(); i++)
-		spriteList[i]->frame();
+	{
+		do {
+			__run_frame_again = false;
+			spriteList[i]->frame();
+		} while(__run_frame_again);
+	}
 	event->accept();
 }
 
