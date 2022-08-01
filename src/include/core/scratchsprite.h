@@ -30,7 +30,7 @@
 #endif
 #include <QGraphicsSceneMouseEvent>
 #include <QDateTime>
-#include <QSoundEffect>
+#include <QMediaPlayer>
 #include <QElapsedTimer>
 #include <QTemporaryFile>
 #include "global.h"
@@ -81,7 +81,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		void showBubble(QString text, bool thought = false);
 		void resetGraphicEffects(void);
 		void installGraphicEffects(void);
-		QSoundEffect *playSound(QString soundName);
+		QMediaPlayer *playSound(QString soundName);
 		void spriteTimerEvent(void);
 		void resetTimer(void);
 		QList<scratchSprite*> spriteList;

@@ -515,8 +515,8 @@ bool scratchSprite::soundBlocks(QString opcode, QMap<QString,QString> inputs, in
 		}
 		else
 		{
-			QSoundEffect *sound = (QSoundEffect*) currentExecPos[processID]["sound"].toLongLong();
-			if(!sound->isPlaying())
+			QMediaPlayer *sound = (QMediaPlayer*) currentExecPos[processID]["sound"].toLongLong();
+			if(sound->state() == QMediaPlayer::StoppedState)
 			{
 				*processEnd = true;
 				*frameEnd = false;

@@ -20,11 +20,11 @@
 
 #include <QList>
 #include <QPointer>
-#include <QSoundEffect>
+#include <QMediaPlayer>
 #include <QTemporaryFile>
 #include <QMap>
 
-extern QList<QPointer<QSoundEffect>> allSounds;
+extern QList<QPointer<QMediaPlayer>> allSounds;
 extern QList<QTemporaryFile*> allSoundFiles;
 extern QMap<QString,QByteArray*> projectAssets;
 extern bool __run_frame_again;

@@ -564,10 +564,10 @@ void scratchSprite::setDirection(qreal angle)
 }
 
 /*!
- * Starts playing a sound and returns a pointer to the QSoundEffect object of the playing sound.\n
+ * Starts playing a sound and returns a pointer to the QMediaPlayer object of the playing sound.\n
  * Returns nullptr if the sound isn't found.
  */
-QSoundEffect *scratchSprite::playSound(QString soundName)
+QMediaPlayer *scratchSprite::playSound(QString soundName)
 {
 	// Play the sound
 	int soundID = -1;
@@ -581,7 +581,7 @@ QSoundEffect *scratchSprite::playSound(QString soundName)
 	}
 	if(soundID != -1)
 	{
-		QPointer<QSoundEffect> sound = new QSoundEffect(this);
+		QPointer<QMediaPlayer> sound = new QMediaPlayer(this);
 		QTemporaryFile *soundFile = new QTemporaryFile(sound);
 		if(assetDir == "")
 		{
@@ -592,11 +592,11 @@ QSoundEffect *scratchSprite::playSound(QString soundName)
 			}
 			else
 				return nullptr;
-			sound->setSource(QUrl::fromLocalFile(soundFile->fileName()));
+			sound->setMedia(QUrl::fromLocalFile(soundFile->fileName()));
 		}
 		else
-			sound->setSource(QUrl::fromLocalFile(assetDir + "/" + sounds[soundID].value("assetId").toString() + "." + sounds[soundID].value("dataFormat").toString()));
-		sound->setVolume(volume/100.0);
+			sound->setMedia(QUrl::fromLocalFile(assetDir + "/" + sounds[soundID].value("assetId").toString() + "." + sounds[soundID].value("dataFormat").toString()));
+		sound->setVolume(volume);
 		sound->play();
 		allSounds += sound;
 		allSoundFiles += soundFile;
@@ -611,7 +611,7 @@ void scratchSprite::stopAllSounds(void)
 {
 	for(int i=0; i < allSounds.count(); i++)
 	{
-		if(!allSounds[i].isNull() && allSounds[i]->isPlaying())
+		if(!allSounds[i].isNull() && (allSounds[i]->state() == QMediaPlayer::PlayingState))
 			allSounds[i]->stop();
 	}
 	allSounds.clear();
