@@ -224,7 +224,7 @@ void MainWindow::changeFps(void)
 {
 	QInputDialog *dialog = new QInputDialog(this);
 	dialog->setInputMode(QInputDialog::IntInput);
-	dialog->setIntMinimum(0);
+	dialog->setIntMinimum(1);
 	dialog->setIntMaximum(QGuiApplication::primaryScreen()->refreshRate());
 	dialog->setIntValue(settings.value("main/fps", 30).toInt());
 	dialog->setWindowModality(Qt::WindowModal);
