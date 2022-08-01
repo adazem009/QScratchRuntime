@@ -16,6 +16,7 @@
 <section title="init" ref="classMainWindow.html#adacc054a62e38fb27708c0e1e2924b3e"/>
 <section title="loadFromUrl" ref="classMainWindow.html#acf9b021aef67e5c38af3f4d218169f0b"/>
 <section title="openFile" ref="classMainWindow.html#ab14469aff316235cb2ee764483a6319d"/>
+<section title="setCurrentFps" ref="classMainWindow.html#a6f1e227ed875a5f2663178adbfbd8e5c"/>
 </section>
 <section title="projectParser" ref="classprojectParser.html">
 <section title="projectParser" ref="classprojectParser.html#ae0bb73dcc19d4eea98cdc807fb650d3d"/>
@@ -28,6 +29,8 @@
 <section title="backdropSwitched" ref="classprojectScene.html#a3f50e196d9897278264da8d2fa3db779"/>
 <section title="broadcastSent" ref="classprojectScene.html#a8c3b992f8304cbc161911112281e24cf"/>
 <section title="clearSpriteList" ref="classprojectScene.html#a00167146ef77ffbd8975476bd45ae662"/>
+<section title="currentFps" ref="classprojectScene.html#a151038ee9a32709b33af05befdbe963a"/>
+<section title="currentFpsChanged" ref="classprojectScene.html#aa7855276dd606e3f88b75c73a7630dc0"/>
 <section title="greenFlag" ref="classprojectScene.html#a36bd395882d7dee2e570fbfb3aab1c30"/>
 <section title="keyPressEvent" ref="classprojectScene.html#a0a039a537c5f7a44db11706799d0b8b6"/>
 <section title="loadSpriteList" ref="classprojectScene.html#a82704fa5c1e2296e615a4eb57caff0c2"/>
@@ -146,6 +149,8 @@
 <keyword name="continueLoading(QNetworkReply *reply)" id="MainWindow::continueLoading_a72b0f5ec864d378156f19836d57b2033" ref="classMainWindow.html#a72b0f5ec864d378156f19836d57b2033"/>
 <keyword name="controlBlocks(QString opcode, QMap&lt; QString, QString &gt; inputs, int processID, bool *frameEnd=nullptr, bool *processEnd=nullptr, QString *returnValue=nullptr)" id="scratchSprite::controlBlocks_a8bf8391d97d27320e0e28c160c9a0bbb" ref="classscratchSprite.html#a8bf8391d97d27320e0e28c160c9a0bbb"/>
 <keyword name="currentCostume" id="scratchSprite::currentCostume_ae9affb7540903c1ad8936ae1699eeb70" ref="classscratchSprite.html#ae9affb7540903c1ad8936ae1699eeb70"/>
+<keyword name="currentFps(void)" id="projectScene::currentFps_a151038ee9a32709b33af05befdbe963a" ref="classprojectScene.html#a151038ee9a32709b33af05befdbe963a"/>
+<keyword name="currentFpsChanged(int fps)" id="projectScene::currentFpsChanged_aa7855276dd606e3f88b75c73a7630dc0" ref="classprojectScene.html#aa7855276dd606e3f88b75c73a7630dc0"/>
 <keyword name="direction" id="scratchSprite::direction_a5b09a80137060595705512837eeba008" ref="classscratchSprite.html#a5b09a80137060595705512837eeba008"/>
 <keyword name="draggable" id="scratchSprite::draggable_a992e9be078ab605da7f7ccd41fc3a10f" ref="classscratchSprite.html#a992e9be078ab605da7f7ccd41fc3a10f"/>
 <keyword name="eventBlocks(QString opcode, QMap&lt; QString, QString &gt; inputs, int processID, bool *frameEnd=nullptr, bool *processEnd=nullptr, QString *returnValue=nullptr)" id="scratchSprite::eventBlocks_a7f32c3853ada16e3581a07d685de491d" ref="classscratchSprite.html#a7f32c3853ada16e3581a07d685de491d"/>
@@ -177,6 +182,7 @@
 <keyword name="rotationStyle" id="scratchSprite::rotationStyle_a61c929545c2178ffe8c5089a04a03d41" ref="classscratchSprite.html#a61c929545c2178ffe8c5089a04a03d41"/>
 <keyword name="scratchSprite(QJsonObject spriteObject, QString assetDir, QGraphicsItem *parent=nullptr)" id="scratchSprite::scratchSprite_a401307233d74f2cbec2728b728f159ba" ref="classscratchSprite.html#a401307233d74f2cbec2728b728f159ba"/>
 <keyword name="setCostume(int id, QVariantMap *scripts=nullptr)" id="scratchSprite::setCostume_ac0bf3c62a2c6788d6f782c995766b30b" ref="classscratchSprite.html#ac0bf3c62a2c6788d6f782c995766b30b"/>
+<keyword name="setCurrentFps(int fps)" id="MainWindow::setCurrentFps_a6f1e227ed875a5f2663178adbfbd8e5c" ref="classMainWindow.html#a6f1e227ed875a5f2663178adbfbd8e5c"/>
 <keyword name="setDirection(qreal angle)" id="scratchSprite::setDirection_a7ba47275426e6925d8e37d9ecb84e349" ref="classscratchSprite.html#a7ba47275426e6925d8e37d9ecb84e349"/>
 <keyword name="setFps(int fps)" id="projectScene::setFps_a2c74e6753979ba729dc9c539514800c7" ref="classprojectScene.html#a2c74e6753979ba729dc9c539514800c7"/>
 <keyword name="setMousePos(QPointF pos)" id="scratchSprite::setMousePos_a0f00f9ca722b62c15b74a3fee89f561a" ref="classscratchSprite.html#a0f00f9ca722b62c15b74a3fee89f561a"/>

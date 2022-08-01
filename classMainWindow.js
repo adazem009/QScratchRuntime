@@ -6,5 +6,6 @@ var classMainWindow =
     [ "continueLoading", "classMainWindow.html#a72b0f5ec864d378156f19836d57b2033", null ],
     [ "init", "classMainWindow.html#adacc054a62e38fb27708c0e1e2924b3e", null ],
     [ "loadFromUrl", "classMainWindow.html#acf9b021aef67e5c38af3f4d218169f0b", null ],
-    [ "openFile", "classMainWindow.html#ab14469aff316235cb2ee764483a6319d", null ]
+    [ "openFile", "classMainWindow.html#ab14469aff316235cb2ee764483a6319d", null ],
+    [ "setCurrentFps", "classMainWindow.html#a6f1e227ed875a5f2663178adbfbd8e5c", null ]
 ];
