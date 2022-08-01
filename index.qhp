@@ -11,6 +11,7 @@
 <section title="MainWindow" ref="classMainWindow.html">
 <section title="MainWindow" ref="classMainWindow.html#a996c5a2b6f77944776856f08ec30858d"/>
 <section title="~MainWindow" ref="classMainWindow.html#ae98d00a93bc118200eeef9f9bba1dba7"/>
+<section title="changeFps" ref="classMainWindow.html#ad4d8e1c973adb7c5e6a4ad219ecd71fa"/>
 <section title="continueLoading" ref="classMainWindow.html#a72b0f5ec864d378156f19836d57b2033"/>
 <section title="init" ref="classMainWindow.html#adacc054a62e38fb27708c0e1e2924b3e"/>
 <section title="loadFromUrl" ref="classMainWindow.html#acf9b021aef67e5c38af3f4d218169f0b"/>
@@ -33,6 +34,7 @@
 <section title="mouseDoubleClickEvent" ref="classprojectScene.html#a0dc2c5484c1ef8f83acbf12b9cbc6fed"/>
 <section title="mouseMoveEvent" ref="classprojectScene.html#a381d1f0a59381d3a98553c656ef01d82"/>
 <section title="mousePressEvent" ref="classprojectScene.html#a7be8c52d061099acca42eef41e39840b"/>
+<section title="setFps" ref="classprojectScene.html#a2c74e6753979ba729dc9c539514800c7"/>
 <section title="stop" ref="classprojectScene.html#a9ff31bd7af48c9e6d6c54554637926e3"/>
 <section title="timerEvent" ref="classprojectScene.html#a485d4400a0b80cf8556545b7741a3b5d"/>
 </section>
@@ -138,6 +140,7 @@
 <keyword name="broadcast(QString broadcastName, QVariantMap *script=nullptr)" id="scratchSprite::broadcast_a44460a997beb1ebcf1e9d1f87f697aa7" ref="classscratchSprite.html#a44460a997beb1ebcf1e9d1f87f697aa7"/>
 <keyword name="broadcastReceived(QString broadcastName, QVariantMap *script)" id="scratchSprite::broadcastReceived_a5bad3d16269b8a6c329546a56619cb55" ref="classscratchSprite.html#a5bad3d16269b8a6c329546a56619cb55"/>
 <keyword name="broadcastSent(QString broadcastName, QVariantMap *script=nullptr)" id="projectScene::broadcastSent_a8c3b992f8304cbc161911112281e24cf" ref="classprojectScene.html#a8c3b992f8304cbc161911112281e24cf"/>
+<keyword name="changeFps(void)" id="MainWindow::changeFps_ad4d8e1c973adb7c5e6a4ad219ecd71fa" ref="classMainWindow.html#ad4d8e1c973adb7c5e6a4ad219ecd71fa"/>
 <keyword name="checkKey(int QtKey, QString keyText, QString scratchKey)" id="scratchSprite::checkKey_aa41f796acf1b9c95ece39e28353c252e" ref="classscratchSprite.html#aa41f796acf1b9c95ece39e28353c252e"/>
 <keyword name="clearSpriteList(void)" id="projectScene::clearSpriteList_a00167146ef77ffbd8975476bd45ae662" ref="classprojectScene.html#a00167146ef77ffbd8975476bd45ae662"/>
 <keyword name="continueLoading(QNetworkReply *reply)" id="MainWindow::continueLoading_a72b0f5ec864d378156f19836d57b2033" ref="classMainWindow.html#a72b0f5ec864d378156f19836d57b2033"/>
@@ -175,6 +178,7 @@
 <keyword name="scratchSprite(QJsonObject spriteObject, QString assetDir, QGraphicsItem *parent=nullptr)" id="scratchSprite::scratchSprite_a401307233d74f2cbec2728b728f159ba" ref="classscratchSprite.html#a401307233d74f2cbec2728b728f159ba"/>
 <keyword name="setCostume(int id, QVariantMap *scripts=nullptr)" id="scratchSprite::setCostume_ac0bf3c62a2c6788d6f782c995766b30b" ref="classscratchSprite.html#ac0bf3c62a2c6788d6f782c995766b30b"/>
 <keyword name="setDirection(qreal angle)" id="scratchSprite::setDirection_a7ba47275426e6925d8e37d9ecb84e349" ref="classscratchSprite.html#a7ba47275426e6925d8e37d9ecb84e349"/>
+<keyword name="setFps(int fps)" id="projectScene::setFps_a2c74e6753979ba729dc9c539514800c7" ref="classprojectScene.html#a2c74e6753979ba729dc9c539514800c7"/>
 <keyword name="setMousePos(QPointF pos)" id="scratchSprite::setMousePos_a0f00f9ca722b62c15b74a3fee89f561a" ref="classscratchSprite.html#a0f00f9ca722b62c15b74a3fee89f561a"/>
 <keyword name="setSize(qreal newSize)" id="scratchSprite::setSize_aaa192f3c27395177029a47366ee143d8" ref="classscratchSprite.html#aaa192f3c27395177029a47366ee143d8"/>
 <keyword name="setVolume(qreal newVolume)" id="scratchSprite::setVolume_a13d937e2bd01ac7c4ff72e14cc6cabc0" ref="classscratchSprite.html#a13d937e2bd01ac7c4ff72e14cc6cabc0"/>

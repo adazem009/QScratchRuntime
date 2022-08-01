@@ -10,6 +10,7 @@ var classprojectScene =
     [ "mouseDoubleClickEvent", "classprojectScene.html#a0dc2c5484c1ef8f83acbf12b9cbc6fed", null ],
     [ "mouseMoveEvent", "classprojectScene.html#a381d1f0a59381d3a98553c656ef01d82", null ],
     [ "mousePressEvent", "classprojectScene.html#a7be8c52d061099acca42eef41e39840b", null ],
+    [ "setFps", "classprojectScene.html#a2c74e6753979ba729dc9c539514800c7", null ],
     [ "stop", "classprojectScene.html#a9ff31bd7af48c9e6d6c54554637926e3", null ],
     [ "timerEvent", "classprojectScene.html#a485d4400a0b80cf8556545b7741a3b5d", null ]
 ];
