@@ -2,7 +2,7 @@
  * main.cpp
  * This file is part of QScratchRuntime
  *
- * Copyright (C) 2021 - adazem009
+ * Copyright (C) 2021-2022 - adazem009
  *
  * QScratchRuntime is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,6 +24,8 @@
 int main(int argc, char *argv[])
 {
 	QApplication a(argc, argv);
+	QCoreApplication::setOrganizationName("adazem009");
+	QCoreApplication::setApplicationName("QScratchRuntime");
 #if QT_VERSION < QT_VERSION_CHECK(5, 10, 0)
 	qsrand(QTime::currentTime().msec());
 #endif
