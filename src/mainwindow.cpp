@@ -47,6 +47,7 @@ MainWindow::MainWindow(QWidget *parent)
 	ui->stopButton->setEnabled(false);
 	// Connections
 	connect(ui->actionOpen,SIGNAL(triggered()),this,SLOT(openFile()));
+	connect(ui->actionFps, &QAction::triggered, this, &MainWindow::changeFps);
 	connect(ui->loadFromUrlButton,SIGNAL(clicked()),this,SLOT(loadFromUrl()));
 	connect(ui->greenFlag,&QPushButton::clicked,scene,&projectScene::greenFlag);
 	connect(ui->stopButton,&QPushButton::clicked,scene,&projectScene::stop);
@@ -216,4 +217,19 @@ void MainWindow::init(void)
 	// Enable control buttons
 	ui->greenFlag->setEnabled(true);
 	ui->stopButton->setEnabled(true);
+}
+
+/*! Allows the user to change FPS. */
+void MainWindow::changeFps(void)
+{
+	QInputDialog *dialog = new QInputDialog(this);
+	dialog->setInputMode(QInputDialog::IntInput);
+	dialog->setIntMinimum(0);
+	dialog->setIntMaximum(QGuiApplication::primaryScreen()->refreshRate());
+	dialog->setIntValue(settings.value("main/fps", 30).toInt());
+	dialog->setWindowModality(Qt::WindowModal);
+	connect(dialog, &QDialog::accepted, this, [this, dialog]() {
+		scene->setFps(dialog->intValue());
+	});
+	dialog->open();
 }

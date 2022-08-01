@@ -28,6 +28,8 @@
 #include <QNetworkReply>
 #include <QOpenGLWidget>
 #include <QSurfaceFormat>
+#include <QInputDialog>
+#include <QScreen>
 #include "projectscene.h"
 #include "core/projectparser.h"
 
@@ -57,12 +59,14 @@ class MainWindow : public QMainWindow
 		QList<QMap<QString,QString>> assets;
 		int loadedAssets;
 		QVector<QByteArray*> assetPointers;
+		QSettings settings;
 		void continueLoading(QNetworkReply* reply);
 		void init(void);
 
 	private slots:
 		void openFile(void);
 		void loadFromUrl(void);
+		void changeFps(void);
 };
 
 #endif // MAINWINDOW_H
