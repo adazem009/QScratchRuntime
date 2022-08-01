@@ -104,7 +104,6 @@ void MainWindow::loadFromUrl(void)
 		delete oldItems[i];
 	}
 	allSounds.clear();
-	allSoundFiles.clear();
 	ui->greenFlag->setEnabled(false);
 	ui->stopButton->setEnabled(false);
 	view->hide();
@@ -202,7 +201,6 @@ void MainWindow::init(void)
 		delete oldItems[i];
 	}
 	allSounds.clear();
-	allSoundFiles.clear();
 	sprites = parser->sprites();
 	// Uncomment the following 2 lines to show X and Y axis
 	//scene->addLine(-240,0,240,0);
