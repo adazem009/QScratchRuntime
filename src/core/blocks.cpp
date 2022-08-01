@@ -742,7 +742,6 @@ bool scratchSprite::controlBlocks(QString opcode, QMap<QString,QString> inputs, 
 			{
 				currentExecPos[processID]["special"] = "";
 				*processEnd = true;
-				__run_frame_again = true;
 			}
 			else
 				*frameEnd = true;
