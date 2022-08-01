@@ -35,12 +35,18 @@ class projectScene : public QGraphicsScene
 		void loadSpriteList(QList<scratchSprite*> list);
 		void clearSpriteList(void);
 		void setFps(int fps);
+		int currentFps(void);
 
 	private:
 		QList<scratchSprite*> spriteList;
 		bool projectRunning;
-		int timerID;
+		int timerID = -1, fpsTimerID = -1;
 		QSettings settings;
+		int frames = 0, fpsValue = 0;
+
+	signals:
+		/*! Emitted when the measured FPS value changes (every second). */
+		void currentFpsChanged(int fps);
 
 	public slots:
 		void greenFlag(void);

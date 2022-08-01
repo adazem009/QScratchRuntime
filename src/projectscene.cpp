@@ -26,6 +26,7 @@ projectScene::projectScene(qreal x, qreal y, qreal width, qreal height, QObject 
 {
 	projectRunning = false;
 	timerID = startTimer(1000.0 / settings.value("main/fps", 30).toInt());
+	fpsTimerID = startTimer(1000); // for measuring FPS
 }
 
 /*! Loads list of sprite pointers. */
@@ -102,12 +103,22 @@ void projectScene::stop(void)
 /*! Overrides QObject#timerEvent(). */
 void projectScene::timerEvent(QTimerEvent *event)
 {
-	for(int i=0; i < spriteList.count(); i++)
+	if(event->timerId() == timerID)
 	{
-		do {
-			__run_frame_again = false;
-			spriteList[i]->frame();
-		} while(__run_frame_again);
+		for(int i=0; i < spriteList.count(); i++)
+		{
+			do {
+				__run_frame_again = false;
+				spriteList[i]->frame();
+			} while(__run_frame_again);
+		}
+		frames++;
+	}
+	else if(event->timerId() == fpsTimerID)
+	{
+		fpsValue = frames;
+		frames = 0.;
+		emit currentFpsChanged(fpsValue);
 	}
 	event->accept();
 }
@@ -118,6 +129,12 @@ void projectScene::setFps(int fps)
 	settings.setValue("main/fps", fps);
 	killTimer(timerID);
 	timerID = startTimer(1000.0 / fps);
+}
+
+/*! Returns measured FPS value. */
+int projectScene::currentFps(void)
+{
+	return fpsValue;
 }
 
 /*! Connected from scratchSprite#backdropSwitched() (only from the stage). */
