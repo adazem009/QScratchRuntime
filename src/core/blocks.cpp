@@ -175,7 +175,7 @@ bool scratchSprite::motionBlocks(QString opcode, QMap<QString,QString> inputs, i
 			currentExecPos[processID]["endX"] = endX;
 			currentExecPos[processID]["endY"] = endY;
 			currentExecPos[processID]["startTime"] = QDateTime::currentDateTimeUtc();
-			currentExecPos[processID]["endTime"] = QDateTime::currentDateTimeUtc().addSecs(inputs.value("SECS").toDouble());
+			currentExecPos[processID]["endTime"] = QDateTime::currentDateTimeUtc().addMSecs(inputs.value("SECS").toDouble() * 1000);
 		}
 		qreal startX = currentExecPos[processID]["startX"].toDouble();
 		qreal startY = currentExecPos[processID]["startY"].toDouble();
@@ -282,7 +282,7 @@ bool scratchSprite::looksBlocks(QString opcode, QMap<QString,QString> inputs, in
 		{
 			currentExecPos[processID]["special"] = "wait";
 			currentExecPos[processID]["startTime"] = QDateTime::currentDateTimeUtc();
-			currentExecPos[processID]["endTime"] = QDateTime::currentDateTimeUtc().addSecs(inputs.value("SECS").toDouble());
+			currentExecPos[processID]["endTime"] = QDateTime::currentDateTimeUtc().addMSecs(inputs.value("SECS").toDouble() * 1000);
 		}
 		QDateTime startTime = currentExecPos[processID]["startTime"].toDateTime();
 		QDateTime endTime = currentExecPos[processID]["endTime"].toDateTime();
@@ -305,7 +305,7 @@ bool scratchSprite::looksBlocks(QString opcode, QMap<QString,QString> inputs, in
 		{
 			currentExecPos[processID]["special"] = "wait";
 			currentExecPos[processID]["startTime"] = QDateTime::currentDateTimeUtc();
-			currentExecPos[processID]["endTime"] = QDateTime::currentDateTimeUtc().addSecs(inputs.value("SECS").toDouble());
+			currentExecPos[processID]["endTime"] = QDateTime::currentDateTimeUtc().addMSecs(inputs.value("SECS").toDouble() * 1000);
 		}
 		QDateTime startTime = currentExecPos[processID]["startTime"].toDateTime();
 		QDateTime endTime = currentExecPos[processID]["endTime"].toDateTime();
