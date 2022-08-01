@@ -23,6 +23,7 @@
 
 #include <QGraphicsScene>
 #include <QKeyEvent>
+#include <QSettings>
 #include "core/scratchsprite.h"
 
 /*! \brief The projectScene class is a QGraphicsScene used to manage all sprites. */
@@ -33,10 +34,13 @@ class projectScene : public QGraphicsScene
 		explicit projectScene(qreal x = -240, qreal y = -180, qreal width = 480, qreal height = 360, QObject *parent = nullptr);
 		void loadSpriteList(QList<scratchSprite*> list);
 		void clearSpriteList(void);
+		void setFps(int fps);
 
 	private:
 		QList<scratchSprite*> spriteList;
 		bool projectRunning;
+		int timerID;
+		QSettings settings;
 
 	public slots:
 		void greenFlag(void);

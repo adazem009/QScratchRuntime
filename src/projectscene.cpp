@@ -25,8 +25,7 @@ projectScene::projectScene(qreal x, qreal y, qreal width, qreal height, QObject 
 	QGraphicsScene(x, y, width, height, parent)
 {
 	projectRunning = false;
-	// TODO: Add a way to change FPS
-	startTimer(1000/30);
+	timerID = startTimer(1000.0 / settings.value("main/fps", 30).toInt());
 }
 
 /*! Loads list of sprite pointers. */
@@ -111,6 +110,14 @@ void projectScene::timerEvent(QTimerEvent *event)
 		} while(__run_frame_again);
 	}
 	event->accept();
+}
+
+/*! Sets FPS. */
+void projectScene::setFps(int fps)
+{
+	settings.setValue("main/fps", fps);
+	killTimer(timerID);
+	timerID = startTimer(1000.0 / fps);
 }
 
 /*! Connected from scratchSprite#backdropSwitched() (only from the stage). */
