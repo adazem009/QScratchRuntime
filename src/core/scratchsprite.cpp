@@ -582,24 +582,18 @@ QMediaPlayer *scratchSprite::playSound(QString soundName)
 	if(soundID != -1)
 	{
 		QPointer<QMediaPlayer> sound = new QMediaPlayer(this);
-		QTemporaryFile *soundFile = new QTemporaryFile(sound);
 		if(assetDir == "")
 		{
-			if(soundFile->open())
-			{
-				soundFile->write(*projectAssets[sounds[soundID].value("assetId").toString()]);
-				soundFile->close();
-			}
-			else
-				return nullptr;
-			sound->setMedia(QUrl::fromLocalFile(soundFile->fileName()));
+			QBuffer *buffer = new QBuffer(sound);
+			buffer->setData(*projectAssets[sounds[soundID].value("assetId").toString()]);
+			buffer->open(QBuffer::ReadOnly);
+			sound->setMedia(QMediaContent(), buffer);
 		}
 		else
 			sound->setMedia(QUrl::fromLocalFile(assetDir + "/" + sounds[soundID].value("assetId").toString() + "." + sounds[soundID].value("dataFormat").toString()));
 		sound->setVolume(volume);
 		sound->play();
 		allSounds += sound;
-		allSoundFiles += soundFile;
 		return sound;
 	}
 	else
@@ -615,7 +609,6 @@ void scratchSprite::stopAllSounds(void)
 			allSounds[i]->stop();
 	}
 	allSounds.clear();
-	allSoundFiles.clear();
 }
 
 /*! Sets sound volume. */
