@@ -754,6 +754,25 @@ bool scratchSprite::controlBlocks(QString opcode, QMap<QString,QString> inputs, 
 			__run_frame_again = true;
 		}
 	}
+	else if(opcode == "control_wait_until")
+	{
+		if(currentExecPos[processID]["special"].toString() == "wait_until")
+		{
+			if(inputs.value("CONDITION") == "true")
+			{
+				currentExecPos[processID]["special"] = "";
+				*processEnd = true;
+			}
+			else
+				*frameEnd = true;
+		}
+		else
+		{
+			*frameEnd = true;
+			currentExecPos[processID]["special"] = "wait_until";
+			__run_frame_again = true;
+		}
+	}
 	else
 		return false;
 	return true;
