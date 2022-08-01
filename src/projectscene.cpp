@@ -117,7 +117,7 @@ void projectScene::timerEvent(QTimerEvent *event)
 	else if(event->timerId() == fpsTimerID)
 	{
 		fpsValue = frames;
-		frames = 0.;
+		frames = 0;
 		emit currentFpsChanged(fpsValue);
 	}
 	event->accept();
