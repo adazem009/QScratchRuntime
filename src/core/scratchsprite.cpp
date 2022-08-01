@@ -564,10 +564,10 @@ void scratchSprite::setDirection(qreal angle)
 }
 
 /*!
- * Starts playing a sound and returns a pointer to the QMediaPlayer object of the playing sound.\n
+ * Starts playing a sound and returns a pointer to the QPointer<QMediaPlayer> object of the playing sound.\n
  * Returns nullptr if the sound isn't found.
  */
-QMediaPlayer *scratchSprite::playSound(QString soundName)
+QPointer<QMediaPlayer> *scratchSprite::playSound(QString soundName)
 {
 	// Play the sound
 	int soundID = -1;
@@ -593,8 +593,12 @@ QMediaPlayer *scratchSprite::playSound(QString soundName)
 			sound->setMedia(QUrl::fromLocalFile(assetDir + "/" + sounds[soundID].value("assetId").toString() + "." + sounds[soundID].value("dataFormat").toString()));
 		sound->setVolume(volume);
 		sound->play();
+		connect(sound, &QMediaPlayer::stateChanged, this, [sound](QMediaPlayer::State state) {
+			if(state == QMediaPlayer::StoppedState)
+				sound->deleteLater(); // delete the sound after it stops
+		});
 		allSounds += sound;
-		return sound;
+		return &allSounds[allSounds.count() - 1];
 	}
 	else
 		return nullptr;

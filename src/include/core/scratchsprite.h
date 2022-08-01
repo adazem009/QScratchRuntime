@@ -81,7 +81,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		void showBubble(QString text, bool thought = false);
 		void resetGraphicEffects(void);
 		void installGraphicEffects(void);
-		QMediaPlayer *playSound(QString soundName);
+		QPointer<QMediaPlayer> *playSound(QString soundName);
 		void spriteTimerEvent(void);
 		void resetTimer(void);
 		QList<scratchSprite*> spriteList;
