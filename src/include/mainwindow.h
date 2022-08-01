@@ -67,6 +67,7 @@ class MainWindow : public QMainWindow
 		void openFile(void);
 		void loadFromUrl(void);
 		void changeFps(void);
+		void setCurrentFps(int fps);
 };
 
 #endif // MAINWINDOW_H

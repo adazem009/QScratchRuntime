@@ -45,12 +45,14 @@ MainWindow::MainWindow(QWidget *parent)
 	ui->loaderFrame->hide();
 	ui->greenFlag->setEnabled(false);
 	ui->stopButton->setEnabled(false);
+	setCurrentFps(0);
 	// Connections
 	connect(ui->actionOpen,SIGNAL(triggered()),this,SLOT(openFile()));
 	connect(ui->actionFps, &QAction::triggered, this, &MainWindow::changeFps);
 	connect(ui->loadFromUrlButton,SIGNAL(clicked()),this,SLOT(loadFromUrl()));
 	connect(ui->greenFlag,&QPushButton::clicked,scene,&projectScene::greenFlag);
 	connect(ui->stopButton,&QPushButton::clicked,scene,&projectScene::stop);
+	connect(scene ,&projectScene::currentFpsChanged, this, &MainWindow::setCurrentFps);
 }
 
 /*! Destroys MainWindow. */
@@ -232,4 +234,10 @@ void MainWindow::changeFps(void)
 		scene->setFps(dialog->intValue());
 	});
 	dialog->open();
+}
+
+/*! Shows the given FPS value on the FPS label. */
+void MainWindow::setCurrentFps(int fps)
+{
+	ui->fpsLabel->setText("FPS: " + QString::number(fps));
 }
