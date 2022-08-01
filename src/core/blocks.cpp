@@ -733,6 +733,28 @@ bool scratchSprite::controlBlocks(QString opcode, QMap<QString,QString> inputs, 
 				currentExecPos.removeAll(operationsToRemove[i]);
 		}
 	}
+	else if(opcode == "control_wait")
+	{
+		if(currentExecPos[processID]["special"].toString() == "wait_secs")
+		{
+			QDateTime currentTime = QDateTime::currentDateTimeUtc();
+			if(currentTime >= currentExecPos[processID]["endTime"].toDateTime())
+			{
+				currentExecPos[processID]["special"] = "";
+				*processEnd = true;
+				__run_frame_again = true;
+			}
+			else
+				*frameEnd = true;
+		}
+		else
+		{
+			*frameEnd = true;
+			currentExecPos[processID]["special"] = "wait_secs";
+			currentExecPos[processID]["endTime"] = QDateTime::currentDateTimeUtc().addMSecs(inputs.value("DURATION").toDouble() * 1000);
+			__run_frame_again = true;
+		}
+	}
 	else
 		return false;
 	return true;
