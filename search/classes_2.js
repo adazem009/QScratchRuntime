@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['scratchsprite_0',['scratchSprite',['../classscratchSprite.html',1,'']]]
+  ['mainwindow_0',['MainWindow',['../classMainWindow.html',1,'']]]
 ];
