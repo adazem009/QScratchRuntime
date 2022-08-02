@@ -41,7 +41,9 @@ MainWindow::MainWindow(QWidget *parent)
 	format.setSamples(4);
 	gl->setFormat(format);
 	view->setViewport(gl);
-#endif
+#else
+	ui->actionMultithreading->setEnabled(false);
+#endif // Q_OS_WASM
 	ui->loaderFrame->hide();
 	ui->greenFlag->setEnabled(false);
 	ui->stopButton->setEnabled(false);
