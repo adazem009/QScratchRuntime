@@ -35,6 +35,8 @@
 #include <QBuffer>
 #include "global.h"
 
+class Engine;
+
 /*! \brief The scratchSprite class is a QGraphicsPixmapItem, which represents a Scratch sprite. */
 class scratchSprite : public QObject, public QGraphicsPixmapItem
 {
@@ -45,6 +47,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		~scratchSprite();
 		int type(void) const override;
 		void loadSpriteList(QList<scratchSprite*> lists);
+		scratchSprite *getSprite(QString name);
 		void setXPos(qreal x);
 		void setYPos(qreal y);
 		void setMousePos(QPointF pos);
@@ -58,7 +61,14 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		void keyPressed(int key, QString keyText);
 		bool checkKey(int QtKey, QString keyText, QString scratchKey);
 		void backdropSwitchEvent(QVariantMap *script);
+		void emitBroadcast(QString broadcastName, QVariantMap *script = nullptr);
 		void broadcastReceived(QString broadcastName, QVariantMap *script);
+		void showBubble(QString text, bool thought = false);
+		void resetGraphicEffects(void);
+		void installGraphicEffects(void);
+		QPointer<QMediaPlayer> *playSound(QString soundName);
+		Engine* engine(void);
+		qreal mouseX, mouseY;
 		bool isStage = false; /*!< True if this is a stage. */
 		QString name; /*!< Sprite name. */
 		qreal spriteX = 0; /*!< X position. */
@@ -71,44 +81,30 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		bool draggable; /*!< True if the sprite is draggable. */
 		QString rotationStyle; /*!< Sprite rotation style ("all around", "left-right", or "don't rotate"). */
 		QList<QVariantMap> costumes;
+		QMap<QString,QVariantMap> frameEvents;
+		QList<QVariantMap> currentExecPos;
+		QMap<QString,QVariantMap> blocks;
+		QMap<QString,qreal> graphicEffects;
+		QList<scratchSprite*> spriteList;
+		QElapsedTimer timer;
+		QVector<QVariantMap*> stackPointers;
 
 	private:
-		QMap<QString,QString> getInputs(QVariantMap block, bool readFields = false);
 		qreal translateX(qreal x, bool toScratch = false);
 		qreal translateY(qreal y, bool toScratch = false);
-		scratchSprite *getSprite(QString name);
 		void bounce(void);
-		void showBubble(QString text, bool thought = false);
-		void resetGraphicEffects(void);
-		void installGraphicEffects(void);
-		QPointer<QMediaPlayer> *playSound(QString soundName);
-		void spriteTimerEvent(void);
 		void resetTimer(void);
-		QList<scratchSprite*> spriteList;
+		Engine *m_engine;
 		QString assetDir;
-		qreal mouseX, mouseY;
 		qreal rotationCenterX, rotationCenterY;
 		bool pointingLeft;
 		QMap<QString,QPair<QString,QString>> variables;
 		QMap<QString,QPair<QString,QList<QString>>> lists;
 		QMap<QString,QString> broadcasts;
-		QMap<QString,QVariantMap> blocks;
 		QList<QVariantMap> sounds;
-		QMap<QString,qreal> graphicEffects;
-		QList<QVariantMap> currentExecPos;
-		QVariantMap *newStack;
 		QGraphicsPixmapItem *speechBubble;
 		QGraphicsTextItem *speechBubbleText;
 		QPixmap costumePixmap;
-		QElapsedTimer timer;
-		QMap<QString,QVariantMap> frameEvents;
-		QVector<QVariantMap*> stackPointers;
-		// Blocks
-		bool motionBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd = nullptr, bool *processEnd = nullptr, QString *returnValue = nullptr);
-		bool looksBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd = nullptr, bool *processEnd = nullptr, QString *returnValue = nullptr);
-		bool soundBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd = nullptr, bool *processEnd = nullptr, QString *returnValue = nullptr);
-		bool eventBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd = nullptr, bool *processEnd = nullptr, QString *returnValue = nullptr);
-		bool controlBlocks(QString opcode, QMap<QString,QString> inputs, int processID, bool *frameEnd = nullptr, bool *processEnd = nullptr, QString *returnValue = nullptr);
 
 	signals:
 		/*! A signal, which is emitted from the stage when the backdrop switches. */
