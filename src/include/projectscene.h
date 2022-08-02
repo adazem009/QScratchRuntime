@@ -24,6 +24,7 @@
 #include <QGraphicsScene>
 #include <QKeyEvent>
 #include <QSettings>
+#include <QtConcurrent>
 #include "core/scratchsprite.h"
 #include "core/engine.h"
 
@@ -37,6 +38,7 @@ class projectScene : public QGraphicsScene
 		void clearSpriteList(void);
 		void setFps(int fps);
 		int currentFps(void);
+		void setMultithreading(bool state);
 
 	private:
 		QList<scratchSprite*> spriteList;
@@ -44,6 +46,7 @@ class projectScene : public QGraphicsScene
 		int timerID = -1, fpsTimerID = -1;
 		QSettings settings;
 		int frames = 0, fpsValue = 0;
+		bool multithreading;
 
 	signals:
 		/*! Emitted when the measured FPS value changes (every second). */

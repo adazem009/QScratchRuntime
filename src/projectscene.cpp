@@ -25,6 +25,7 @@ projectScene::projectScene(qreal x, qreal y, qreal width, qreal height, QObject 
 	QGraphicsScene(x, y, width, height, parent)
 {
 	projectRunning = false;
+	multithreading = settings.value("main/multithreading", false).toBool();
 	timerID = startTimer(1000.0 / settings.value("main/fps", 30).toInt());
 	fpsTimerID = startTimer(1000); // for measuring FPS
 }
@@ -105,13 +106,19 @@ void projectScene::timerEvent(QTimerEvent *event)
 {
 	if(event->timerId() == timerID)
 	{
+		QVector<QFuture<void>> futureList;
 		for(int i=0; i < spriteList.count(); i++)
 		{
 			do {
 				__run_frame_again = false;
-				spriteList[i]->engine()->frame();
+				if(multithreading)
+					futureList += QtConcurrent::run(spriteList[i]->engine(), &Engine::frame);
+				else
+					spriteList[i]->engine()->frame();
 			} while(__run_frame_again);
 		}
+		for(int i=0; i < futureList.count(); i++)
+			futureList[i].waitForFinished();
 		frames++;
 	}
 	else if(event->timerId() == fpsTimerID)
@@ -149,4 +156,11 @@ void projectScene::broadcastSent(QString broadcastName, QVariantMap *script)
 {
 	for(int i=0; i < spriteList.count(); i++)
 		spriteList[i]->broadcastReceived(broadcastName,script);
+}
+
+/*! Toggles multithreading. */
+void projectScene::setMultithreading(bool state)
+{
+	settings.setValue("main/multithreading", state);
+	multithreading = state;
 }
