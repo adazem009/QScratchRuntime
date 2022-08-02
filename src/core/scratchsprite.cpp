@@ -735,11 +735,16 @@ void scratchSprite::frame(void)
 							goBack = false;
 						}
 					}
-					else if(loopType == "repeat_until")
+					else if((loopType == "repeat_until") || (loopType == "while"))
 					{
 						QVariantMap *loopStack = (QVariantMap*) currentExecPos[frame_i]["loop_ptr"].toLongLong();
 						auto loopInputs = getInputs(blocks[loopStack->value("loop_block_id").toString()]);
-						if(loopInputs.value("CONDITION") == "true")
+						bool cond;
+						if(loopType == "repeat_until")
+							cond = (loopInputs.value("CONDITION") == "true");
+						else
+							cond = (loopInputs.value("CONDITION") != "true");
+						if(cond)
 						{
 							loopStack->insert("loop_finished",true);
 							currentExecPos[frame_i]["loop_finished"] = true;
