@@ -662,6 +662,7 @@ bool scratchSprite::controlBlocks(QString opcode, QMap<QString,QString> inputs, 
 					newStack->insert("loop_type","repeat_until");
 				else if(opcode == "control_while")
 					newStack->insert("loop_type","while");
+				// TODO: Add for each (obsolete) block after variables are added
 				// Avoid screen refresh after starting the loop
 				__run_frame_again = true;
 			}
