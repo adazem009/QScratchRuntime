@@ -808,20 +808,23 @@ QMap<QString,QString> scratchSprite::getInputs(QVariantMap block, bool readField
 		else
 		{
 			typeConverted = true;
-			// Load reporter block
-			// Note: Dropdown menus and color inputs are treated as reporter blocks
-			QVariantMap reporterBlock = blocks.value(inputValue.toString());
-			QString opcode = reporterBlock.value("opcode").toString();
-			QMap<QString,QString> inputs = getInputs(reporterBlock);
-			// Get reporter block value
-			if(!(
-				motionBlocks(opcode,inputs,0,nullptr,nullptr,&finalValue) ||
-				looksBlocks(opcode,inputs,0,nullptr,nullptr,&finalValue) ||
-				soundBlocks(opcode,inputs,0,nullptr,nullptr,&finalValue) ||
-				eventBlocks(opcode,inputs,0,nullptr,nullptr,&finalValue) ||
-				controlBlocks(opcode,inputs,0,nullptr,nullptr,&finalValue)
-			))
-				qWarning() << "Warning: unsupported reporter block:" << opcode;
+			if(!inputValue.isNull())
+			{
+				// Load reporter block
+				// Note: Dropdown menus and color inputs are treated as reporter blocks
+				QVariantMap reporterBlock = blocks.value(inputValue.toString());
+				QString opcode = reporterBlock.value("opcode").toString();
+				QMap<QString,QString> inputs = getInputs(reporterBlock);
+				// Get reporter block value
+				if(!(
+					motionBlocks(opcode,inputs,0,nullptr,nullptr,&finalValue) ||
+					looksBlocks(opcode,inputs,0,nullptr,nullptr,&finalValue) ||
+					soundBlocks(opcode,inputs,0,nullptr,nullptr,&finalValue) ||
+					eventBlocks(opcode,inputs,0,nullptr,nullptr,&finalValue) ||
+					controlBlocks(opcode,inputs,0,nullptr,nullptr,&finalValue)
+				))
+					qWarning() << "Warning: unsupported reporter block:" << opcode;
+			}
 		}
 		if(!typeConverted)
 		{
