@@ -616,7 +616,7 @@ bool scratchSprite::controlBlocks(QString opcode, QMap<QString,QString> inputs, 
 		returnValue = &tmpReturnValue;
 	}
 	*processEnd = false;
-	if((opcode == "control_forever") || (opcode == "control_repeat") || (opcode == "control_repeat_until"))
+	if((opcode == "control_forever") || (opcode == "control_repeat") || (opcode == "control_repeat_until") || (opcode == "control_while"))
 	{
 		if(currentExecPos[processID]["special"].toString() == "loop")
 		{
@@ -634,7 +634,8 @@ bool scratchSprite::controlBlocks(QString opcode, QMap<QString,QString> inputs, 
 		{
 			if((opcode == "control_forever") ||
 				((opcode == "control_repeat") && (inputs.value("TIMES").toInt() > 0)) ||
-				((opcode == "control_repeat_until") && (inputs.value("CONDITION") != "true")))
+				((opcode == "control_repeat_until") && (inputs.value("CONDITION") != "true")) ||
+				((opcode == "control_while") && (inputs.value("CONDITION") == "true")))
 			{
 				*frameEnd = true;
 				newStack = new QVariantMap;
@@ -659,6 +660,8 @@ bool scratchSprite::controlBlocks(QString opcode, QMap<QString,QString> inputs, 
 				}
 				else if(opcode == "control_repeat_until")
 					newStack->insert("loop_type","repeat_until");
+				else if(opcode == "control_while")
+					newStack->insert("loop_type","while");
 				// Avoid screen refresh after starting the loop
 				__run_frame_again = true;
 			}
