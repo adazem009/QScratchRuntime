@@ -106,7 +106,9 @@ void projectScene::timerEvent(QTimerEvent *event)
 {
 	if(event->timerId() == timerID)
 	{
+#ifndef Q_OS_WASM
 		QVector<QFuture<void>> futureList;
+#endif // Q_OS_WASM
 		for(int i=0; i < spriteList.count(); i++)
 		{
 			do {
@@ -119,8 +121,10 @@ void projectScene::timerEvent(QTimerEvent *event)
 					spriteList[i]->engine()->frame();
 			} while(__run_frame_again);
 		}
+#ifndef Q_OS_WASM
 		for(int i=0; i < futureList.count(); i++)
 			futureList[i].waitForFinished();
+#endif // Q_OS_WASM
 		frames++;
 	}
 	else if(event->timerId() == fpsTimerID)
