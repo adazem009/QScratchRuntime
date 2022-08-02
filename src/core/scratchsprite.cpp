@@ -735,6 +735,20 @@ void scratchSprite::frame(void)
 							goBack = false;
 						}
 					}
+					else if(loopType == "repeat_until")
+					{
+						QVariantMap *loopStack = (QVariantMap*) currentExecPos[frame_i]["loop_ptr"].toLongLong();
+						auto loopInputs = getInputs(blocks[loopStack->value("loop_block_id").toString()]);
+						if(loopInputs.value("CONDITION") == "true")
+						{
+							loopStack->insert("loop_finished",true);
+							currentExecPos[frame_i]["loop_finished"] = true;
+							QVariantMap posMap = currentExecPos[frame_i];
+							posMap.remove("loop_type");
+							currentExecPos[frame_i] = posMap;
+							goBack = false;
+						}
+					}
 					if(goBack)
 					{
 						next = currentExecPos[frame_i]["loop_start"].toString();
