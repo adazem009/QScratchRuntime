@@ -108,23 +108,19 @@ void projectScene::timerEvent(QTimerEvent *event)
 	{
 #ifndef Q_OS_WASM
 		QVector<QFuture<void>> futureList;
-#endif // Q_OS_WASM
-		for(int i=0; i < spriteList.count(); i++)
+		if(multithreading)
 		{
-			do {
-				__run_frame_again = false;
-#ifndef Q_OS_WASM
-				if(multithreading)
-					futureList += QtConcurrent::run(spriteList[i]->engine(), &Engine::frame);
-				else
-#endif // Q_OS_WASM
-					spriteList[i]->engine()->frame();
-			} while(__run_frame_again);
+			for(int i=0; i < spriteList.count(); i++)
+				futureList += QtConcurrent::run(spriteList[i]->engine(), &Engine::frame);
+			for(int i=0; i < futureList.count(); i++)
+				futureList[i].waitForFinished();
 		}
-#ifndef Q_OS_WASM
-		for(int i=0; i < futureList.count(); i++)
-			futureList[i].waitForFinished();
+		else
 #endif // Q_OS_WASM
+		{
+			for(int i=0; i < spriteList.count(); i++)
+				spriteList[i]->engine()->frame();
+		}
 		frames++;
 	}
 	else if(event->timerId() == fpsTimerID)
