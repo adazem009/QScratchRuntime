@@ -68,6 +68,7 @@ class MainWindow : public QMainWindow
 		void loadFromUrl(void);
 		void changeFps(void);
 		void setCurrentFps(int fps);
+		void toggleMultithreading(bool state);
 };
 
 #endif // MAINWINDOW_H

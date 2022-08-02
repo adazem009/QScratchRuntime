@@ -49,6 +49,7 @@ MainWindow::MainWindow(QWidget *parent)
 	// Connections
 	connect(ui->actionOpen,SIGNAL(triggered()),this,SLOT(openFile()));
 	connect(ui->actionFps, &QAction::triggered, this, &MainWindow::changeFps);
+	connect(ui->actionMultithreading, &QAction::triggered, this, &MainWindow::toggleMultithreading);
 	connect(ui->loadFromUrlButton,SIGNAL(clicked()),this,SLOT(loadFromUrl()));
 	connect(ui->greenFlag,&QPushButton::clicked,scene,&projectScene::greenFlag);
 	connect(ui->stopButton,&QPushButton::clicked,scene,&projectScene::stop);
@@ -240,4 +241,10 @@ void MainWindow::changeFps(void)
 void MainWindow::setCurrentFps(int fps)
 {
 	ui->fpsLabel->setText("FPS: " + QString::number(fps));
+}
+
+/*! Toggles multithreading. */
+void MainWindow::toggleMultithreading(bool state)
+{
+	scene->setMultithreading(state);
 }

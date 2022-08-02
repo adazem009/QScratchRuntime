@@ -239,7 +239,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>23</height>
+     <height>30</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -253,6 +253,8 @@
      <string>Options</string>
     </property>
     <addaction name="actionFps"/>
+    <addaction name="separator"/>
+    <addaction name="actionMultithreading"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuOptions"/>
@@ -265,6 +267,14 @@
   <action name="actionFps">
    <property name="text">
     <string>Change FPS</string>
+   </property>
+  </action>
+  <action name="actionMultithreading">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Enable multithreading (experimental)</string>
    </property>
   </action>
  </widget>
