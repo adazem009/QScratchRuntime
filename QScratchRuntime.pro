@@ -28,14 +28,16 @@ SOURCES += \
     src/global.cpp \
     src/mainwindow.cpp \
     src/projectscene.cpp \
-    src/core/projectparser.cpp
+    src/core/projectparser.cpp \
+    src/core/engine.cpp
 
 HEADERS += \
     src/include/core/scratchsprite.h \
     src/include/global.h \
     src/include/mainwindow.h \
     src/include/projectscene.h \
-    src/include/core/projectparser.h
+    src/include/core/projectparser.h \
+    src/include/core/engine.h
 
 FORMS += \
     ui/mainwindow.ui
