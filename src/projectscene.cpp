@@ -111,9 +111,11 @@ void projectScene::timerEvent(QTimerEvent *event)
 		{
 			do {
 				__run_frame_again = false;
+#ifndef Q_OS_WASM
 				if(multithreading)
 					futureList += QtConcurrent::run(spriteList[i]->engine(), &Engine::frame);
 				else
+#endif // Q_OS_WASM
 					spriteList[i]->engine()->frame();
 			} while(__run_frame_again);
 		}

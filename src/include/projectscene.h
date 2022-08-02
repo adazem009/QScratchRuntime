@@ -24,7 +24,10 @@
 #include <QGraphicsScene>
 #include <QKeyEvent>
 #include <QSettings>
+#include <QFuture>
+#ifndef Q_OS_WASM
 #include <QtConcurrent>
+#endif // Q_OS_WASM
 #include "core/scratchsprite.h"
 #include "core/engine.h"
 
