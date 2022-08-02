@@ -589,7 +589,7 @@ bool Blocks::controlBlocks(scratchSprite *sprite, QString opcode, QMap<QString,Q
 			{
 				sprite->engine()->currentExecPos[processID]["special"] = "";
 				*processEnd = true;
-				__run_frame_again = true;
+				sprite->engine()->runFrameAgain = true;
 			}
 			else
 				*frameEnd = true;
@@ -629,7 +629,7 @@ bool Blocks::controlBlocks(scratchSprite *sprite, QString opcode, QMap<QString,Q
 					newStack->insert("loop_type","while");
 				// TODO: Add for each (obsolete) block after variables are added
 				// Avoid screen refresh after starting the loop
-				__run_frame_again = true;
+				sprite->engine()->runFrameAgain = true;
 			}
 		}
 	}
@@ -642,7 +642,7 @@ bool Blocks::controlBlocks(scratchSprite *sprite, QString opcode, QMap<QString,Q
 			{
 				sprite->engine()->currentExecPos[processID]["special"] = "";
 				*processEnd = true;
-				__run_frame_again = true;
+				sprite->engine()->runFrameAgain = true;
 			}
 			else
 				*frameEnd = true;
@@ -679,7 +679,7 @@ bool Blocks::controlBlocks(scratchSprite *sprite, QString opcode, QMap<QString,Q
 				newStack->insert("loop_count", 1);
 				newStack->insert("loop_current", 0);
 				// Avoid screen refresh after creating the substack
-				__run_frame_again = true;
+				sprite->engine()->runFrameAgain = true;
 			}
 			else
 				*processEnd = true;
@@ -726,7 +726,7 @@ bool Blocks::controlBlocks(scratchSprite *sprite, QString opcode, QMap<QString,Q
 			*frameEnd = true;
 			sprite->engine()->currentExecPos[processID]["special"] = "wait_secs";
 			sprite->engine()->currentExecPos[processID]["endTime"] = QDateTime::currentDateTimeUtc().addMSecs(inputs.value("DURATION").toDouble() * 1000);
-			__run_frame_again = true;
+			sprite->engine()->runFrameAgain = true;
 		}
 	}
 	else if(opcode == "control_wait_until")
@@ -745,7 +745,7 @@ bool Blocks::controlBlocks(scratchSprite *sprite, QString opcode, QMap<QString,Q
 		{
 			*frameEnd = true;
 			sprite->engine()->currentExecPos[processID]["special"] = "wait_until";
-			__run_frame_again = true;
+			sprite->engine()->runFrameAgain = true;
 		}
 	}
 	else
