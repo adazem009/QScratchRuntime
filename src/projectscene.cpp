@@ -109,7 +109,7 @@ void projectScene::timerEvent(QTimerEvent *event)
 		{
 			do {
 				__run_frame_again = false;
-				spriteList[i]->frame();
+				spriteList[i]->engine()->frame();
 			} while(__run_frame_again);
 		}
 		frames++;
