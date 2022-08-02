@@ -46,6 +46,7 @@ MainWindow::MainWindow(QWidget *parent)
 	ui->greenFlag->setEnabled(false);
 	ui->stopButton->setEnabled(false);
 	setCurrentFps(0);
+	ui->actionMultithreading->setChecked(settings.value("main/multithreading", false).toBool());
 	// Connections
 	connect(ui->actionOpen,SIGNAL(triggered()),this,SLOT(openFile()));
 	connect(ui->actionFps, &QAction::triggered, this, &MainWindow::changeFps);
