@@ -36,6 +36,7 @@ class Engine : public QObject
 		void frame(void);
 		QMap<QString,QString> getInputs(QVariantMap block, bool readFields = false);
 		QList<QVariantMap> currentExecPos;
+		bool runFrameAgain;
 
 	private:
 		void spriteTimerEvent(void);

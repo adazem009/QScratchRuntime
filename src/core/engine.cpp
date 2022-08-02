@@ -30,141 +30,149 @@ Engine::Engine(scratchSprite *sprite, QObject *parent) :
 /*! Runs blocks that can be run without screen refresh.*/
 void Engine::frame(void)
 {
-	QStringList frameEventBlocks = m_sprite->frameEvents.keys();
-	for(int i=0; i < frameEventBlocks.count(); i++)
-	{
-		QVariantMap block = m_sprite->frameEvents.value(frameEventBlocks[i]);
-		QString opcode = block.value("opcode").toString();
-		QMap<QString,QString> inputs = getInputs(block);
-		if(opcode == "event_whengreaterthan")
+	do {
+		runFrameAgain = false;
+		QStringList frameEventBlocks = m_sprite->frameEvents.keys();
+		for(int i=0; i < frameEventBlocks.count(); i++)
 		{
-			if(inputs.value("WHENGREATERTHANMENU") == "LOUDNESS"); // TODO: Implement audio input loudness
-			else if(inputs.value("WHENGREATERTHANMENU") == "TIMER")
-				spriteTimerEvent();
-		}
-	}
-	QList<QVariantMap> operationsToRemove;
-	operationsToRemove.clear();
-	newStack = nullptr;
-	QList<QVariantMap*> newStacks;
-	newStacks.clear();
-	for(int frame_i=0; frame_i < currentExecPos.count(); frame_i++)
-	{
-		QString next = currentExecPos[frame_i]["id"].toString();
-		bool frameEnd = false;
-		while(!frameEnd)
-		{
-			// Load current block
-			QString currentID = next;
-			QVariantMap block = m_sprite->blocks.value(currentID);
-			currentExecPos[frame_i]["id"] = currentID;
-			if(block.value("topLevel").toBool())
-			{
-				QVariantMap posMap = currentExecPos[frame_i];
-				posMap.insert("toplevelblock",currentID);
-				currentExecPos[frame_i] = posMap;
-			}
+			QVariantMap block = m_sprite->frameEvents.value(frameEventBlocks[i]);
 			QString opcode = block.value("opcode").toString();
 			QMap<QString,QString> inputs = getInputs(block);
-			bool processEnd = false;
-			newStack = nullptr;
-			// Run current block
-			int previousLength = currentExecPos.count();
-			if(!Blocks::runBlock(m_sprite, opcode, inputs, frame_i, &newStack, &frameEnd, &processEnd))
-				qWarning() << "Warning: unsupported block:" << opcode;
-			if(currentExecPos.count() != previousLength)
-				goto end;
-			if(currentExecPos[frame_i]["special"].toString() == "remove_operation")
+			if(opcode == "event_whengreaterthan")
 			{
-				operationsToRemove += currentExecPos[frame_i];
-				frameEnd = true;
+				if(inputs.value("WHENGREATERTHANMENU") == "LOUDNESS"); // TODO: Implement audio input loudness
+				else if(inputs.value("WHENGREATERTHANMENU") == "TIMER")
+					spriteTimerEvent();
 			}
-			// Get next block
-			QVariant nextValue = block.value("next");
-			if(newStack != nullptr)
-				newStacks += newStack;
-			if(frameEnd)
-				currentExecPos[frame_i]["id"] = currentID;
-			else if(nextValue.isNull())
+		}
+		QList<QVariantMap> operationsToRemove;
+		operationsToRemove.clear();
+		newStack = nullptr;
+		QList<QVariantMap*> newStacks;
+		newStacks.clear();
+		bool end = false;
+		for(int frame_i=0; frame_i < currentExecPos.count(); frame_i++)
+		{
+			QString next = currentExecPos[frame_i]["id"].toString();
+			bool frameEnd = false;
+			while(!frameEnd)
 			{
-				if(currentExecPos[frame_i].contains("loop_type"))
+				// Load current block
+				QString currentID = next;
+				QVariantMap block = m_sprite->blocks.value(currentID);
+				currentExecPos[frame_i]["id"] = currentID;
+				if(block.value("topLevel").toBool())
 				{
-					bool goBack = true;
-					if(currentExecPos[frame_i]["special"].toString() == "loop")
+					QVariantMap posMap = currentExecPos[frame_i];
+					posMap.insert("toplevelblock",currentID);
+					currentExecPos[frame_i] = posMap;
+				}
+				QString opcode = block.value("opcode").toString();
+				QMap<QString,QString> inputs = getInputs(block);
+				bool processEnd = false;
+				newStack = nullptr;
+				// Run current block
+				int previousLength = currentExecPos.count();
+				if(!Blocks::runBlock(m_sprite, opcode, inputs, frame_i, &newStack, &frameEnd, &processEnd))
+					qWarning() << "Warning: unsupported block:" << opcode;
+				if(currentExecPos.count() != previousLength)
+				{
+					end = true;
+					break;
+				}
+				if(currentExecPos[frame_i]["special"].toString() == "remove_operation")
+				{
+					operationsToRemove += currentExecPos[frame_i];
+					frameEnd = true;
+				}
+				// Get next block
+				QVariant nextValue = block.value("next");
+				if(newStack != nullptr)
+					newStacks += newStack;
+				if(frameEnd)
+					currentExecPos[frame_i]["id"] = currentID;
+				else if(nextValue.isNull())
+				{
+					if(currentExecPos[frame_i].contains("loop_type"))
 					{
-						QVariantMap *loopStack = (QVariantMap*) currentExecPos[frame_i]["loop_reference"].toLongLong();
-						goBack = loopStack->value("loop_finished").toBool();
-					}
-					QString loopType = currentExecPos[frame_i]["loop_type"].toString();
-					if(loopType == "repeat")
-					{
-						int loopCurrent = currentExecPos[frame_i]["loop_current"].toInt() + 1;
-						currentExecPos[frame_i]["loop_current"] = loopCurrent;
-						if(loopCurrent >= currentExecPos[frame_i]["loop_count"].toInt())
+						bool goBack = true;
+						if(currentExecPos[frame_i]["special"].toString() == "loop")
+						{
+							QVariantMap *loopStack = (QVariantMap*) currentExecPos[frame_i]["loop_reference"].toLongLong();
+							goBack = loopStack->value("loop_finished").toBool();
+						}
+						QString loopType = currentExecPos[frame_i]["loop_type"].toString();
+						if(loopType == "repeat")
+						{
+							int loopCurrent = currentExecPos[frame_i]["loop_current"].toInt() + 1;
+							currentExecPos[frame_i]["loop_current"] = loopCurrent;
+							if(loopCurrent >= currentExecPos[frame_i]["loop_count"].toInt())
+							{
+								QVariantMap *loopStack = (QVariantMap*) currentExecPos[frame_i]["loop_ptr"].toLongLong();
+								loopStack->insert("loop_finished",true);
+								currentExecPos[frame_i]["loop_finished"] = true;
+								QVariantMap posMap = currentExecPos[frame_i];
+								posMap.remove("loop_type");
+								currentExecPos[frame_i] = posMap;
+								goBack = false;
+							}
+						}
+						else if((loopType == "repeat_until") || (loopType == "while"))
 						{
 							QVariantMap *loopStack = (QVariantMap*) currentExecPos[frame_i]["loop_ptr"].toLongLong();
-							loopStack->insert("loop_finished",true);
-							currentExecPos[frame_i]["loop_finished"] = true;
-							QVariantMap posMap = currentExecPos[frame_i];
-							posMap.remove("loop_type");
-							currentExecPos[frame_i] = posMap;
-							goBack = false;
+							auto loopInputs = getInputs(m_sprite->blocks[loopStack->value("loop_block_id").toString()]);
+							bool cond;
+							if(loopType == "repeat_until")
+								cond = (loopInputs.value("CONDITION") == "true");
+							else
+								cond = (loopInputs.value("CONDITION") != "true");
+							if(cond)
+							{
+								loopStack->insert("loop_finished",true);
+								currentExecPos[frame_i]["loop_finished"] = true;
+								QVariantMap posMap = currentExecPos[frame_i];
+								posMap.remove("loop_type");
+								currentExecPos[frame_i] = posMap;
+								goBack = false;
+							}
 						}
-					}
-					else if((loopType == "repeat_until") || (loopType == "while"))
-					{
-						QVariantMap *loopStack = (QVariantMap*) currentExecPos[frame_i]["loop_ptr"].toLongLong();
-						auto loopInputs = getInputs(m_sprite->blocks[loopStack->value("loop_block_id").toString()]);
-						bool cond;
-						if(loopType == "repeat_until")
-							cond = (loopInputs.value("CONDITION") == "true");
-						else
-							cond = (loopInputs.value("CONDITION") != "true");
-						if(cond)
+						if(goBack)
 						{
-							loopStack->insert("loop_finished",true);
-							currentExecPos[frame_i]["loop_finished"] = true;
-							QVariantMap posMap = currentExecPos[frame_i];
-							posMap.remove("loop_type");
-							currentExecPos[frame_i] = posMap;
-							goBack = false;
+							next = currentExecPos[frame_i]["loop_start"].toString();
+							currentExecPos[frame_i]["id"] = next;
+							currentExecPos[frame_i]["special"] = "";
 						}
-					}
-					if(goBack)
-					{
-						next = currentExecPos[frame_i]["loop_start"].toString();
-						currentExecPos[frame_i]["id"] = next;
-						currentExecPos[frame_i]["special"] = "";
+						else
+							operationsToRemove += currentExecPos[frame_i];
 					}
 					else
+					{
+						currentExecPos[frame_i]["id"] = currentID;
+						QVariantMap *callerScript = (QVariantMap*) currentExecPos[frame_i]["callerptr"].toLongLong();
+						if(callerScript != nullptr)
+							callerScript->insert("activescripts",callerScript->value("activescripts").toInt()-1);
 						operationsToRemove += currentExecPos[frame_i];
+					}
+					frameEnd = true;
 				}
 				else
 				{
-					currentExecPos[frame_i]["id"] = currentID;
-					QVariantMap *callerScript = (QVariantMap*) currentExecPos[frame_i]["callerptr"].toLongLong();
-					if(callerScript != nullptr)
-						callerScript->insert("activescripts",callerScript->value("activescripts").toInt()-1);
-					operationsToRemove += currentExecPos[frame_i];
-				}
-				frameEnd = true;
-			}
-			else
-			{
-				next = nextValue.toString();
-				if(processEnd)
-				{
-					currentExecPos[frame_i]["id"] = next;
-					currentExecPos[frame_i]["special"] = "";
+					next = nextValue.toString();
+					if(processEnd)
+					{
+						currentExecPos[frame_i]["id"] = next;
+						currentExecPos[frame_i]["special"] = "";
+					}
 				}
 			}
+			if(end)
+				break;
 		}
-	}
-	end:
 		for(int i=0; i < newStacks.count(); i++)
 			currentExecPos += *newStacks[i];
 		for(int i=0; i < operationsToRemove.count(); i++)
 			currentExecPos.removeAll(operationsToRemove[i]);
+	} while(runFrameAgain);
 }
 
 /*! Reads block inputs and fields and returns a map. */
