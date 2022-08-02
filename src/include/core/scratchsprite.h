@@ -48,12 +48,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		int type(void) const override;
 		void loadSpriteList(QList<scratchSprite*> lists);
 		scratchSprite *getSprite(QString name);
-		void setXPos(qreal x);
-		void setYPos(qreal y);
 		void setMousePos(QPointF pos);
-		void setCostume(int id, QVariantMap *scripts = nullptr);
-		void setSize(qreal newSize);
-		void setDirection(qreal angle);
 		void frame(void);
 		static void stopAllSounds(void);
 		void setVolume(qreal newVolume);
@@ -63,9 +58,6 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		void backdropSwitchEvent(QVariantMap *script);
 		void emitBroadcast(QString broadcastName, QVariantMap *script = nullptr);
 		void broadcastReceived(QString broadcastName, QVariantMap *script);
-		void showBubble(QString text, bool thought = false);
-		void resetGraphicEffects(void);
-		void installGraphicEffects(void);
 		QPointer<QMediaPlayer> *playSound(QString soundName);
 		Engine* engine(void);
 		qreal mouseX, mouseY;
@@ -82,7 +74,6 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		QString rotationStyle; /*!< Sprite rotation style ("all around", "left-right", or "don't rotate"). */
 		QList<QVariantMap> costumes;
 		QMap<QString,QVariantMap> frameEvents;
-		QList<QVariantMap> currentExecPos;
 		QMap<QString,QVariantMap> blocks;
 		QMap<QString,qreal> graphicEffects;
 		QList<scratchSprite*> spriteList;
@@ -113,6 +104,14 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		void broadcast(QString broadcastName, QVariantMap *script = nullptr);
 
 	public slots:
+		void setXPos(qreal x);
+		void setYPos(qreal y);
+		void setSize(qreal newSize);
+		void setDirection(qreal angle);
+		void setCostume(int id, QVariantMap *scripts = nullptr);
+		void resetGraphicEffects(void);
+		void installGraphicEffects(void);
+		void showBubble(QString text, bool thought = false);
 		void greenFlagClicked(void);
 		void stopAll(void);
 		void stopSprite(void);

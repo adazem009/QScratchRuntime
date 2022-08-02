@@ -19,6 +19,7 @@
  */
 
 #include "core/blocks.h"
+#include "core/engine.h"
 
 /*! Runs a block. */
 bool Blocks::runBlock(scratchSprite *sprite, QString opcode, QMap<QString,QString> inputs, int processID, QVariantMap **newStackPtr, bool *frameEnd, bool *processEnd, QString *returnValue)
@@ -67,15 +68,15 @@ bool Blocks::motionBlocks(scratchSprite *sprite, QString opcode, QMap<QString,QS
 	{
 		qreal steps = inputs.value("STEPS").toDouble();
 		// https://en.scratch-wiki.info/wiki/Move_()_Steps_(block)#Workaround
-		sprite->setXPos(sprite->spriteX + qSin(qDegreesToRadians(sprite->direction))*steps);
-		sprite->setYPos(sprite->spriteY + qCos(qDegreesToRadians(sprite->direction))*steps);
+		emit sprite->engine()->setX(sprite->spriteX + qSin(qDegreesToRadians(sprite->direction))*steps);
+		emit sprite->engine()->setY(sprite->spriteY + qCos(qDegreesToRadians(sprite->direction))*steps);
 	}
 	else if(opcode == "motion_turnright")
-		sprite->setDirection(sprite->direction + inputs.value("DEGREES").toDouble());
+		emit sprite->engine()->setDirection(sprite->direction + inputs.value("DEGREES").toDouble());
 	else if(opcode == "motion_turnleft")
-		sprite->setDirection(sprite->direction - inputs.value("DEGREES").toDouble());
+		emit sprite->engine()->setDirection(sprite->direction - inputs.value("DEGREES").toDouble());
 	else if(opcode == "motion_pointindirection")
-		sprite->setDirection(inputs.value("DIRECTION").toDouble());
+		emit sprite->engine()->setDirection(inputs.value("DIRECTION").toDouble());
 	else if(opcode == "motion_pointtowards")
 	{
 		QString targetName = inputs.value("TOWARDS");
@@ -95,25 +96,25 @@ bool Blocks::motionBlocks(scratchSprite *sprite, QString opcode, QMap<QString,QS
 		if(deltaY == 0)
 		{
 			if(deltaX < 0)
-				sprite->setDirection(-90);
+				emit sprite->engine()->setDirection(-90);
 			else
-				sprite->setDirection(90);
+				emit sprite->engine()->setDirection(90);
 		}
 		else
 		{
 			qreal atanResult = qRadiansToDegrees(qAtan(deltaX/deltaY));
 			if(deltaY < 0)
-				sprite->setDirection(180 + atanResult);
+				emit sprite->engine()->setDirection(180 + atanResult);
 			else
-				sprite->setDirection(atanResult);
+				emit sprite->engine()->setDirection(atanResult);
 		}
 	}
 	else if(opcode == "motion_gotoxy")
 	{
 		if(inputs.contains("X"))
 		{
-				sprite->setXPos(inputs.value("X").toDouble());
-				sprite->setYPos(inputs.value("Y").toDouble());
+				emit sprite->engine()->setX(inputs.value("X").toDouble());
+				emit sprite->engine()->setY(inputs.value("Y").toDouble());
 		}
 	}
 	else if(opcode == "motion_goto")
@@ -124,34 +125,34 @@ bool Blocks::motionBlocks(scratchSprite *sprite, QString opcode, QMap<QString,QS
 		{
 			if(targetName == "_mouse_")
 			{
-				sprite->setXPos(sprite->mouseX);
-				sprite->setYPos(sprite->mouseY);
+				emit sprite->engine()->setX(sprite->mouseX);
+				emit sprite->engine()->setY(sprite->mouseY);
 			}
 			else if(targetName == "_random_")
 			{
 #if QT_VERSION >= QT_VERSION_CHECK(5, 10, 0)
-				sprite->setXPos(QRandomGenerator::global()->bounded(-240,241));
-				sprite->setYPos(QRandomGenerator::global()->bounded(-180,181));
+				emit sprite->engine()->setX(QRandomGenerator::global()->bounded(-240,241));
+				emit sprite->engine()->setY(QRandomGenerator::global()->bounded(-180,181));
 #else
-				sprite->setXPos(qrand()%481 - 240);
-				sprite->setYPos(qrand()%361 - 180);
+				emit sprite->engine()->setX(qrand()%481 - 240);
+				emit sprite->engine()->setY(qrand()%361 - 180);
 #endif
 			}
 		}
 		else
 		{
-			sprite->setXPos(targetSprite->spriteX);
-			sprite->setYPos(targetSprite->spriteY);
+			emit sprite->engine()->setX(targetSprite->spriteX);
+			emit sprite->engine()->setY(targetSprite->spriteY);
 		}
 	}
 	else if((opcode == "motion_glidesecstoxy") || (opcode == "motion_glideto"))
 	{
 		*frameEnd = true;
 		qreal endX = 0, endY = 0;
-		if(sprite->currentExecPos[processID]["special"].toString() == "glide")
+		if(sprite->engine()->currentExecPos[processID]["special"].toString() == "glide")
 		{
-			endX = sprite->currentExecPos[processID]["endX"].toDouble();
-			endY = sprite->currentExecPos[processID]["endY"].toDouble();
+			endX = sprite->engine()->currentExecPos[processID]["endX"].toDouble();
+			endY = sprite->engine()->currentExecPos[processID]["endY"].toDouble();
 		}
 		else
 		{
@@ -188,73 +189,73 @@ bool Blocks::motionBlocks(scratchSprite *sprite, QString opcode, QMap<QString,QS
 					endY = targetSprite->spriteY;
 				}
 			}
-			sprite->currentExecPos[processID]["special"] = "glide";
-			sprite->currentExecPos[processID]["startX"] = sprite->spriteX;
-			sprite->currentExecPos[processID]["startY"] = sprite->spriteY;
-			sprite->currentExecPos[processID]["endX"] = endX;
-			sprite->currentExecPos[processID]["endY"] = endY;
-			sprite->currentExecPos[processID]["startTime"] = QDateTime::currentDateTimeUtc();
-			sprite->currentExecPos[processID]["endTime"] = QDateTime::currentDateTimeUtc().addMSecs(inputs.value("SECS").toDouble() * 1000);
+			sprite->engine()->currentExecPos[processID]["special"] = "glide";
+			sprite->engine()->currentExecPos[processID]["startX"] = sprite->spriteX;
+			sprite->engine()->currentExecPos[processID]["startY"] = sprite->spriteY;
+			sprite->engine()->currentExecPos[processID]["endX"] = endX;
+			sprite->engine()->currentExecPos[processID]["endY"] = endY;
+			sprite->engine()->currentExecPos[processID]["startTime"] = QDateTime::currentDateTimeUtc();
+			sprite->engine()->currentExecPos[processID]["endTime"] = QDateTime::currentDateTimeUtc().addMSecs(inputs.value("SECS").toDouble() * 1000);
 		}
-		qreal startX = sprite->currentExecPos[processID]["startX"].toDouble();
-		qreal startY = sprite->currentExecPos[processID]["startY"].toDouble();
-		QDateTime startTime = sprite->currentExecPos[processID]["startTime"].toDateTime();
-		QDateTime endTime = sprite->currentExecPos[processID]["endTime"].toDateTime();
+		qreal startX = sprite->engine()->currentExecPos[processID]["startX"].toDouble();
+		qreal startY = sprite->engine()->currentExecPos[processID]["startY"].toDouble();
+		QDateTime startTime = sprite->engine()->currentExecPos[processID]["startTime"].toDateTime();
+		QDateTime endTime = sprite->engine()->currentExecPos[processID]["endTime"].toDateTime();
 		QDateTime currentTime = QDateTime::currentDateTimeUtc();
 		qreal progress = (startTime.msecsTo(endTime) - currentTime.msecsTo(endTime)) / (inputs.value("SECS").toDouble() * 1000.0);
 		if(progress >= 1)
 		{
-			sprite->setXPos(endX);
-			sprite->setYPos(endY);
+			emit sprite->engine()->setX(endX);
+			emit sprite->engine()->setY(endY);
 			*processEnd = true;
 			*frameEnd = false;
 		}
 		else
 		{
-			sprite->setXPos(startX + (endX-startX)*progress);
-			sprite->setYPos(startY + (endY-startY)*progress);
+			emit sprite->engine()->setX(startX + (endX-startX)*progress);
+			emit sprite->engine()->setY(startY + (endY-startY)*progress);
 		}
 	}
 	else if(opcode == "motion_changexby")
-		sprite->setXPos(sprite->spriteX + inputs.value("DX").toDouble());
+		emit sprite->engine()->setX(sprite->spriteX + inputs.value("DX").toDouble());
 	else if(opcode == "motion_setx")
-		sprite->setXPos(inputs.value("X").toDouble());
+		emit sprite->engine()->setX(inputs.value("X").toDouble());
 	else if(opcode == "motion_changeyby")
-		sprite->setYPos(sprite->spriteY + inputs.value("DY").toDouble());
+		emit sprite->engine()->setY(sprite->spriteY + inputs.value("DY").toDouble());
 	else if(opcode == "motion_sety")
-		sprite->setYPos(inputs.value("Y").toDouble());
+		emit sprite->engine()->setY(inputs.value("Y").toDouble());
 	else if(opcode == "motion_ifonedgebounce")
 	{
 		QRectF spriteRect = sprite->boundingRect();
 		// Right edge
 		if(sprite->spriteX + (spriteRect.width()/2) > 240)
 		{
-			sprite->setDirection(-sprite->direction);
-			sprite->setXPos(240 - (spriteRect.width()/2));
+			emit sprite->engine()->setDirection(-sprite->direction);
+			emit sprite->engine()->setX(240 - (spriteRect.width()/2));
 		}
 		// Left edge
 		if(sprite->spriteX - (spriteRect.width()/2) < -240)
 		{
-			sprite->setDirection(-sprite->direction);
-			sprite->setXPos(-240 + (spriteRect.width()/2));
+			emit sprite->engine()->setDirection(-sprite->direction);
+			emit sprite->engine()->setX(-240 + (spriteRect.width()/2));
 		}
 		// Top edge
 		if(sprite->spriteY + (spriteRect.height()/2) > 180)
 		{
-			sprite->setDirection(180-sprite->direction);
-			sprite->setYPos(180 - (spriteRect.height()/2));
+			emit sprite->engine()->setDirection(180-sprite->direction);
+			emit sprite->engine()->setY(180 - (spriteRect.height()/2));
 		}
 		// Bottom edge
 		if(sprite->spriteY - (spriteRect.height()/2) < -180)
 		{
-			sprite->setDirection(180-sprite->direction);
-			sprite->setYPos(-180 + (spriteRect.height()/2));
+			emit sprite->engine()->setDirection(180-sprite->direction);
+			emit sprite->engine()->setY(-180 + (spriteRect.height()/2));
 		}
 	}
 	else if(opcode == "motion_setrotationstyle")
 	{
 		sprite->rotationStyle = inputs.value("STYLE");
-		sprite->setDirection(sprite->direction);
+		emit sprite->engine()->setDirection(sprite->direction);
 	}
 	// Reporter blocks
 	else if(opcode == "motion_pointtowards_menu")
@@ -282,49 +283,49 @@ bool Blocks::looksBlocks(scratchSprite *sprite, QString opcode, QMap<QString,QSt
 	if(opcode == "looks_sayforsecs")
 	{
 		*frameEnd = true;
-		sprite->showBubble(inputs.value("MESSAGE"));
-		if(sprite->currentExecPos[processID]["special"].toString() != "wait")
+		emit sprite->engine()->showBubble(inputs.value("MESSAGE"));
+		if(sprite->engine()->currentExecPos[processID]["special"].toString() != "wait")
 		{
-			sprite->currentExecPos[processID]["special"] = "wait";
-			sprite->currentExecPos[processID]["startTime"] = QDateTime::currentDateTimeUtc();
-			sprite->currentExecPos[processID]["endTime"] = QDateTime::currentDateTimeUtc().addMSecs(inputs.value("SECS").toDouble() * 1000);
+			sprite->engine()->currentExecPos[processID]["special"] = "wait";
+			sprite->engine()->currentExecPos[processID]["startTime"] = QDateTime::currentDateTimeUtc();
+			sprite->engine()->currentExecPos[processID]["endTime"] = QDateTime::currentDateTimeUtc().addMSecs(inputs.value("SECS").toDouble() * 1000);
 		}
-		QDateTime startTime = sprite->currentExecPos[processID]["startTime"].toDateTime();
-		QDateTime endTime = sprite->currentExecPos[processID]["endTime"].toDateTime();
+		QDateTime startTime = sprite->engine()->currentExecPos[processID]["startTime"].toDateTime();
+		QDateTime endTime = sprite->engine()->currentExecPos[processID]["endTime"].toDateTime();
 		QDateTime currentTime = QDateTime::currentDateTimeUtc();
 		qreal progress = (startTime.msecsTo(endTime) - currentTime.msecsTo(endTime)) / (inputs.value("SECS").toDouble() * 1000.0);
 		if(progress >= 1)
 		{
-			sprite->showBubble("");
+			emit sprite->engine()->showBubble("");
 			*processEnd = true;
 			*frameEnd = false;
 		}
 	}
 	else if(opcode == "looks_say")
-		sprite->showBubble(inputs.value("MESSAGE"));
+		emit sprite->engine()->showBubble(inputs.value("MESSAGE"));
 	else if(opcode == "looks_thinkforsecs")
 	{
 		*frameEnd = true;
-		sprite->showBubble(inputs.value("MESSAGE"),true);
-		if(sprite->currentExecPos[processID]["special"].toString() != "wait")
+		emit sprite->engine()->showBubble(inputs.value("MESSAGE"),true);
+		if(sprite->engine()->currentExecPos[processID]["special"].toString() != "wait")
 		{
-			sprite->currentExecPos[processID]["special"] = "wait";
-			sprite->currentExecPos[processID]["startTime"] = QDateTime::currentDateTimeUtc();
-			sprite->currentExecPos[processID]["endTime"] = QDateTime::currentDateTimeUtc().addMSecs(inputs.value("SECS").toDouble() * 1000);
+			sprite->engine()->currentExecPos[processID]["special"] = "wait";
+			sprite->engine()->currentExecPos[processID]["startTime"] = QDateTime::currentDateTimeUtc();
+			sprite->engine()->currentExecPos[processID]["endTime"] = QDateTime::currentDateTimeUtc().addMSecs(inputs.value("SECS").toDouble() * 1000);
 		}
-		QDateTime startTime = sprite->currentExecPos[processID]["startTime"].toDateTime();
-		QDateTime endTime = sprite->currentExecPos[processID]["endTime"].toDateTime();
+		QDateTime startTime = sprite->engine()->currentExecPos[processID]["startTime"].toDateTime();
+		QDateTime endTime = sprite->engine()->currentExecPos[processID]["endTime"].toDateTime();
 		QDateTime currentTime = QDateTime::currentDateTimeUtc();
 		qreal progress = (startTime.msecsTo(endTime) - currentTime.msecsTo(endTime)) / (inputs.value("SECS").toDouble() * 1000.0);
 		if(progress >= 1)
 		{
-			sprite->showBubble("");
+			emit sprite->engine()->showBubble("");
 			*processEnd = true;
 			*frameEnd = false;
 		}
 	}
 	else if(opcode == "looks_think")
-		sprite->showBubble(inputs.value("MESSAGE"),true);
+		emit sprite->engine()->showBubble(inputs.value("MESSAGE"),true);
 	else if(opcode == "looks_show")
 		sprite->setVisible(true);
 	else if(opcode == "looks_hide")
@@ -332,19 +333,19 @@ bool Blocks::looksBlocks(scratchSprite *sprite, QString opcode, QMap<QString,QSt
 	else if(opcode == "looks_changeeffectby")
 	{
 		sprite->graphicEffects[inputs.value("EFFECT")] += inputs.value("CHANGE").toDouble();
-		sprite->installGraphicEffects();
+		emit sprite->engine()->installGraphicEffects();
 	}
 	else if(opcode == "looks_seteffectto")
 	{
 		sprite->graphicEffects[inputs.value("EFFECT")] = inputs.value("VALUE").toDouble();
-		sprite->installGraphicEffects();
+		emit sprite->engine()->installGraphicEffects();
 	}
 	else if(opcode == "looks_cleargraphiceffects")
-		sprite->resetGraphicEffects();
+		emit sprite->engine()->resetGraphicEffects();
 	else if(opcode == "looks_changesizeby")
-		sprite->setSize(sprite->size + inputs.value("CHANGE").toDouble());
+		emit sprite->engine()->setSize(sprite->size + inputs.value("CHANGE").toDouble());
 	else if(opcode == "looks_setsizeto")
-		sprite->setSize(inputs.value("SIZE").toDouble());
+		emit sprite->engine()->setSize(inputs.value("SIZE").toDouble());
 	else if(opcode == "looks_switchcostumeto")
 	{
 		int newCostume = sprite->currentCostume;
@@ -353,14 +354,14 @@ bool Blocks::looksBlocks(scratchSprite *sprite, QString opcode, QMap<QString,QSt
 			if((sprite->costumes[i].contains("name")) && (sprite->costumes[i].value("name").toString() == inputs.value("COSTUME")))
 				newCostume = i;
 		}
-		sprite->setCostume(newCostume);
+		emit sprite->engine()->setCostume(newCostume);
 	}
 	else if(opcode == "looks_nextcostume")
 	{
 		int newCostume = sprite->currentCostume + 1;
 		if(newCostume >= sprite->costumes.count())
 			newCostume = 0;
-		sprite->setCostume(newCostume);
+		emit sprite->engine()->setCostume(newCostume);
 	}
 	else if((opcode == "looks_switchbackdropto") || (opcode == "looks_switchbackdroptoandwait"))
 	{
@@ -403,15 +404,15 @@ bool Blocks::looksBlocks(scratchSprite *sprite, QString opcode, QMap<QString,QSt
 		if(opcode == "looks_switchbackdroptoandwait")
 		{
 			*frameEnd = true;
-			if(sprite->currentExecPos[processID]["special"].toString() != "waituntilend")
+			if(sprite->engine()->currentExecPos[processID]["special"].toString() != "waituntilend")
 			{
-				sprite->currentExecPos[processID]["special"] = "waituntilend";
-				sprite->currentExecPos[processID]["activescripts"] = 0;
-				stagePtr->setCostume(newCostume,&sprite->currentExecPos[processID]);
+				sprite->engine()->currentExecPos[processID]["special"] = "waituntilend";
+				sprite->engine()->currentExecPos[processID]["activescripts"] = 0;
+				emit stagePtr->engine()->setCostume(newCostume,&sprite->engine()->currentExecPos[processID]);
 			}
 			else
 			{
-				if(sprite->currentExecPos[processID]["activescripts"].toInt() == 0)
+				if(sprite->engine()->currentExecPos[processID]["activescripts"].toInt() == 0)
 				{
 					*processEnd = true;
 					*frameEnd = false;
@@ -419,7 +420,7 @@ bool Blocks::looksBlocks(scratchSprite *sprite, QString opcode, QMap<QString,QSt
 			}
 		}
 		else
-			stagePtr->setCostume(newCostume);
+			emit stagePtr->engine()->setCostume(newCostume);
 	}
 	else if(opcode == "looks_nextbackdrop")
 	{
@@ -427,7 +428,7 @@ bool Blocks::looksBlocks(scratchSprite *sprite, QString opcode, QMap<QString,QSt
 		int newCostume = stagePtr->currentCostume + 1;
 		if(newCostume >= stagePtr->costumes.count())
 			newCostume = 0;
-		stagePtr->setCostume(newCostume);
+		emit stagePtr->engine()->setCostume(newCostume);
 	}
 	else if(opcode == "looks_gotofrontback")
 	{
@@ -499,14 +500,14 @@ bool Blocks::soundBlocks(scratchSprite *sprite, QString opcode, QMap<QString,QSt
 	else if(opcode == "sound_playuntildone")
 	{
 		*frameEnd = true;
-		if(sprite->currentExecPos[processID]["special"].toString() != "soundwait")
+		if(sprite->engine()->currentExecPos[processID]["special"].toString() != "soundwait")
 		{
-			sprite->currentExecPos[processID]["special"] = "soundwait";
-			sprite->currentExecPos[processID]["sound"] = (qlonglong) (intptr_t) sprite->playSound(inputs.value("SOUND_MENU"));
+			sprite->engine()->currentExecPos[processID]["special"] = "soundwait";
+			sprite->engine()->currentExecPos[processID]["sound"] = (qlonglong) (intptr_t) sprite->playSound(inputs.value("SOUND_MENU"));
 		}
 		else
 		{
-			QPointer<QMediaPlayer> sound = *((QPointer<QMediaPlayer>*) sprite->currentExecPos[processID]["sound"].toLongLong());
+			QPointer<QMediaPlayer> sound = *((QPointer<QMediaPlayer>*) sprite->engine()->currentExecPos[processID]["sound"].toLongLong());
 			if((sound == nullptr) || (sound->state() == QMediaPlayer::StoppedState))
 			{
 				*processEnd = true;
@@ -545,15 +546,15 @@ bool Blocks::eventBlocks(scratchSprite *sprite, QString opcode, QMap<QString,QSt
 	else if(opcode == "event_broadcastandwait")
 	{
 		*frameEnd = true;
-		if(sprite->currentExecPos[processID]["special"].toString() != "waituntilend")
+		if(sprite->engine()->currentExecPos[processID]["special"].toString() != "waituntilend")
 		{
-			sprite->currentExecPos[processID]["special"] = "waituntilend";
-			sprite->currentExecPos[processID]["activescripts"] = 0;
-			sprite->emitBroadcast(inputs.value("BROADCAST_INPUT"),&sprite->currentExecPos[processID]);
+			sprite->engine()->currentExecPos[processID]["special"] = "waituntilend";
+			sprite->engine()->currentExecPos[processID]["activescripts"] = 0;
+			sprite->emitBroadcast(inputs.value("BROADCAST_INPUT"),&sprite->engine()->currentExecPos[processID]);
 		}
 		else
 		{
-			if(sprite->currentExecPos[processID]["activescripts"].toInt() == 0)
+			if(sprite->engine()->currentExecPos[processID]["activescripts"].toInt() == 0)
 			{
 				*processEnd = true;
 				*frameEnd = false;
@@ -581,12 +582,12 @@ bool Blocks::controlBlocks(scratchSprite *sprite, QString opcode, QMap<QString,Q
 	Q_UNUSED(returnValue);
 	if((opcode == "control_forever") || (opcode == "control_repeat") || (opcode == "control_repeat_until") || (opcode == "control_while"))
 	{
-		if(sprite->currentExecPos[processID]["special"].toString() == "loop")
+		if(sprite->engine()->currentExecPos[processID]["special"].toString() == "loop")
 		{
-			QVariantMap *loopStack = (QVariantMap*) sprite->currentExecPos[processID]["loop_reference"].toLongLong();
+			QVariantMap *loopStack = (QVariantMap*) sprite->engine()->currentExecPos[processID]["loop_reference"].toLongLong();
 			if(loopStack->value("loop_finished").toBool() == true)
 			{
-				sprite->currentExecPos[processID]["special"] = "";
+				sprite->engine()->currentExecPos[processID]["special"] = "";
 				*processEnd = true;
 				__run_frame_again = true;
 			}
@@ -605,14 +606,14 @@ bool Blocks::controlBlocks(scratchSprite *sprite, QString opcode, QMap<QString,Q
 				*newStackPtr = newStack;
 				newStack->clear();
 				newStack->insert("id",inputs.value("SUBSTACK"));
-				newStack->insert("toplevelblock",sprite->currentExecPos[processID]["toplevelblock"]);
+				newStack->insert("toplevelblock",sprite->engine()->currentExecPos[processID]["toplevelblock"]);
 				newStack->insert("special","");
 				newStack->insert("loop_start",inputs.value("SUBSTACK"));
 				newStack->insert("loop_finished",false);
 				newStack->insert("loop_ptr", (qlonglong) (intptr_t) newStack);
-				newStack->insert("loop_block_id", sprite->currentExecPos[processID]["id"]);
-				sprite->currentExecPos[processID]["special"] = "loop";
-				sprite->currentExecPos[processID]["loop_reference"] = (qlonglong) (intptr_t) newStack;
+				newStack->insert("loop_block_id", sprite->engine()->currentExecPos[processID]["id"]);
+				sprite->engine()->currentExecPos[processID]["special"] = "loop";
+				sprite->engine()->currentExecPos[processID]["loop_reference"] = (qlonglong) (intptr_t) newStack;
 				sprite->stackPointers.append(newStack);
 				if(opcode == "control_forever")
 					newStack->insert("loop_type","forever");
@@ -634,12 +635,12 @@ bool Blocks::controlBlocks(scratchSprite *sprite, QString opcode, QMap<QString,Q
 	}
 	else if((opcode == "control_if") || (opcode == "control_if_else"))
 	{
-		if(sprite->currentExecPos[processID]["special"].toString() == "loop")
+		if(sprite->engine()->currentExecPos[processID]["special"].toString() == "loop")
 		{
-			QVariantMap *loopStack = (QVariantMap*) sprite->currentExecPos[processID]["loop_reference"].toLongLong();
+			QVariantMap *loopStack = (QVariantMap*) sprite->engine()->currentExecPos[processID]["loop_reference"].toLongLong();
 			if(loopStack->value("loop_finished").toBool() == true)
 			{
-				sprite->currentExecPos[processID]["special"] = "";
+				sprite->engine()->currentExecPos[processID]["special"] = "";
 				*processEnd = true;
 				__run_frame_again = true;
 			}
@@ -667,12 +668,12 @@ bool Blocks::controlBlocks(scratchSprite *sprite, QString opcode, QMap<QString,Q
 					newStack->insert("id", inputs.value("SUBSTACK2"));
 					newStack->insert("loop_start", inputs.value("SUBSTACK2"));
 				}
-				newStack->insert("toplevelblock", sprite->currentExecPos[processID]["toplevelblock"]);
+				newStack->insert("toplevelblock", sprite->engine()->currentExecPos[processID]["toplevelblock"]);
 				newStack->insert("special", "");
 				newStack->insert("loop_finished", false);
 				newStack->insert("loop_ptr", (qlonglong) (intptr_t) newStack);
-				sprite->currentExecPos[processID]["special"] = "loop";
-				sprite->currentExecPos[processID]["loop_reference"] = (qlonglong) (intptr_t) newStack;
+				sprite->engine()->currentExecPos[processID]["special"] = "loop";
+				sprite->engine()->currentExecPos[processID]["loop_reference"] = (qlonglong) (intptr_t) newStack;
 				sprite->stackPointers.append(newStack);
 				newStack->insert("loop_type", "repeat");
 				newStack->insert("loop_count", 1);
@@ -692,29 +693,29 @@ bool Blocks::controlBlocks(scratchSprite *sprite, QString opcode, QMap<QString,Q
 				sprite->spriteList[i]->stopSprite();
 		}
 		else if(inputs.value("STOP_OPTION") == "this script")
-			sprite->currentExecPos[processID]["special"] = "remove_operation";
+			sprite->engine()->currentExecPos[processID]["special"] = "remove_operation";
 		else if(inputs.value("STOP_OPTION") == "other scripts in sprite")
 		{
 			QList<QVariantMap> operationsToRemove;
 			operationsToRemove.clear();
-			for(int i=0; i < sprite->currentExecPos.count(); i++)
+			for(int i=0; i < sprite->engine()->currentExecPos.count(); i++)
 			{
 				// TODO: This may not work if there are e.g multiple instances of the same custom block running
-				if(sprite->currentExecPos[i]["toplevelblock"].toString() != sprite->currentExecPos[processID]["toplevelblock"].toString())
-					operationsToRemove += sprite->currentExecPos[i];
+				if(sprite->engine()->currentExecPos[i]["toplevelblock"].toString() != sprite->engine()->currentExecPos[processID]["toplevelblock"].toString())
+					operationsToRemove += sprite->engine()->currentExecPos[i];
 			}
 			for(int i=0; i < operationsToRemove.count(); i++)
-				sprite->currentExecPos.removeAll(operationsToRemove[i]);
+				sprite->engine()->currentExecPos.removeAll(operationsToRemove[i]);
 		}
 	}
 	else if(opcode == "control_wait")
 	{
-		if(sprite->currentExecPos[processID]["special"].toString() == "wait_secs")
+		if(sprite->engine()->currentExecPos[processID]["special"].toString() == "wait_secs")
 		{
 			QDateTime currentTime = QDateTime::currentDateTimeUtc();
-			if(currentTime >= sprite->currentExecPos[processID]["endTime"].toDateTime())
+			if(currentTime >= sprite->engine()->currentExecPos[processID]["endTime"].toDateTime())
 			{
-				sprite->currentExecPos[processID]["special"] = "";
+				sprite->engine()->currentExecPos[processID]["special"] = "";
 				*processEnd = true;
 			}
 			else
@@ -723,18 +724,18 @@ bool Blocks::controlBlocks(scratchSprite *sprite, QString opcode, QMap<QString,Q
 		else
 		{
 			*frameEnd = true;
-			sprite->currentExecPos[processID]["special"] = "wait_secs";
-			sprite->currentExecPos[processID]["endTime"] = QDateTime::currentDateTimeUtc().addMSecs(inputs.value("DURATION").toDouble() * 1000);
+			sprite->engine()->currentExecPos[processID]["special"] = "wait_secs";
+			sprite->engine()->currentExecPos[processID]["endTime"] = QDateTime::currentDateTimeUtc().addMSecs(inputs.value("DURATION").toDouble() * 1000);
 			__run_frame_again = true;
 		}
 	}
 	else if(opcode == "control_wait_until")
 	{
-		if(sprite->currentExecPos[processID]["special"].toString() == "wait_until")
+		if(sprite->engine()->currentExecPos[processID]["special"].toString() == "wait_until")
 		{
 			if(inputs.value("CONDITION") == "true")
 			{
-				sprite->currentExecPos[processID]["special"] = "";
+				sprite->engine()->currentExecPos[processID]["special"] = "";
 				*processEnd = true;
 			}
 			else
@@ -743,7 +744,7 @@ bool Blocks::controlBlocks(scratchSprite *sprite, QString opcode, QMap<QString,Q
 		else
 		{
 			*frameEnd = true;
-			sprite->currentExecPos[processID]["special"] = "wait_until";
+			sprite->engine()->currentExecPos[processID]["special"] = "wait_until";
 			__run_frame_again = true;
 		}
 	}

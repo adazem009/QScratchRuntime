@@ -94,6 +94,14 @@ scratchSprite::scratchSprite(QJsonObject spriteObject, QString spriteAssetDir, Q
 			frameEvents.insert(blocksList[i],blocks.value(blocksList[i]));
 		}
 	}
+	// Connections
+	connect(m_engine, &Engine::setX, this, &scratchSprite::setXPos);
+	connect(m_engine, &Engine::setY, this, &scratchSprite::setYPos);
+	connect(m_engine, &Engine::setCostume, this, &scratchSprite::setCostume);
+	connect(m_engine, &Engine::setSize, this, &scratchSprite::setSize);
+	connect(m_engine, &Engine::setDirection, this, &scratchSprite::setDirection);
+	connect(m_engine, &Engine::resetGraphicEffects, this, &scratchSprite::resetGraphicEffects);
+	connect(m_engine, &Engine::installGraphicEffects, this, &scratchSprite::installGraphicEffects);
 }
 
 /*! Destroys the scratchSprite object. */
@@ -152,7 +160,7 @@ void scratchSprite::greenFlagClicked(void)
 			blockMap.clear();
 			blockMap.insert("id",blocksList[i]);
 			blockMap.insert("special","");
-			currentExecPos += blockMap;
+			m_engine->currentExecPos += blockMap;
 		}
 	}
 }
@@ -192,19 +200,19 @@ void scratchSprite::spriteClicked(void)
 			// Stop running instances of this event
 			QList<QVariantMap> operationsToRemove;
 			operationsToRemove.clear();
-			for(int i2=0; i2 < currentExecPos.count(); i2++)
+			for(int i2=0; i2 < m_engine->currentExecPos.count(); i2++)
 			{
-				if(currentExecPos[i2]["toplevelblock"] == blocksList[i])
-					operationsToRemove += currentExecPos[i2];
+				if(m_engine->currentExecPos[i2]["toplevelblock"] == blocksList[i])
+					operationsToRemove += m_engine->currentExecPos[i2];
 			}
 			for(int i2=0; i2 < operationsToRemove.count(); i2++)
-				currentExecPos.removeAll(operationsToRemove[i2]);
+				m_engine->currentExecPos.removeAll(operationsToRemove[i2]);
 			// Start the script
 			QVariantMap blockMap;
 			blockMap.clear();
 			blockMap.insert("id",blocksList[i]);
 			blockMap.insert("special","");
-			currentExecPos += blockMap;
+			m_engine->currentExecPos += blockMap;
 		}
 	}
 }
@@ -224,19 +232,19 @@ void scratchSprite::keyPressed(int key, QString keyText)
 				// Stop running instances of this event
 				QList<QVariantMap> operationsToRemove;
 				operationsToRemove.clear();
-				for(int i2=0; i2 < currentExecPos.count(); i2++)
+				for(int i2=0; i2 < m_engine->currentExecPos.count(); i2++)
 				{
-					if(currentExecPos[i2]["toplevelblock"] == blocksList[i])
-						operationsToRemove += currentExecPos[i2];
+					if(m_engine->currentExecPos[i2]["toplevelblock"] == blocksList[i])
+						operationsToRemove += m_engine->currentExecPos[i2];
 				}
 				for(int i2=0; i2 < operationsToRemove.count(); i2++)
-					currentExecPos.removeAll(operationsToRemove[i2]);
+					m_engine->currentExecPos.removeAll(operationsToRemove[i2]);
 				// Start the script
 				QVariantMap blockMap;
 				blockMap.clear();
 				blockMap.insert("id",blocksList[i]);
 				blockMap.insert("special","");
-				currentExecPos += blockMap;
+				m_engine->currentExecPos += blockMap;
 			}
 		}
 	}
@@ -281,13 +289,13 @@ void scratchSprite::backdropSwitchEvent(QVariantMap *script)
 				// Stop running instances of this event
 				QList<QVariantMap> operationsToRemove;
 				operationsToRemove.clear();
-				for(int i2=0; i2 < currentExecPos.count(); i2++)
+				for(int i2=0; i2 < m_engine->currentExecPos.count(); i2++)
 				{
-					if(currentExecPos[i2]["toplevelblock"] == blocksList[i])
-						operationsToRemove += currentExecPos[i2];
+					if(m_engine->currentExecPos[i2]["toplevelblock"] == blocksList[i])
+						operationsToRemove += m_engine->currentExecPos[i2];
 				}
 				for(int i2=0; i2 < operationsToRemove.count(); i2++)
-					currentExecPos.removeAll(operationsToRemove[i2]);
+					m_engine->currentExecPos.removeAll(operationsToRemove[i2]);
 				// Start the script
 				QVariantMap blockMap;
 				blockMap.clear();
@@ -296,7 +304,7 @@ void scratchSprite::backdropSwitchEvent(QVariantMap *script)
 				if(script != nullptr)
 					script->insert("activescripts",script->value("activescripts").toInt()+1);
 				blockMap.insert("callerptr", (qlonglong) (intptr_t) script);
-				currentExecPos += blockMap;
+				m_engine->currentExecPos += blockMap;
 			}
 		}
 	}
@@ -323,13 +331,13 @@ void scratchSprite::broadcastReceived(QString broadcastName, QVariantMap *script
 				// Stop running instances of this broadcast event
 				QList<QVariantMap> operationsToRemove;
 				operationsToRemove.clear();
-				for(int i2=0; i2 < currentExecPos.count(); i2++)
+				for(int i2=0; i2 < m_engine->currentExecPos.count(); i2++)
 				{
-					if(currentExecPos[i2]["toplevelblock"] == blocksList[i])
-						operationsToRemove += currentExecPos[i2];
+					if(m_engine->currentExecPos[i2]["toplevelblock"] == blocksList[i])
+						operationsToRemove += m_engine->currentExecPos[i2];
 				}
 				for(int i2=0; i2 < operationsToRemove.count(); i2++)
-					currentExecPos.removeAll(operationsToRemove[i2]);
+					m_engine->currentExecPos.removeAll(operationsToRemove[i2]);
 				// Start the script
 				QVariantMap blockMap;
 				blockMap.clear();
@@ -338,7 +346,7 @@ void scratchSprite::broadcastReceived(QString broadcastName, QVariantMap *script
 				if(script != nullptr)
 					script->insert("activescripts",script->value("activescripts").toInt()+1);
 				blockMap.insert("callerptr", (qlonglong) (intptr_t) script);
-				currentExecPos += blockMap;
+				m_engine->currentExecPos += blockMap;
 			}
 		}
 	}
@@ -347,7 +355,7 @@ void scratchSprite::broadcastReceived(QString broadcastName, QVariantMap *script
 /*! Stops the sprite. */
 void scratchSprite::stopSprite(void)
 {
-	currentExecPos.clear();
+	m_engine->currentExecPos.clear();
 	if(!isStage)
 		speechBubble->setVisible(false);
 	resetGraphicEffects();

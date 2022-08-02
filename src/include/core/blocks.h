@@ -23,6 +23,8 @@
 
 #include "core/scratchsprite.h"
 
+class Engine;
+
 /*! \brief The Blocks class contains the implementation of Scratch blocks. */
 class Blocks
 {

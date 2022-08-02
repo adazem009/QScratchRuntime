@@ -20,6 +20,7 @@
 
 #include "core/engine.h"
 #include "core/scratchsprite.h"
+#include "core/blocks.h"
 
 /*! Constructs Engine. */
 Engine::Engine(scratchSprite *sprite, QObject *parent) :
@@ -47,35 +48,35 @@ void Engine::frame(void)
 	newStack = nullptr;
 	QList<QVariantMap*> newStacks;
 	newStacks.clear();
-	for(int frame_i=0; frame_i < m_sprite->currentExecPos.count(); frame_i++)
+	for(int frame_i=0; frame_i < currentExecPos.count(); frame_i++)
 	{
-		QString next = m_sprite->currentExecPos[frame_i]["id"].toString();
+		QString next = currentExecPos[frame_i]["id"].toString();
 		bool frameEnd = false;
 		while(!frameEnd)
 		{
 			// Load current block
 			QString currentID = next;
 			QVariantMap block = m_sprite->blocks.value(currentID);
-			m_sprite->currentExecPos[frame_i]["id"] = currentID;
+			currentExecPos[frame_i]["id"] = currentID;
 			if(block.value("topLevel").toBool())
 			{
-				QVariantMap posMap = m_sprite->currentExecPos[frame_i];
+				QVariantMap posMap = currentExecPos[frame_i];
 				posMap.insert("toplevelblock",currentID);
-				m_sprite->currentExecPos[frame_i] = posMap;
+				currentExecPos[frame_i] = posMap;
 			}
 			QString opcode = block.value("opcode").toString();
 			QMap<QString,QString> inputs = getInputs(block);
 			bool processEnd = false;
 			newStack = nullptr;
 			// Run current block
-			int previousLength = m_sprite->currentExecPos.count();
+			int previousLength = currentExecPos.count();
 			if(!Blocks::runBlock(m_sprite, opcode, inputs, frame_i, &newStack, &frameEnd, &processEnd))
 				qWarning() << "Warning: unsupported block:" << opcode;
-			if(m_sprite->currentExecPos.count() != previousLength)
+			if(currentExecPos.count() != previousLength)
 				goto end;
-			if(m_sprite->currentExecPos[frame_i]["special"].toString() == "remove_operation")
+			if(currentExecPos[frame_i]["special"].toString() == "remove_operation")
 			{
-				operationsToRemove += m_sprite->currentExecPos[frame_i];
+				operationsToRemove += currentExecPos[frame_i];
 				frameEnd = true;
 			}
 			// Get next block
@@ -83,36 +84,36 @@ void Engine::frame(void)
 			if(newStack != nullptr)
 				newStacks += newStack;
 			if(frameEnd)
-				m_sprite->currentExecPos[frame_i]["id"] = currentID;
+				currentExecPos[frame_i]["id"] = currentID;
 			else if(nextValue.isNull())
 			{
-				if(m_sprite->currentExecPos[frame_i].contains("loop_type"))
+				if(currentExecPos[frame_i].contains("loop_type"))
 				{
 					bool goBack = true;
-					if(m_sprite->currentExecPos[frame_i]["special"].toString() == "loop")
+					if(currentExecPos[frame_i]["special"].toString() == "loop")
 					{
-						QVariantMap *loopStack = (QVariantMap*) m_sprite->currentExecPos[frame_i]["loop_reference"].toLongLong();
+						QVariantMap *loopStack = (QVariantMap*) currentExecPos[frame_i]["loop_reference"].toLongLong();
 						goBack = loopStack->value("loop_finished").toBool();
 					}
-					QString loopType = m_sprite->currentExecPos[frame_i]["loop_type"].toString();
+					QString loopType = currentExecPos[frame_i]["loop_type"].toString();
 					if(loopType == "repeat")
 					{
-						int loopCurrent = m_sprite->currentExecPos[frame_i]["loop_current"].toInt() + 1;
-						m_sprite->currentExecPos[frame_i]["loop_current"] = loopCurrent;
-						if(loopCurrent >= m_sprite->currentExecPos[frame_i]["loop_count"].toInt())
+						int loopCurrent = currentExecPos[frame_i]["loop_current"].toInt() + 1;
+						currentExecPos[frame_i]["loop_current"] = loopCurrent;
+						if(loopCurrent >= currentExecPos[frame_i]["loop_count"].toInt())
 						{
-							QVariantMap *loopStack = (QVariantMap*) m_sprite->currentExecPos[frame_i]["loop_ptr"].toLongLong();
+							QVariantMap *loopStack = (QVariantMap*) currentExecPos[frame_i]["loop_ptr"].toLongLong();
 							loopStack->insert("loop_finished",true);
-							m_sprite->currentExecPos[frame_i]["loop_finished"] = true;
-							QVariantMap posMap = m_sprite->currentExecPos[frame_i];
+							currentExecPos[frame_i]["loop_finished"] = true;
+							QVariantMap posMap = currentExecPos[frame_i];
 							posMap.remove("loop_type");
-							m_sprite->currentExecPos[frame_i] = posMap;
+							currentExecPos[frame_i] = posMap;
 							goBack = false;
 						}
 					}
 					else if((loopType == "repeat_until") || (loopType == "while"))
 					{
-						QVariantMap *loopStack = (QVariantMap*) m_sprite->currentExecPos[frame_i]["loop_ptr"].toLongLong();
+						QVariantMap *loopStack = (QVariantMap*) currentExecPos[frame_i]["loop_ptr"].toLongLong();
 						auto loopInputs = getInputs(m_sprite->blocks[loopStack->value("loop_block_id").toString()]);
 						bool cond;
 						if(loopType == "repeat_until")
@@ -122,29 +123,29 @@ void Engine::frame(void)
 						if(cond)
 						{
 							loopStack->insert("loop_finished",true);
-							m_sprite->currentExecPos[frame_i]["loop_finished"] = true;
-							QVariantMap posMap = m_sprite->currentExecPos[frame_i];
+							currentExecPos[frame_i]["loop_finished"] = true;
+							QVariantMap posMap = currentExecPos[frame_i];
 							posMap.remove("loop_type");
-							m_sprite->currentExecPos[frame_i] = posMap;
+							currentExecPos[frame_i] = posMap;
 							goBack = false;
 						}
 					}
 					if(goBack)
 					{
-						next = m_sprite->currentExecPos[frame_i]["loop_start"].toString();
-						m_sprite->currentExecPos[frame_i]["id"] = next;
-						m_sprite->currentExecPos[frame_i]["special"] = "";
+						next = currentExecPos[frame_i]["loop_start"].toString();
+						currentExecPos[frame_i]["id"] = next;
+						currentExecPos[frame_i]["special"] = "";
 					}
 					else
-						operationsToRemove += m_sprite->currentExecPos[frame_i];
+						operationsToRemove += currentExecPos[frame_i];
 				}
 				else
 				{
-					m_sprite->currentExecPos[frame_i]["id"] = currentID;
-					QVariantMap *callerScript = (QVariantMap*) m_sprite->currentExecPos[frame_i]["callerptr"].toLongLong();
+					currentExecPos[frame_i]["id"] = currentID;
+					QVariantMap *callerScript = (QVariantMap*) currentExecPos[frame_i]["callerptr"].toLongLong();
 					if(callerScript != nullptr)
 						callerScript->insert("activescripts",callerScript->value("activescripts").toInt()-1);
-					operationsToRemove += m_sprite->currentExecPos[frame_i];
+					operationsToRemove += currentExecPos[frame_i];
 				}
 				frameEnd = true;
 			}
@@ -153,17 +154,17 @@ void Engine::frame(void)
 				next = nextValue.toString();
 				if(processEnd)
 				{
-					m_sprite->currentExecPos[frame_i]["id"] = next;
-					m_sprite->currentExecPos[frame_i]["special"] = "";
+					currentExecPos[frame_i]["id"] = next;
+					currentExecPos[frame_i]["special"] = "";
 				}
 			}
 		}
 	}
 	end:
 		for(int i=0; i < newStacks.count(); i++)
-			m_sprite->currentExecPos += *newStacks[i];
+			currentExecPos += *newStacks[i];
 		for(int i=0; i < operationsToRemove.count(); i++)
-			m_sprite->currentExecPos.removeAll(operationsToRemove[i]);
+			currentExecPos.removeAll(operationsToRemove[i]);
 }
 
 /*! Reads block inputs and fields and returns a map. */
@@ -253,13 +254,13 @@ void Engine::spriteTimerEvent(void)
 				// Stop running instances of this event
 				QList<QVariantMap> operationsToRemove;
 				operationsToRemove.clear();
-				for(int i2=0; i2 < m_sprite->currentExecPos.count(); i2++)
+				for(int i2=0; i2 < currentExecPos.count(); i2++)
 				{
-					if(m_sprite->currentExecPos[i2]["toplevelblock"] == blocksList[i])
-						operationsToRemove += m_sprite->currentExecPos[i2];
+					if(currentExecPos[i2]["toplevelblock"] == blocksList[i])
+						operationsToRemove += currentExecPos[i2];
 				}
 				for(int i2=0; i2 < operationsToRemove.count(); i2++)
-					m_sprite->currentExecPos.removeAll(operationsToRemove[i2]);
+					currentExecPos.removeAll(operationsToRemove[i2]);
 				// Start the script
 				block.insert("special_timereventused",true);
 				m_sprite->frameEvents.insert(blocksList[i],block);
@@ -267,7 +268,7 @@ void Engine::spriteTimerEvent(void)
 				blockMap.clear();
 				blockMap.insert("id",blocksList[i]);
 				blockMap.insert("special","");
-				m_sprite->currentExecPos += blockMap;
+				currentExecPos += blockMap;
 			}
 		}
 	}

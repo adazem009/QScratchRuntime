@@ -22,9 +22,10 @@
 #define ENGINE_H
 
 #include <QObject>
-#include "core/blocks.h"
+#include <QVariantMap>
 
 class scratchSprite;
+class Blocks;
 
 /*! \brief The Engine class processes sprite frames. */
 class Engine : public QObject
@@ -34,11 +35,22 @@ class Engine : public QObject
 		explicit Engine(scratchSprite *sprite, QObject *parent = nullptr);
 		void frame(void);
 		QMap<QString,QString> getInputs(QVariantMap block, bool readFields = false);
+		QList<QVariantMap> currentExecPos;
 
 	private:
 		void spriteTimerEvent(void);
 		scratchSprite *m_sprite;
 		QVariantMap *newStack;
+
+	signals:
+		void setX(qreal x);
+		void setY(qreal y);
+		void setSize(qreal size);
+		void setDirection(qreal angle);
+		void setCostume(int id, QVariantMap *scripts = nullptr);
+		void resetGraphicEffects(void);
+		void installGraphicEffects(void);
+		void showBubble(QString text, bool thought = false);
 };
 
 #endif // ENGINE_H
