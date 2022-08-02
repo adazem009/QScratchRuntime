@@ -52,6 +52,8 @@ class Engine : public QObject
 		void resetGraphicEffects(void);
 		void installGraphicEffects(void);
 		void showBubble(QString text, bool thought = false);
+		void setVisible(bool visible);
+		void setZValue(qreal z);
 };
 
 #endif // ENGINE_H

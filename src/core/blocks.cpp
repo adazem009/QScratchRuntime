@@ -327,9 +327,9 @@ bool Blocks::looksBlocks(scratchSprite *sprite, QString opcode, QMap<QString,QSt
 	else if(opcode == "looks_think")
 		emit sprite->engine()->showBubble(inputs.value("MESSAGE"),true);
 	else if(opcode == "looks_show")
-		sprite->setVisible(true);
+		emit sprite->engine()->setVisible(true);
 	else if(opcode == "looks_hide")
-		sprite->setVisible(false);
+		emit sprite->engine()->setVisible(false);
 	else if(opcode == "looks_changeeffectby")
 	{
 		sprite->graphicEffects[inputs.value("EFFECT")] += inputs.value("CHANGE").toDouble();
@@ -440,13 +440,13 @@ bool Blocks::looksBlocks(scratchSprite *sprite, QString opcode, QMap<QString,QSt
 				if(sprite->spriteList[i]->zValue() > maxLayer)
 					maxLayer = sprite->spriteList[i]->zValue();
 			}
-			sprite->setZValue(maxLayer+1);
+			emit sprite->engine()->setZValue(maxLayer+1);
 		}
 		else
 		{
 			for(int i=0; i < sprite->spriteList.count(); i++)
 				sprite->spriteList[i]->setZValue(sprite->spriteList[i]->zValue() + 1);
-			sprite->setZValue(1);
+			emit sprite->engine()->setZValue(1);
 		}
 	}
 	else if(opcode == "looks_goforwardbackwardlayers")
@@ -459,9 +459,9 @@ bool Blocks::looksBlocks(scratchSprite *sprite, QString opcode, QMap<QString,QSt
 			for(int i=0; i < sprite->spriteList.count(); i++)
 				sprite->spriteList[i]->setZValue(sprite->spriteList[i]->zValue() + 1);
 		}
-		sprite->setZValue(sprite->zValue() + delta);
+		emit sprite->engine()->setZValue(sprite->zValue() + delta);
 		if(sprite->zValue() < 1)
-			sprite->setZValue(1);
+			emit sprite->engine()->setZValue(1);
 	}
 	// Reporter blocks
 	else if(opcode == "looks_size")
