@@ -33,6 +33,7 @@ SOURCES += \
 
 HEADERS += \
     src/include/core/scratchsprite.h \
+    src/include/core/blocks.h \
     src/include/global.h \
     src/include/mainwindow.h \
     src/include/projectscene.h \
