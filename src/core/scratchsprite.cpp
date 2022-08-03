@@ -381,19 +381,29 @@ void scratchSprite::setYPos(qreal y)
 /*! Translates X position from Scratch coordinate system to QGraphicsScene coordinate system or vice versa. */
 qreal scratchSprite::translateX(qreal x, bool toScratch)
 {
-	if(toScratch != pointingLeft)
-		return x+rotationCenterX;
+	if(toScratch)
+	{
+		if(pointingLeft)
+			return (x - rotationCenterX) / sceneScale;
+		else
+			return (x + rotationCenterX) / sceneScale;
+	}
 	else
-		return x-rotationCenterX;
+	{
+		if(pointingLeft)
+			return x * sceneScale + rotationCenterX;
+		else
+			return x * sceneScale - rotationCenterX;
+	}
 }
 
 /*! Translates Y position from Scratch coordinate system to QGraphicsScene coordinate system or vice versa. */
 qreal scratchSprite::translateY(qreal y, bool toScratch)
 {
 	if(toScratch)
-		return -y-rotationCenterY;
+		return -y / sceneScale - rotationCenterY;
 	else
-		return -y-rotationCenterY;
+		return -y * sceneScale - rotationCenterY;
 }
 
 /*! Used by projectScene to set mouse-pointer position. \see projectScene#mouseMoveEvent() */
@@ -414,13 +424,14 @@ void scratchSprite::setCostume(int id, QVariantMap *script)
 	}
 	else
 		costumePixmap = QPixmap(assetDir + "/" + costumes[id].value("assetId").toString() + "." + costumes[id].value("dataFormat").toString());
+	costumePixmap = costumePixmap.scaled(costumePixmap.width() * sceneScale, costumePixmap.height() * sceneScale);
 	double scale = 1;
 	if(costumes[id].value("dataFormat").toString() != "svg")
 		scale = 0.5; // non-vector images are 2 times bigger for some reason
 	costumePixmap = costumePixmap.scaledToHeight(costumePixmap.height() * scale);
 	setPixmap(costumePixmap);
-	rotationCenterX = costumes[id].value("rotationCenterX").toDouble() * scale;
-	rotationCenterY = costumes[id].value("rotationCenterY").toDouble() * scale;
+	rotationCenterX = costumes[id].value("rotationCenterX").toDouble() * scale * sceneScale;
+	rotationCenterY = costumes[id].value("rotationCenterY").toDouble() * scale * sceneScale;
 	setTransformOriginPoint(QPointF(rotationCenterX,rotationCenterY));
 	setXPos(spriteX);
 	setYPos(spriteY);
@@ -637,4 +648,13 @@ void scratchSprite::frame(void)
 Engine* scratchSprite::engine(void)
 {
 	return m_engine;
+}
+
+/*! Sets scene scale. */
+void scratchSprite::setSceneScale(qreal value)
+{
+	sceneScale = value;
+	setXPos(spriteX);
+	setYPos(spriteY);
+	setCostume(currentCostume);
 }
