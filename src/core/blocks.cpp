@@ -228,28 +228,28 @@ bool Blocks::motionBlocks(scratchSprite *sprite, QString opcode, QMap<QString,QS
 	{
 		QRectF spriteRect = sprite->boundingRect();
 		// Right edge
-		if(sprite->spriteX + (spriteRect.width()/2) > 240)
+		if(sprite->spriteX + (spriteRect.width()/2 / sprite->sceneScale) > 240)
 		{
 			emit sprite->engine()->setDirection(-sprite->direction);
-			emit sprite->engine()->setX(240 - (spriteRect.width()/2));
+			emit sprite->engine()->setX(240 - (spriteRect.width()/2 / sprite->sceneScale));
 		}
 		// Left edge
-		if(sprite->spriteX - (spriteRect.width()/2) < -240)
+		if(sprite->spriteX - (spriteRect.width()/2 / sprite->sceneScale) < -240)
 		{
 			emit sprite->engine()->setDirection(-sprite->direction);
-			emit sprite->engine()->setX(-240 + (spriteRect.width()/2));
+			emit sprite->engine()->setX(-240 + (spriteRect.width()/2 / sprite->sceneScale));
 		}
 		// Top edge
-		if(sprite->spriteY + (spriteRect.height()/2) > 180)
+		if(sprite->spriteY + (spriteRect.height()/2 / sprite->sceneScale) > 180)
 		{
 			emit sprite->engine()->setDirection(180-sprite->direction);
-			emit sprite->engine()->setY(180 - (spriteRect.height()/2));
+			emit sprite->engine()->setY(180 - (spriteRect.height()/2 / sprite->sceneScale));
 		}
 		// Bottom edge
-		if(sprite->spriteY - (spriteRect.height()/2) < -180)
+		if(sprite->spriteY - (spriteRect.height()/2 / sprite->sceneScale) < -180)
 		{
 			emit sprite->engine()->setDirection(180-sprite->direction);
-			emit sprite->engine()->setY(-180 + (spriteRect.height()/2));
+			emit sprite->engine()->setY(-180 + (spriteRect.height()/2 / sprite->sceneScale));
 		}
 	}
 	else if(opcode == "motion_setrotationstyle")
