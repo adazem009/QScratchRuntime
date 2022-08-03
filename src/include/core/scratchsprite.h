@@ -80,6 +80,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		QList<scratchSprite*> spriteList;
 		QElapsedTimer timer;
 		QVector<QVariantMap*> stackPointers;
+		qreal sceneScale = 1;
 
 	private:
 		qreal translateX(qreal x, bool toScratch = false);
@@ -97,7 +98,6 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		QGraphicsPixmapItem *speechBubble;
 		QGraphicsTextItem *speechBubbleText;
 		QPixmap costumePixmap;
-		qreal sceneScale = 1;
 
 	signals:
 		/*! A signal, which is emitted from the stage when the backdrop switches. */
