@@ -21,9 +21,10 @@
 #include "projectscene.h"
 
 /*! Constructs projectScene. */
-projectScene::projectScene(qreal x, qreal y, qreal width, qreal height, QObject *parent) :
-	QGraphicsScene(x, y, width, height, parent)
+projectScene::projectScene(qreal sceneScale, QObject *parent) :
+	QGraphicsScene(parent)
 {
+	setScale(sceneScale);
 	projectRunning = false;
 	multithreading = settings.value("main/multithreading", false).toBool();
 	timerID = startTimer(1000.0 / settings.value("main/fps", 30).toInt());
@@ -39,6 +40,7 @@ void projectScene::loadSpriteList(QList<scratchSprite*> list)
 		if(spriteList[i]->isStage)
 			connect(spriteList[i],&scratchSprite::backdropSwitched,this,&projectScene::backdropSwitched);
 		connect(spriteList[i],&scratchSprite::broadcast,this,&projectScene::broadcastSent);
+		spriteList[i]->setSceneScale(scale);
 	}
 }
 
@@ -165,4 +167,13 @@ void projectScene::setMultithreading(bool state)
 {
 	settings.setValue("main/multithreading", state);
 	multithreading = state;
+}
+
+/*! Sets scene scale. */
+void projectScene::setScale(qreal value)
+{
+	scale = value;
+	setSceneRect(-240 * scale, -180 * scale, 480 * scale, 360 * scale);
+	for(int i=0; i < spriteList.count(); i++)
+		spriteList[i]->setSceneScale(scale);
 }

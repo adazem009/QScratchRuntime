@@ -35,12 +35,13 @@ class projectScene : public QGraphicsScene
 {
 	Q_OBJECT
 	public:
-		explicit projectScene(qreal x = -240, qreal y = -180, qreal width = 480, qreal height = 360, QObject *parent = nullptr);
+		explicit projectScene(qreal scale, QObject *parent = nullptr);
 		void loadSpriteList(QList<scratchSprite*> list);
 		void clearSpriteList(void);
 		void setFps(int fps);
 		int currentFps(void);
 		void setMultithreading(bool state);
+		void setScale(qreal value);
 
 	private:
 		QList<scratchSprite*> spriteList;
@@ -49,6 +50,7 @@ class projectScene : public QGraphicsScene
 		QSettings settings;
 		int frames = 0, fpsValue = 0;
 		bool multithreading;
+		qreal scale;
 
 	signals:
 		/*! Emitted when the measured FPS value changes (every second). */
