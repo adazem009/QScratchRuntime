@@ -1,4 +1,4 @@
-QT       += core gui multimedia
+QT       += core gui multimedia svg
 
 !wasm {
 	QT += concurrent
