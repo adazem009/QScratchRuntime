@@ -255,6 +255,7 @@
     <addaction name="actionFps"/>
     <addaction name="separator"/>
     <addaction name="actionMultithreading"/>
+    <addaction name="actionSvgUpscale"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuOptions"/>
@@ -275,6 +276,17 @@
    </property>
    <property name="text">
     <string>Enable multithreading (experimental)</string>
+   </property>
+  </action>
+  <action name="actionSvgUpscale">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Upscale SVG</string>
    </property>
   </action>
  </widget>

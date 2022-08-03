@@ -49,10 +49,12 @@ MainWindow::MainWindow(QWidget *parent)
 	ui->stopButton->setEnabled(false);
 	setCurrentFps(0);
 	ui->actionMultithreading->setChecked(settings.value("main/multithreading", false).toBool());
+	ui->actionSvgUpscale->setChecked(settings.value("main/hqsvg", true).toBool());
 	// Connections
 	connect(ui->actionOpen,SIGNAL(triggered()),this,SLOT(openFile()));
 	connect(ui->actionFps, &QAction::triggered, this, &MainWindow::changeFps);
 	connect(ui->actionMultithreading, &QAction::triggered, this, &MainWindow::toggleMultithreading);
+	connect(ui->actionSvgUpscale, &QAction::triggered, this, &MainWindow::toggleSvgUpscale);
 	connect(ui->loadFromUrlButton,SIGNAL(clicked()),this,SLOT(loadFromUrl()));
 	connect(ui->greenFlag,&QPushButton::clicked,scene,&projectScene::greenFlag);
 	connect(ui->stopButton,&QPushButton::clicked,scene,&projectScene::stop);
@@ -250,4 +252,12 @@ void MainWindow::setCurrentFps(int fps)
 void MainWindow::toggleMultithreading(bool state)
 {
 	scene->setMultithreading(state);
+}
+
+/*! Toggles SVG upscaling. */
+void MainWindow::toggleSvgUpscale(bool state)
+{
+	settings.setValue("main/hqsvg", state);
+	// Set scale to refresh sprites
+	scene->setScale(scene->sceneScale());
 }

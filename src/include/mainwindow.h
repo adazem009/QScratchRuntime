@@ -69,6 +69,7 @@ class MainWindow : public QMainWindow
 		void changeFps(void);
 		void setCurrentFps(int fps);
 		void toggleMultithreading(bool state);
+		void toggleSvgUpscale(bool state);
 };
 
 #endif // MAINWINDOW_H
