@@ -177,3 +177,9 @@ void projectScene::setScale(qreal value)
 	for(int i=0; i < spriteList.count(); i++)
 		spriteList[i]->setSceneScale(scale);
 }
+
+/*! Returns scene scale. */
+qreal projectScene::sceneScale(void)
+{
+	return scale;
+}

@@ -42,6 +42,7 @@ class projectScene : public QGraphicsScene
 		int currentFps(void);
 		void setMultithreading(bool state);
 		void setScale(qreal value);
+		qreal sceneScale(void);
 
 	private:
 		QList<scratchSprite*> spriteList;
