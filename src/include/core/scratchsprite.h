@@ -33,6 +33,9 @@
 #include <QMediaPlayer>
 #include <QElapsedTimer>
 #include <QBuffer>
+#include <QSvgRenderer>
+#include <QPainter>
+#include <QSettings>
 #include "global.h"
 
 class Engine;
@@ -98,6 +101,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		QGraphicsPixmapItem *speechBubble;
 		QGraphicsTextItem *speechBubbleText;
 		QPixmap costumePixmap;
+		QSettings settings;
 
 	signals:
 		/*! A signal, which is emitted from the stage when the backdrop switches. */

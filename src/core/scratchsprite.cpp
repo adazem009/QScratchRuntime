@@ -417,17 +417,33 @@ void scratchSprite::setMousePos(QPointF pos)
 void scratchSprite::setCostume(int id, QVariantMap *script)
 {
 	currentCostume = id;
+	QString dataFormat = costumes[id].value("dataFormat").toString();
+	QString assetId = costumes[id].value("assetId").toString();
+	QByteArray data;
 	if(assetDir == "")
+		data = *projectAssets[assetId];
+	else
 	{
-		costumePixmap = QPixmap();
-		costumePixmap.loadFromData(*projectAssets[costumes[id].value("assetId").toString()]);
+		QFile assetFile(assetDir + "/" + assetId + "." + dataFormat);
+		assetFile.open(QFile::ReadOnly);
+		data = assetFile.readAll();
+	}
+	double scale = 1;
+	if((dataFormat == "svg") && settings.value("main/hqsvg", true).toBool())
+	{
+		QSvgRenderer renderer(data);
+		QImage image(renderer.defaultSize() * sceneScale, QImage::Format_ARGB32);
+		image.fill(0);
+		QPainter painter(&image);
+		renderer.render(&painter);
+		costumePixmap = QPixmap::fromImage(image);
 	}
 	else
-		costumePixmap = QPixmap(assetDir + "/" + costumes[id].value("assetId").toString() + "." + costumes[id].value("dataFormat").toString());
-	costumePixmap = costumePixmap.scaled(costumePixmap.width() * sceneScale, costumePixmap.height() * sceneScale);
-	double scale = 1;
-	if(costumes[id].value("dataFormat").toString() != "svg")
-		scale = 0.5; // non-vector images are 2 times bigger for some reason
+	{
+		costumePixmap = QPixmap();
+		costumePixmap.loadFromData(data);
+		costumePixmap = costumePixmap.scaled(costumePixmap.width() * sceneScale, costumePixmap.height() * sceneScale);
+	}
 	costumePixmap = costumePixmap.scaledToHeight(costumePixmap.height() * scale);
 	setPixmap(costumePixmap);
 	rotationCenterX = costumes[id].value("rotationCenterX").toDouble() * scale * sceneScale;
