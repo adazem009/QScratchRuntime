@@ -63,9 +63,13 @@ class MainWindow : public QMainWindow
 		void continueLoading(QNetworkReply* reply);
 		void init(void);
 
+	protected:
+		void resizeEvent(QResizeEvent *event) override;
+
 	private slots:
 		void openFile(void);
 		void loadFromUrl(void);
+		void adjustSceneSize(void);
 		void changeFps(void);
 		void setCurrentFps(int fps);
 		void toggleMultithreading(bool state);

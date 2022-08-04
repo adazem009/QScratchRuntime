@@ -27,14 +27,16 @@ MainWindow::MainWindow(QWidget *parent)
 	, ui(new Ui::MainWindow)
 {
 	ui->setupUi(this);
-	scene = new projectScene;
+	scene = new projectScene(1);
 	view = new QGraphicsView(scene,ui->centralwidget);
-	view->scale(2,2);
 	view->setMouseTracking(true);
+	view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+	view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 	ui->projectLayout->addWidget(view);
-	view->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
+	view->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
 	view->setStyleSheet("QGraphicsView { background-color: rgb(255,255,255); }");
 	view->hide();
+	QMetaObject::invokeMethod(this, "adjustSceneSize", Qt::QueuedConnection);
 #ifndef Q_OS_WASM
 	QOpenGLWidget *gl = new QOpenGLWidget();
 	QSurfaceFormat format;
@@ -225,6 +227,20 @@ void MainWindow::init(void)
 	// Enable control buttons
 	ui->greenFlag->setEnabled(true);
 	ui->stopButton->setEnabled(true);
+}
+
+/*! Sets scene scale based on window size. */
+void MainWindow::adjustSceneSize(void)
+{
+	scene->setScale(std::min(ui->projectFrame->width() / 480.0, ui->projectFrame->height() / 360.0));
+	view->setMaximumSize(QSize(480 * scene->sceneScale(), 360 * scene->sceneScale()));
+}
+
+/*! Overrides QMainWindow#resizeEvent(). */
+void MainWindow::resizeEvent(QResizeEvent *event)
+{
+	adjustSceneSize();
+	QMainWindow::resizeEvent(event);
 }
 
 /*! Allows the user to change FPS. */
