@@ -172,6 +172,7 @@ void scratchSprite::stopAll(void)
 	stopAllSounds();
 }
 
+/*! Resets the timer. */
 void scratchSprite::resetTimer(void)
 {
 	timer.start();
