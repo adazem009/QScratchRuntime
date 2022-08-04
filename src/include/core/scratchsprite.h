@@ -62,7 +62,6 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		void broadcastReceived(QString broadcastName, QVariantMap *script);
 		QPointer<QMediaPlayer> *playSound(QString soundName);
 		Engine* engine(void);
-		void setSceneScale(qreal value);
 		qreal mouseX, mouseY;
 		bool isStage = false; /*!< True if this is a stage. */
 		QString name; /*!< Sprite name. */
@@ -118,6 +117,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		void greenFlagClicked(void);
 		void stopAll(void);
 		void stopSprite(void);
+		void setSceneScale(qreal value);
 };
 
 extern QList<scratchSprite*> spriteList;

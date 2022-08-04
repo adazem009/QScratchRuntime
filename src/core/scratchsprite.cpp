@@ -97,6 +97,7 @@ scratchSprite::scratchSprite(QJsonObject spriteObject, QString spriteAssetDir, Q
 		}
 	}
 	// Connections
+	connect(m_engine, &Engine::setSceneScale, this, &scratchSprite::setSceneScale);
 	connect(m_engine, &Engine::setX, this, &scratchSprite::setXPos);
 	connect(m_engine, &Engine::setY, this, &scratchSprite::setYPos);
 	connect(m_engine, &Engine::setCostume, this, &scratchSprite::setCostume);
