@@ -196,6 +196,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5323d1a44fdcdb74e3e3cc00f480a437"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ae26de7a17cbe45a4f8a4043fcfa627"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEngine.html">Engine</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#a9ae26de7a17cbe45a4f8a4043fcfa627">engine</a> (void)</td></tr>
 <tr class="separator:a9ae26de7a17cbe45a4f8a4043fcfa627"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae311a42fce0337f5dde656ffc2b51048"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#ae311a42fce0337f5dde656ffc2b51048">setSceneScale</a> (qreal value)</td></tr>
+<tr class="separator:ae311a42fce0337f5dde656ffc2b51048"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -253,6 +255,9 @@ QElapsedTimer&#160;</td><td class="memItemRight" valign="bottom"><b>timer</b></t
 <tr class="memitem:a270d451fa176f5c5e7729358b5c52fb9"><td class="memItemLeft" align="right" valign="top"><a id="a270d451fa176f5c5e7729358b5c52fb9" name="a270d451fa176f5c5e7729358b5c52fb9"></a>
 QVector&lt; QVariantMap * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>stackPointers</b></td></tr>
 <tr class="separator:a270d451fa176f5c5e7729358b5c52fb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55cb36f3a4174b7ebf131385f2eef8e2"><td class="memItemLeft" align="right" valign="top"><a id="a55cb36f3a4174b7ebf131385f2eef8e2" name="a55cb36f3a4174b7ebf131385f2eef8e2"></a>
+qreal&#160;</td><td class="memItemRight" valign="bottom"><b>sceneScale</b> = 1</td></tr>
+<tr class="separator:a55cb36f3a4174b7ebf131385f2eef8e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -305,6 +310,9 @@ QGraphicsTextItem *&#160;</td><td class="memItemRight" valign="bottom"><b>speech
 <tr class="memitem:ab4e56ad2b43b23a3eb278dd4bfd497be"><td class="memItemLeft" align="right" valign="top"><a id="ab4e56ad2b43b23a3eb278dd4bfd497be" name="ab4e56ad2b43b23a3eb278dd4bfd497be"></a>
 QPixmap&#160;</td><td class="memItemRight" valign="bottom"><b>costumePixmap</b></td></tr>
 <tr class="separator:ab4e56ad2b43b23a3eb278dd4bfd497be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9af5aa9416af4f2bc8482c1683255027"><td class="memItemLeft" align="right" valign="top"><a id="a9af5aa9416af4f2bc8482c1683255027" name="a9af5aa9416af4f2bc8482c1683255027"></a>
+QSettings&#160;</td><td class="memItemRight" valign="bottom"><b>settings</b></td></tr>
+<tr class="separator:a9af5aa9416af4f2bc8482c1683255027"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The <a class="el" href="classscratchSprite.html" title="The scratchSprite class is a QGraphicsPixmapItem, which represents a Scratch sprite.">scratchSprite</a> class is a QGraphicsPixmapItem, which represents a Scratch sprite. </p>
@@ -834,6 +842,25 @@ Returns nullptr if the sound isn't found. </p>
       </table>
 </div><div class="memdoc">
 <p >Used by <a class="el" href="classprojectScene.html" title="The projectScene class is a QGraphicsScene used to manage all sprites.">projectScene</a> to set mouse-pointer position. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classprojectScene.html#a381d1f0a59381d3a98553c656ef01d82">projectScene::mouseMoveEvent()</a> </dd></dl>
+
+</div>
+</div>
+<a id="ae311a42fce0337f5dde656ffc2b51048" name="ae311a42fce0337f5dde656ffc2b51048"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae311a42fce0337f5dde656ffc2b51048">&#9670;&nbsp;</a></span>setSceneScale()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void scratchSprite::setSceneScale </td>
+          <td>(</td>
+          <td class="paramtype">qreal&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Sets scene scale. </p>
 
 </div>
 </div>

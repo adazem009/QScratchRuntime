@@ -140,16 +140,18 @@ $(document).ready(function(){initNavTree('engine_8h_source.html',''); initResiza
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="keywordtype">void</span> resetGraphicEffects(<span class="keywordtype">void</span>);</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordtype">void</span> installGraphicEffects(<span class="keywordtype">void</span>);</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keywordtype">void</span> showBubble(QString text, <span class="keywordtype">bool</span> thought = <span class="keyword">false</span>);</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>};</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="preprocessor">#endif </span><span class="comment">// ENGINE_H</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordtype">void</span> setVisible(<span class="keywordtype">bool</span> visible);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keywordtype">void</span> setZValue(qreal z);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>};</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="preprocessor">#endif </span><span class="comment">// ENGINE_H</span></div>
 <div class="ttc" id="aclassBlocks_html"><div class="ttname"><a href="classBlocks.html">Blocks</a></div><div class="ttdoc">The Blocks class contains the implementation of Scratch blocks.</div><div class="ttdef"><b>Definition:</b> blocks.h:30</div></div>
 <div class="ttc" id="aclassEngine_html"><div class="ttname"><a href="classEngine.html">Engine</a></div><div class="ttdoc">The Engine class processes sprite frames.</div><div class="ttdef"><b>Definition:</b> engine.h:32</div></div>
 <div class="ttc" id="aclassEngine_html_a1084a6f9fb62af3c800b0d10e0f15a81"><div class="ttname"><a href="classEngine.html#a1084a6f9fb62af3c800b0d10e0f15a81">Engine::frame</a></div><div class="ttdeci">void frame(void)</div><div class="ttdef"><b>Definition:</b> engine.cpp:31</div></div>
 <div class="ttc" id="aclassEngine_html_a9aa90ff53f67436f16a37d513880ed51"><div class="ttname"><a href="classEngine.html#a9aa90ff53f67436f16a37d513880ed51">Engine::Engine</a></div><div class="ttdeci">Engine(scratchSprite *sprite, QObject *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> engine.cpp:26</div></div>
 <div class="ttc" id="aclassEngine_html_ab3830d6b541c7f7bc1935877921069f0"><div class="ttname"><a href="classEngine.html#ab3830d6b541c7f7bc1935877921069f0">Engine::spriteTimerEvent</a></div><div class="ttdeci">void spriteTimerEvent(void)</div><div class="ttdef"><b>Definition:</b> engine.cpp:249</div></div>
 <div class="ttc" id="aclassEngine_html_abfd541a77516661c890d18b1855cff4b"><div class="ttname"><a href="classEngine.html#abfd541a77516661c890d18b1855cff4b">Engine::getInputs</a></div><div class="ttdeci">QMap&lt; QString, QString &gt; getInputs(QVariantMap block, bool readFields=false)</div><div class="ttdef"><b>Definition:</b> engine.cpp:179</div></div>
-<div class="ttc" id="aclassscratchSprite_html"><div class="ttname"><a href="classscratchSprite.html">scratchSprite</a></div><div class="ttdoc">The scratchSprite class is a QGraphicsPixmapItem, which represents a Scratch sprite.</div><div class="ttdef"><b>Definition:</b> scratchsprite.h:42</div></div>
+<div class="ttc" id="aclassscratchSprite_html"><div class="ttname"><a href="classscratchSprite.html">scratchSprite</a></div><div class="ttdoc">The scratchSprite class is a QGraphicsPixmapItem, which represents a Scratch sprite.</div><div class="ttdef"><b>Definition:</b> scratchsprite.h:45</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

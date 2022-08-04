@@ -86,6 +86,7 @@ $(document).ready(function(){initNavTree('classMainWindow.html',''); initResizab
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pri-slots">Private Slots</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
@@ -125,18 +126,27 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae98d00a93bc118200eeef9f9bba1dba7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWindow.html#ae98d00a93bc118200eeef9f9bba1dba7">~MainWindow</a> ()</td></tr>
 <tr class="separator:ae98d00a93bc118200eeef9f9bba1dba7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:aad75236c74a5c340c3e18749a9b5eb4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWindow.html#aad75236c74a5c340c3e18749a9b5eb4f">resizeEvent</a> (QResizeEvent *event) override</td></tr>
+<tr class="separator:aad75236c74a5c340c3e18749a9b5eb4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-slots" name="pri-slots"></a>
 Private Slots</h2></td></tr>
 <tr class="memitem:ab14469aff316235cb2ee764483a6319d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWindow.html#ab14469aff316235cb2ee764483a6319d">openFile</a> (void)</td></tr>
 <tr class="separator:ab14469aff316235cb2ee764483a6319d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf9b021aef67e5c38af3f4d218169f0b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWindow.html#acf9b021aef67e5c38af3f4d218169f0b">loadFromUrl</a> (void)</td></tr>
 <tr class="separator:acf9b021aef67e5c38af3f4d218169f0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6ef7af8827fde91d756c0f9959ab023"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWindow.html#ad6ef7af8827fde91d756c0f9959ab023">adjustSceneSize</a> (void)</td></tr>
+<tr class="separator:ad6ef7af8827fde91d756c0f9959ab023"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4d8e1c973adb7c5e6a4ad219ecd71fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWindow.html#ad4d8e1c973adb7c5e6a4ad219ecd71fa">changeFps</a> (void)</td></tr>
 <tr class="separator:ad4d8e1c973adb7c5e6a4ad219ecd71fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f1e227ed875a5f2663178adbfbd8e5c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWindow.html#a6f1e227ed875a5f2663178adbfbd8e5c">setCurrentFps</a> (int fps)</td></tr>
 <tr class="separator:a6f1e227ed875a5f2663178adbfbd8e5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3096998de74cf7e1632222e557839e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWindow.html#ad3096998de74cf7e1632222e557839e1">toggleMultithreading</a> (bool state)</td></tr>
 <tr class="separator:ad3096998de74cf7e1632222e557839e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa67c45e359a2f0f45e75dc93900b79b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWindow.html#aaa67c45e359a2f0f45e75dc93900b79b">toggleSvgUpscale</a> (bool state)</td></tr>
+<tr class="separator:aaa67c45e359a2f0f45e75dc93900b79b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -231,6 +241,33 @@ QSettings&#160;</td><td class="memItemRight" valign="bottom"><b>settings</b></td
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad6ef7af8827fde91d756c0f9959ab023" name="ad6ef7af8827fde91d756c0f9959ab023"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6ef7af8827fde91d756c0f9959ab023">&#9670;&nbsp;</a></span>adjustSceneSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWindow::adjustSceneSize </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Sets scene scale based on window size. </p>
+
+</div>
+</div>
 <a id="ad4d8e1c973adb7c5e6a4ad219ecd71fa" name="ad4d8e1c973adb7c5e6a4ad219ecd71fa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad4d8e1c973adb7c5e6a4ad219ecd71fa">&#9670;&nbsp;</a></span>changeFps</h2>
 
@@ -368,6 +405,33 @@ Opens a Scratch project. </p>
 
 </div>
 </div>
+<a id="aad75236c74a5c340c3e18749a9b5eb4f" name="aad75236c74a5c340c3e18749a9b5eb4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad75236c74a5c340c3e18749a9b5eb4f">&#9670;&nbsp;</a></span>resizeEvent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWindow::resizeEvent </td>
+          <td>(</td>
+          <td class="paramtype">QResizeEvent *&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Overrides QMainWindow::resizeEvent(). </p>
+
+</div>
+</div>
 <a id="a6f1e227ed875a5f2663178adbfbd8e5c" name="a6f1e227ed875a5f2663178adbfbd8e5c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6f1e227ed875a5f2663178adbfbd8e5c">&#9670;&nbsp;</a></span>setCurrentFps</h2>
 
@@ -419,6 +483,33 @@ Opens a Scratch project. </p>
 </table>
 </div><div class="memdoc">
 <p >Toggles multithreading. </p>
+
+</div>
+</div>
+<a id="aaa67c45e359a2f0f45e75dc93900b79b" name="aaa67c45e359a2f0f45e75dc93900b79b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa67c45e359a2f0f45e75dc93900b79b">&#9670;&nbsp;</a></span>toggleSvgUpscale</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWindow::toggleSvgUpscale </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Toggles SVG upscaling. </p>
 
 </div>
 </div>

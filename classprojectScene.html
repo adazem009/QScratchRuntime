@@ -136,8 +136,8 @@ Signals</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8c8ee7ea57b02c439c400f501ca7eb50"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classprojectScene.html#a8c8ee7ea57b02c439c400f501ca7eb50">projectScene</a> (qreal x=-240, qreal y=-180, qreal width=480, qreal height=360, QObject *parent=nullptr)</td></tr>
-<tr class="separator:a8c8ee7ea57b02c439c400f501ca7eb50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fc7897852e042f13fe4422ee0290be2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classprojectScene.html#a9fc7897852e042f13fe4422ee0290be2">projectScene</a> (qreal scale, QObject *parent=nullptr)</td></tr>
+<tr class="separator:a9fc7897852e042f13fe4422ee0290be2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82704fa5c1e2296e615a4eb57caff0c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classprojectScene.html#a82704fa5c1e2296e615a4eb57caff0c2">loadSpriteList</a> (QList&lt; <a class="el" href="classscratchSprite.html">scratchSprite</a> * &gt; list)</td></tr>
 <tr class="separator:a82704fa5c1e2296e615a4eb57caff0c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00167146ef77ffbd8975476bd45ae662"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classprojectScene.html#a00167146ef77ffbd8975476bd45ae662">clearSpriteList</a> (void)</td></tr>
@@ -148,6 +148,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a151038ee9a32709b33af05befdbe963a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad16da236a29407b94954f96fa76020d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classprojectScene.html#aad16da236a29407b94954f96fa76020d">setMultithreading</a> (bool state)</td></tr>
 <tr class="separator:aad16da236a29407b94954f96fa76020d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb641dc1b7d8bd6eb4959373bb8ce54d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classprojectScene.html#acb641dc1b7d8bd6eb4959373bb8ce54d">setScale</a> (qreal value)</td></tr>
+<tr class="separator:acb641dc1b7d8bd6eb4959373bb8ce54d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2c0415f506ec03c299f989569139eba"><td class="memItemLeft" align="right" valign="top">qreal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classprojectScene.html#ae2c0415f506ec03c299f989569139eba">sceneScale</a> (void)</td></tr>
+<tr class="separator:ae2c0415f506ec03c299f989569139eba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -188,12 +192,15 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>fpsValue</b> = 0</td><
 <tr class="memitem:ac1212ba72f37e5dcb432b26ac44e96c4"><td class="memItemLeft" align="right" valign="top"><a id="ac1212ba72f37e5dcb432b26ac44e96c4" name="ac1212ba72f37e5dcb432b26ac44e96c4"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>multithreading</b></td></tr>
 <tr class="separator:ac1212ba72f37e5dcb432b26ac44e96c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7160ab382004e9bb48be408a7a39bd03"><td class="memItemLeft" align="right" valign="top"><a id="a7160ab382004e9bb48be408a7a39bd03" name="a7160ab382004e9bb48be408a7a39bd03"></a>
+qreal&#160;</td><td class="memItemRight" valign="bottom"><b>scale</b></td></tr>
+<tr class="separator:a7160ab382004e9bb48be408a7a39bd03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The <a class="el" href="classprojectScene.html" title="The projectScene class is a QGraphicsScene used to manage all sprites.">projectScene</a> class is a QGraphicsScene used to manage all sprites. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a8c8ee7ea57b02c439c400f501ca7eb50" name="a8c8ee7ea57b02c439c400f501ca7eb50"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8c8ee7ea57b02c439c400f501ca7eb50">&#9670;&nbsp;</a></span>projectScene()</h2>
+<a id="a9fc7897852e042f13fe4422ee0290be2" name="a9fc7897852e042f13fe4422ee0290be2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fc7897852e042f13fe4422ee0290be2">&#9670;&nbsp;</a></span>projectScene()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -205,25 +212,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>multithreading</b></t
           <td class="memname">projectScene::projectScene </td>
           <td>(</td>
           <td class="paramtype">qreal&#160;</td>
-          <td class="paramname"><em>x</em> = <code>-240</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">qreal&#160;</td>
-          <td class="paramname"><em>y</em> = <code>-180</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">qreal&#160;</td>
-          <td class="paramname"><em>width</em> = <code>480</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">qreal&#160;</td>
-          <td class="paramname"><em>height</em> = <code>360</code>, </td>
+          <td class="paramname"><em>sceneScale</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -531,6 +520,25 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>multithreading</b></t
 
 </div>
 </div>
+<a id="ae2c0415f506ec03c299f989569139eba" name="ae2c0415f506ec03c299f989569139eba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2c0415f506ec03c299f989569139eba">&#9670;&nbsp;</a></span>sceneScale()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qreal projectScene::sceneScale </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Returns scene scale. </p>
+
+</div>
+</div>
 <a id="a2c74e6753979ba729dc9c539514800c7" name="a2c74e6753979ba729dc9c539514800c7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2c74e6753979ba729dc9c539514800c7">&#9670;&nbsp;</a></span>setFps()</h2>
 
@@ -566,6 +574,25 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>multithreading</b></t
       </table>
 </div><div class="memdoc">
 <p >Toggles multithreading. </p>
+
+</div>
+</div>
+<a id="acb641dc1b7d8bd6eb4959373bb8ce54d" name="acb641dc1b7d8bd6eb4959373bb8ce54d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb641dc1b7d8bd6eb4959373bb8ce54d">&#9670;&nbsp;</a></span>setScale()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void projectScene::setScale </td>
+          <td>(</td>
+          <td class="paramtype">qreal&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Sets scene scale. </p>
 
 </div>
 </div>

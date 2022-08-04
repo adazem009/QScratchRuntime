@@ -1,6 +1,6 @@
 var classprojectScene =
 [
-    [ "projectScene", "classprojectScene.html#a8c8ee7ea57b02c439c400f501ca7eb50", null ],
+    [ "projectScene", "classprojectScene.html#a9fc7897852e042f13fe4422ee0290be2", null ],
     [ "backdropSwitched", "classprojectScene.html#a3f50e196d9897278264da8d2fa3db779", null ],
     [ "broadcastSent", "classprojectScene.html#a8c3b992f8304cbc161911112281e24cf", null ],
     [ "clearSpriteList", "classprojectScene.html#a00167146ef77ffbd8975476bd45ae662", null ],
@@ -12,8 +12,10 @@ var classprojectScene =
     [ "mouseDoubleClickEvent", "classprojectScene.html#a0dc2c5484c1ef8f83acbf12b9cbc6fed", null ],
     [ "mouseMoveEvent", "classprojectScene.html#a381d1f0a59381d3a98553c656ef01d82", null ],
     [ "mousePressEvent", "classprojectScene.html#a7be8c52d061099acca42eef41e39840b", null ],
+    [ "sceneScale", "classprojectScene.html#ae2c0415f506ec03c299f989569139eba", null ],
     [ "setFps", "classprojectScene.html#a2c74e6753979ba729dc9c539514800c7", null ],
     [ "setMultithreading", "classprojectScene.html#aad16da236a29407b94954f96fa76020d", null ],
+    [ "setScale", "classprojectScene.html#acb641dc1b7d8bd6eb4959373bb8ce54d", null ],
     [ "stop", "classprojectScene.html#a9ff31bd7af48c9e6d6c54554637926e3", null ],
     [ "timerEvent", "classprojectScene.html#a485d4400a0b80cf8556545b7741a3b5d", null ]
 ];

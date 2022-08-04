@@ -20,6 +20,7 @@ var classscratchSprite =
     [ "setCostume", "classscratchSprite.html#ac0bf3c62a2c6788d6f782c995766b30b", null ],
     [ "setDirection", "classscratchSprite.html#a7ba47275426e6925d8e37d9ecb84e349", null ],
     [ "setMousePos", "classscratchSprite.html#a0f00f9ca722b62c15b74a3fee89f561a", null ],
+    [ "setSceneScale", "classscratchSprite.html#ae311a42fce0337f5dde656ffc2b51048", null ],
     [ "setSize", "classscratchSprite.html#aaa192f3c27395177029a47366ee143d8", null ],
     [ "setVolume", "classscratchSprite.html#a13d937e2bd01ac7c4ff72e14cc6cabc0", null ],
     [ "setXPos", "classscratchSprite.html#ade994e8c0803e447564e92545d69c8a8", null ],
