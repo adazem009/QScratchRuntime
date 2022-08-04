@@ -45,7 +45,6 @@ class projectScene : public QGraphicsScene
 		qreal sceneScale(void);
 
 	private:
-		QList<scratchSprite*> spriteList;
 		bool projectRunning;
 		int timerID = -1, fpsTimerID = -1;
 		QSettings settings;
