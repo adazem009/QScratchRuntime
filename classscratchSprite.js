@@ -14,7 +14,6 @@ var classscratchSprite =
     [ "greenFlagClicked", "classscratchSprite.html#a152b51974e513a0afb6f8770765bc177", null ],
     [ "installGraphicEffects", "classscratchSprite.html#a87a0eabc6bb2b1d5c1ec034ffb3a7542", null ],
     [ "keyPressed", "classscratchSprite.html#a088476078fa21b3c71572b26f46294b3", null ],
-    [ "loadSpriteList", "classscratchSprite.html#a2429ac26a3c4bec405a51b2f3a82ae49", null ],
     [ "playSound", "classscratchSprite.html#a5323d1a44fdcdb74e3e3cc00f480a437", null ],
     [ "resetGraphicEffects", "classscratchSprite.html#a221f792a1ff70f3507818a35ec095e61", null ],
     [ "setCostume", "classscratchSprite.html#ac0bf3c62a2c6788d6f782c995766b30b", null ],

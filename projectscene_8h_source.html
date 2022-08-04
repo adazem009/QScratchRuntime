@@ -133,32 +133,31 @@ $(document).ready(function(){initNavTree('projectscene_8h_source.html',''); init
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        qreal <a class="code hl_function" href="classprojectScene.html#ae2c0415f506ec03c299f989569139eba">sceneScale</a>(<span class="keywordtype">void</span>);</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        QList&lt;scratchSprite*&gt; spriteList;</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordtype">bool</span> projectRunning;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keywordtype">int</span> timerID = -1, fpsTimerID = -1;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        QSettings settings;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="keywordtype">int</span> frames = 0, fpsValue = 0;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordtype">bool</span> multithreading;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        qreal scale;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    signals:</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classprojectScene.html#aa7855276dd606e3f88b75c73a7630dc0">   58</a></span>        <span class="keywordtype">void</span> <a class="code hl_signal" href="classprojectScene.html#aa7855276dd606e3f88b75c73a7630dc0">currentFpsChanged</a>(<span class="keywordtype">int</span> fps);</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keyword">public</span> slots:</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keywordtype">void</span> <a class="code hl_slot" href="classprojectScene.html#a36bd395882d7dee2e570fbfb3aab1c30">greenFlag</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keywordtype">void</span> <a class="code hl_slot" href="classprojectScene.html#a9ff31bd7af48c9e6d6c54554637926e3">stop</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keywordtype">void</span> <a class="code hl_slot" href="classprojectScene.html#a3f50e196d9897278264da8d2fa3db779">backdropSwitched</a>(QVariantMap *script);</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="keywordtype">void</span> <a class="code hl_slot" href="classprojectScene.html#a8c3b992f8304cbc161911112281e24cf">broadcastSent</a>(QString broadcastName, QVariantMap *script = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classprojectScene.html#a485d4400a0b80cf8556545b7741a3b5d">timerEvent</a>(QTimerEvent *event);</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classprojectScene.html#a7be8c52d061099acca42eef41e39840b">mousePressEvent</a>(QGraphicsSceneMouseEvent *event);</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classprojectScene.html#a0dc2c5484c1ef8f83acbf12b9cbc6fed">mouseDoubleClickEvent</a>(QGraphicsSceneMouseEvent *event);</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classprojectScene.html#a381d1f0a59381d3a98553c656ef01d82">mouseMoveEvent</a>(QGraphicsSceneMouseEvent *event);</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classprojectScene.html#a0a039a537c5f7a44db11706799d0b8b6">keyPressEvent</a>(QKeyEvent *event);</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>};</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="preprocessor">#endif </span><span class="comment">// PROJECTSCENE_H</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordtype">bool</span> projectRunning;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordtype">int</span> timerID = -1, fpsTimerID = -1;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        QSettings settings;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keywordtype">int</span> frames = 0, fpsValue = 0;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="keywordtype">bool</span> multithreading;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        qreal scale;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    signals:</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classprojectScene.html#aa7855276dd606e3f88b75c73a7630dc0">   57</a></span>        <span class="keywordtype">void</span> <a class="code hl_signal" href="classprojectScene.html#aa7855276dd606e3f88b75c73a7630dc0">currentFpsChanged</a>(<span class="keywordtype">int</span> fps);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keyword">public</span> slots:</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keywordtype">void</span> <a class="code hl_slot" href="classprojectScene.html#a36bd395882d7dee2e570fbfb3aab1c30">greenFlag</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keywordtype">void</span> <a class="code hl_slot" href="classprojectScene.html#a9ff31bd7af48c9e6d6c54554637926e3">stop</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keywordtype">void</span> <a class="code hl_slot" href="classprojectScene.html#a3f50e196d9897278264da8d2fa3db779">backdropSwitched</a>(QVariantMap *script);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keywordtype">void</span> <a class="code hl_slot" href="classprojectScene.html#a8c3b992f8304cbc161911112281e24cf">broadcastSent</a>(QString broadcastName, QVariantMap *script = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classprojectScene.html#a485d4400a0b80cf8556545b7741a3b5d">timerEvent</a>(QTimerEvent *event);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classprojectScene.html#a7be8c52d061099acca42eef41e39840b">mousePressEvent</a>(QGraphicsSceneMouseEvent *event);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classprojectScene.html#a0dc2c5484c1ef8f83acbf12b9cbc6fed">mouseDoubleClickEvent</a>(QGraphicsSceneMouseEvent *event);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classprojectScene.html#a381d1f0a59381d3a98553c656ef01d82">mouseMoveEvent</a>(QGraphicsSceneMouseEvent *event);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classprojectScene.html#a0a039a537c5f7a44db11706799d0b8b6">keyPressEvent</a>(QKeyEvent *event);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>};</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="preprocessor">#endif </span><span class="comment">// PROJECTSCENE_H</span></div>
 <div class="ttc" id="aclassprojectScene_html"><div class="ttname"><a href="classprojectScene.html">projectScene</a></div><div class="ttdoc">The projectScene class is a QGraphicsScene used to manage all sprites.</div><div class="ttdef"><b>Definition:</b> projectscene.h:35</div></div>
 <div class="ttc" id="aclassprojectScene_html_a00167146ef77ffbd8975476bd45ae662"><div class="ttname"><a href="classprojectScene.html#a00167146ef77ffbd8975476bd45ae662">projectScene::clearSpriteList</a></div><div class="ttdeci">void clearSpriteList(void)</div><div class="ttdef"><b>Definition:</b> projectscene.cpp:48</div></div>
 <div class="ttc" id="aclassprojectScene_html_a0a039a537c5f7a44db11706799d0b8b6"><div class="ttname"><a href="classprojectScene.html#a0a039a537c5f7a44db11706799d0b8b6">projectScene::keyPressEvent</a></div><div class="ttdeci">void keyPressEvent(QKeyEvent *event)</div><div class="ttdef"><b>Definition:</b> projectscene.cpp:83</div></div>

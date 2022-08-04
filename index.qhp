@@ -77,7 +77,6 @@
 <section title="greenFlagClicked" ref="classscratchSprite.html#a152b51974e513a0afb6f8770765bc177"/>
 <section title="installGraphicEffects" ref="classscratchSprite.html#a87a0eabc6bb2b1d5c1ec034ffb3a7542"/>
 <section title="keyPressed" ref="classscratchSprite.html#a088476078fa21b3c71572b26f46294b3"/>
-<section title="loadSpriteList" ref="classscratchSprite.html#a2429ac26a3c4bec405a51b2f3a82ae49"/>
 <section title="playSound" ref="classscratchSprite.html#a5323d1a44fdcdb74e3e3cc00f480a437"/>
 <section title="resetGraphicEffects" ref="classscratchSprite.html#a221f792a1ff70f3507818a35ec095e61"/>
 <section title="setCostume" ref="classscratchSprite.html#ac0bf3c62a2c6788d6f782c995766b30b"/>
@@ -193,7 +192,6 @@
 <keyword name="keyPressed(int key, QString keyText)" id="scratchSprite::keyPressed_a088476078fa21b3c71572b26f46294b3" ref="classscratchSprite.html#a088476078fa21b3c71572b26f46294b3"/>
 <keyword name="keyPressEvent(QKeyEvent *event)" id="projectScene::keyPressEvent_a0a039a537c5f7a44db11706799d0b8b6" ref="classprojectScene.html#a0a039a537c5f7a44db11706799d0b8b6"/>
 <keyword name="loadFromUrl(void)" id="MainWindow::loadFromUrl_acf9b021aef67e5c38af3f4d218169f0b" ref="classMainWindow.html#acf9b021aef67e5c38af3f4d218169f0b"/>
-<keyword name="loadSpriteList(QList&lt; scratchSprite * &gt; lists)" id="scratchSprite::loadSpriteList_a2429ac26a3c4bec405a51b2f3a82ae49" ref="classscratchSprite.html#a2429ac26a3c4bec405a51b2f3a82ae49"/>
 <keyword name="loadSpriteList(QList&lt; scratchSprite * &gt; list)" id="projectScene::loadSpriteList_a82704fa5c1e2296e615a4eb57caff0c2" ref="classprojectScene.html#a82704fa5c1e2296e615a4eb57caff0c2"/>
 <keyword name="looksBlocks(scratchSprite *sprite, QString opcode, QMap&lt; QString, QString &gt; inputs, int processID, QVariantMap **newStack=nullptr, bool *frameEnd=nullptr, bool *processEnd=nullptr, QString *returnValue=nullptr)" id="Blocks::looksBlocks_aadcbba8f4185adf58528791ea6c3be54" ref="classBlocks.html#aadcbba8f4185adf58528791ea6c3be54"/>
 <keyword name="MainWindow(QWidget *parent=nullptr)" id="MainWindow::MainWindow_a996c5a2b6f77944776856f08ec30858d" ref="classMainWindow.html#a996c5a2b6f77944776856f08ec30858d"/>
