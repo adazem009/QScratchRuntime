@@ -21,6 +21,8 @@
 #include "core/scratchsprite.h"
 #include "core/engine.h"
 
+QList<scratchSprite*> spriteList;
+
 /*! Constructs scratchSprite. */
 scratchSprite::scratchSprite(QJsonObject spriteObject, QString spriteAssetDir, QGraphicsItem *parent) :
 	QGraphicsPixmapItem(parent),
@@ -121,12 +123,6 @@ scratchSprite::~scratchSprite()
 int scratchSprite::type(void) const
 {
 	return Type;
-}
-
-/*! Loads list of sprite pointers. */
-void scratchSprite::loadSpriteList(QList<scratchSprite*> list)
-{
-	spriteList = list;
 }
 
 /*! Returns a pointer to the sprite if it exists. Otherwise returns a null pointer. */

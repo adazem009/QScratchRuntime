@@ -49,7 +49,6 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		explicit scratchSprite(QJsonObject spriteObject, QString assetDir, QGraphicsItem *parent = nullptr);
 		~scratchSprite();
 		int type(void) const override;
-		void loadSpriteList(QList<scratchSprite*> lists);
 		scratchSprite *getSprite(QString name);
 		void setMousePos(QPointF pos);
 		void frame(void);
@@ -80,7 +79,6 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		QMap<QString,QVariantMap> frameEvents;
 		QMap<QString,QVariantMap> blocks;
 		QMap<QString,qreal> graphicEffects;
-		QList<scratchSprite*> spriteList;
 		QElapsedTimer timer;
 		QVector<QVariantMap*> stackPointers;
 		qreal sceneScale = 1;
@@ -122,5 +120,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		void stopAll(void);
 		void stopSprite(void);
 };
+
+extern QList<scratchSprite*> spriteList;
 
 #endif // SCRATCHSPRITE_H
