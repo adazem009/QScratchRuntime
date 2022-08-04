@@ -219,9 +219,6 @@ void MainWindow::init(void)
 	// Add sprites
 	for(i=0; i < sprites.count(); i++)
 		scene->addItem(sprites[i]);
-	// Add list to sprite pointers to every sprite
-	for(i=0; i < sprites.count(); i++)
-		sprites[i]->loadSpriteList(sprites);
 	// Add sprite list to scene
 	scene->loadSpriteList(sprites);
 	// Enable control buttons
