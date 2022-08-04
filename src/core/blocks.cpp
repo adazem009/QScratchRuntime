@@ -435,17 +435,17 @@ bool Blocks::looksBlocks(scratchSprite *sprite, QString opcode, QMap<QString,QSt
 		if(inputs.value("FRONT_BACK") == "front")
 		{
 			int maxLayer = 0;
-			for(int i=0; i < sprite->spriteList.count(); i++)
+			for(int i=0; i < spriteList.count(); i++)
 			{
-				if(sprite->spriteList[i]->zValue() > maxLayer)
-					maxLayer = sprite->spriteList[i]->zValue();
+				if(spriteList[i]->zValue() > maxLayer)
+					maxLayer = spriteList[i]->zValue();
 			}
 			emit sprite->engine()->setZValue(maxLayer+1);
 		}
 		else
 		{
-			for(int i=0; i < sprite->spriteList.count(); i++)
-				sprite->spriteList[i]->setZValue(sprite->spriteList[i]->zValue() + 1);
+			for(int i=0; i < spriteList.count(); i++)
+				spriteList[i]->setZValue(spriteList[i]->zValue() + 1);
 			emit sprite->engine()->setZValue(1);
 		}
 	}
@@ -456,8 +456,8 @@ bool Blocks::looksBlocks(scratchSprite *sprite, QString opcode, QMap<QString,QSt
 			delta *= -1;
 		if(delta < 0)
 		{
-			for(int i=0; i < sprite->spriteList.count(); i++)
-				sprite->spriteList[i]->setZValue(sprite->spriteList[i]->zValue() + 1);
+			for(int i=0; i < spriteList.count(); i++)
+				spriteList[i]->setZValue(spriteList[i]->zValue() + 1);
 		}
 		emit sprite->engine()->setZValue(sprite->zValue() + delta);
 		if(sprite->zValue() < 1)
@@ -689,8 +689,8 @@ bool Blocks::controlBlocks(scratchSprite *sprite, QString opcode, QMap<QString,Q
 	{
 		if(inputs.value("STOP_OPTION") == "all")
 		{
-			for(int i=0; i < sprite->spriteList.count(); i++)
-				sprite->spriteList[i]->stopSprite();
+			for(int i=0; i < spriteList.count(); i++)
+				spriteList[i]->stopSprite();
 		}
 		else if(inputs.value("STOP_OPTION") == "this script")
 			sprite->engine()->currentExecPos[processID]["special"] = "remove_operation";
