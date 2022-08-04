@@ -86,7 +86,6 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 	private:
 		qreal translateX(qreal x, bool toScratch = false);
 		qreal translateY(qreal y, bool toScratch = false);
-		void bounce(void);
 		void resetTimer(void);
 		Engine *m_engine;
 		QString assetDir;
