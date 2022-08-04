@@ -44,6 +44,7 @@ class Engine : public QObject
 		QVariantMap *newStack;
 
 	signals:
+		void setSceneScale(qreal value);
 		void setX(qreal x);
 		void setY(qreal y);
 		void setSize(qreal size);
