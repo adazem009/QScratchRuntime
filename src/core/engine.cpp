@@ -30,21 +30,21 @@ Engine::Engine(scratchSprite *sprite, QObject *parent) :
 /*! Runs blocks that can be run without screen refresh.*/
 void Engine::frame(void)
 {
+	QStringList frameEventBlocks = m_sprite->frameEvents.keys();
+	for(int i=0; i < frameEventBlocks.count(); i++)
+	{
+		QVariantMap block = m_sprite->frameEvents.value(frameEventBlocks[i]);
+		QString opcode = block.value("opcode").toString();
+		QMap<QString,QString> inputs = getInputs(block);
+		if(opcode == "event_whengreaterthan")
+		{
+			if(inputs.value("WHENGREATERTHANMENU") == "LOUDNESS"); // TODO: Implement audio input loudness
+			else if(inputs.value("WHENGREATERTHANMENU") == "TIMER")
+				spriteTimerEvent();
+		}
+	}
 	do {
 		runFrameAgain = false;
-		QStringList frameEventBlocks = m_sprite->frameEvents.keys();
-		for(int i=0; i < frameEventBlocks.count(); i++)
-		{
-			QVariantMap block = m_sprite->frameEvents.value(frameEventBlocks[i]);
-			QString opcode = block.value("opcode").toString();
-			QMap<QString,QString> inputs = getInputs(block);
-			if(opcode == "event_whengreaterthan")
-			{
-				if(inputs.value("WHENGREATERTHANMENU") == "LOUDNESS"); // TODO: Implement audio input loudness
-				else if(inputs.value("WHENGREATERTHANMENU") == "TIMER")
-					spriteTimerEvent();
-			}
-		}
 		QList<QVariantMap> operationsToRemove;
 		operationsToRemove.clear();
 		newStack = nullptr;
