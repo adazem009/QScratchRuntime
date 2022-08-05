@@ -770,6 +770,11 @@ bool Blocks::controlBlocks(scratchSprite *sprite, QString opcode, QMap<QString,Q
 		else
 			cloneRequests.append(targetSprite);
 	}
+	else if(opcode == "control_delete_this_clone")
+	{
+		if(sprite->isClone())
+			sprite->stopAll();
+	}
 	// Reporter blocks
 	else if(opcode == "control_create_clone_of_menu")
 		*returnValue = inputs.value("CLONE_OPTION");
