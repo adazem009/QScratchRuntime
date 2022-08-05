@@ -36,6 +36,7 @@
 #include <QSvgRenderer>
 #include <QPainter>
 #include <QSettings>
+#include <QGraphicsScene>
 #include "global.h"
 
 class Engine;
@@ -60,8 +61,10 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		void backdropSwitchEvent(QVariantMap *script);
 		void emitBroadcast(QString broadcastName, QVariantMap *script = nullptr);
 		void broadcastReceived(QString broadcastName, QVariantMap *script);
+		void startClone(void);
 		QPointer<QMediaPlayer> *playSound(QString soundName);
 		Engine* engine(void);
+		bool isClone(void);
 		qreal mouseX, mouseY;
 		bool isStage = false; /*!< True if this is a stage. */
 		QString name; /*!< Sprite name. */
@@ -81,13 +84,14 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		QElapsedTimer timer;
 		QVector<QVariantMap*> stackPointers;
 		qreal sceneScale = 1;
+		QJsonObject jsonObject;
+		QString assetDir;
 
 	private:
 		qreal translateX(qreal x, bool toScratch = false);
 		qreal translateY(qreal y, bool toScratch = false);
 		void resetTimer(void);
 		Engine *m_engine;
-		QString assetDir;
 		qreal rotationCenterX, rotationCenterY;
 		bool pointingLeft;
 		QMap<QString,QPair<QString,QString>> variables;
@@ -98,6 +102,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 		QGraphicsTextItem *speechBubbleText;
 		QPixmap costumePixmap;
 		QSettings settings;
+		bool m_isClone = false;
 
 	signals:
 		/*! A signal, which is emitted from the stage when the backdrop switches. */
@@ -121,5 +126,7 @@ class scratchSprite : public QObject, public QGraphicsPixmapItem
 };
 
 extern QList<scratchSprite*> spriteList;
+extern QList<scratchSprite*> cloneRequests;
+extern QList<scratchSprite*> deleteRequests;
 
 #endif // SCRATCHSPRITE_H

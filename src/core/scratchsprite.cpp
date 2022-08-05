@@ -22,10 +22,14 @@
 #include "core/engine.h"
 
 QList<scratchSprite*> spriteList;
+QList<scratchSprite*> cloneRequests;
+QList<scratchSprite*> deleteRequests;
 
 /*! Constructs scratchSprite. */
 scratchSprite::scratchSprite(QJsonObject spriteObject, QString spriteAssetDir, QGraphicsItem *parent) :
 	QGraphicsPixmapItem(parent),
+	jsonObject(spriteObject),
+	assetDir(spriteAssetDir),
 	m_engine(new Engine(this, this))
 {
 	assetDir = spriteAssetDir;
@@ -148,9 +152,7 @@ scratchSprite *scratchSprite::getSprite(QString targetName)
  */
 void scratchSprite::greenFlagClicked(void)
 {
-	stopSprite();
-	resetTimer();
-	stopAllSounds();
+	stopAll();
 	QStringList blocksList = blocks.keys();
 	for(int i=0; i < blocksList.count(); i++)
 	{
@@ -172,6 +174,8 @@ void scratchSprite::stopAll(void)
 	stopSprite();
 	resetTimer();
 	stopAllSounds();
+	if(isClone() && !deleteRequests.contains(this))
+		deleteRequests += this;
 }
 
 /*! Resets the timer. */
@@ -350,6 +354,25 @@ void scratchSprite::broadcastReceived(QString broadcastName, QVariantMap *script
 				blockMap.insert("callerptr", (qlonglong) (intptr_t) script);
 				m_engine->currentExecPos += blockMap;
 			}
+		}
+	}
+}
+
+/*! Starts all "when I start as a clone" blocks. */
+void scratchSprite::startClone(void)
+{
+	m_isClone = true;
+	QStringList blocksList = blocks.keys();
+	for(int i=0; i < blocksList.count(); i++)
+	{
+		QVariantMap block = blocks.value(blocksList[i]);
+		if(block.value("opcode").toString() == "control_start_as_clone")
+		{
+			QVariantMap blockMap;
+			blockMap.clear();
+			blockMap.insert("id", blocksList[i]);
+			blockMap.insert("special", "");
+			m_engine->currentExecPos += blockMap;
 		}
 	}
 }
@@ -675,4 +698,10 @@ void scratchSprite::setSceneScale(qreal value)
 	setXPos(spriteX);
 	setYPos(spriteY);
 	setCostume(currentCostume);
+}
+
+/*! Returns true if this is a clone. */
+bool scratchSprite::isClone(void)
+{
+	return m_isClone;
 }
