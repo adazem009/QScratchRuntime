@@ -359,7 +359,10 @@ void scratchSprite::stopSprite(void)
 {
 	m_engine->currentExecPos.clear();
 	if(!isStage)
+	{
 		speechBubble->setVisible(false);
+		speechBubbleText->setVisible(false);
+	}
 	resetGraphicEffects();
 }
 
