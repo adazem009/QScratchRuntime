@@ -149,7 +149,8 @@ void projectScene::timerEvent(QTimerEvent *event)
 			for(int i=0; i < cloneRequests.count(); i++)
 			{
 				scratchSprite *clone = createClone(cloneRequests[i]);
-				clone->engine()->frame();
+				if(clone != nullptr)
+					clone->engine()->frame();
 			}
 			cloneRequests.clear();
 		}
@@ -214,9 +215,20 @@ qreal projectScene::sceneScale(void)
 	return scale;
 }
 
-/*! Creates a clone of the given sprite and returns it. */
+/*! Creates a clone of the given sprite and returns it (or nullptr if the clone can't be created due to limits). */
 scratchSprite* projectScene::createClone(scratchSprite *targetSprite)
 {
+	// Count existing clones
+	int count = 0;
+	for(int i=0; i < spriteList.count(); i++)
+	{
+		if(spriteList[i]->isClone())
+			count++;
+	}
+	// Clone limit
+	if((count >= 300) && !settings.value("main/infiniteClones", false).toBool())
+		return nullptr;
+	// Create the clone
 	scratchSprite *clone = new scratchSprite(targetSprite->jsonObject, targetSprite->assetDir);
 	addItem(clone);
 	spriteList.append(clone);
