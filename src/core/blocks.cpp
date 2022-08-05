@@ -748,7 +748,32 @@ bool Blocks::controlBlocks(scratchSprite *sprite, QString opcode, QMap<QString,Q
 			sprite->engine()->runFrameAgain = true;
 		}
 	}
-	else
+	else if(opcode == "control_create_clone_of")
+	{
+		QString cloneName = inputs.value("CLONE_OPTION");
+		scratchSprite *targetSprite = nullptr;
+		if(cloneName == "_myself_")
+			targetSprite = sprite;
+		else
+		{
+			for(int i=0; i < spriteList.count(); i++)
+			{
+				if((spriteList[i]->name == cloneName) && !spriteList[i]->isClone())
+				{
+					targetSprite = spriteList[i];
+					break;
+				}
+			}
+		}
+		if(targetSprite == nullptr)
+			qWarning() << "Warning: could not create clone; sprite" << cloneName << "not found";
+		else
+			cloneRequests.append(targetSprite);
+	}
+	// Reporter blocks
+	else if(opcode == "control_create_clone_of_menu")
+		*returnValue = inputs.value("CLONE_OPTION");
+	else if(opcode != "control_start_as_clone")
 		return false;
 	return true;
 }

@@ -21,6 +21,7 @@
 #ifndef BLOCKS_H
 #define BLOCKS_H
 
+#include "projectscene.h"
 #include "core/scratchsprite.h"
 
 class Engine;
