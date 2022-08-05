@@ -11,7 +11,7 @@ This project is in development and it can't run most of Scratch projects. This i
 - [x] Looks blocks
 - [x] Sound blocks
 - [x] Event blocks
-- [ ] Control blocks
+- [x] Control blocks
 - [ ] Sensing blocks
 - [ ] Operator blocks
 - [ ] Variables blocks
