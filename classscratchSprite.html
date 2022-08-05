@@ -154,6 +154,8 @@ Public Slots</h2></td></tr>
 <tr class="separator:a4e2eb024f2582079b3c4f60adcc7ae6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9ec8bf8179adb85bf448b1b285e5e94"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#ad9ec8bf8179adb85bf448b1b285e5e94">stopSprite</a> (void)</td></tr>
 <tr class="separator:ad9ec8bf8179adb85bf448b1b285e5e94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae311a42fce0337f5dde656ffc2b51048"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#ae311a42fce0337f5dde656ffc2b51048">setSceneScale</a> (qreal value)</td></tr>
+<tr class="separator:ae311a42fce0337f5dde656ffc2b51048"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="signals" name="signals"></a>
 Signals</h2></td></tr>
@@ -190,12 +192,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a7312384002ab10e59a0fe1681eb19d78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bad3d16269b8a6c329546a56619cb55"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#a5bad3d16269b8a6c329546a56619cb55">broadcastReceived</a> (QString broadcastName, QVariantMap *script)</td></tr>
 <tr class="separator:a5bad3d16269b8a6c329546a56619cb55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af805a795289c082c8265a082cd0dc2cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#af805a795289c082c8265a082cd0dc2cb">startClone</a> (void)</td></tr>
+<tr class="separator:af805a795289c082c8265a082cd0dc2cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5323d1a44fdcdb74e3e3cc00f480a437"><td class="memItemLeft" align="right" valign="top">QPointer&lt; QMediaPlayer &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#a5323d1a44fdcdb74e3e3cc00f480a437">playSound</a> (QString soundName)</td></tr>
 <tr class="separator:a5323d1a44fdcdb74e3e3cc00f480a437"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ae26de7a17cbe45a4f8a4043fcfa627"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEngine.html">Engine</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#a9ae26de7a17cbe45a4f8a4043fcfa627">engine</a> (void)</td></tr>
 <tr class="separator:a9ae26de7a17cbe45a4f8a4043fcfa627"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae311a42fce0337f5dde656ffc2b51048"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#ae311a42fce0337f5dde656ffc2b51048">setSceneScale</a> (qreal value)</td></tr>
-<tr class="separator:ae311a42fce0337f5dde656ffc2b51048"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3ff32b63473203c8232a7155d2d65a6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#af3ff32b63473203c8232a7155d2d65a6">isClone</a> (void)</td></tr>
+<tr class="separator:af3ff32b63473203c8232a7155d2d65a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -253,6 +257,12 @@ QVector&lt; QVariantMap * &gt;&#160;</td><td class="memItemRight" valign="bottom
 <tr class="memitem:a55cb36f3a4174b7ebf131385f2eef8e2"><td class="memItemLeft" align="right" valign="top"><a id="a55cb36f3a4174b7ebf131385f2eef8e2" name="a55cb36f3a4174b7ebf131385f2eef8e2"></a>
 qreal&#160;</td><td class="memItemRight" valign="bottom"><b>sceneScale</b> = 1</td></tr>
 <tr class="separator:a55cb36f3a4174b7ebf131385f2eef8e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b730fd78b04e763c0d406c291b79234"><td class="memItemLeft" align="right" valign="top"><a id="a5b730fd78b04e763c0d406c291b79234" name="a5b730fd78b04e763c0d406c291b79234"></a>
+QJsonObject&#160;</td><td class="memItemRight" valign="bottom"><b>jsonObject</b></td></tr>
+<tr class="separator:a5b730fd78b04e763c0d406c291b79234"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a502d307ecd55a8d7304a61f89dd4fe58"><td class="memItemLeft" align="right" valign="top"><a id="a502d307ecd55a8d7304a61f89dd4fe58" name="a502d307ecd55a8d7304a61f89dd4fe58"></a>
+QString&#160;</td><td class="memItemRight" valign="bottom"><b>assetDir</b></td></tr>
+<tr class="separator:a502d307ecd55a8d7304a61f89dd4fe58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -260,11 +270,7 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:a89c97be0b563e3ec0aee9d39d11525c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7dc3024e6e5a0889dfe8dddf965fd6b6"><td class="memItemLeft" align="right" valign="top">qreal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#a7dc3024e6e5a0889dfe8dddf965fd6b6">translateY</a> (qreal y, bool toScratch=false)</td></tr>
 <tr class="separator:a7dc3024e6e5a0889dfe8dddf965fd6b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaaf3af3a09daaf49a09fece5b3fb3d96"><td class="memItemLeft" align="right" valign="top"><a id="aaaf3af3a09daaf49a09fece5b3fb3d96" name="aaaf3af3a09daaf49a09fece5b3fb3d96"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>bounce</b> (void)</td></tr>
-<tr class="separator:aaaf3af3a09daaf49a09fece5b3fb3d96"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c758cc005ffe70f7285de7ae0198b2d"><td class="memItemLeft" align="right" valign="top"><a id="a6c758cc005ffe70f7285de7ae0198b2d" name="a6c758cc005ffe70f7285de7ae0198b2d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>resetTimer</b> (void)</td></tr>
+<tr class="memitem:a6c758cc005ffe70f7285de7ae0198b2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscratchSprite.html#a6c758cc005ffe70f7285de7ae0198b2d">resetTimer</a> (void)</td></tr>
 <tr class="separator:a6c758cc005ffe70f7285de7ae0198b2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
@@ -272,9 +278,6 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:ae8e4846664a26cb28d32c938231e6760"><td class="memItemLeft" align="right" valign="top"><a id="ae8e4846664a26cb28d32c938231e6760" name="ae8e4846664a26cb28d32c938231e6760"></a>
 <a class="el" href="classEngine.html">Engine</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_engine</b></td></tr>
 <tr class="separator:ae8e4846664a26cb28d32c938231e6760"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a502d307ecd55a8d7304a61f89dd4fe58"><td class="memItemLeft" align="right" valign="top"><a id="a502d307ecd55a8d7304a61f89dd4fe58" name="a502d307ecd55a8d7304a61f89dd4fe58"></a>
-QString&#160;</td><td class="memItemRight" valign="bottom"><b>assetDir</b></td></tr>
-<tr class="separator:a502d307ecd55a8d7304a61f89dd4fe58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c12a07fefe4e9dc4ee278aa54fe4c55"><td class="memItemLeft" align="right" valign="top"><a id="a5c12a07fefe4e9dc4ee278aa54fe4c55" name="a5c12a07fefe4e9dc4ee278aa54fe4c55"></a>
 qreal&#160;</td><td class="memItemRight" valign="bottom"><b>rotationCenterX</b></td></tr>
 <tr class="separator:a5c12a07fefe4e9dc4ee278aa54fe4c55"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -308,6 +311,9 @@ QPixmap&#160;</td><td class="memItemRight" valign="bottom"><b>costumePixmap</b><
 <tr class="memitem:a9af5aa9416af4f2bc8482c1683255027"><td class="memItemLeft" align="right" valign="top"><a id="a9af5aa9416af4f2bc8482c1683255027" name="a9af5aa9416af4f2bc8482c1683255027"></a>
 QSettings&#160;</td><td class="memItemRight" valign="bottom"><b>settings</b></td></tr>
 <tr class="separator:a9af5aa9416af4f2bc8482c1683255027"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad64429853f3b8b250c80e2c3e068f393"><td class="memItemLeft" align="right" valign="top"><a id="ad64429853f3b8b250c80e2c3e068f393" name="ad64429853f3b8b250c80e2c3e068f393"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_isClone</b> = false</td></tr>
+<tr class="separator:ad64429853f3b8b250c80e2c3e068f393"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The <a class="el" href="classscratchSprite.html" title="The scratchSprite class is a QGraphicsPixmapItem, which represents a Scratch sprite.">scratchSprite</a> class is a QGraphicsPixmapItem, which represents a Scratch sprite. </p>
@@ -662,6 +668,25 @@ Note: Only ghost, color and brightness is supported. </p>
 
 </div>
 </div>
+<a id="af3ff32b63473203c8232a7155d2d65a6" name="af3ff32b63473203c8232a7155d2d65a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3ff32b63473203c8232a7155d2d65a6">&#9670;&nbsp;</a></span>isClone()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool scratchSprite::isClone </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Returns true if this is a clone. </p>
+
+</div>
+</div>
 <a id="a088476078fa21b3c71572b26f46294b3" name="a088476078fa21b3c71572b26f46294b3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a088476078fa21b3c71572b26f46294b3">&#9670;&nbsp;</a></span>keyPressed()</h2>
 
@@ -735,6 +760,33 @@ Returns nullptr if the sound isn't found. </p>
 </table>
 </div><div class="memdoc">
 <p >Resets the values of all graphic effects. </p>
+
+</div>
+</div>
+<a id="a6c758cc005ffe70f7285de7ae0198b2d" name="a6c758cc005ffe70f7285de7ae0198b2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c758cc005ffe70f7285de7ae0198b2d">&#9670;&nbsp;</a></span>resetTimer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void scratchSprite::resetTimer </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Resets the timer. </p>
 
 </div>
 </div>
@@ -822,10 +874,13 @@ Returns nullptr if the sound isn't found. </p>
 </div>
 </div>
 <a id="ae311a42fce0337f5dde656ffc2b51048" name="ae311a42fce0337f5dde656ffc2b51048"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae311a42fce0337f5dde656ffc2b51048">&#9670;&nbsp;</a></span>setSceneScale()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae311a42fce0337f5dde656ffc2b51048">&#9670;&nbsp;</a></span>setSceneScale</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void scratchSprite::setSceneScale </td>
@@ -835,6 +890,11 @@ Returns nullptr if the sound isn't found. </p>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p >Sets scene scale. </p>
 
@@ -993,6 +1053,25 @@ Returns nullptr if the sound isn't found. </p>
       </table>
 </div><div class="memdoc">
 <p >Starts "when this sprite clicked" event blocks when this sprite is clicked. </p>
+
+</div>
+</div>
+<a id="af805a795289c082c8265a082cd0dc2cb" name="af805a795289c082c8265a082cd0dc2cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af805a795289c082c8265a082cd0dc2cb">&#9670;&nbsp;</a></span>startClone()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void scratchSprite::startClone </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Starts all "when I start as a clone" blocks. </p>
 
 </div>
 </div>

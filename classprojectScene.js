@@ -4,6 +4,7 @@ var classprojectScene =
     [ "backdropSwitched", "classprojectScene.html#a3f50e196d9897278264da8d2fa3db779", null ],
     [ "broadcastSent", "classprojectScene.html#a8c3b992f8304cbc161911112281e24cf", null ],
     [ "clearSpriteList", "classprojectScene.html#a00167146ef77ffbd8975476bd45ae662", null ],
+    [ "createClone", "classprojectScene.html#a836c38dd02c5ad69a00a643a1ddefb5f", null ],
     [ "currentFps", "classprojectScene.html#a151038ee9a32709b33af05befdbe963a", null ],
     [ "currentFpsChanged", "classprojectScene.html#aa7855276dd606e3f88b75c73a7630dc0", null ],
     [ "greenFlag", "classprojectScene.html#a36bd395882d7dee2e570fbfb3aab1c30", null ],

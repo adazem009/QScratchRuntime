@@ -5,7 +5,8 @@ var searchData=
   ['clearspritelist_2',['clearSpriteList',['../classprojectScene.html#a00167146ef77ffbd8975476bd45ae662',1,'projectScene']]],
   ['continueloading_3',['continueLoading',['../classMainWindow.html#a72b0f5ec864d378156f19836d57b2033',1,'MainWindow']]],
   ['controlblocks_4',['controlBlocks',['../classBlocks.html#a169b68af9b7b28193673f7f3ad6f819d',1,'Blocks']]],
-  ['currentcostume_5',['currentCostume',['../classscratchSprite.html#ae9affb7540903c1ad8936ae1699eeb70',1,'scratchSprite']]],
-  ['currentfps_6',['currentFps',['../classprojectScene.html#a151038ee9a32709b33af05befdbe963a',1,'projectScene']]],
-  ['currentfpschanged_7',['currentFpsChanged',['../classprojectScene.html#aa7855276dd606e3f88b75c73a7630dc0',1,'projectScene']]]
+  ['createclone_5',['createClone',['../classprojectScene.html#a836c38dd02c5ad69a00a643a1ddefb5f',1,'projectScene']]],
+  ['currentcostume_6',['currentCostume',['../classscratchSprite.html#ae9affb7540903c1ad8936ae1699eeb70',1,'scratchSprite']]],
+  ['currentfps_7',['currentFps',['../classprojectScene.html#a151038ee9a32709b33af05befdbe963a',1,'projectScene']]],
+  ['currentfpschanged_8',['currentFpsChanged',['../classprojectScene.html#aa7855276dd606e3f88b75c73a7630dc0',1,'projectScene']]]
 ];
