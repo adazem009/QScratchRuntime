@@ -123,6 +123,23 @@ void projectScene::timerEvent(QTimerEvent *event)
 			for(int i=0; i < spriteList.count(); i++)
 				spriteList[i]->engine()->frame();
 		}
+		// Delete requested sprites
+		for(int i=0; i < deleteRequests.count(); i++)
+		{
+			removeItem(deleteRequests[i]);
+			spriteList.removeAll(deleteRequests[i]);
+			deleteRequests[i]->deleteLater();
+		}
+		deleteRequests.clear();
+		if(cloneRequests.count() > 0)
+		{
+			// Create clones
+			for(int i=0; i < cloneRequests.count(); i++)
+				createClone(cloneRequests[i]);
+			cloneRequests.clear();
+			timerEvent(event);
+			return;
+		}
 		frames++;
 	}
 	else if(event->timerId() == fpsTimerID)
@@ -182,4 +199,29 @@ void projectScene::setScale(qreal value)
 qreal projectScene::sceneScale(void)
 {
 	return scale;
+}
+
+/*! Creates a clone of the given sprite. */
+void projectScene::createClone(scratchSprite *targetSprite)
+{
+	scratchSprite *clone = new scratchSprite(targetSprite->jsonObject, targetSprite->assetDir);
+	addItem(clone);
+	spriteList.append(clone);
+	// Copy properties from target sprite to the clone
+	clone->setSceneScale(targetSprite->sceneScale);
+	clone->setXPos(targetSprite->spriteX);
+	clone->setYPos(targetSprite->spriteY);
+	clone->setCostume(targetSprite->currentCostume);
+	clone->setVolume(targetSprite->volume);
+	clone->tempo = targetSprite->tempo;
+	clone->setSize(targetSprite->size);
+	clone->rotationStyle = targetSprite->rotationStyle; // Rotation style must be set before direction
+	clone->setDirection(targetSprite->direction);
+	clone->draggable = targetSprite->draggable; // TODO: draggable will probably need a function later
+	clone->graphicEffects = targetSprite->graphicEffects;
+	clone->installGraphicEffects();
+	clone->setVisible(targetSprite->isVisible());
+	// TODO: Copy variables
+	// TODO: Copy lists
+	clone->startClone();
 }

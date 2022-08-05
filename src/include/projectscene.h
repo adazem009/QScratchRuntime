@@ -61,6 +61,7 @@ class projectScene : public QGraphicsScene
 		void stop(void);
 		void backdropSwitched(QVariantMap *script);
 		void broadcastSent(QString broadcastName, QVariantMap *script = nullptr);
+		void createClone(scratchSprite *targetSprite);
 
 	protected:
 		void timerEvent(QTimerEvent *event);
