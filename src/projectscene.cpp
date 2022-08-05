@@ -112,8 +112,20 @@ void projectScene::timerEvent(QTimerEvent *event)
 		QVector<QFuture<void>> futureList;
 		if(multithreading)
 		{
+			int threadCount = QThread::idealThreadCount();
+			int threads = 0;
 			for(int i=0; i < spriteList.count(); i++)
+			{
 				futureList += QtConcurrent::run(spriteList[i]->engine(), &Engine::frame);
+				threads++;
+				if(threads >= threadCount)
+				{
+					for(int j=0; j < futureList.count(); j++)
+						futureList[j].waitForFinished();
+					futureList.clear();
+					threads = 0;
+				}
+			}
 			for(int i=0; i < futureList.count(); i++)
 				futureList[i].waitForFinished();
 		}
