@@ -47,7 +47,7 @@
 <section title="backdropSwitched" ref="classprojectScene.html#a3f50e196d9897278264da8d2fa3db779"/>
 <section title="broadcastSent" ref="classprojectScene.html#a8c3b992f8304cbc161911112281e24cf"/>
 <section title="clearSpriteList" ref="classprojectScene.html#a00167146ef77ffbd8975476bd45ae662"/>
-<section title="createClone" ref="classprojectScene.html#a836c38dd02c5ad69a00a643a1ddefb5f"/>
+<section title="createClone" ref="classprojectScene.html#a1cf4f084f5c414d49b6c51030633728c"/>
 <section title="currentFps" ref="classprojectScene.html#a151038ee9a32709b33af05befdbe963a"/>
 <section title="currentFpsChanged" ref="classprojectScene.html#aa7855276dd606e3f88b75c73a7630dc0"/>
 <section title="greenFlag" ref="classprojectScene.html#a36bd395882d7dee2e570fbfb3aab1c30"/>
@@ -175,7 +175,7 @@
 <keyword name="clearSpriteList(void)" id="projectScene::clearSpriteList_a00167146ef77ffbd8975476bd45ae662" ref="classprojectScene.html#a00167146ef77ffbd8975476bd45ae662"/>
 <keyword name="continueLoading(QNetworkReply *reply)" id="MainWindow::continueLoading_a72b0f5ec864d378156f19836d57b2033" ref="classMainWindow.html#a72b0f5ec864d378156f19836d57b2033"/>
 <keyword name="controlBlocks(scratchSprite *sprite, QString opcode, QMap&lt; QString, QString &gt; inputs, int processID, QVariantMap **newStack=nullptr, bool *frameEnd=nullptr, bool *processEnd=nullptr, QString *returnValue=nullptr)" id="Blocks::controlBlocks_a169b68af9b7b28193673f7f3ad6f819d" ref="classBlocks.html#a169b68af9b7b28193673f7f3ad6f819d"/>
-<keyword name="createClone(scratchSprite *targetSprite)" id="projectScene::createClone_a836c38dd02c5ad69a00a643a1ddefb5f" ref="classprojectScene.html#a836c38dd02c5ad69a00a643a1ddefb5f"/>
+<keyword name="createClone(scratchSprite *targetSprite)" id="projectScene::createClone_a1cf4f084f5c414d49b6c51030633728c" ref="classprojectScene.html#a1cf4f084f5c414d49b6c51030633728c"/>
 <keyword name="currentCostume" id="scratchSprite::currentCostume_ae9affb7540903c1ad8936ae1699eeb70" ref="classscratchSprite.html#ae9affb7540903c1ad8936ae1699eeb70"/>
 <keyword name="currentFps(void)" id="projectScene::currentFps_a151038ee9a32709b33af05befdbe963a" ref="classprojectScene.html#a151038ee9a32709b33af05befdbe963a"/>
 <keyword name="currentFpsChanged(int fps)" id="projectScene::currentFpsChanged_aa7855276dd606e3f88b75c73a7630dc0" ref="classprojectScene.html#aa7855276dd606e3f88b75c73a7630dc0"/>
