@@ -465,6 +465,8 @@ void scratchSprite::setCostume(int id, QVariantMap *script)
 	}
 	else
 	{
+		if(dataFormat != "svg")
+			scale = 0.5;
 		costumePixmap = QPixmap();
 		costumePixmap.loadFromData(data);
 		costumePixmap = costumePixmap.scaled(costumePixmap.width() * sceneScale, costumePixmap.height() * sceneScale);
