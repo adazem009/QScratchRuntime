@@ -105,6 +105,7 @@ scratchSprite::scratchSprite(QJsonObject spriteObject, QString spriteAssetDir, Q
 	connect(m_engine, &Engine::setDirection, this, &scratchSprite::setDirection);
 	connect(m_engine, &Engine::resetGraphicEffects, this, &scratchSprite::resetGraphicEffects);
 	connect(m_engine, &Engine::installGraphicEffects, this, &scratchSprite::installGraphicEffects);
+	connect(m_engine, &Engine::showBubble, this, &scratchSprite::showBubble);
 	connect(m_engine, &Engine::setVisible, this, [this](bool visible) { setVisible(visible); });
 	connect(m_engine, &Engine::setZValue, this, [this](qreal z) { setZValue(z); });
 	
