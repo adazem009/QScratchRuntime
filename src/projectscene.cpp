@@ -92,6 +92,14 @@ void projectScene::greenFlag(void)
 {
 	for(int i=0; i < spriteList.count(); i++)
 		spriteList[i]->greenFlagClicked();
+	// Delete requested sprites
+	for(int i=0; i < deleteRequests.count(); i++)
+	{
+		removeItem(deleteRequests[i]);
+		spriteList.removeAll(deleteRequests[i]);
+		deleteRequests[i]->deleteLater();
+	}
+	deleteRequests.clear();
 	projectRunning = true;
 }
 
