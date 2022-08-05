@@ -133,12 +133,13 @@ void projectScene::timerEvent(QTimerEvent *event)
 		deleteRequests.clear();
 		if(cloneRequests.count() > 0)
 		{
-			// Create clones
+			// Create clones and run a frame on them
 			for(int i=0; i < cloneRequests.count(); i++)
-				createClone(cloneRequests[i]);
+			{
+				scratchSprite *clone = createClone(cloneRequests[i]);
+				clone->engine()->frame();
+			}
 			cloneRequests.clear();
-			timerEvent(event);
-			return;
 		}
 		frames++;
 	}
@@ -201,8 +202,8 @@ qreal projectScene::sceneScale(void)
 	return scale;
 }
 
-/*! Creates a clone of the given sprite. */
-void projectScene::createClone(scratchSprite *targetSprite)
+/*! Creates a clone of the given sprite and returns it. */
+scratchSprite* projectScene::createClone(scratchSprite *targetSprite)
 {
 	scratchSprite *clone = new scratchSprite(targetSprite->jsonObject, targetSprite->assetDir);
 	addItem(clone);
@@ -224,4 +225,5 @@ void projectScene::createClone(scratchSprite *targetSprite)
 	// TODO: Copy variables
 	// TODO: Copy lists
 	clone->startClone();
+	return clone;
 }
