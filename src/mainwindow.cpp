@@ -52,11 +52,13 @@ MainWindow::MainWindow(QWidget *parent)
 	setCurrentFps(0);
 	ui->actionMultithreading->setChecked(settings.value("main/multithreading", false).toBool());
 	ui->actionSvgUpscale->setChecked(settings.value("main/hqsvg", true).toBool());
+	ui->actionInfiniteClones->setChecked(settings.value("main/infiniteClones", false).toBool());
 	// Connections
 	connect(ui->actionOpen,SIGNAL(triggered()),this,SLOT(openFile()));
 	connect(ui->actionFps, &QAction::triggered, this, &MainWindow::changeFps);
 	connect(ui->actionMultithreading, &QAction::triggered, this, &MainWindow::toggleMultithreading);
 	connect(ui->actionSvgUpscale, &QAction::triggered, this, &MainWindow::toggleSvgUpscale);
+	connect(ui->actionInfiniteClones, &QAction::triggered, this, [this](bool checked) { settings.setValue("main/infiniteClones", checked); });
 	connect(ui->loadFromUrlButton,SIGNAL(clicked()),this,SLOT(loadFromUrl()));
 	connect(ui->greenFlag,&QPushButton::clicked,scene,&projectScene::greenFlag);
 	connect(ui->stopButton,&QPushButton::clicked,scene,&projectScene::stop);

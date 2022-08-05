@@ -239,7 +239,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>30</height>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -256,6 +256,7 @@
     <addaction name="separator"/>
     <addaction name="actionMultithreading"/>
     <addaction name="actionSvgUpscale"/>
+    <addaction name="actionInfiniteClones"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuOptions"/>
@@ -287,6 +288,14 @@
    </property>
    <property name="text">
     <string>Upscale SVG</string>
+   </property>
+  </action>
+  <action name="actionInfiniteClones">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Infinite clones</string>
    </property>
   </action>
  </widget>
