@@ -30,6 +30,10 @@ could be implemented using [QAudioInput](https://doc.qt.io/qt-5/qaudioinput.html
 - [x] Load project from URL
 - [ ] Turbo mode
 - [ ] Draggable sprites
+- [x] Multithreading (experimental, might break some projects)
+- [x] Custom FPS (up to value supported by the display)
+- [ ] Scratch 2.0 to 3.0 converter (help needed)
+- [ ] Scratch 1.4 and below to 3.0 converter (help needed)
 
 ### Graphic effects
 - [x] Color
