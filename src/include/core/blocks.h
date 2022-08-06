@@ -30,13 +30,13 @@ class Engine;
 class Blocks
 {
 	public:
-		static bool runBlock(scratchSprite *sprite, QString opcode, QMap<QString,QString> inputs, int processID, QVariantMap **newStack = nullptr, bool *frameEnd = nullptr, bool *processEnd = nullptr, QString *returnValue = nullptr);
+		static bool runBlock(scratchSprite *sprite, QString opcode, QMap<QString,QString> inputs, QString *returnValue = nullptr);
 	private:
-		static bool motionBlocks(scratchSprite *sprite, QString opcode, QMap<QString,QString> inputs, int processID, QVariantMap **newStack = nullptr, bool *frameEnd = nullptr, bool *processEnd = nullptr, QString *returnValue = nullptr);
-		static bool looksBlocks(scratchSprite *sprite, QString opcode, QMap<QString,QString> inputs, int processID, QVariantMap **newStack = nullptr, bool *frameEnd = nullptr, bool *processEnd = nullptr, QString *returnValue = nullptr);
-		static bool soundBlocks(scratchSprite *sprite, QString opcode, QMap<QString,QString> inputs, int processID, QVariantMap **newStack = nullptr, bool *frameEnd = nullptr, bool *processEnd = nullptr, QString *returnValue = nullptr);
-		static bool eventBlocks(scratchSprite *sprite, QString opcode, QMap<QString,QString> inputs, int processID, QVariantMap **newStack = nullptr, bool *frameEnd = nullptr, bool *processEnd = nullptr, QString *returnValue = nullptr);
-		static bool controlBlocks(scratchSprite *sprite, QString opcode, QMap<QString,QString> inputs, int processID, QVariantMap **newStack = nullptr, bool *frameEnd = nullptr, bool *processEnd = nullptr, QString *returnValue = nullptr);
+		static bool motionBlocks(scratchSprite *sprite, QString opcode, QMap<QString,QString> inputs, QString *returnValue = nullptr);
+		static bool looksBlocks(scratchSprite *sprite, QString opcode, QMap<QString,QString> inputs, QString *returnValue = nullptr);
+		static bool soundBlocks(scratchSprite *sprite, QString opcode, QMap<QString,QString> inputs, QString *returnValue = nullptr);
+		static bool eventBlocks(scratchSprite *sprite, QString opcode, QMap<QString,QString> inputs, QString *returnValue = nullptr);
+		static bool controlBlocks(scratchSprite *sprite, QString opcode, QMap<QString,QString> inputs, QString *returnValue = nullptr);
 };
 
 #endif // BLOCKS_H
