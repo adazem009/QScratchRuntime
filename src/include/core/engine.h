@@ -37,11 +37,13 @@ class Engine : public QObject
 		QMap<QString,QString> getInputs(QVariantMap block, bool readFields = false);
 		QList<QVariantMap> currentExecPos;
 		bool runFrameAgain;
+		int processID;
+		QVariantMap *newStack;
+		bool frameEnd, processEnd;
 
 	private:
 		void spriteTimerEvent(void);
 		scratchSprite *m_sprite;
-		QVariantMap *newStack;
 
 	signals:
 		void setSceneScale(qreal value);

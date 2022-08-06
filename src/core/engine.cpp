@@ -54,7 +54,7 @@ void Engine::frame(void)
 		for(int frame_i=0; frame_i < currentExecPos.count(); frame_i++)
 		{
 			QString next = currentExecPos[frame_i]["id"].toString();
-			bool frameEnd = false;
+			frameEnd = false;
 			while(!frameEnd)
 			{
 				// Load current block
@@ -69,11 +69,12 @@ void Engine::frame(void)
 				}
 				QString opcode = block.value("opcode").toString();
 				QMap<QString,QString> inputs = getInputs(block);
-				bool processEnd = false;
+				processEnd = false;
 				newStack = nullptr;
 				// Run current block
 				int previousLength = currentExecPos.count();
-				if(!Blocks::runBlock(m_sprite, opcode, inputs, frame_i, &newStack, &frameEnd, &processEnd))
+				processID = frame_i;
+				if(!Blocks::runBlock(m_sprite, opcode, inputs))
 					qWarning() << "Warning: unsupported block:" << opcode;
 				if(currentExecPos.count() != previousLength)
 				{
@@ -219,7 +220,7 @@ QMap<QString,QString> Engine::getInputs(QVariantMap block, bool readFields)
 				QString opcode = reporterBlock.value("opcode").toString();
 				QMap<QString,QString> inputs = getInputs(reporterBlock);
 				// Get reporter block value
-				if(!Blocks::runBlock(m_sprite, opcode, inputs, 0, nullptr, nullptr, nullptr, &finalValue))
+				if(!Blocks::runBlock(m_sprite, opcode, inputs, &finalValue))
 					qWarning() << "Warning: unsupported reporter block:" << opcode;
 			}
 		}
