@@ -44,6 +44,7 @@ class Engine : public QObject
 	private:
 		void spriteTimerEvent(void);
 		scratchSprite *m_sprite;
+		Blocks *blocks;
 
 	signals:
 		void setSceneScale(qreal value);

@@ -25,7 +25,8 @@
 /*! Constructs Engine. */
 Engine::Engine(scratchSprite *sprite, QObject *parent) :
 	QObject(parent),
-	m_sprite(sprite) { }
+	m_sprite(sprite),
+	blocks(new Blocks(sprite, this)) { }
 
 /*! Runs blocks that can be run without screen refresh.*/
 void Engine::frame(void)
@@ -74,7 +75,7 @@ void Engine::frame(void)
 				// Run current block
 				int previousLength = currentExecPos.count();
 				processID = frame_i;
-				if(!Blocks::runBlock(m_sprite, opcode, inputs))
+				if(!blocks->runBlock(opcode, inputs))
 					qWarning() << "Warning: unsupported block:" << opcode;
 				if(currentExecPos.count() != previousLength)
 				{
@@ -219,8 +220,9 @@ QMap<QString,QString> Engine::getInputs(QVariantMap block, bool readFields)
 				QVariantMap reporterBlock = m_sprite->blocks.value(inputValue.toString());
 				QString opcode = reporterBlock.value("opcode").toString();
 				QMap<QString,QString> inputs = getInputs(reporterBlock);
+				processID = 0;
 				// Get reporter block value
-				if(!Blocks::runBlock(m_sprite, opcode, inputs, &finalValue))
+				if(!blocks->runBlock(opcode, inputs, &finalValue))
 					qWarning() << "Warning: unsupported reporter block:" << opcode;
 			}
 		}
