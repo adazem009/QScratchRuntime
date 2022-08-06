@@ -9,12 +9,13 @@
 <section title="Classes" ref="annotated.html">
 <section title="Class List" ref="annotated.html">
 <section title="Blocks" ref="classBlocks.html">
-<section title="controlBlocks" ref="classBlocks.html#a169b68af9b7b28193673f7f3ad6f819d"/>
-<section title="eventBlocks" ref="classBlocks.html#a4bdcb3a6e0ddc3ed3a58e71ce39f2ecd"/>
-<section title="looksBlocks" ref="classBlocks.html#aadcbba8f4185adf58528791ea6c3be54"/>
-<section title="motionBlocks" ref="classBlocks.html#a5bb1a3eead06eff59e47cfdc9a6ef3fd"/>
-<section title="runBlock" ref="classBlocks.html#a2fa3cfe85c35f82022c82839aa62d337"/>
-<section title="soundBlocks" ref="classBlocks.html#a2710a81fb3f79486f0dfc76bdf2428a4"/>
+<section title="Blocks" ref="classBlocks.html#a9d3bb0eaaaf684e5467ab80860ef36a9"/>
+<section title="controlBlocks" ref="classBlocks.html#ad01f829fc99a272656801e25685dbc74"/>
+<section title="eventBlocks" ref="classBlocks.html#a1eadc68d4e745e74fbe36cae2a86176d"/>
+<section title="looksBlocks" ref="classBlocks.html#a207781242a0e8d1a5be96f6ffea8ae28"/>
+<section title="motionBlocks" ref="classBlocks.html#abc1a006e6ee04aa4828a4048e6970678"/>
+<section title="runBlock" ref="classBlocks.html#a3f4501e03a35d48523cfcbe16e0528ec"/>
+<section title="soundBlocks" ref="classBlocks.html#ab11b9567a0edc560069eee854e1d8fa2"/>
 </section>
 <section title="Engine" ref="classEngine.html">
 <section title="Engine" ref="classEngine.html#a9aa90ff53f67436f16a37d513880ed51"/>
@@ -114,7 +115,6 @@
 </section>
 <section title="Class Index" ref="classes.html"/>
 <section title="Class Hierarchy" ref="hierarchy.html">
-<section title="Blocks" ref="classBlocks.html"/>
 <section title="QGraphicsPixmapItem" ref="">
 <section title="scratchSprite" ref="classscratchSprite.html"/>
 </section>
@@ -125,6 +125,7 @@
 <section title="MainWindow" ref="classMainWindow.html"/>
 </section>
 <section title="QObject" ref="">
+<section title="Blocks" ref="classBlocks.html"/>
 <section title="Engine" ref="classEngine.html"/>
 <section title="projectParser" ref="classprojectParser.html"/>
 <section title="scratchSprite" ref="classscratchSprite.html"/>
@@ -167,6 +168,7 @@
 <keyword name="backdropSwitched(QVariantMap *script)" id="scratchSprite::backdropSwitched_ab1f212229b9769a0ffbb7638e9e429a5" ref="classscratchSprite.html#ab1f212229b9769a0ffbb7638e9e429a5"/>
 <keyword name="backdropSwitched(QVariantMap *script)" id="projectScene::backdropSwitched_a3f50e196d9897278264da8d2fa3db779" ref="classprojectScene.html#a3f50e196d9897278264da8d2fa3db779"/>
 <keyword name="backdropSwitchEvent(QVariantMap *script)" id="scratchSprite::backdropSwitchEvent_adbcc2ad144281a8af540dc1bd496533c" ref="classscratchSprite.html#adbcc2ad144281a8af540dc1bd496533c"/>
+<keyword name="Blocks(scratchSprite *spritePtr, QObject *parent=nullptr)" id="Blocks::Blocks_a9d3bb0eaaaf684e5467ab80860ef36a9" ref="classBlocks.html#a9d3bb0eaaaf684e5467ab80860ef36a9"/>
 <keyword name="broadcast(QString broadcastName, QVariantMap *script=nullptr)" id="scratchSprite::broadcast_a44460a997beb1ebcf1e9d1f87f697aa7" ref="classscratchSprite.html#a44460a997beb1ebcf1e9d1f87f697aa7"/>
 <keyword name="broadcastReceived(QString broadcastName, QVariantMap *script)" id="scratchSprite::broadcastReceived_a5bad3d16269b8a6c329546a56619cb55" ref="classscratchSprite.html#a5bad3d16269b8a6c329546a56619cb55"/>
 <keyword name="broadcastSent(QString broadcastName, QVariantMap *script=nullptr)" id="projectScene::broadcastSent_a8c3b992f8304cbc161911112281e24cf" ref="classprojectScene.html#a8c3b992f8304cbc161911112281e24cf"/>
@@ -174,7 +176,7 @@
 <keyword name="checkKey(int QtKey, QString keyText, QString scratchKey)" id="scratchSprite::checkKey_aa41f796acf1b9c95ece39e28353c252e" ref="classscratchSprite.html#aa41f796acf1b9c95ece39e28353c252e"/>
 <keyword name="clearSpriteList(void)" id="projectScene::clearSpriteList_a00167146ef77ffbd8975476bd45ae662" ref="classprojectScene.html#a00167146ef77ffbd8975476bd45ae662"/>
 <keyword name="continueLoading(QNetworkReply *reply)" id="MainWindow::continueLoading_a72b0f5ec864d378156f19836d57b2033" ref="classMainWindow.html#a72b0f5ec864d378156f19836d57b2033"/>
-<keyword name="controlBlocks(scratchSprite *sprite, QString opcode, QMap&lt; QString, QString &gt; inputs, int processID, QVariantMap **newStack=nullptr, bool *frameEnd=nullptr, bool *processEnd=nullptr, QString *returnValue=nullptr)" id="Blocks::controlBlocks_a169b68af9b7b28193673f7f3ad6f819d" ref="classBlocks.html#a169b68af9b7b28193673f7f3ad6f819d"/>
+<keyword name="controlBlocks(QString opcode, QMap&lt; QString, QString &gt; inputs, QString *returnValue=nullptr)" id="Blocks::controlBlocks_ad01f829fc99a272656801e25685dbc74" ref="classBlocks.html#ad01f829fc99a272656801e25685dbc74"/>
 <keyword name="createClone(scratchSprite *targetSprite)" id="projectScene::createClone_a1cf4f084f5c414d49b6c51030633728c" ref="classprojectScene.html#a1cf4f084f5c414d49b6c51030633728c"/>
 <keyword name="currentCostume" id="scratchSprite::currentCostume_ae9affb7540903c1ad8936ae1699eeb70" ref="classscratchSprite.html#ae9affb7540903c1ad8936ae1699eeb70"/>
 <keyword name="currentFps(void)" id="projectScene::currentFps_a151038ee9a32709b33af05befdbe963a" ref="classprojectScene.html#a151038ee9a32709b33af05befdbe963a"/>
@@ -182,9 +184,9 @@
 <keyword name="direction" id="scratchSprite::direction_a5b09a80137060595705512837eeba008" ref="classscratchSprite.html#a5b09a80137060595705512837eeba008"/>
 <keyword name="draggable" id="scratchSprite::draggable_a992e9be078ab605da7f7ccd41fc3a10f" ref="classscratchSprite.html#a992e9be078ab605da7f7ccd41fc3a10f"/>
 <keyword name="emitBroadcast(QString broadcastName, QVariantMap *script=nullptr)" id="scratchSprite::emitBroadcast_a7312384002ab10e59a0fe1681eb19d78" ref="classscratchSprite.html#a7312384002ab10e59a0fe1681eb19d78"/>
-<keyword name="Engine(scratchSprite *sprite, QObject *parent=nullptr)" id="Engine::Engine_a9aa90ff53f67436f16a37d513880ed51" ref="classEngine.html#a9aa90ff53f67436f16a37d513880ed51"/>
 <keyword name="engine(void)" id="scratchSprite::engine_a9ae26de7a17cbe45a4f8a4043fcfa627" ref="classscratchSprite.html#a9ae26de7a17cbe45a4f8a4043fcfa627"/>
-<keyword name="eventBlocks(scratchSprite *sprite, QString opcode, QMap&lt; QString, QString &gt; inputs, int processID, QVariantMap **newStack=nullptr, bool *frameEnd=nullptr, bool *processEnd=nullptr, QString *returnValue=nullptr)" id="Blocks::eventBlocks_a4bdcb3a6e0ddc3ed3a58e71ce39f2ecd" ref="classBlocks.html#a4bdcb3a6e0ddc3ed3a58e71ce39f2ecd"/>
+<keyword name="Engine(scratchSprite *sprite, QObject *parent=nullptr)" id="Engine::Engine_a9aa90ff53f67436f16a37d513880ed51" ref="classEngine.html#a9aa90ff53f67436f16a37d513880ed51"/>
+<keyword name="eventBlocks(QString opcode, QMap&lt; QString, QString &gt; inputs, QString *returnValue=nullptr)" id="Blocks::eventBlocks_a1eadc68d4e745e74fbe36cae2a86176d" ref="classBlocks.html#a1eadc68d4e745e74fbe36cae2a86176d"/>
 <keyword name="frame(void)" id="Engine::frame_a1084a6f9fb62af3c800b0d10e0f15a81" ref="classEngine.html#a1084a6f9fb62af3c800b0d10e0f15a81"/>
 <keyword name="frame(void)" id="scratchSprite::frame_a189a29e1fb4f71052b2cb2d993d9abe0" ref="classscratchSprite.html#a189a29e1fb4f71052b2cb2d993d9abe0"/>
 <keyword name="getInputs(QVariantMap block, bool readFields=false)" id="Engine::getInputs_abfd541a77516661c890d18b1855cff4b" ref="classEngine.html#abfd541a77516661c890d18b1855cff4b"/>
@@ -199,9 +201,9 @@
 <keyword name="keyPressEvent(QKeyEvent *event)" id="projectScene::keyPressEvent_a0a039a537c5f7a44db11706799d0b8b6" ref="classprojectScene.html#a0a039a537c5f7a44db11706799d0b8b6"/>
 <keyword name="loadFromUrl(void)" id="MainWindow::loadFromUrl_acf9b021aef67e5c38af3f4d218169f0b" ref="classMainWindow.html#acf9b021aef67e5c38af3f4d218169f0b"/>
 <keyword name="loadSpriteList(QList&lt; scratchSprite * &gt; list)" id="projectScene::loadSpriteList_a82704fa5c1e2296e615a4eb57caff0c2" ref="classprojectScene.html#a82704fa5c1e2296e615a4eb57caff0c2"/>
-<keyword name="looksBlocks(scratchSprite *sprite, QString opcode, QMap&lt; QString, QString &gt; inputs, int processID, QVariantMap **newStack=nullptr, bool *frameEnd=nullptr, bool *processEnd=nullptr, QString *returnValue=nullptr)" id="Blocks::looksBlocks_aadcbba8f4185adf58528791ea6c3be54" ref="classBlocks.html#aadcbba8f4185adf58528791ea6c3be54"/>
+<keyword name="looksBlocks(QString opcode, QMap&lt; QString, QString &gt; inputs, QString *returnValue=nullptr)" id="Blocks::looksBlocks_a207781242a0e8d1a5be96f6ffea8ae28" ref="classBlocks.html#a207781242a0e8d1a5be96f6ffea8ae28"/>
 <keyword name="MainWindow(QWidget *parent=nullptr)" id="MainWindow::MainWindow_a996c5a2b6f77944776856f08ec30858d" ref="classMainWindow.html#a996c5a2b6f77944776856f08ec30858d"/>
-<keyword name="motionBlocks(scratchSprite *sprite, QString opcode, QMap&lt; QString, QString &gt; inputs, int processID, QVariantMap **newStack=nullptr, bool *frameEnd=nullptr, bool *processEnd=nullptr, QString *returnValue=nullptr)" id="Blocks::motionBlocks_a5bb1a3eead06eff59e47cfdc9a6ef3fd" ref="classBlocks.html#a5bb1a3eead06eff59e47cfdc9a6ef3fd"/>
+<keyword name="motionBlocks(QString opcode, QMap&lt; QString, QString &gt; inputs, QString *returnValue=nullptr)" id="Blocks::motionBlocks_abc1a006e6ee04aa4828a4048e6970678" ref="classBlocks.html#abc1a006e6ee04aa4828a4048e6970678"/>
 <keyword name="mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)" id="projectScene::mouseDoubleClickEvent_a0dc2c5484c1ef8f83acbf12b9cbc6fed" ref="classprojectScene.html#a0dc2c5484c1ef8f83acbf12b9cbc6fed"/>
 <keyword name="mouseMoveEvent(QGraphicsSceneMouseEvent *event)" id="projectScene::mouseMoveEvent_a381d1f0a59381d3a98553c656ef01d82" ref="classprojectScene.html#a381d1f0a59381d3a98553c656ef01d82"/>
 <keyword name="mousePressEvent(QGraphicsSceneMouseEvent *event)" id="projectScene::mousePressEvent_a7be8c52d061099acca42eef41e39840b" ref="classprojectScene.html#a7be8c52d061099acca42eef41e39840b"/>
@@ -214,7 +216,7 @@
 <keyword name="resetTimer(void)" id="scratchSprite::resetTimer_a6c758cc005ffe70f7285de7ae0198b2d" ref="classscratchSprite.html#a6c758cc005ffe70f7285de7ae0198b2d"/>
 <keyword name="resizeEvent(QResizeEvent *event) override" id="MainWindow::resizeEvent_aad75236c74a5c340c3e18749a9b5eb4f" ref="classMainWindow.html#aad75236c74a5c340c3e18749a9b5eb4f"/>
 <keyword name="rotationStyle" id="scratchSprite::rotationStyle_a61c929545c2178ffe8c5089a04a03d41" ref="classscratchSprite.html#a61c929545c2178ffe8c5089a04a03d41"/>
-<keyword name="runBlock(scratchSprite *sprite, QString opcode, QMap&lt; QString, QString &gt; inputs, int processID, QVariantMap **newStack=nullptr, bool *frameEnd=nullptr, bool *processEnd=nullptr, QString *returnValue=nullptr)" id="Blocks::runBlock_a2fa3cfe85c35f82022c82839aa62d337" ref="classBlocks.html#a2fa3cfe85c35f82022c82839aa62d337"/>
+<keyword name="runBlock(QString opcode, QMap&lt; QString, QString &gt; inputs, QString *returnValue=nullptr)" id="Blocks::runBlock_a3f4501e03a35d48523cfcbe16e0528ec" ref="classBlocks.html#a3f4501e03a35d48523cfcbe16e0528ec"/>
 <keyword name="sceneScale(void)" id="projectScene::sceneScale_ae2c0415f506ec03c299f989569139eba" ref="classprojectScene.html#ae2c0415f506ec03c299f989569139eba"/>
 <keyword name="scratchSprite(QJsonObject spriteObject, QString assetDir, QGraphicsItem *parent=nullptr)" id="scratchSprite::scratchSprite_a401307233d74f2cbec2728b728f159ba" ref="classscratchSprite.html#a401307233d74f2cbec2728b728f159ba"/>
 <keyword name="setCostume(int id, QVariantMap *scripts=nullptr)" id="scratchSprite::setCostume_ac0bf3c62a2c6788d6f782c995766b30b" ref="classscratchSprite.html#ac0bf3c62a2c6788d6f782c995766b30b"/>
@@ -231,7 +233,7 @@
 <keyword name="setYPos(qreal y)" id="scratchSprite::setYPos_ac3d432973f42391618ef53af03631301" ref="classscratchSprite.html#ac3d432973f42391618ef53af03631301"/>
 <keyword name="showBubble(QString text, bool thought=false)" id="scratchSprite::showBubble_aa6d1bc1e75fcb29a8a70ff561a7039b7" ref="classscratchSprite.html#aa6d1bc1e75fcb29a8a70ff561a7039b7"/>
 <keyword name="size" id="scratchSprite::size_a5a8241f37d98f1eba39eda2e1cafc9d4" ref="classscratchSprite.html#a5a8241f37d98f1eba39eda2e1cafc9d4"/>
-<keyword name="soundBlocks(scratchSprite *sprite, QString opcode, QMap&lt; QString, QString &gt; inputs, int processID, QVariantMap **newStack=nullptr, bool *frameEnd=nullptr, bool *processEnd=nullptr, QString *returnValue=nullptr)" id="Blocks::soundBlocks_a2710a81fb3f79486f0dfc76bdf2428a4" ref="classBlocks.html#a2710a81fb3f79486f0dfc76bdf2428a4"/>
+<keyword name="soundBlocks(QString opcode, QMap&lt; QString, QString &gt; inputs, QString *returnValue=nullptr)" id="Blocks::soundBlocks_ab11b9567a0edc560069eee854e1d8fa2" ref="classBlocks.html#ab11b9567a0edc560069eee854e1d8fa2"/>
 <keyword name="spriteClicked(void)" id="scratchSprite::spriteClicked_ac43a0ca298760cdf978a21aa6ef7038a" ref="classscratchSprite.html#ac43a0ca298760cdf978a21aa6ef7038a"/>
 <keyword name="sprites(void)" id="projectParser::sprites_ab4d4e9b006743666101d500a4c74608b" ref="classprojectParser.html#ab4d4e9b006743666101d500a4c74608b"/>
 <keyword name="spriteTimerEvent(void)" id="Engine::spriteTimerEvent_ab3830d6b541c7f7bc1935877921069f0" ref="classEngine.html#ab3830d6b541c7f7bc1935877921069f0"/>
@@ -261,6 +263,8 @@
 <file>blocks_8h_source.html</file>
 <file>classBlocks-members.html</file>
 <file>classBlocks.html</file>
+<file>classBlocks__coll__graph.png</file>
+<file>classBlocks__inherit__graph.png</file>
 <file>classEngine-members.html</file>
 <file>classEngine.html</file>
 <file>classEngine__coll__graph.png</file>
@@ -310,7 +314,6 @@
 <file>inherit_graph_0.png</file>
 <file>inherit_graph_1.png</file>
 <file>inherit_graph_2.png</file>
-<file>inherit_graph_3.png</file>
 <file>inherits.html</file>
 <file>jquery.js</file>
 <file>mainwindow_8h_source.html</file>

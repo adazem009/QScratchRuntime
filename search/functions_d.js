@@ -15,7 +15,7 @@ var searchData=
   ['setxpos_12',['setXPos',['../classscratchSprite.html#ade994e8c0803e447564e92545d69c8a8',1,'scratchSprite']]],
   ['setypos_13',['setYPos',['../classscratchSprite.html#ac3d432973f42391618ef53af03631301',1,'scratchSprite']]],
   ['showbubble_14',['showBubble',['../classscratchSprite.html#aa6d1bc1e75fcb29a8a70ff561a7039b7',1,'scratchSprite']]],
-  ['soundblocks_15',['soundBlocks',['../classBlocks.html#a2710a81fb3f79486f0dfc76bdf2428a4',1,'Blocks']]],
+  ['soundblocks_15',['soundBlocks',['../classBlocks.html#ab11b9567a0edc560069eee854e1d8fa2',1,'Blocks']]],
   ['spriteclicked_16',['spriteClicked',['../classscratchSprite.html#ac43a0ca298760cdf978a21aa6ef7038a',1,'scratchSprite']]],
   ['sprites_17',['sprites',['../classprojectParser.html#ab4d4e9b006743666101d500a4c74608b',1,'projectParser']]],
   ['spritetimerevent_18',['spriteTimerEvent',['../classEngine.html#ab3830d6b541c7f7bc1935877921069f0',1,'Engine']]],

@@ -1,6 +1,5 @@
 var hierarchy =
 [
-    [ "Blocks", "classBlocks.html", null ],
     [ "QGraphicsPixmapItem", null, [
       [ "scratchSprite", "classscratchSprite.html", null ]
     ] ],
@@ -11,6 +10,7 @@ var hierarchy =
       [ "MainWindow", "classMainWindow.html", null ]
     ] ],
     [ "QObject", null, [
+      [ "Blocks", "classBlocks.html", null ],
       [ "Engine", "classEngine.html", null ],
       [ "projectParser", "classprojectParser.html", null ],
       [ "scratchSprite", "classscratchSprite.html", null ]

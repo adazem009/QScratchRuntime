@@ -1,6 +1,7 @@
 <map id="Engine" name="Engine">
-<area shape="rect" id="node1" title="The Engine class processes sprite frames." alt="" coords="45,81,106,108"/>
-<area shape="rect" id="node3" href="$classscratchSprite.html" title="The scratchSprite class is a QGraphicsPixmapItem, which represents a Scratch sprite." alt="" coords="62,171,161,197"/>
-<area shape="rect" id="node2" title=" " alt="" coords="76,5,147,32"/>
-<area shape="rect" id="node4" title=" " alt="" coords="187,81,340,108"/>
+<area shape="rect" id="node1" title="The Engine class processes sprite frames." alt="" coords="75,81,136,108"/>
+<area shape="rect" id="node3" href="$classscratchSprite.html" title="The scratchSprite class is a QGraphicsPixmapItem, which represents a Scratch sprite." alt="" coords="168,171,267,197"/>
+<area shape="rect" id="node5" href="$classBlocks.html" title="The Blocks class contains the implementation of Scratch blocks." alt="" coords="6,260,69,287"/>
+<area shape="rect" id="node2" title=" " alt="" coords="70,5,141,32"/>
+<area shape="rect" id="node4" title=" " alt="" coords="329,81,482,108"/>
 </map>

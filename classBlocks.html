@@ -85,8 +85,9 @@ $(document).ready(function(){initNavTree('classBlocks.html',''); initResizable()
 
 <div class="header">
   <div class="summary">
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classBlocks-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Blocks Class Reference</div></div>
 </div><!--header-->
@@ -96,30 +97,103 @@ $(document).ready(function(){initNavTree('classBlocks.html',''); initResizable()
  <a href="classBlocks.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="blocks_8h_source.html">core/blocks.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Blocks:</div>
+<div class="dyncontent">
+<div class="center"><img src="classBlocks__inherit__graph.png" border="0" usemap="#aBlocks_inherit__map" alt="Inheritance graph"/></div>
+<map name="aBlocks_inherit__map" id="aBlocks_inherit__map">
+<area shape="rect" title="The Blocks class contains the implementation of Scratch blocks." alt="" coords="9,80,72,107"/>
+<area shape="rect" title=" " alt="" coords="5,5,76,32"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for Blocks:</div>
+<div class="dyncontent">
+<div class="center"><img src="classBlocks__coll__graph.png" border="0" usemap="#aBlocks_coll__map" alt="Collaboration graph"/></div>
+<map name="aBlocks_coll__map" id="aBlocks_coll__map">
+<area shape="rect" title="The Blocks class contains the implementation of Scratch blocks." alt="" coords="20,81,82,108"/>
+<area shape="rect" href="classEngine.html" title="The Engine class processes sprite frames." alt="" coords="60,171,122,197"/>
+<area shape="rect" title=" " alt="" coords="117,5,188,32"/>
+<area shape="rect" href="classscratchSprite.html" title="The scratchSprite class is a QGraphicsPixmapItem, which represents a Scratch sprite." alt="" coords="74,260,172,287"/>
+<area shape="rect" title=" " alt="" coords="241,171,394,197"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a2fa3cfe85c35f82022c82839aa62d337"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBlocks.html#a2fa3cfe85c35f82022c82839aa62d337">runBlock</a> (<a class="el" href="classscratchSprite.html">scratchSprite</a> *sprite, QString opcode, QMap&lt; QString, QString &gt; inputs, int processID, QVariantMap **newStack=nullptr, bool *frameEnd=nullptr, bool *processEnd=nullptr, QString *returnValue=nullptr)</td></tr>
-<tr class="separator:a2fa3cfe85c35f82022c82839aa62d337"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a9d3bb0eaaaf684e5467ab80860ef36a9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBlocks.html#a9d3bb0eaaaf684e5467ab80860ef36a9">Blocks</a> (<a class="el" href="classscratchSprite.html">scratchSprite</a> *spritePtr, QObject *parent=nullptr)</td></tr>
+<tr class="separator:a9d3bb0eaaaf684e5467ab80860ef36a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f4501e03a35d48523cfcbe16e0528ec"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBlocks.html#a3f4501e03a35d48523cfcbe16e0528ec">runBlock</a> (QString opcode, QMap&lt; QString, QString &gt; inputs, QString *returnValue=nullptr)</td></tr>
+<tr class="separator:a3f4501e03a35d48523cfcbe16e0528ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
-Static Private Member Functions</h2></td></tr>
-<tr class="memitem:a5bb1a3eead06eff59e47cfdc9a6ef3fd"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBlocks.html#a5bb1a3eead06eff59e47cfdc9a6ef3fd">motionBlocks</a> (<a class="el" href="classscratchSprite.html">scratchSprite</a> *sprite, QString opcode, QMap&lt; QString, QString &gt; inputs, int processID, QVariantMap **newStack=nullptr, bool *frameEnd=nullptr, bool *processEnd=nullptr, QString *returnValue=nullptr)</td></tr>
-<tr class="separator:a5bb1a3eead06eff59e47cfdc9a6ef3fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aadcbba8f4185adf58528791ea6c3be54"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBlocks.html#aadcbba8f4185adf58528791ea6c3be54">looksBlocks</a> (<a class="el" href="classscratchSprite.html">scratchSprite</a> *sprite, QString opcode, QMap&lt; QString, QString &gt; inputs, int processID, QVariantMap **newStack=nullptr, bool *frameEnd=nullptr, bool *processEnd=nullptr, QString *returnValue=nullptr)</td></tr>
-<tr class="separator:aadcbba8f4185adf58528791ea6c3be54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2710a81fb3f79486f0dfc76bdf2428a4"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBlocks.html#a2710a81fb3f79486f0dfc76bdf2428a4">soundBlocks</a> (<a class="el" href="classscratchSprite.html">scratchSprite</a> *sprite, QString opcode, QMap&lt; QString, QString &gt; inputs, int processID, QVariantMap **newStack=nullptr, bool *frameEnd=nullptr, bool *processEnd=nullptr, QString *returnValue=nullptr)</td></tr>
-<tr class="separator:a2710a81fb3f79486f0dfc76bdf2428a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4bdcb3a6e0ddc3ed3a58e71ce39f2ecd"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBlocks.html#a4bdcb3a6e0ddc3ed3a58e71ce39f2ecd">eventBlocks</a> (<a class="el" href="classscratchSprite.html">scratchSprite</a> *sprite, QString opcode, QMap&lt; QString, QString &gt; inputs, int processID, QVariantMap **newStack=nullptr, bool *frameEnd=nullptr, bool *processEnd=nullptr, QString *returnValue=nullptr)</td></tr>
-<tr class="separator:a4bdcb3a6e0ddc3ed3a58e71ce39f2ecd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a169b68af9b7b28193673f7f3ad6f819d"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBlocks.html#a169b68af9b7b28193673f7f3ad6f819d">controlBlocks</a> (<a class="el" href="classscratchSprite.html">scratchSprite</a> *sprite, QString opcode, QMap&lt; QString, QString &gt; inputs, int processID, QVariantMap **newStack=nullptr, bool *frameEnd=nullptr, bool *processEnd=nullptr, QString *returnValue=nullptr)</td></tr>
-<tr class="separator:a169b68af9b7b28193673f7f3ad6f819d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:abc1a006e6ee04aa4828a4048e6970678"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBlocks.html#abc1a006e6ee04aa4828a4048e6970678">motionBlocks</a> (QString opcode, QMap&lt; QString, QString &gt; inputs, QString *returnValue=nullptr)</td></tr>
+<tr class="separator:abc1a006e6ee04aa4828a4048e6970678"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a207781242a0e8d1a5be96f6ffea8ae28"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBlocks.html#a207781242a0e8d1a5be96f6ffea8ae28">looksBlocks</a> (QString opcode, QMap&lt; QString, QString &gt; inputs, QString *returnValue=nullptr)</td></tr>
+<tr class="separator:a207781242a0e8d1a5be96f6ffea8ae28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab11b9567a0edc560069eee854e1d8fa2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBlocks.html#ab11b9567a0edc560069eee854e1d8fa2">soundBlocks</a> (QString opcode, QMap&lt; QString, QString &gt; inputs, QString *returnValue=nullptr)</td></tr>
+<tr class="separator:ab11b9567a0edc560069eee854e1d8fa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1eadc68d4e745e74fbe36cae2a86176d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBlocks.html#a1eadc68d4e745e74fbe36cae2a86176d">eventBlocks</a> (QString opcode, QMap&lt; QString, QString &gt; inputs, QString *returnValue=nullptr)</td></tr>
+<tr class="separator:a1eadc68d4e745e74fbe36cae2a86176d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad01f829fc99a272656801e25685dbc74"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBlocks.html#ad01f829fc99a272656801e25685dbc74">controlBlocks</a> (QString opcode, QMap&lt; QString, QString &gt; inputs, QString *returnValue=nullptr)</td></tr>
+<tr class="separator:ad01f829fc99a272656801e25685dbc74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a7804d122492cab32f281347e0f595427"><td class="memItemLeft" align="right" valign="top"><a id="a7804d122492cab32f281347e0f595427" name="a7804d122492cab32f281347e0f595427"></a>
+<a class="el" href="classscratchSprite.html">scratchSprite</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>sprite</b></td></tr>
+<tr class="separator:a7804d122492cab32f281347e0f595427"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf587f5ebc4880f0fc354b44ff715c19"><td class="memItemLeft" align="right" valign="top"><a id="acf587f5ebc4880f0fc354b44ff715c19" name="acf587f5ebc4880f0fc354b44ff715c19"></a>
+<a class="el" href="classEngine.html">Engine</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>engine</b></td></tr>
+<tr class="separator:acf587f5ebc4880f0fc354b44ff715c19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a657f2897824f86c3d7c6872a4a42770b"><td class="memItemLeft" align="right" valign="top"><a id="a657f2897824f86c3d7c6872a4a42770b" name="a657f2897824f86c3d7c6872a4a42770b"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>processID</b></td></tr>
+<tr class="separator:a657f2897824f86c3d7c6872a4a42770b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The <a class="el" href="classBlocks.html" title="The Blocks class contains the implementation of Scratch blocks.">Blocks</a> class contains the implementation of Scratch blocks. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a169b68af9b7b28193673f7f3ad6f819d" name="a169b68af9b7b28193673f7f3ad6f819d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a169b68af9b7b28193673f7f3ad6f819d">&#9670;&nbsp;</a></span>controlBlocks()</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a9d3bb0eaaaf684e5467ab80860ef36a9" name="a9d3bb0eaaaf684e5467ab80860ef36a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d3bb0eaaaf684e5467ab80860ef36a9">&#9670;&nbsp;</a></span>Blocks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Blocks::Blocks </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classscratchSprite.html">scratchSprite</a> *&#160;</td>
+          <td class="paramname"><em>spritePtr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QObject *&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Constructs <a class="el" href="classBlocks.html" title="The Blocks class contains the implementation of Scratch blocks.">Blocks</a>. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad01f829fc99a272656801e25685dbc74" name="ad01f829fc99a272656801e25685dbc74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad01f829fc99a272656801e25685dbc74">&#9670;&nbsp;</a></span>controlBlocks()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -130,12 +204,6 @@ Static Private Member Functions</h2></td></tr>
         <tr>
           <td class="memname">bool Blocks::controlBlocks </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classscratchSprite.html">scratchSprite</a> *&#160;</td>
-          <td class="paramname"><em>sprite</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">QString&#160;</td>
           <td class="paramname"><em>opcode</em>, </td>
         </tr>
@@ -144,30 +212,6 @@ Static Private Member Functions</h2></td></tr>
           <td></td>
           <td class="paramtype">QMap&lt; QString, QString &gt;&#160;</td>
           <td class="paramname"><em>inputs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>processID</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">QVariantMap **&#160;</td>
-          <td class="paramname"><em>newStackPtr</em> = <code>nullptr</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool *&#160;</td>
-          <td class="paramname"><em>frameEnd</em> = <code>nullptr</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool *&#160;</td>
-          <td class="paramname"><em>processEnd</em> = <code>nullptr</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -183,7 +227,7 @@ Static Private Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -191,8 +235,8 @@ Static Private Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a4bdcb3a6e0ddc3ed3a58e71ce39f2ecd" name="a4bdcb3a6e0ddc3ed3a58e71ce39f2ecd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4bdcb3a6e0ddc3ed3a58e71ce39f2ecd">&#9670;&nbsp;</a></span>eventBlocks()</h2>
+<a id="a1eadc68d4e745e74fbe36cae2a86176d" name="a1eadc68d4e745e74fbe36cae2a86176d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1eadc68d4e745e74fbe36cae2a86176d">&#9670;&nbsp;</a></span>eventBlocks()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -203,12 +247,6 @@ Static Private Member Functions</h2></td></tr>
         <tr>
           <td class="memname">bool Blocks::eventBlocks </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classscratchSprite.html">scratchSprite</a> *&#160;</td>
-          <td class="paramname"><em>sprite</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">QString&#160;</td>
           <td class="paramname"><em>opcode</em>, </td>
         </tr>
@@ -217,30 +255,6 @@ Static Private Member Functions</h2></td></tr>
           <td></td>
           <td class="paramtype">QMap&lt; QString, QString &gt;&#160;</td>
           <td class="paramname"><em>inputs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>processID</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">QVariantMap **&#160;</td>
-          <td class="paramname"><em>newStackPtr</em> = <code>nullptr</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool *&#160;</td>
-          <td class="paramname"><em>frameEnd</em> = <code>nullptr</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool *&#160;</td>
-          <td class="paramname"><em>processEnd</em> = <code>nullptr</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -256,7 +270,7 @@ Static Private Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -264,8 +278,8 @@ Static Private Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aadcbba8f4185adf58528791ea6c3be54" name="aadcbba8f4185adf58528791ea6c3be54"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aadcbba8f4185adf58528791ea6c3be54">&#9670;&nbsp;</a></span>looksBlocks()</h2>
+<a id="a207781242a0e8d1a5be96f6ffea8ae28" name="a207781242a0e8d1a5be96f6ffea8ae28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a207781242a0e8d1a5be96f6ffea8ae28">&#9670;&nbsp;</a></span>looksBlocks()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -276,12 +290,6 @@ Static Private Member Functions</h2></td></tr>
         <tr>
           <td class="memname">bool Blocks::looksBlocks </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classscratchSprite.html">scratchSprite</a> *&#160;</td>
-          <td class="paramname"><em>sprite</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">QString&#160;</td>
           <td class="paramname"><em>opcode</em>, </td>
         </tr>
@@ -290,30 +298,6 @@ Static Private Member Functions</h2></td></tr>
           <td></td>
           <td class="paramtype">QMap&lt; QString, QString &gt;&#160;</td>
           <td class="paramname"><em>inputs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>processID</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">QVariantMap **&#160;</td>
-          <td class="paramname"><em>newStackPtr</em> = <code>nullptr</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool *&#160;</td>
-          <td class="paramname"><em>frameEnd</em> = <code>nullptr</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool *&#160;</td>
-          <td class="paramname"><em>processEnd</em> = <code>nullptr</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -329,7 +313,7 @@ Static Private Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -337,8 +321,8 @@ Static Private Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a5bb1a3eead06eff59e47cfdc9a6ef3fd" name="a5bb1a3eead06eff59e47cfdc9a6ef3fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5bb1a3eead06eff59e47cfdc9a6ef3fd">&#9670;&nbsp;</a></span>motionBlocks()</h2>
+<a id="abc1a006e6ee04aa4828a4048e6970678" name="abc1a006e6ee04aa4828a4048e6970678"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc1a006e6ee04aa4828a4048e6970678">&#9670;&nbsp;</a></span>motionBlocks()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -349,12 +333,6 @@ Static Private Member Functions</h2></td></tr>
         <tr>
           <td class="memname">bool Blocks::motionBlocks </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classscratchSprite.html">scratchSprite</a> *&#160;</td>
-          <td class="paramname"><em>sprite</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">QString&#160;</td>
           <td class="paramname"><em>opcode</em>, </td>
         </tr>
@@ -363,30 +341,6 @@ Static Private Member Functions</h2></td></tr>
           <td></td>
           <td class="paramtype">QMap&lt; QString, QString &gt;&#160;</td>
           <td class="paramname"><em>inputs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>processID</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">QVariantMap **&#160;</td>
-          <td class="paramname"><em>newStackPtr</em> = <code>nullptr</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool *&#160;</td>
-          <td class="paramname"><em>frameEnd</em> = <code>nullptr</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool *&#160;</td>
-          <td class="paramname"><em>processEnd</em> = <code>nullptr</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -402,7 +356,7 @@ Static Private Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -410,24 +364,15 @@ Static Private Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a2fa3cfe85c35f82022c82839aa62d337" name="a2fa3cfe85c35f82022c82839aa62d337"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2fa3cfe85c35f82022c82839aa62d337">&#9670;&nbsp;</a></span>runBlock()</h2>
+<a id="a3f4501e03a35d48523cfcbe16e0528ec" name="a3f4501e03a35d48523cfcbe16e0528ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f4501e03a35d48523cfcbe16e0528ec">&#9670;&nbsp;</a></span>runBlock()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool Blocks::runBlock </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classscratchSprite.html">scratchSprite</a> *&#160;</td>
-          <td class="paramname"><em>sprite</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">QString&#160;</td>
           <td class="paramname"><em>opcode</em>, </td>
         </tr>
@@ -436,30 +381,6 @@ Static Private Member Functions</h2></td></tr>
           <td></td>
           <td class="paramtype">QMap&lt; QString, QString &gt;&#160;</td>
           <td class="paramname"><em>inputs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>processID</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">QVariantMap **&#160;</td>
-          <td class="paramname"><em>newStackPtr</em> = <code>nullptr</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool *&#160;</td>
-          <td class="paramname"><em>frameEnd</em> = <code>nullptr</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool *&#160;</td>
-          <td class="paramname"><em>processEnd</em> = <code>nullptr</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -473,18 +394,13 @@ Static Private Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <p >Runs a block. </p>
 
 </div>
 </div>
-<a id="a2710a81fb3f79486f0dfc76bdf2428a4" name="a2710a81fb3f79486f0dfc76bdf2428a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2710a81fb3f79486f0dfc76bdf2428a4">&#9670;&nbsp;</a></span>soundBlocks()</h2>
+<a id="ab11b9567a0edc560069eee854e1d8fa2" name="ab11b9567a0edc560069eee854e1d8fa2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab11b9567a0edc560069eee854e1d8fa2">&#9670;&nbsp;</a></span>soundBlocks()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -495,12 +411,6 @@ Static Private Member Functions</h2></td></tr>
         <tr>
           <td class="memname">bool Blocks::soundBlocks </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classscratchSprite.html">scratchSprite</a> *&#160;</td>
-          <td class="paramname"><em>sprite</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">QString&#160;</td>
           <td class="paramname"><em>opcode</em>, </td>
         </tr>
@@ -509,30 +419,6 @@ Static Private Member Functions</h2></td></tr>
           <td></td>
           <td class="paramtype">QMap&lt; QString, QString &gt;&#160;</td>
           <td class="paramname"><em>inputs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>processID</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">QVariantMap **&#160;</td>
-          <td class="paramname"><em>newStackPtr</em> = <code>nullptr</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool *&#160;</td>
-          <td class="paramname"><em>frameEnd</em> = <code>nullptr</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool *&#160;</td>
-          <td class="paramname"><em>processEnd</em> = <code>nullptr</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -548,7 +434,7 @@ Static Private Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
