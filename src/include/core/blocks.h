@@ -27,16 +27,21 @@
 class Engine;
 
 /*! \brief The Blocks class contains the implementation of Scratch blocks. */
-class Blocks
+class Blocks : public QObject
 {
+	Q_OBJECT
 	public:
-		static bool runBlock(scratchSprite *sprite, QString opcode, QMap<QString,QString> inputs, QString *returnValue = nullptr);
+		explicit Blocks(scratchSprite *spritePtr, QObject *parent = nullptr);
+		bool runBlock(QString opcode, QMap<QString,QString> inputs, QString *returnValue = nullptr);
 	private:
-		static bool motionBlocks(scratchSprite *sprite, QString opcode, QMap<QString,QString> inputs, QString *returnValue = nullptr);
-		static bool looksBlocks(scratchSprite *sprite, QString opcode, QMap<QString,QString> inputs, QString *returnValue = nullptr);
-		static bool soundBlocks(scratchSprite *sprite, QString opcode, QMap<QString,QString> inputs, QString *returnValue = nullptr);
-		static bool eventBlocks(scratchSprite *sprite, QString opcode, QMap<QString,QString> inputs, QString *returnValue = nullptr);
-		static bool controlBlocks(scratchSprite *sprite, QString opcode, QMap<QString,QString> inputs, QString *returnValue = nullptr);
+		scratchSprite *sprite;
+		Engine *engine;
+		int processID;
+		bool motionBlocks(QString opcode, QMap<QString,QString> inputs, QString *returnValue = nullptr);
+		bool looksBlocks(QString opcode, QMap<QString,QString> inputs, QString *returnValue = nullptr);
+		bool soundBlocks(QString opcode, QMap<QString,QString> inputs, QString *returnValue = nullptr);
+		bool eventBlocks(QString opcode, QMap<QString,QString> inputs, QString *returnValue = nullptr);
+		bool controlBlocks(QString opcode, QMap<QString,QString> inputs, QString *returnValue = nullptr);
 };
 
 #endif // BLOCKS_H
