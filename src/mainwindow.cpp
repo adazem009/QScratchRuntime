@@ -2,7 +2,7 @@
  * mainwindow.cpp
  * This file is part of QScratchRuntime
  *
- * Copyright (C) 2021-2022 - adazem009
+ * Copyright (C) 2021-2023 - adazem009
  *
  * QScratchRuntime is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,6 +18,7 @@
  * along with QScratchRuntime. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <QJsonDocument>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
@@ -139,7 +140,9 @@ void MainWindow::loadFromUrl(void)
 	manager = new QNetworkAccessManager(this);
 	connect(manager,&QNetworkAccessManager::finished,this,&MainWindow::continueLoading);
 	// Get project ID
-	QString buffer = "", projectID = "";
+	QString buffer = "";
+	token = "";
+	projectID = "";
 	for(int i=0; i < ui->urlEdit->text().count(); i++)
 	{
 		if((ui->urlEdit->text().at(i) == '/') || (i+1 == ui->urlEdit->text().count()))
@@ -152,15 +155,23 @@ void MainWindow::loadFromUrl(void)
 		else
 			buffer += ui->urlEdit->text().at(i);
 	}
-	// Download project.json
+	// Get project token
 	ui->loadingProgressLabel->setText(tr("Loading project data..."));
 	projectDataLoaded = false;
-	currentReply = manager->get(QNetworkRequest(QUrl("https://projects.scratch.mit.edu/" + projectID)));
+	currentReply = manager->get(QNetworkRequest(QUrl("https://api.scratch.mit.edu/projects/" + projectID)));
 }
 
 /*! Continues loading the project. */
 void MainWindow::continueLoading(QNetworkReply* reply)
 {
+	if(token.isEmpty())
+	{
+		QJsonDocument document = QJsonDocument::fromJson(reply->readAll());
+		token = document.object()["project_token"].toString();
+		// Download project.json
+		currentReply = manager->get(QNetworkRequest(QUrl("https://projects.scratch.mit.edu/" + projectID + "?token=" + token)));
+		return;
+	}
 	QString loadingAssetsText = tr("Loading assets...");
 	int currentAsset;
 	if(!projectDataLoaded)
