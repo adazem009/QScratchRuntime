@@ -1,8 +1,8 @@
 <map id="MainWindow" name="MainWindow">
-<area shape="rect" id="node1" title=" " alt="" coords="137,171,233,197"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,81,112,108"/>
-<area shape="rect" id="node3" href="$classprojectParser.html" title="The projectParser class provides functions for local configuration reading and writing." alt="" coords="136,81,235,108"/>
-<area shape="rect" id="node4" title=" " alt="" coords="150,5,221,32"/>
-<area shape="rect" id="node5" href="$classprojectScene.html" title="The projectScene class is a QGraphicsScene used to manage all sprites." alt="" coords="259,81,357,108"/>
-<area shape="rect" id="node6" title=" " alt="" coords="247,5,369,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="137,168,233,193"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,80,112,105"/>
+<area shape="rect" id="node3" href="$classprojectParser.html" title="The projectParser class provides functions for local configuration reading and writing." alt="" coords="136,80,235,105"/>
+<area shape="rect" id="node4" title=" " alt="" coords="150,5,221,31"/>
+<area shape="rect" id="node5" href="$classprojectScene.html" title="The projectScene class is a QGraphicsScene used to manage all sprites." alt="" coords="259,80,357,105"/>
+<area shape="rect" id="node6" title=" " alt="" coords="247,5,369,31"/>
 </map>
