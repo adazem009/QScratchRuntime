@@ -1,8 +1,13 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,159,31"/>
-<area shape="rect" id="node2" href="$classscratchSprite.html" title="The scratchSprite class is a QGraphicsPixmapItem, which represents a Scratch sprite." alt="" coords="207,5,305,31"/>
-<area shape="rect" id="node3" title=" " alt="" coords="47,79,117,104"/>
-<area shape="rect" id="node4" href="$classBlocks.html" title="The Blocks class contains the implementation of Scratch blocks." alt="" coords="225,55,287,80"/>
-<area shape="rect" id="node5" href="$classEngine.html" title="The Engine class processes sprite frames." alt="" coords="225,104,287,129"/>
-<area shape="rect" id="node6" href="$classprojectParser.html" title="The projectParser class provides functions for local configuration reading and writing." alt="" coords="207,153,305,179"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,5,158,31"/>
+<area shape="rect" id="Node000001" href="$classscratchSprite.html" title="The scratchSprite class is a QGraphicsPixmapItem, which represents a Scratch sprite." alt="" coords="206,5,304,31"/>
+<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="174,16,205,16,205,21,174,21"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="47,79,116,104"/>
+<area shape="poly" id="edge5_Node000002_Node000001" title=" " alt="" coords="127,70,221,29,223,34,129,75"/>
+<area shape="rect" id="Node000003" href="$classBlocks.html" title="The Blocks class contains the implementation of Scratch blocks." alt="" coords="224,55,286,80"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="131,82,223,69,224,74,132,87"/>
+<area shape="rect" id="Node000004" href="$classEngine.html" title="The Engine class processes sprite frames." alt="" coords="225,104,285,130"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="132,96,225,110,224,115,131,101"/>
+<area shape="rect" id="Node000005" href="$classprojectParser.html" title="The projectParser class provides functions for local configuration reading and writing." alt="" coords="206,153,304,179"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="128,108,224,150,222,155,126,113"/>
 </map>

@@ -1,7 +1,16 @@
 <map id="scratchSprite" name="scratchSprite">
-<area shape="rect" id="node1" title="The scratchSprite class is a QGraphicsPixmapItem, which represents a Scratch sprite." alt="" coords="33,80,131,105"/>
-<area shape="rect" id="node4" href="$classEngine.html" title="The Engine class processes sprite frames." alt="" coords="129,168,190,193"/>
-<area shape="rect" id="node5" href="$classBlocks.html" title="The Blocks class contains the implementation of Scratch blocks." alt="" coords="123,256,185,281"/>
-<area shape="rect" id="node2" title=" " alt="" coords="197,5,268,31"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,5,159,31"/>
+<area shape="rect" id="Node000001" title="The scratchSprite class is a QGraphicsPixmapItem, which represents a Scratch sprite." alt="" coords="32,80,131,106"/>
+<area shape="rect" id="Node000004" href="$classEngine.html" title="The Engine class processes sprite frames." alt="" coords="127,169,188,195"/>
+<area shape="poly" id="edge5_Node000004_Node000001" title=" " alt="" coords="114,113,130,128,154,167,150,170,126,132,111,117"/>
+<area shape="rect" id="Node000005" href="$classBlocks.html" title="The Blocks class contains the implementation of Scratch blocks." alt="" coords="122,258,183,283"/>
+<area shape="poly" id="edge8_Node000005_Node000001" title=" " alt="" coords="67,120,63,131,61,148,64,162,82,193,93,214,107,232,135,255,132,259,104,236,89,217,78,196,59,164,55,149,58,129,62,118"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="196,5,266,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,41,108,82,105,77,191,36"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="230,47,220,95,211,121,198,147,177,170,173,167,194,143,206,119,215,94,225,46"/>
+<area shape="poly" id="edge7_Node000005_Node000002" title=" " alt="" coords="246,45,247,56,228,161,208,235,195,249,180,259,177,255,191,245,203,232,222,159,242,56,241,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,5,158,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="84,46,84,80,79,80,79,46"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="111,176,87,165,67,146,63,136,64,125,71,105,76,107,69,126,68,135,71,144,90,160,113,171"/>
+<area shape="poly" id="edge9_Node000005_Node000004" title=" " alt="" coords="125,206,115,220,113,229,117,238,134,255,131,259,113,241,108,230,110,218,121,203"/>
+<area shape="poly" id="edge6_Node000004_Node000005" title=" " alt="" coords="155,242,156,234,156,195,161,195,161,234,160,243"/>
 </map>

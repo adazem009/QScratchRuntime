@@ -1,7 +1,7 @@
 var searchData=
 [
   ['scenescale_0',['sceneScale',['../classprojectScene.html#ae2c0415f506ec03c299f989569139eba',1,'projectScene']]],
-  ['scratchsprite_1',['scratchSprite',['../classscratchSprite.html#a401307233d74f2cbec2728b728f159ba',1,'scratchSprite::scratchSprite()'],['../classscratchSprite.html',1,'scratchSprite']]],
+  ['scratchsprite_1',['scratchSprite',['../classscratchSprite.html',1,'scratchSprite'],['../classscratchSprite.html#a401307233d74f2cbec2728b728f159ba',1,'scratchSprite::scratchSprite(QJsonObject spriteObject, QString assetDir, QGraphicsItem *parent=nullptr)']]],
   ['setcostume_2',['setCostume',['../classscratchSprite.html#ac0bf3c62a2c6788d6f782c995766b30b',1,'scratchSprite']]],
   ['setcurrentfps_3',['setCurrentFps',['../classMainWindow.html#a6f1e227ed875a5f2663178adbfbd8e5c',1,'MainWindow']]],
   ['setdirection_4',['setDirection',['../classscratchSprite.html#a7ba47275426e6925d8e37d9ecb84e349',1,'scratchSprite']]],
