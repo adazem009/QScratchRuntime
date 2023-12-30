@@ -3,8 +3,10 @@ QScratchRuntime is a custom Scratch VM written in C++. It uses Qt's graphics fra
 
 The goal is to make Scratch projects, especially those that use pen, faster than in the JavaScript-based VM.
 
-## Work in progress!
-This project is in development and it can't run most of Scratch projects. This is the current development status:
+## This isn't developed anymore!
+### I abandoned this project because things weren't done "properly" here.
+### So, I've started with a new project which is much more complete than QScratchRuntime. Make sure to check it out!
+### https://github.com/scratchcpp/scratchcpp-player
 
 ### Blocks
 - [x] Motion blocks
@@ -52,6 +54,3 @@ See the `installGraphicEffects()` function in [src/core/scratchsprite.cpp](https
 
 ### Extensions
 - [ ] Pen
-
-## Notes
-I'm not planning to implement extensions other than Pen. Some features, such as graphics effects may be different than in the original Scratch VM.
